@@ -81,8 +81,9 @@ export default function Portfolio() {
                   </div>
                   <div className="flex items-start gap-2 text-gray-700">
                     <Linkedin className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                    <a href="https://www.linkedin.com/in/kanishk-singh-04/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 transition-colors">
-                      linkedin.com/in/kanishk-singh-04
+                    {/* UPDATED LINKEDIN LINK */}
+                    <a href="https://www.linkedin.com/in/kanishk-singh-ab90b2203/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 transition-colors break-all">
+                      linkedin.com/in/kanishk-singh-ab90b2203/
                     </a>
                   </div>
                 </div>
@@ -247,7 +248,8 @@ export default function Portfolio() {
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-gray-700">Dutch</span>
-                  <span className="text-xs text-gray-600 bg-white border border-gray-300 px-2 py-1 rounded">A1</span>
+                  {/* UPDATED DUTCH SKILL */}
+                  <span className="text-xs text-gray-600 bg-white border border-gray-300 px-2 py-1 rounded">A2 (Duolingo Score 14)</span>
                 </div>
               </div>
             </div>
