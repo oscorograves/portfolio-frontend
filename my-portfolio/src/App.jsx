@@ -14,7 +14,7 @@ export default function Portfolio() {
             KS
           </div>
           <div>
-            <div className="font-semibold text-gray-900 text-sm">Kanishka Singh</div>
+            <div className="font-semibold text-gray-900 text-sm">Kanishk Singh</div>
             <div className="text-xs text-gray-600">Performance & Growth Marketer</div>
           </div>
         </div>
@@ -44,7 +44,7 @@ export default function Portfolio() {
         <div className="max-w-6xl mx-auto px-8 py-12">
           <div className="grid md:grid-cols-3 gap-8">
             <div className="md:col-span-2">
-              <h1 className="text-5xl font-bold text-gray-900 mb-3">Kanishka Singh</h1>
+              <h1 className="text-5xl font-bold text-gray-900 mb-3">Kanishk Singh</h1>
               <p className="text-xl text-gray-700 mb-6 font-medium">Performance & Growth Marketer</p>
               <p className="text-base text-gray-600 leading-relaxed mb-8">
                 I design paid media, CRO and growth systems that scale revenue. Specializing in data-driven campaign optimization, funnel design, and performance analytics across B2B and B2C channels.
