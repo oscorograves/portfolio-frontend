@@ -81,7 +81,9 @@ export default function Portfolio() {
                   </div>
                   <div className="flex items-start gap-2 text-gray-700">
                     <Linkedin className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                    <span>linkedin.com/in/kanishk-singh</span>
+                    <a href="https://www.linkedin.com/in/kanishk-singh-04/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 transition-colors">
+                      linkedin.com/in/kanishk-singh-04
+                    </a>
                   </div>
                 </div>
               </div>
@@ -107,33 +109,102 @@ export default function Portfolio() {
         </div>
       </section>
 
+      {/* Quick Stats */}
+      <section className="bg-gray-900 text-white border-b border-gray-800">
+        <div className="max-w-6xl mx-auto px-8 py-8">
+          <div className="grid grid-cols-4 gap-8">
+            {[
+              { label: 'Years Experience', value: '2+' },
+              { label: 'Ad Spend Managed', value: '$267K+' },
+              { label: 'Campaigns Run', value: '25+' },
+              { label: 'Highest ROI', value: '830%' }
+            ].map((stat, i) => (
+              <div key={i} className="text-center">
+                <div className="text-3xl font-bold mb-1">{stat.value}</div>
+                <div className="text-sm text-gray-400">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Achievement */}
+      <section className="bg-white border-b border-gray-300">
+        <div className="max-w-6xl mx-auto px-8 py-12">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-gray-900">Featured Work</h2>
+          <div className="bg-gradient-to-br from-gray-50 to-gray-100 border-2 border-gray-300 rounded-xl p-8 hover:border-gray-900 transition-all group cursor-pointer" onClick={() => setCurrentPage('case-studies')}>
+            <div className="flex items-start justify-between mb-4">
+              <div>
+                <div className="text-xs font-semibold text-gray-600 uppercase mb-2">Growth & GTM</div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">Shipping a Paid GTM Engine for Packt Events</h3>
+                <p className="text-gray-600 text-sm">Launched a paid events vertical and achieved 150+ attendees with 95% net-new audience acquisition</p>
+              </div>
+              <ChevronRight className="w-6 h-6 text-gray-400 group-hover:text-gray-900 group-hover:translate-x-1 transition-all" />
+            </div>
+            <div className="grid grid-cols-4 gap-4 mt-6">
+              {[
+                { label: 'Paid Attendees', value: '150' },
+                { label: 'Net-New %', value: '95%' },
+                { label: 'Blended CAC', value: '£12' },
+                { label: 'Projected ROAS', value: '8.3×' }
+              ].map((metric, i) => (
+                <div key={i} className="bg-white border border-gray-300 rounded p-3 text-center">
+                  <div className="text-xs text-gray-600 mb-1">{metric.label}</div>
+                  <div className="text-xl font-bold text-gray-900">{metric.value}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* What I Offer */}
+      <section className="bg-gray-50 border-b border-gray-300">
+        <div className="max-w-6xl mx-auto px-8 py-12">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-gray-900">What I Offer</h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                title: 'Paid Media Strategy & Execution',
+                description: 'End-to-end campaign management across Meta, Google, and LinkedIn with focus on creative testing and audience optimization',
+                icon: <Target className="w-5 h-5" />
+              },
+              {
+                title: 'CRO Audits & A/B Testing',
+                description: 'Data-driven conversion optimization using hypothesis testing, user research, and systematic experimentation',
+                icon: <TrendingUp className="w-5 h-5" />
+              },
+              {
+                title: 'Performance Dashboards & Analytics',
+                description: 'Custom GA4 tracking, UTM architecture, and real-time dashboards for actionable growth insights',
+                icon: <LineChart className="w-5 h-5" />
+              }
+            ].map((service, i) => (
+              <div key={i} className="bg-white border border-gray-300 rounded-xl p-6 hover:border-gray-900 transition-all">
+                <div className="w-10 h-10 bg-gray-900 rounded-lg flex items-center justify-center text-white mb-4">
+                  {service.icon}
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">{service.title}</h3>
+                <p className="text-sm text-gray-600 leading-relaxed">{service.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Core Competencies */}
       <section className="bg-white border-b border-gray-300">
         <div className="max-w-6xl mx-auto px-8 py-12">
           <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-gray-900">Core Competencies</h2>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              {
-                title: 'Performance Marketing',
-                icon: <Target className="w-5 h-5" />,
-                skills: ['Paid Media (Meta, Google, LinkedIn)', 'Campaign Strategy & Scaling', 'Budget Optimization']
-              },
-              {
-                title: 'Growth Marketing',
-                icon: <TrendingUp className="w-5 h-5" />,
-                skills: ['Landing Page Design', 'Funnel Optimization', 'User Experience Enhancement']
-              },
-              {
-                title: 'Analytics & CRO',
-                icon: <LineChart className="w-5 h-5" />,
-                skills: ['GA4 Implementation', 'A/B Testing', 'Performance Dashboards']
-              }
+              { title: 'Performance Marketing', icon: <Target className="w-5 h-5" />, skills: ['Paid Media (Meta, Google, LinkedIn)', 'Campaign Strategy & Scaling', 'Budget Optimization'] },
+              { title: 'Growth Marketing', icon: <TrendingUp className="w-5 h-5" />, skills: ['Landing Page Design', 'Funnel Optimization', 'User Experience Enhancement'] },
+              { title: 'Analytics & CRO', icon: <LineChart className="w-5 h-5" />, skills: ['GA4 Implementation', 'A/B Testing', 'Performance Dashboards'] }
             ].map((competency, i) => (
               <div key={i} className="bg-gray-50 border border-gray-300 rounded p-5">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-9 h-9 bg-gray-900 rounded flex items-center justify-center text-white">
-                    {competency.icon}
-                  </div>
+                  <div className="w-9 h-9 bg-gray-900 rounded flex items-center justify-center text-white">{competency.icon}</div>
                   <h3 className="font-semibold text-gray-900 text-base">{competency.title}</h3>
                 </div>
                 <ul className="space-y-1.5">
@@ -159,9 +230,7 @@ export default function Portfolio() {
               <h3 className="font-semibold text-gray-900 mb-3">Platforms & Tools</h3>
               <div className="flex flex-wrap gap-2">
                 {['Google Ads', 'Meta Ads Manager', 'LinkedIn Ads', 'GA4', 'HubSpot', 'SEMrush', 'Ahrefs', 'Optimizely'].map(skill => (
-                  <span key={skill} className="px-3 py-1.5 bg-white border border-gray-300 rounded text-sm text-gray-700">
-                    {skill}
-                  </span>
+                  <span key={skill} className="px-3 py-1.5 bg-white border border-gray-300 rounded text-sm text-gray-700">{skill}</span>
                 ))}
               </div>
             </div>
