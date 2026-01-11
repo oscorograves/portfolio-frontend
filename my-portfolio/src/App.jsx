@@ -11,7 +11,7 @@ export default function Portfolio() {
       <div className="max-w-6xl mx-auto px-8 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <img 
-            src="/photo.jpg" 
+            src="/profile.jpeg" 
             alt="Kanishka Singh" 
             className="w-10 h-10 rounded-full object-cover border border-gray-300"
           />
