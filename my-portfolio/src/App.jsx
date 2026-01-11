@@ -14,7 +14,7 @@ export default function Portfolio() {
             KS
           </div>
           <div>
-            <div className="font-semibold text-gray-900 text-sm">Kanishk Singh</div>
+            <div className="font-semibold text-gray-900 text-sm">Kanishka Singh</div>
             <div className="text-xs text-gray-600">Performance & Growth Marketer</div>
           </div>
         </div>
@@ -44,7 +44,7 @@ export default function Portfolio() {
         <div className="max-w-6xl mx-auto px-8 py-12">
           <div className="grid md:grid-cols-3 gap-8">
             <div className="md:col-span-2">
-              <h1 className="text-5xl font-bold text-gray-900 mb-3">Kanishk Singh</h1>
+              <h1 className="text-5xl font-bold text-gray-900 mb-3">Kanishka Singh</h1>
               <p className="text-xl text-gray-700 mb-6 font-medium">Performance & Growth Marketer</p>
               <p className="text-base text-gray-600 leading-relaxed mb-8">
                 I design paid media, CRO and growth systems that scale revenue. Specializing in data-driven campaign optimization, funnel design, and performance analytics across B2B and B2C channels.
@@ -81,7 +81,7 @@ export default function Portfolio() {
                   </div>
                   <div className="flex items-start gap-2 text-gray-700">
                     <Linkedin className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                    <span>https://www.linkedin.com/in/kanishk-singh-ab90b2203/</span>
+                    <span>linkedin.com/in/kanishk-singh</span>
                   </div>
                 </div>
               </div>
@@ -648,67 +648,58 @@ export default function Portfolio() {
 
   const MetricsPage = () => {
     const [filterChannel, setFilterChannel] = useState('all');
-    const [metrics, setMetrics] = useState([]);
-    const [summary, setSummary] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    // HARDCODED FALLBACK DATA (Defined here to use for initialization)
+    const fallbackMetrics = [
+      { client: 'Pocket FM', channel: 'Meta', spend: 45000, ctr: 3.2, cpl: 12, cvr: 4.8, roi: 280 },
+      { client: 'Packt', channel: 'Meta', spend: 1800, ctr: 2.4, cpl: 14, cvr: 6.1, roi: 830 },
+      { client: 'Intertek', channel: 'Google Ads', spend: 62000, ctr: 2.1, cpl: 85, cvr: 8.2, roi: 340 },
+      { client: 'Jones Road Beauty', channel: 'Direct', spend: 0, ctr: 0, cpl: 0, cvr: 3.4, roi: 0 },
+      { client: 'Pocket FM', channel: 'Google Ads', spend: 28000, ctr: 2.8, cpl: 15, cvr: 5.2, roi: 245 },
+      { client: 'B2B SaaS', channel: 'LinkedIn', spend: 38000, ctr: 1.8, cpl: 95, cvr: 12.1, roi: 420 },
+      { client: 'E-commerce', channel: 'Meta', spend: 52000, ctr: 4.1, cpl: 8, cvr: 3.2, roi: 190 },
+      { client: 'B2B SaaS', channel: 'Meta', spend: 41000, ctr: 2.9, cpl: 42, cvr: 9.8, roi: 380 }
+    ];
 
+    // Initialize WITH data so there is no loading flash
+    const [metrics, setMetrics] = useState(fallbackMetrics);
+    const [summary, setSummary] = useState(null);
+
+    // Fetch in background (Silent Update)
     useEffect(() => {
       const fetchMetrics = async () => {
         try {
-          setLoading(true);
           const data = filterChannel === 'all' 
             ? await metricsAPI.getAll()
             : await metricsAPI.getByChannel(filterChannel);
-          setMetrics(data.metrics || data.metricsData || []);
-          setSummary(data.summary || null);
-          setError(null);
+          
+          if (data && (data.metrics || data.metricsData)) {
+            setMetrics(data.metrics || data.metricsData);
+            setSummary(data.summary || null);
+          }
         } catch (err) {
-          console.error('Error fetching metrics:', err);
-          setError('Failed to load metrics. Using fallback data.');
-          // Fallback to hardcoded data if API fails
-          const fallbackMetrics = [
-            { client: 'Pocket FM', channel: 'Meta', spend: 45000, ctr: 3.2, cpl: 12, cvr: 4.8, roi: 280 },
-            { client: 'Packt', channel: 'Meta', spend: 1800, ctr: 2.4, cpl: 14, cvr: 6.1, roi: 830 },
-            { client: 'Intertek', channel: 'Google Ads', spend: 62000, ctr: 2.1, cpl: 85, cvr: 8.2, roi: 340 },
-            { client: 'Jones Road Beauty', channel: 'Direct', spend: 0, ctr: 0, cpl: 0, cvr: 3.4, roi: 0 },
-            { client: 'Pocket FM', channel: 'Google Ads', spend: 28000, ctr: 2.8, cpl: 15, cvr: 5.2, roi: 245 },
-            { client: 'B2B SaaS', channel: 'LinkedIn', spend: 38000, ctr: 1.8, cpl: 95, cvr: 12.1, roi: 420 },
-            { client: 'E-commerce', channel: 'Meta', spend: 52000, ctr: 4.1, cpl: 8, cvr: 3.2, roi: 190 },
-            { client: 'B2B SaaS', channel: 'Meta', spend: 41000, ctr: 2.9, cpl: 42, cvr: 9.8, roi: 380 }
-          ];
-          setMetrics(filterChannel === 'all' 
-            ? fallbackMetrics 
-            : fallbackMetrics.filter(m => m.channel === filterChannel));
-        } finally {
-          setLoading(false);
+          console.log('Using fallback data (API Silent Fail)');
+          // No action needed, we already have fallback data set
+          if (filterChannel !== 'all') {
+             setMetrics(fallbackMetrics.filter(m => m.channel === filterChannel));
+          }
         }
       };
       fetchMetrics();
     }, [filterChannel]);
 
-    const filteredMetrics = metrics;
+    // Handle filtering locally for fallback if needed, or use state
+    const displayMetrics = metrics;
 
-    const totalSpend = summary?.totalSpend || filteredMetrics.reduce((sum, m) => sum + m.spend, 0);
-    const avgCTR = summary?.avgCTR || (filteredMetrics.length ? filteredMetrics.reduce((sum, m) => sum + m.ctr, 0) / filteredMetrics.length : 0);
-    const avgCVR = summary?.avgCVR || (filteredMetrics.length ? filteredMetrics.reduce((sum, m) => sum + m.cvr, 0) / filteredMetrics.length : 0);
-    const avgROI = summary?.avgROI || (filteredMetrics.length ? filteredMetrics.reduce((sum, m) => sum + m.roi, 0) / filteredMetrics.length : 0);
+    const totalSpend = summary?.totalSpend || displayMetrics.reduce((sum, m) => sum + m.spend, 0);
+    const avgCTR = summary?.avgCTR || (displayMetrics.length ? displayMetrics.reduce((sum, m) => sum + m.ctr, 0) / displayMetrics.length : 0);
+    const avgCVR = summary?.avgCVR || (displayMetrics.length ? displayMetrics.reduce((sum, m) => sum + m.cvr, 0) / displayMetrics.length : 0);
+    const avgROI = summary?.avgROI || (displayMetrics.length ? displayMetrics.reduce((sum, m) => sum + m.roi, 0) / displayMetrics.length : 0);
 
     return (
       <div className="pt-20 bg-gray-50 min-h-screen">
         <div className="max-w-6xl mx-auto px-8 py-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-3">Performance Metrics</h1>
           <p className="text-gray-600 mb-8 pb-4 border-b-2 border-gray-900">Channel-wise performance across growth, CRO and paid acquisition</p>
-          
-          {error && (
-            <div className="bg-yellow-50 border border-yellow-200 rounded p-3 mb-4 text-sm text-yellow-800">
-              {error}
-            </div>
-          )}
-          
-          {loading && (
-            <div className="text-center py-8 text-gray-600">Loading metrics...</div>
-          )}
           
           {/* Summary Cards */}
           <div className="grid md:grid-cols-4 gap-4 mb-8">
@@ -762,7 +753,7 @@ export default function Portfolio() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-300">
-                {filteredMetrics.map((row, i) => (
+                {displayMetrics.map((row, i) => (
                   <tr key={i} className="hover:bg-gray-50 transition-colors">
                     <td className="px-4 py-3 text-sm font-semibold text-gray-900">{row.client}</td>
                     <td className="px-4 py-3 text-sm">
