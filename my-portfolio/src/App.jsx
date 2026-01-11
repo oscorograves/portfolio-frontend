@@ -10,9 +10,11 @@ export default function Portfolio() {
     <nav className="fixed top-0 left-0 right-0 bg-white border-b border-gray-300 z-50">
       <div className="max-w-6xl mx-auto px-8 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-gray-900 rounded flex items-center justify-center text-white font-bold text-sm">
-            KS
-          </div>
+            <img 
+              src="/profile.jpg" 
+              alt="Kanishka Singh" 
+              className="w-10 h-10 rounded-full object-cover border border-gray-300"
+            />
           <div>
             <div className="font-semibold text-gray-900 text-sm">Kanishk Singh</div>
             <div className="text-xs text-gray-600">Performance & Growth Marketer</div>
@@ -455,44 +457,46 @@ export default function Portfolio() {
             </div>
           </div>
         </div>
-          <div>
-            <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-gray-900">Education</h2>
-            <div className="bg-white border border-gray-300 rounded p-6">
-              <div className="flex items-start gap-3 mb-3">
-                <GraduationCap className="w-5 h-5 text-gray-900 mt-0.5" />
-                <div>
-                  <h3 className="font-bold text-gray-900">Bachelor of Business Administration</h3>
-                  <p className="text-sm text-gray-700">Marketing Specialization</p>
-                </div>
-              </div>
-              <p className="text-sm text-gray-600 mb-1">Jaypee Institute of Information Technology</p>
-              <p className="text-sm text-gray-600 mb-2">Noida, India • 2020 – 2023</p>
-              <p className="text-sm font-medium text-gray-900">CGPA: 7.7 / 10</p>
-            </div>
-          </div>
 
-          <div>
-            <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-gray-900">Certifications</h2>
-            <div className="bg-white border border-gray-300 rounded p-6">
-              <ul className="space-y-3">
-                {[
-                  'Google Ads Certification (Skillshop)',
-                  'Social Media Marketing (HubSpot)',
-                  'Fundamentals of Digital Marketing (Google)',
-                  'SEO Certification (HubSpot)'
-                ].map((cert, i) => (
-                  <li key={i} className="flex items-start gap-2 text-sm text-gray-700">
-                    <Award className="w-4 h-4 text-gray-900 mt-0.5 flex-shrink-0" />
-                    <span>{cert}</span>
-                  </li>
-                ))}
-              </ul>
+        {/* Education - Added mt-12 for spacing */}
+        <div className="mt-12">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-gray-900">Education</h2>
+          <div className="bg-white border border-gray-300 rounded p-6">
+            <div className="flex items-start gap-3 mb-3">
+              <GraduationCap className="w-5 h-5 text-gray-900 mt-0.5" />
+              <div>
+                <h3 className="font-bold text-gray-900">Bachelor of Business Administration</h3>
+                <p className="text-sm text-gray-700">Marketing Specialization</p>
+              </div>
             </div>
+            <p className="text-sm text-gray-600 mb-1">Jaypee Institute of Information Technology</p>
+            <p className="text-sm text-gray-600 mb-2">Noida, India • 2020 – 2023</p>
+            <p className="text-sm font-medium text-gray-900">CGPA: 7.7 / 10</p>
           </div>
+        </div>
+
+        {/* Certifications - Added mt-12 for spacing */}
+        <div className="mt-12">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-gray-900">Certifications</h2>
+          <div className="bg-white border border-gray-300 rounded p-6">
+            <ul className="space-y-3">
+              {[
+                'Google Ads Certification (Skillshop)',
+                'Social Media Marketing (HubSpot)',
+                'Fundamentals of Digital Marketing (Google)',
+                'SEO Certification (HubSpot)'
+              ].map((cert, i) => (
+                <li key={i} className="flex items-start gap-2 text-sm text-gray-700">
+                  <Award className="w-4 h-4 text-gray-900 mt-0.5 flex-shrink-0" />
+                  <span>{cert}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   );
-
   const CaseStudiesPage = () => {
     const caseStudies = [
       {
