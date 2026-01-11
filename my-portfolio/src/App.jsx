@@ -10,11 +10,11 @@ export default function Portfolio() {
     <nav className="fixed top-0 left-0 right-0 bg-white border-b border-gray-300 z-50">
       <div className="max-w-6xl mx-auto px-8 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
-            <img 
-              src="/profile.jpg" 
-              alt="Kanishka Singh" 
-              className="w-10 h-10 rounded-full object-cover border border-gray-300"
-            />
+          <img 
+            src="/photo.jpg" 
+            alt="Kanishka Singh" 
+            className="w-10 h-10 rounded-full object-cover border border-gray-300"
+          />
           <div>
             <div className="font-semibold text-gray-900 text-sm">Kanishk Singh</div>
             <div className="text-xs text-gray-600">Performance & Growth Marketer</div>
