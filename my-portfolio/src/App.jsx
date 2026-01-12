@@ -5,6 +5,18 @@ import { TrendingUp, Target, LineChart, ChevronRight, Play, X, Menu, Filter, Mai
 import { metricsAPI } from './services/api.js';
 import { translations } from './translations.js';
 
+// HARDCODED FALLBACK DATA
+const fallbackMetrics = [
+  { client: 'Pocket FM', channel: 'Meta', spend: 45000, ctr: 3.2, cpl: 12, cvr: 4.8, roi: 280 },
+  { client: 'Packt', channel: 'Meta', spend: 1800, ctr: 2.4, cpl: 24, cvr: 6.1, roi: 830 },
+  { client: 'Intertek', channel: 'Google Ads', spend: 62000, ctr: 2.1, cpl: 85, cvr: 8.2, roi: 340 },
+  { client: 'Jones Road Beauty', channel: 'Direct', spend: 0, ctr: 0, cpl: 0, cvr: 3.4, roi: 0 },
+  { client: 'Pocket FM', channel: 'Google Ads', spend: 28000, ctr: 2.8, cpl: 15, cvr: 5.2, roi: 245 },
+  { client: 'B2B SaaS', channel: 'LinkedIn', spend: 38000, ctr: 1.8, cpl: 95, cvr: 12.1, roi: 420 },
+  { client: 'E-commerce', channel: 'Meta', spend: 52000, ctr: 4.1, cpl: 8, cvr: 3.2, roi: 190 },
+  { client: 'B2B SaaS', channel: 'Meta', spend: 41000, ctr: 2.9, cpl: 42, cvr: 9.8, roi: 380 }
+];
+
 const PageWrapper = ({ children, className }) => (
   <motion.div
     initial="hidden"
@@ -133,6 +145,7 @@ const FireflyBackground = () => {
       size: Math.random() * 6 + 4, // Bigger size (4px - 10px)
       duration: Math.random() * 5 + 5, // Slow float (5s - 10s)
       delay: Math.random() * 5,
+      xOffset: Math.random() * 50 - 25, // Pre-calculate random x offset
     }));
   }, []);
 
@@ -157,7 +170,7 @@ const FireflyBackground = () => {
           animate={{
             // Float UP and drift SIDEWAYS
             y: [0, -150],
-            x: [0, Math.random() * 50 - 25],
+            x: [0, p.xOffset],
             opacity: [0, 0.8, 0], // Fade in to 80% opacity, then out
           }}
           transition={{
@@ -1195,17 +1208,7 @@ export default function Portfolio() {
 
   const MetricsPage = () => {
     const [filterChannel, setFilterChannel] = useState('all');
-    // HARDCODED FALLBACK DATA (Defined here to use for initialization)
-    const fallbackMetrics = [
-      { client: 'Pocket FM', channel: 'Meta', spend: 45000, ctr: 3.2, cpl: 12, cvr: 4.8, roi: 280 },
-      { client: 'Packt', channel: 'Meta', spend: 1800, ctr: 2.4, cpl: 14, cvr: 6.1, roi: 830 },
-      { client: 'Intertek', channel: 'Google Ads', spend: 62000, ctr: 2.1, cpl: 85, cvr: 8.2, roi: 340 },
-      { client: 'Jones Road Beauty', channel: 'Direct', spend: 0, ctr: 0, cpl: 0, cvr: 3.4, roi: 0 },
-      { client: 'Pocket FM', channel: 'Google Ads', spend: 28000, ctr: 2.8, cpl: 15, cvr: 5.2, roi: 245 },
-      { client: 'B2B SaaS', channel: 'LinkedIn', spend: 38000, ctr: 1.8, cpl: 95, cvr: 12.1, roi: 420 },
-      { client: 'E-commerce', channel: 'Meta', spend: 52000, ctr: 4.1, cpl: 8, cvr: 3.2, roi: 190 },
-      { client: 'B2B SaaS', channel: 'Meta', spend: 41000, ctr: 2.9, cpl: 42, cvr: 9.8, roi: 380 }
-    ];
+
 
     // Initialize WITH data so there is no loading flash
     const [metrics, setMetrics] = useState(fallbackMetrics);
@@ -1223,7 +1226,7 @@ export default function Portfolio() {
             setMetrics(data.metrics || data.metricsData);
             setSummary(data.summary || null);
           }
-        } catch (err) {
+        } catch {
           console.log('Using fallback data (API Silent Fail)');
           // No action needed, we already have fallback data set
           if (filterChannel !== 'all') {
