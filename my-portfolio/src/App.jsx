@@ -56,10 +56,12 @@ export default function Portfolio() {
         </div>
         <div className="flex gap-1">
           {['home', 'experience', 'case-studies', 'creative-lab', 'metrics'].map(page => (
-            <button
+            <motion.button
               key={page}
               onClick={() => setCurrentPage(page)}
               className={`relative px-4 py-2 text-sm transition-all rounded z-10 ${currentPage === page ? 'text-white' : 'text-gray-700 hover:bg-gray-100'}`}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
               {currentPage === page && (
                 <motion.div
@@ -69,7 +71,7 @@ export default function Portfolio() {
                 />
               )}
               <span className="relative z-10">{page.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}</span>
-            </button>
+            </motion.button>
           ))}
         </div>
       </div>
@@ -80,33 +82,43 @@ export default function Portfolio() {
     <div className="pt-20">
       {/* Header Section */}
       <section className="bg-white border-b border-gray-300">
-        <div className="max-w-6xl mx-auto px-8 py-12">
+        <motion.div
+          className="max-w-6xl mx-auto px-8 py-12"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={containerVariants}
+        >
           <div className="grid md:grid-cols-3 gap-8">
             <div className="md:col-span-2">
-              <h1 className="text-5xl font-bold text-gray-900 mb-3">Kanishk Singh</h1>
-              <p className="text-xl text-gray-700 mb-6 font-medium">Performance & Growth Marketer</p>
-              <p className="text-base text-gray-600 leading-relaxed mb-8">
+              <motion.h1 variants={itemVariants} className="text-5xl font-bold text-gray-900 mb-3">Kanishk Singh</motion.h1>
+              <motion.p variants={itemVariants} className="text-xl text-gray-700 mb-6 font-medium">Performance & Growth Marketer</motion.p>
+              <motion.p variants={itemVariants} className="text-base text-gray-600 leading-relaxed mb-8">
                 I design paid media, CRO and growth systems that scale revenue. Specializing in data-driven campaign optimization, funnel design, and performance analytics across B2B and B2C channels.
-              </p>
-              <div className="flex gap-3">
-                <button
+              </motion.p>
+              <motion.div variants={itemVariants} className="flex gap-3">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                   onClick={() => setCurrentPage('case-studies')}
-                  className="px-5 py-2.5 bg-gray-900 text-white text-sm font-medium rounded hover:bg-gray-800 transition-all"
+                  className="px-5 py-2.5 bg-gray-900 text-white text-sm font-medium rounded hover:bg-gray-800 transition-all cursor-pointer"
                 >
                   View Case Studies
-                </button>
-                <a
+                </motion.button>
+                <motion.a
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                   href="/resume.pdf"
                   download="Kanishk_Singh_Resume.pdf"
                   className="px-5 py-2.5 border-2 border-gray-900 text-gray-900 text-sm font-medium rounded hover:bg-gray-50 transition-all flex items-center gap-2 cursor-pointer"
                 >
                   <Download className="w-4 h-4" />
                   Download CV
-                </a>
-              </div>
+                </motion.a>
+              </motion.div>
             </div>
 
-            <div className="space-y-4">
+            <motion.div variants={itemVariants} className="space-y-4">
               <div className="bg-gray-50 border border-gray-300 rounded p-4">
                 <h3 className="text-xs font-semibold text-gray-600 uppercase mb-3">Contact Information</h3>
                 <div className="space-y-2 text-sm">
@@ -146,34 +158,44 @@ export default function Portfolio() {
                     { label: 'MQL', value: '+22%' },
                     { label: 'CVR', value: '+18%' }
                   ].map((kpi, i) => (
-                    <div key={i} className="bg-white border border-gray-300 rounded p-2 text-center">
+                    <motion.div
+                      key={i}
+                      className="bg-white border border-gray-300 rounded p-2 text-center"
+                      whileHover={{ scale: 1.05, boxShadow: "0px 5px 15px rgba(0,0,0,0.1)" }}
+                    >
                       <div className="text-xs text-gray-600">{kpi.label}</div>
                       <div className="text-lg font-bold text-gray-900">{kpi.value}</div>
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* Quick Stats */}
       <section className="bg-gray-900 text-white border-b border-gray-800">
         <div className="max-w-6xl mx-auto px-8 py-8">
-          <div className="grid grid-cols-4 gap-8">
+          <motion.div
+            className="grid grid-cols-4 gap-8"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={containerVariants}
+          >
             {[
               { label: 'Years Experience', value: '2+' },
               { label: 'Ad Spend Managed', value: '$267K+' },
               { label: 'Campaigns Run', value: '25+' },
               { label: 'Highest ROI', value: '830%' }
             ].map((stat, i) => (
-              <div key={i} className="text-center">
+              <motion.div key={i} variants={itemVariants} className="text-center">
                 <div className="text-3xl font-bold mb-1">{stat.value}</div>
                 <div className="text-sm text-gray-400">{stat.label}</div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -181,7 +203,15 @@ export default function Portfolio() {
       <section className="bg-white border-b border-gray-300">
         <div className="max-w-6xl mx-auto px-8 py-12">
           <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-gray-900">Featured Work</h2>
-          <div className="bg-gradient-to-br from-gray-50 to-gray-100 border-2 border-gray-300 rounded-xl p-8 hover:border-gray-900 transition-all group cursor-pointer" onClick={() => setCurrentPage('case-studies')}>
+          <motion.div
+            className="bg-gradient-to-br from-gray-50 to-gray-100 border-2 border-gray-300 rounded-xl p-8 hover:border-gray-900 transition-all group cursor-pointer"
+            onClick={() => setCurrentPage('case-studies')}
+            whileHover={{ y: -5, boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)' }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
             <div className="flex items-start justify-between mb-4">
               <div>
                 <div className="text-xs font-semibold text-gray-600 uppercase mb-2">Growth & GTM</div>
@@ -203,7 +233,7 @@ export default function Portfolio() {
                 </div>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -211,7 +241,13 @@ export default function Portfolio() {
       <section className="bg-gray-50 border-b border-gray-300">
         <div className="max-w-6xl mx-auto px-8 py-12">
           <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-gray-900">What I Offer</h2>
-          <div className="grid md:grid-cols-3 gap-6">
+          <motion.div
+            className="grid md:grid-cols-3 gap-6"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={containerVariants}
+          >
             {[
               {
                 title: 'Paid Media Strategy & Execution',
@@ -229,15 +265,20 @@ export default function Portfolio() {
                 icon: <LineChart className="w-5 h-5" />
               }
             ].map((service, i) => (
-              <div key={i} className="bg-white border border-gray-300 rounded-xl p-6 hover:border-gray-900 transition-all">
+              <motion.div
+                key={i}
+                variants={itemVariants}
+                className="bg-white border border-gray-300 rounded-xl p-6 hover:border-gray-900 transition-all"
+                whileHover={{ y: -5 }}
+              >
                 <div className="w-10 h-10 bg-gray-900 rounded-lg flex items-center justify-center text-white mb-4">
                   {service.icon}
                 </div>
                 <h3 className="text-lg font-bold text-gray-900 mb-2">{service.title}</h3>
                 <p className="text-sm text-gray-600 leading-relaxed">{service.description}</p>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -245,13 +286,19 @@ export default function Portfolio() {
       <section className="bg-white border-b border-gray-300">
         <div className="max-w-6xl mx-auto px-8 py-12">
           <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-gray-900">Core Competencies</h2>
-          <div className="grid md:grid-cols-3 gap-6">
+          <motion.div
+            className="grid md:grid-cols-3 gap-6"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={containerVariants}
+          >
             {[
               { title: 'Performance Marketing', icon: <Target className="w-5 h-5" />, skills: ['Paid Media (Meta, Google, LinkedIn)', 'Campaign Strategy & Scaling', 'Budget Optimization'] },
               { title: 'Growth Marketing', icon: <TrendingUp className="w-5 h-5" />, skills: ['Landing Page Design', 'Funnel Optimization', 'User Experience Enhancement'] },
               { title: 'Analytics & CRO', icon: <LineChart className="w-5 h-5" />, skills: ['GA4 Implementation', 'A/B Testing', 'Performance Dashboards'] }
             ].map((competency, i) => (
-              <div key={i} className="bg-gray-50 border border-gray-300 rounded p-5">
+              <motion.div key={i} variants={itemVariants} className="bg-gray-50 border border-gray-300 rounded p-5">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-9 h-9 bg-gray-900 rounded flex items-center justify-center text-white">{competency.icon}</div>
                   <h3 className="font-semibold text-gray-900 text-base">{competency.title}</h3>
@@ -264,9 +311,9 @@ export default function Portfolio() {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -274,16 +321,32 @@ export default function Portfolio() {
       <section className="bg-gray-50 border-b border-gray-300">
         <div className="max-w-6xl mx-auto px-8 py-12">
           <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-gray-900">Digital Skills</h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div>
+          <motion.div
+            className="grid md:grid-cols-2 gap-8"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={containerVariants}
+          >
+            <motion.div variants={itemVariants}>
               <h3 className="font-semibold text-gray-900 mb-3">Platforms & Tools</h3>
-              <div className="flex flex-wrap gap-2">
+              <motion.div
+                className="flex flex-wrap gap-2"
+                variants={containerVariants}
+              >
                 {['Google Ads', 'Meta Ads Manager', 'LinkedIn Ads', 'GA4', 'HubSpot', 'SEMrush', 'Ahrefs', 'Optimizely'].map(skill => (
-                  <span key={skill} className="px-3 py-1.5 bg-white border border-gray-300 rounded text-sm text-gray-700">{skill}</span>
+                  <motion.span
+                    key={skill}
+                    variants={itemVariants}
+                    whileHover={{ scale: 1.1, backgroundColor: "#f3f4f6" }}
+                    className="px-3 py-1.5 bg-white border border-gray-300 rounded text-sm text-gray-700 cursor-default"
+                  >
+                    {skill}
+                  </motion.span>
                 ))}
-              </div>
-            </div>
-            <div>
+              </motion.div>
+            </motion.div>
+            <motion.div variants={itemVariants}>
               <h3 className="font-semibold text-gray-900 mb-3">Languages</h3>
               <div className="space-y-2">
                 <div className="flex justify-between items-center">
@@ -300,8 +363,8 @@ export default function Portfolio() {
                   <span className="text-xs text-gray-600 bg-white border border-gray-300 px-2 py-1 rounded">A2 (Duolingo Score 14)</span>
                 </div>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
     </div>
@@ -314,9 +377,20 @@ export default function Portfolio() {
           Professional Experience
         </h1>
 
-        <div className="space-y-6">
+        <motion.div
+          className="space-y-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={containerVariants}
+        >
           {/* Pocket FM */}
-          <div className="bg-white border border-gray-300 rounded p-6">
+          <motion.div
+            variants={itemVariants}
+            className="bg-white border border-gray-300 rounded p-6"
+            whileHover={{ y: -5, borderColor: '#111827', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+          >
             <div className="flex items-start justify-between mb-4">
               <div className="flex-1">
                 <div className="flex items-center gap-2 mb-1">
@@ -359,10 +433,15 @@ export default function Portfolio() {
                 <span>Worked cross-functionally with content and growth teams to roll out winning creative formats globally</span>
               </li>
             </ul>
-          </div>
+          </motion.div>
 
           {/* Intertek */}
-          <div className="bg-white border border-gray-300 rounded p-6">
+          <motion.div
+            variants={itemVariants}
+            className="bg-white border border-gray-300 rounded p-6"
+            whileHover={{ y: -5, borderColor: '#111827', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+          >
             <div className="flex items-start justify-between mb-4">
               <div className="flex-1">
                 <div className="flex items-center gap-2 mb-1">
@@ -402,10 +481,15 @@ export default function Portfolio() {
                 <span>Deployed a Landbot chatbot and ran conversation A/B tests to increase lead completion</span>
               </li>
             </ul>
-          </div>
+          </motion.div>
 
           {/* Tradebuilder */}
-          <div className="bg-white border border-gray-300 rounded p-6">
+          <motion.div
+            variants={itemVariants}
+            className="bg-white border border-gray-300 rounded p-6"
+            whileHover={{ y: -5, borderColor: '#111827', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+          >
             <div className="flex items-start justify-between mb-4">
               <div className="flex-1">
                 <div className="flex items-center gap-2 mb-1">
@@ -441,10 +525,15 @@ export default function Portfolio() {
                 <span>Ran A/B tests on creatives and landing pages to increase CTR by ~12% and lower CPL</span>
               </li>
             </ul>
-          </div>
+          </motion.div>
 
           {/* ABP */}
-          <div className="bg-white border border-gray-300 rounded p-6">
+          <motion.div
+            variants={itemVariants}
+            className="bg-white border border-gray-300 rounded p-6"
+            whileHover={{ y: -5, borderColor: '#111827', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+          >
             <div className="flex items-start justify-between mb-4">
               <div className="flex-1">
                 <div className="flex items-center gap-2 mb-1">
@@ -476,8 +565,8 @@ export default function Portfolio() {
                 <span>Improved search rankings through keyword research, on-page SEO, and metadata optimisation</span>
               </li>
             </ul>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Projects */}
         <div className="mt-12">
@@ -485,23 +574,37 @@ export default function Portfolio() {
             Key Projects
           </h2>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-white border border-gray-300 rounded p-6">
+          <motion.div
+            className="grid md:grid-cols-2 gap-6"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={containerVariants}
+          >
+            <motion.div
+              variants={itemVariants}
+              className="bg-white border border-gray-300 rounded p-6"
+              whileHover={{ y: -5, borderColor: '#111827', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }}
+            >
               <h3 className="font-bold text-gray-900 mb-2">Custom GPT for Marketing Intelligence</h3>
               <p className="text-sm text-gray-700">
                 Built a custom GPT integrating SEMrush, Ahrefs, and GA4 to automate competitor analysis, keyword research,
                 and reporting. Reduced manual research time and standardised insights across campaigns.
               </p>
-            </div>
+            </motion.div>
 
-            <div className="bg-white border border-gray-300 rounded p-6">
+            <motion.div
+              variants={itemVariants}
+              className="bg-white border border-gray-300 rounded p-6"
+              whileHover={{ y: -5, borderColor: '#111827', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }}
+            >
               <h3 className="font-bold text-gray-900 mb-2">Intertek Website Chatbot</h3>
               <p className="text-sm text-gray-700">
                 Deployed and optimised a Landbot chatbot on an Optimizely CMS website to capture and qualify leads
                 across multiple business units using conditional logic and A/B testing.
               </p>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
 
         {/* Education - Added mt-12 for spacing */}
@@ -607,12 +710,19 @@ export default function Portfolio() {
           <h1 className="text-4xl font-bold text-gray-900 mb-3">Case Studies</h1>
           <p className="text-gray-600 mb-8 pb-4 border-b-2 border-gray-900">Detailed performance marketing projects and results</p>
 
-          <div className="space-y-6">
+          <motion.div
+            className="space-y-6"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={containerVariants}
+          >
             {caseStudies.map((study, i) => (
               <motion.div
                 key={i}
+                variants={itemVariants}
                 className="bg-white border border-gray-300 rounded overflow-hidden"
-                whileHover={{ y: -5, boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)' }}
+                whileHover={{ y: -5, boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)' }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
                 <div className="bg-gray-900 text-white px-6 py-4">
@@ -659,7 +769,7 @@ export default function Portfolio() {
                 </div>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     );
@@ -694,34 +804,59 @@ export default function Portfolio() {
           {/* Ad Creatives */}
           <div className="mb-12">
             <h2 className="text-2xl font-bold text-gray-900 mb-6">Ad Creatives</h2>
-            <div className="grid grid-cols-3 gap-4">
+            <motion.div
+              className="grid grid-cols-3 gap-4"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={containerVariants}
+            >
               {creatives.map((creative, i) => (
-                <div
+                <motion.div
                   key={i}
+                  variants={itemVariants}
                   onClick={() => setSelectedCreative(creative)}
                   className="aspect-square bg-white border-2 border-gray-300 rounded cursor-pointer hover:border-gray-900 transition-all group"
+                  whileHover="hover"
                 >
                   <div className="w-full h-full flex flex-col items-center justify-center p-4 relative bg-gradient-to-br from-gray-100 to-gray-200">
-                    <div className="w-12 h-12 bg-white border border-gray-300 rounded-full flex items-center justify-center mb-3 group-hover:bg-gray-900 group-hover:border-gray-900 transition-all">
+                    <motion.div
+                      variants={{ hover: { scale: 1.2 } }}
+                      className="w-12 h-12 bg-white border border-gray-300 rounded-full flex items-center justify-center mb-3 group-hover:bg-gray-900 group-hover:border-gray-900 transition-all"
+                    >
                       <Play className="w-6 h-6 text-gray-700 group-hover:text-white transition-all" />
-                    </div>
+                    </motion.div>
                     <div className="text-xs font-semibold text-gray-700 text-center">{creative.goal}</div>
                   </div>
-                </div>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
 
           {/* Video Content */}
           <div>
             <h2 className="text-2xl font-bold text-gray-900 mb-6">Video Content</h2>
-            <div className="grid md:grid-cols-2 gap-4">
+            <motion.div
+              className="grid md:grid-cols-2 gap-4"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={containerVariants}
+            >
               {videos.map((video, i) => (
-                <div key={i} className="bg-white border border-gray-300 rounded overflow-hidden hover:border-gray-900 transition-all group cursor-pointer">
+                <motion.div
+                  key={i}
+                  variants={itemVariants}
+                  whileHover="hover"
+                  className="bg-white border border-gray-300 rounded overflow-hidden hover:border-gray-900 transition-all group cursor-pointer"
+                >
                   <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center relative">
-                    <div className="w-14 h-14 bg-white border border-gray-300 rounded-full flex items-center justify-center group-hover:bg-gray-900 group-hover:border-gray-900 transition-all">
+                    <motion.div
+                      variants={{ hover: { scale: 1.2 } }}
+                      className="w-14 h-14 bg-white border border-gray-300 rounded-full flex items-center justify-center group-hover:bg-gray-900 group-hover:border-gray-900 transition-all"
+                    >
                       <Play className="w-7 h-7 text-gray-700 group-hover:text-white transition-all" />
-                    </div>
+                    </motion.div>
                   </div>
                   <div className="p-4">
                     <div className="flex items-center justify-between mb-1">
@@ -730,9 +865,9 @@ export default function Portfolio() {
                     </div>
                     <div className="text-sm font-semibold text-gray-900">{video.title}</div>
                   </div>
-                </div>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
         </div>
 
@@ -827,105 +962,118 @@ export default function Portfolio() {
           <h1 className="text-4xl font-bold text-gray-900 mb-3">Performance Metrics</h1>
           <p className="text-gray-600 mb-8 pb-4 border-b-2 border-gray-900">Channel-wise performance across growth, CRO and paid acquisition</p>
 
-          {/* Summary Cards */}
-          <div className="grid md:grid-cols-4 gap-4 mb-8">
-            <div className="bg-white border border-gray-300 rounded p-5 text-center">
-              <div className="text-xs font-semibold text-gray-600 uppercase mb-2">Total Spend</div>
-              <div className="text-3xl font-bold text-gray-900">${(totalSpend / 1000).toFixed(1)}K</div>
-            </div>
-            <div className="bg-white border border-gray-300 rounded p-5 text-center">
-              <div className="text-xs font-semibold text-gray-600 uppercase mb-2">Avg CTR</div>
-              <div className="text-3xl font-bold text-gray-900">{avgCTR.toFixed(2)}%</div>
-            </div>
-            <div className="bg-white border border-gray-300 rounded p-5 text-center">
-              <div className="text-xs font-semibold text-gray-600 uppercase mb-2">Avg CVR</div>
-              <div className="text-3xl font-bold text-gray-900">{avgCVR.toFixed(2)}%</div>
-            </div>
-            <div className="bg-white border border-gray-300 rounded p-5 text-center">
-              <div className="text-xs font-semibold text-gray-600 uppercase mb-2">Avg ROI</div>
-              <div className="text-3xl font-bold text-gray-900">{avgROI.toFixed(0)}%</div>
-            </div>
-          </div>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={containerVariants}
+          >
+            {/* Summary Cards */}
+            <motion.div variants={itemVariants} className="grid md:grid-cols-4 gap-4 mb-8">
+              <motion.div whileHover={{ y: -5 }} className="bg-white border border-gray-300 rounded p-5 text-center">
+                <div className="text-xs font-semibold text-gray-600 uppercase mb-2">Total Spend</div>
+                <div className="text-3xl font-bold text-gray-900">${(totalSpend / 1000).toFixed(1)}K</div>
+              </motion.div>
+              <motion.div whileHover={{ y: -5 }} className="bg-white border border-gray-300 rounded p-5 text-center">
+                <div className="text-xs font-semibold text-gray-600 uppercase mb-2">Avg CTR</div>
+                <div className="text-3xl font-bold text-gray-900">{avgCTR.toFixed(2)}%</div>
+              </motion.div>
+              <motion.div whileHover={{ y: -5 }} className="bg-white border border-gray-300 rounded p-5 text-center">
+                <div className="text-xs font-semibold text-gray-600 uppercase mb-2">Avg CVR</div>
+                <div className="text-3xl font-bold text-gray-900">{avgCVR.toFixed(2)}%</div>
+              </motion.div>
+              <motion.div whileHover={{ y: -5 }} className="bg-white border border-gray-300 rounded p-5 text-center">
+                <div className="text-xs font-semibold text-gray-600 uppercase mb-2">Avg ROI</div>
+                <div className="text-3xl font-bold text-gray-900">{avgROI.toFixed(0)}%</div>
+              </motion.div>
+            </motion.div>
 
-          {/* Filters */}
-          <div className="flex items-center gap-3 mb-6 bg-white border border-gray-300 rounded p-4">
-            <Filter className="w-4 h-4 text-gray-600" />
-            <span className="text-sm font-semibold text-gray-600 uppercase">Channel</span>
-            {['all', 'Meta', 'Google Ads', 'LinkedIn', 'Direct'].map(channel => (
-              <button
-                key={channel}
-                onClick={() => setFilterChannel(channel)}
-                className={`px-3 py-1.5 text-sm font-medium rounded transition-all ${filterChannel === channel
-                  ? 'bg-gray-900 text-white'
-                  : 'bg-gray-50 border border-gray-300 text-gray-700 hover:bg-gray-100'
-                  }`}
-              >
-                {channel === 'all' ? 'All' : channel}
-              </button>
-            ))}
-          </div>
+            {/* Filters */}
+            <motion.div variants={itemVariants} className="flex items-center gap-3 mb-6 bg-white border border-gray-300 rounded p-4">
+              <Filter className="w-4 h-4 text-gray-600" />
+              <span className="text-sm font-semibold text-gray-600 uppercase">Channel</span>
+              {['all', 'Meta', 'Google Ads', 'LinkedIn', 'Direct'].map(channel => (
+                <button
+                  key={channel}
+                  onClick={() => setFilterChannel(channel)}
+                  className={`px-3 py-1.5 text-sm font-medium rounded transition-all ${filterChannel === channel
+                    ? 'bg-gray-900 text-white'
+                    : 'bg-gray-50 border border-gray-300 text-gray-700 hover:bg-gray-100'
+                    }`}
+                >
+                  {channel === 'all' ? 'All' : channel}
+                </button>
+              ))}
+            </motion.div>
 
-          {/* Table */}
-          <div className="bg-white border-2 border-gray-300 rounded overflow-hidden mb-8">
-            <table className="w-full">
-              <thead className="bg-gray-900 text-white">
-                <tr>
-                  {['Client', 'Channel', 'Spend', 'CTR', 'CPL', 'CVR', 'ROI'].map(header => (
-                    <th key={header} className="px-4 py-3 text-left text-xs font-bold uppercase tracking-wider">
-                      {header}
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-300">
-                {displayMetrics.map((row, i) => (
-                  <tr key={i} className="hover:bg-gray-50 transition-colors">
-                    <td className="px-4 py-3 text-sm font-semibold text-gray-900">{row.client}</td>
-                    <td className="px-4 py-3 text-sm">
-                      <span className="px-2 py-1 bg-gray-100 border border-gray-300 rounded text-xs font-semibold text-gray-700">
-                        {row.channel}
-                      </span>
-                    </td>
-                    <td className="px-4 py-3 text-sm font-medium text-gray-900">${row.spend.toLocaleString()}</td>
-                    <td className="px-4 py-3 text-sm text-gray-900">{row.ctr}%</td>
-                    <td className="px-4 py-3 text-sm text-gray-900">${row.cpl}</td>
-                    <td className="px-4 py-3 text-sm text-gray-900">{row.cvr}%</td>
-                    <td className="px-4 py-3 text-sm">
-                      <span className="font-bold text-green-700">{row.roi}%</span>
-                    </td>
+            {/* Table */}
+            <motion.div variants={itemVariants} className="bg-white border-2 border-gray-300 rounded overflow-hidden mb-8">
+              <table className="w-full">
+                <thead className="bg-gray-900 text-white">
+                  <tr>
+                    {['Client', 'Channel', 'Spend', 'CTR', 'CPL', 'CVR', 'ROI'].map(header => (
+                      <th key={header} className="px-4 py-3 text-left text-xs font-bold uppercase tracking-wider">
+                        {header}
+                      </th>
+                    ))}
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+                </thead>
+                <tbody className="divide-y divide-gray-300">
+                  {displayMetrics.map((row, i) => (
+                    <motion.tr
+                      key={i}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: i * 0.05 }}
+                      className="hover:bg-gray-50 transition-colors"
+                    >
+                      <td className="px-4 py-3 text-sm font-semibold text-gray-900">{row.client}</td>
+                      <td className="px-4 py-3 text-sm">
+                        <span className="px-2 py-1 bg-gray-100 border border-gray-300 rounded text-xs font-semibold text-gray-700">
+                          {row.channel}
+                        </span>
+                      </td>
+                      <td className="px-4 py-3 text-sm font-medium text-gray-900">${row.spend.toLocaleString()}</td>
+                      <td className="px-4 py-3 text-sm text-gray-900">{row.ctr}%</td>
+                      <td className="px-4 py-3 text-sm text-gray-900">${row.cpl}</td>
+                      <td className="px-4 py-3 text-sm text-gray-900">{row.cvr}%</td>
+                      <td className="px-4 py-3 text-sm">
+                        <span className="font-bold text-green-700">{row.roi}%</span>
+                      </td>
+                    </motion.tr>
+                  ))}
+                </tbody>
+              </table>
+            </motion.div>
 
-          {/* Signal Boxes */}
-          <div>
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Key Insights</h2>
-            <div className="grid md:grid-cols-3 gap-4">
-              <div className="bg-white border border-gray-300 rounded p-5">
-                <div className="text-xs font-semibold text-gray-600 uppercase mb-2">Top Channel</div>
-                <div className="text-lg font-bold text-gray-900">Meta Ads</div>
-                <p className="text-sm text-gray-600 mt-2">
-                  Best balance of creative testing, audience learning and scale across Pocket FM, Packt and e-commerce.
-                </p>
+            {/* Signal Boxes */}
+            <motion.div variants={itemVariants}>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">Key Insights</h2>
+              <div className="grid md:grid-cols-3 gap-4">
+                <motion.div whileHover={{ y: -5 }} className="bg-white border border-gray-300 rounded p-5">
+                  <div className="text-xs font-semibold text-gray-600 uppercase mb-2">Top Channel</div>
+                  <div className="text-lg font-bold text-gray-900">Meta Ads</div>
+                  <p className="text-sm text-gray-600 mt-2">
+                    Best balance of creative testing, audience learning and scale across Pocket FM, Packt and e-commerce.
+                  </p>
+                </motion.div>
+                <motion.div whileHover={{ y: -5 }} className="bg-white border border-gray-300 rounded p-5">
+                  <div className="text-xs font-semibold text-gray-600 uppercase mb-2">Best CVR</div>
+                  <div className="text-lg font-bold text-gray-900">LinkedIn (B2B)</div>
+                  <p className="text-sm text-gray-600 mt-2">
+                    High intent decision makers with slower volume but stronger pipeline quality.
+                  </p>
+                </motion.div>
+                <motion.div whileHover={{ y: -5 }} className="bg-white border border-gray-300 rounded p-5">
+                  <div className="text-xs font-semibold text-gray-600 uppercase mb-2">Highest ROI</div>
+                  <div className="text-lg font-bold text-gray-900">Packt GTM</div>
+                  <p className="text-sm text-gray-600 mt-2">
+                    Creator-led distribution plus Meta amplification produced an 8× revenue multiple.
+                  </p>
+                </motion.div>
               </div>
-              <div className="bg-white border border-gray-300 rounded p-5">
-                <div className="text-xs font-semibold text-gray-600 uppercase mb-2">Best CVR</div>
-                <div className="text-lg font-bold text-gray-900">LinkedIn (B2B)</div>
-                <p className="text-sm text-gray-600 mt-2">
-                  High intent decision makers with slower volume but stronger pipeline quality.
-                </p>
-              </div>
-              <div className="bg-white border border-gray-300 rounded p-5">
-                <div className="text-xs font-semibold text-gray-600 uppercase mb-2">Highest ROI</div>
-                <div className="text-lg font-bold text-gray-900">Packt GTM</div>
-                <p className="text-sm text-gray-600 mt-2">
-                  Creator-led distribution plus Meta amplification produced an 8× revenue multiple.
-                </p>
-              </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     );
@@ -942,12 +1090,24 @@ export default function Portfolio() {
           </div>
 
           <div className="flex items-center gap-6">
-            <a href="mailto:oscoro.graves@gmail.com" className="text-gray-600 hover:text-gray-900 transition-colors flex items-center gap-2 text-sm font-medium">
+            <motion.a
+              href="mailto:oscoro.graves@gmail.com"
+              className="text-gray-600 hover:text-gray-900 transition-colors flex items-center gap-2 text-sm font-medium"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
               <Mail className="w-4 h-4" /> Email Me
-            </a>
-            <a href="https://www.linkedin.com/in/kanishk-singh-ab90b2203/" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-gray-900 transition-colors flex items-center gap-2 text-sm font-medium">
+            </motion.a>
+            <motion.a
+              href="https://www.linkedin.com/in/kanishk-singh-ab90b2203/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-600 hover:text-gray-900 transition-colors flex items-center gap-2 text-sm font-medium"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
               <Linkedin className="w-4 h-4" /> LinkedIn
-            </a>
+            </motion.a>
           </div>
         </div>
 
