@@ -143,7 +143,6 @@ export default function Portfolio() {
               />
               <div>
                 <div className="font-semibold text-gray-900 text-sm">Kanishk Singh</div>
-                <div className="text-xs text-gray-600">Performance & Growth Marketer</div>
               </div>
             </div>
 
@@ -1216,7 +1215,7 @@ export default function Portfolio() {
   };
 
   const Footer = () => (
-    <footer className="bg-white border-t border-gray-300 py-12 mt-12">
+    <footer className="bg-white py-12 mt-12">
       <div className="max-w-6xl mx-auto px-8">
 
         {/* Top Section: Contact & Socials */}
