@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-import { TrendingUp, Target, LineChart, ChevronRight, Play, X, Menu, Filter, Mail, Phone, MapPin, Linkedin, Download, Calendar, Briefcase, GraduationCap, Award, Film, Camera, Plane, BookOpen, Sun, Moon, Instagram, Globe, Bot, MessageSquare } from 'lucide-react';
+import { TrendingUp, Target, LineChart, ChevronRight, Play, X, Menu, Filter, Mail, Phone, MapPin, Linkedin, Download, Calendar, Briefcase, GraduationCap, Award, Film, Camera, Plane, BookOpen, Sun, Moon, Instagram, Globe, Bot, MessageSquare, Megaphone, Rocket, PieChart } from 'lucide-react';
 import { metricsAPI } from './services/api.js';
 import { translations } from './translations.js';
 
@@ -527,7 +527,7 @@ export default function Portfolio() {
             variants={containerVariants}
           >
             {(() => {
-              const icons = { Target: <Target className="w-5 h-5" />, TrendingUp: <TrendingUp className="w-5 h-5" />, LineChart: <LineChart className="w-5 h-5" /> };
+              const icons = { Target: <Megaphone className="w-5 h-5" />, TrendingUp: <Rocket className="w-5 h-5" />, LineChart: <PieChart className="w-5 h-5" /> };
               return t('experience.competencies', { returnObjects: true })?.map((competency, i) => (
                 <motion.div key={i} variants={itemVariants} className="bg-white/40 dark:bg-gray-800/40 backdrop-blur-md border border-gray-300 dark:border-gray-700 rounded p-5 hover:border-gray-900 dark:hover:border-yellow-400 transition-all" whileHover={{ y: -5 }}>
                   <div className="flex items-center gap-3 mb-4">
