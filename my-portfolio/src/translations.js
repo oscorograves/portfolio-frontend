@@ -118,15 +118,15 @@ export const translations = {
                     customGpt: {
                         title: "Custom GPT for Marketing Intelligence",
                         bullets: [
-                            "Built a custom GPT tool integrating SEMrush, Ahrefs, and Google Analytics to automate competitor and keyword insight generation for campaign planning.",
-                            "Designed structured prompt frameworks and reporting templates to standardise insights across markets and reduce manual research time."
+                            "Engineered a custom GPT integrating SEMrush, Ahrefs, and GA4 to automate competitor intelligence and keyword strategy.",
+                            "Standardized cross-market insights with structured prompt engineering, significantly reducing manual research overhead."
                         ]
                     },
                     chatbot: {
                         title: "Chatbot Integration for Intertek India Website",
                         bullets: [
-                            "Deployed a Landbot-powered chatbot on an Optimizely CMS website to capture and qualify leads for multiple business units.",
-                            "Created conditional flows and ran A/B tests on conversation paths to improve lead completion rate and overall user experience."
+                            "Launched a high-intent lead capture engine using Landbot on Optimizely CMS, streamlining qualification for multiple business units.",
+                            "Optimized conversion paths via A/B testing conditional flows, driving higher lead completion rates and user engagement."
                         ]
                     }
                 }
@@ -364,15 +364,15 @@ export const translations = {
                     customGpt: {
                         title: "Aangepaste GPT voor Marketing Intelligence",
                         bullets: [
-                            "Bouwde een aangepaste GPT-tool die SEMrush, Ahrefs en Google Analytics integreert om het genereren van inzichten in concurrenten en zoekwoorden te automatiseren.",
-                            "Ontwierp gestructureerde prompt-frameworks en rapportagesjablonen om inzichten over markten heen te standaardiseren en handmatige onderzoekstijd te verminderen."
+                            "Ontwikkelde een aangepaste GPT die SEMrush, Ahrefs en GA4 integreert om concurrentie-inzichten en zoekwoordstrategie te automatiseren.",
+                            "Standaardiseerde inzichten over markten heen met gestructureerde prompt engineering, waardoor de handmatige onderzoekslast aanzienlijk werd verminderd."
                         ]
                     },
                     chatbot: {
                         title: "Chatbot-integratie voor Intertek India Website",
                         bullets: [
-                            "Implementeerde een Landbot-aangedreven chatbot op een Optimizely CMS-website om leads vast te leggen en te kwalificeren voor meerdere bedrijfseenheden.",
-                            "Creëerde voorwaardelijke stromen en voerde A/B-tests uit op gesprekspaden om het lead-voltooiingspercentage en de algehele gebruikerservaring te verbeteren."
+                            "Lanceerde een engine voor het vastleggen van leads met hoge intentie met behulp van Landbot op Optimizely CMS, wat de kwalificatie voor meerdere business units stroomlijnde.",
+                            "Optimaliseerde conversiepaden via A/B-testen van voorwaardelijke stromen, wat leidde tot hogere leadvoltooiingspercentages en gebruikersbetrokkenheid."
                         ]
                     }
                 }
