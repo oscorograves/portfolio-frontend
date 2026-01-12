@@ -1,6 +1,18 @@
 import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+
 import { TrendingUp, Target, LineChart, ChevronRight, Play, X, Filter, Mail, Phone, MapPin, Linkedin, Download, Calendar, Briefcase, GraduationCap, Award, Film, Camera, Plane, BookOpen } from 'lucide-react';
 import { metricsAPI } from './services/api.js';
+
+const PageWrapper = ({ children }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5 }}
+  >
+    {children}
+  </motion.div>
+);
 
 export default function Portfolio() {
   const [currentPage, setCurrentPage] = useState('home');
@@ -566,7 +578,12 @@ export default function Portfolio() {
 
           <div className="space-y-6">
             {caseStudies.map((study, i) => (
-              <div key={i} className="bg-white border border-gray-300 rounded overflow-hidden">
+              <motion.div
+                key={i}
+                className="bg-white border border-gray-300 rounded overflow-hidden"
+                whileHover={{ y: -5, boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)' }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
                 <div className="bg-gray-900 text-white px-6 py-4">
                   <div className="flex items-center justify-between">
                     <div>
@@ -609,7 +626,7 @@ export default function Portfolio() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -936,11 +953,11 @@ export default function Portfolio() {
 
       {/* Main Content Grows to fill space */}
       <div className="flex-grow">
-        {currentPage === 'home' && <HomePage />}
-        {currentPage === 'experience' && <ExperiencePage />}
-        {currentPage === 'case-studies' && <CaseStudiesPage />}
-        {currentPage === 'creative-lab' && <CreativeLabPage />}
-        {currentPage === 'metrics' && <MetricsPage />}
+        {currentPage === 'home' && <PageWrapper><HomePage /></PageWrapper>}
+        {currentPage === 'experience' && <PageWrapper><ExperiencePage /></PageWrapper>}
+        {currentPage === 'case-studies' && <PageWrapper><CaseStudiesPage /></PageWrapper>}
+        {currentPage === 'creative-lab' && <PageWrapper><CreativeLabPage /></PageWrapper>}
+        {currentPage === 'metrics' && <PageWrapper><MetricsPage /></PageWrapper>}
       </div>
 
       <Footer />
