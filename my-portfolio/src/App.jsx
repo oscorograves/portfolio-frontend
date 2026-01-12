@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-import { TrendingUp, Target, LineChart, ChevronRight, Play, X, Menu, Filter, Mail, Phone, MapPin, Linkedin, Download, Calendar, Briefcase, GraduationCap, Award, Film, Camera, Plane, BookOpen, Sun, Moon, Instagram } from 'lucide-react';
+import { TrendingUp, Target, LineChart, ChevronRight, Play, X, Menu, Filter, Mail, Phone, MapPin, Linkedin, Download, Calendar, Briefcase, GraduationCap, Award, Film, Camera, Plane, BookOpen, Sun, Moon, Instagram, Globe, Bot, MessageSquare } from 'lucide-react';
 import { metricsAPI } from './services/api.js';
+import { translations } from './translations.js';
 
 const PageWrapper = ({ children, className }) => (
   <motion.div
@@ -126,6 +127,17 @@ export default function Portfolio() {
   const [currentPage, setCurrentPage] = useState('home');
   const [selectedCreative, setSelectedCreative] = useState(null);
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [language, setLanguage] = useState('en');
+
+  // Translation Helper
+  const t = (key) => {
+    const keys = key.split('.');
+    let value = translations[language];
+    for (let k of keys) {
+      value = value?.[k];
+    }
+    return value || key;
+  };
 
   useEffect(() => {
     if (isDarkMode) {
@@ -177,11 +189,20 @@ export default function Portfolio() {
                   )}
                   {/* The Text (Must be higher z-index relative to pill) */}
                   <span className="relative z-10">
-                    {page.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}
+                    {t(`nav.${page.replace('-', '')}`)}
                   </span>
                 </button>
               ))}
             </div>
+
+            {/* Language Selector */}
+            <button
+              onClick={() => setLanguage(language === 'en' ? 'nl' : 'en')}
+              className="flex items-center gap-1 p-2 text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800 rounded-full transition-colors mr-2 text-sm font-medium"
+            >
+              <Globe className="w-4 h-4" />
+              <span>{language.toUpperCase()}</span>
+            </button>
 
             {/* Dark Mode Toggle */}
             <button
@@ -247,9 +268,9 @@ export default function Portfolio() {
           <div className="grid md:grid-cols-3 gap-8">
             <div className="md:col-span-2">
               <motion.h1 variants={itemVariants} className="text-5xl font-bold text-gray-900 dark:text-white mb-3">Kanishk Singh</motion.h1>
-              <motion.p variants={itemVariants} className="text-xl text-gray-700 dark:text-gray-300 mb-6 font-medium">Performance & Growth Marketer</motion.p>
+              <motion.p variants={itemVariants} className="text-xl text-gray-700 dark:text-gray-300 mb-6 font-medium">{t('hero.role')}</motion.p>
               <motion.p variants={itemVariants} className="text-base text-gray-600 dark:text-gray-400 leading-relaxed mb-8">
-                I design paid media, CRO and growth systems that scale revenue. Specializing in data-driven campaign optimization, funnel design, and performance analytics across B2B and B2C channels.
+                {t('hero.description')}
               </motion.p>
               <motion.div variants={itemVariants} className="flex gap-3">
                 <motion.button
@@ -258,17 +279,17 @@ export default function Portfolio() {
                   onClick={() => setCurrentPage('case-studies')}
                   className="px-5 py-2.5 bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-sm font-medium rounded hover:bg-gray-800 dark:hover:bg-gray-100 transition-all cursor-pointer"
                 >
-                  View Case Studies
+                  {t('hero.viewCaseStudies')}
                 </motion.button>
                 <motion.a
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   href="/resume.pdf"
                   download="Kanishk_Singh_Resume.pdf"
-                  className="px-5 py-2.5 border-2 border-gray-900 dark:border-white text-gray-900 dark:text-white text-sm font-medium rounded hover:bg-gray-50 dark:hover:bg-gray-800 transition-all flex items-center justify-center gap-2 cursor-pointer"
+                  className="px-5 py-2.5 border-2 border-gray-900 dark:border-white text-gray-900 dark:text-white text-sm font-medium rounded hover:bg-gray-50 dark:hover:bg-gray-900 transition-all flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <Download className="w-4 h-4" />
-                  Download CV
+                  {t('hero.downloadCV')}
                 </motion.a>
               </motion.div>
             </div>
@@ -277,7 +298,7 @@ export default function Portfolio() {
 
 
               <div className="bg-white dark:bg-gray-900/60 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-4">
-                <h3 className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-3">Contact Information</h3>
+                <h3 className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-3">{t('hero.contactInfo')}</h3>
                 <div className="space-y-2 text-sm">
                   <div className="flex items-start gap-2 text-gray-700 dark:text-gray-300">
                     <Mail className="w-4 h-4 mt-0.5 flex-shrink-0" />
@@ -294,7 +315,7 @@ export default function Portfolio() {
                   </div>
                   <div className="flex items-start gap-2 text-gray-700 dark:text-gray-300">
                     <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                    <span>Noida, India</span>
+                    <span>{t('hero.location')}</span>
                   </div>
                   <div className="flex items-start gap-2 text-gray-700 dark:text-gray-300">
                     <Linkedin className="w-4 h-4 mt-0.5 flex-shrink-0" />
@@ -339,22 +360,22 @@ export default function Portfolio() {
 
             <div className="p-2">
               <div className="text-3xl md:text-4xl font-bold mb-1">2+</div>
-              <div className="text-sm md:text-base text-gray-400">Years Experience</div>
+              <div className="text-sm md:text-base text-gray-400">{t('stats.yearsExp')}</div>
             </div>
 
             <div className="p-2">
               <div className="text-3xl md:text-4xl font-bold mb-1">$267K</div>
-              <div className="text-sm md:text-base text-gray-400">Ad Spend Managed</div>
+              <div className="text-sm md:text-base text-gray-400">{t('stats.adSpend')}</div>
             </div>
 
             <div className="p-2">
               <div className="text-3xl md:text-4xl font-bold mb-1">25+</div>
-              <div className="text-sm md:text-base text-gray-400">Campaigns Run</div>
+              <div className="text-sm md:text-base text-gray-400">{t('stats.campaigns')}</div>
             </div>
 
             <div className="p-2">
               <div className="text-3xl md:text-4xl font-bold mb-1">830%</div>
-              <div className="text-sm md:text-base text-gray-400">Highest ROI</div>
+              <div className="text-sm md:text-base text-gray-400">{t('stats.roi')}</div>
             </div>
 
           </div>
@@ -362,9 +383,9 @@ export default function Portfolio() {
       </div>
 
       {/* Featured Achievement */}
-      <section className="bg-gray-50 dark:bg-gray-900 border-b border-gray-300 dark:border-gray-800 transition-colors duration-300">
+      <section className="bg-gray-50 dark:bg-gray-950 border-b border-gray-300 dark:border-gray-800 transition-colors duration-300">
         <div className="max-w-6xl mx-auto px-8 py-12">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-gray-900 dark:border-white">Featured Work</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-gray-900 dark:border-white">{t('featuredWork.title')}</h2>
           <motion.div
             className="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 border-2 border-gray-300 dark:border-gray-700 rounded-xl p-8 hover:border-gray-900 dark:hover:border-white transition-all group cursor-pointer"
             onClick={() => setCurrentPage('case-studies')}
@@ -376,19 +397,19 @@ export default function Portfolio() {
           >
             <div className="flex items-start justify-between mb-4">
               <div>
-                <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2">Growth & GTM</div>
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Shipping a Paid GTM Engine for Packt Events</h3>
-                <p className="text-gray-600 dark:text-gray-300 text-sm">Launched a paid events vertical and achieved 150+ attendees with 95% net-new audience acquisition</p>
+                <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2">{t('featuredWork.subtitle')}</div>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">{t('featuredWork.projectTitle')}</h3>
+                <p className="text-gray-600 dark:text-gray-300 text-sm">{t('featuredWork.projectDesc')}</p>
               </div>
               <ChevronRight className="w-6 h-6 text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white group-hover:translate-x-1 transition-all" />
             </div>
             {/* Mobile: 2 columns, Desktop: 4 columns */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 pt-6 border-t border-gray-100 dark:border-gray-700">
               {[
-                { label: 'Paid Attendees', value: '150' },
-                { label: 'Net-New %', value: '95%' },
-                { label: 'Blended CAC', value: '£12' },
-                { label: 'Projected ROAS', value: '8.3×' }
+                { label: t('featuredWork.metrics.attendees'), value: '150' },
+                { label: t('featuredWork.metrics.netNew'), value: '95%' },
+                { label: t('featuredWork.metrics.cac'), value: '£12' },
+                { label: t('featuredWork.metrics.roas'), value: '8.3×' }
               ].map((metric, i) => (
                 <div key={i} className="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded p-3 text-center">
                   <div className="text-xs text-gray-600 dark:text-gray-400 mb-1">{metric.label}</div>
@@ -401,9 +422,9 @@ export default function Portfolio() {
       </section>
 
       {/* What I Offer */}
-      <section className="bg-gray-50 dark:bg-gray-950 border-b border-gray-300 dark:border-gray-800 transition-colors duration-300">
+      <section className="bg-white dark:bg-gray-950 border-b border-gray-300 dark:border-gray-800 transition-colors duration-300">
         <div className="max-w-6xl mx-auto px-8 py-12">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-gray-900 dark:border-white">What I Offer</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-gray-900 dark:border-white">{t('whatIOffer.title')}</h2>
           <motion.div
             className="grid md:grid-cols-3 gap-6"
             initial="hidden"
@@ -413,18 +434,18 @@ export default function Portfolio() {
           >
             {[
               {
-                title: 'Paid Media Strategy & Execution',
-                description: 'End-to-end campaign management across Meta, Google, and LinkedIn with focus on creative testing and audience optimization',
+                title: t('whatIOffer.paidMedia.title'),
+                description: t('whatIOffer.paidMedia.desc'),
                 icon: <Target className="w-5 h-5" />
               },
               {
-                title: 'CRO Audits & A/B Testing',
-                description: 'Data-driven conversion optimization using hypothesis testing, user research, and systematic experimentation',
+                title: t('whatIOffer.cro.title'),
+                description: t('whatIOffer.cro.desc'),
                 icon: <TrendingUp className="w-5 h-5" />
               },
               {
-                title: 'Performance Dashboards & Analytics',
-                description: 'Custom GA4 tracking, UTM architecture, and real-time dashboards for actionable growth insights',
+                title: t('whatIOffer.analytics.title'),
+                description: t('whatIOffer.analytics.desc'),
                 icon: <LineChart className="w-5 h-5" />
               }
             ].map((service, i) => (
@@ -457,7 +478,7 @@ export default function Portfolio() {
             variants={containerVariants}
           >
             {[
-              { title: 'Performance Marketing', icon: <Target className="w-5 h-5" />, skills: ['Paid Media (Meta, Google, LinkedIn)', 'Campaign Strategy & Scaling', 'Budget Optimization'] },
+              { title: t('experience.skills'), icon: <Target className="w-5 h-5" />, skills: ['Paid Media (Meta, Google, LinkedIn)', 'Campaign Strategy & Scaling', 'Budget Optimization'] },
               { title: 'Growth Marketing', icon: <TrendingUp className="w-5 h-5" />, skills: ['Landing Page Design', 'Funnel Optimization', 'User Experience Enhancement'] },
               { title: 'Analytics & CRO', icon: <LineChart className="w-5 h-5" />, skills: ['GA4 Implementation', 'A/B Testing', 'Performance Dashboards'] }
             ].map((competency, i) => (
@@ -468,10 +489,16 @@ export default function Portfolio() {
                 </div>
                 <ul className="space-y-1.5">
                   {competency.skills.map((skill, j) => (
-                    <li key={j} className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2">
+                    <motion.li
+                      key={j}
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ delay: j * 0.1 }}
+                      className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2"
+                    >
                       <span className="text-gray-400 mt-1.5">•</span>
                       <span>{skill}</span>
-                    </li>
+                    </motion.li>
                   ))}
                 </ul>
               </motion.div>
@@ -518,13 +545,23 @@ export default function Portfolio() {
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-gray-700 dark:text-gray-300">English</span>
-                  <span className="text-xs text-gray-600 dark:text-gray-400 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 px-2 py-1 rounded">C1</span>
+                  <motion.span
+                    whileHover={{ scale: 1.1 }}
+                    className="text-xs text-gray-600 dark:text-gray-400 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 px-2 py-1 rounded cursor-default"
+                  >
+                    C1
+                  </motion.span>
 
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-gray-700 dark:text-gray-300">Dutch</span>
                   {/* UPDATED DUTCH SKILL */}
-                  <span className="text-xs text-gray-600 dark:text-gray-400 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 px-2 py-1 rounded">A2</span>
+                  <motion.span
+                    whileHover={{ scale: 1.1 }}
+                    className="text-xs text-gray-600 dark:text-gray-400 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 px-2 py-1 rounded cursor-default"
+                  >
+                    A2
+                  </motion.span>
 
                 </div>
               </div>
@@ -539,7 +576,7 @@ export default function Portfolio() {
     <div className="pt-20 bg-gray-50 dark:bg-gray-950 min-h-screen transition-colors duration-300">
       <div className="max-w-6xl mx-auto px-8 py-12">
         <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-8 pb-4 border-b-2 border-gray-900 dark:border-white">
-          Professional Experience
+          {t('experience.title')}
         </h1>
 
         <motion.div
@@ -559,9 +596,9 @@ export default function Portfolio() {
             <div className="flex items-start justify-between mb-4">
               <div className="flex-1">
                 <div className="flex items-center gap-2 mb-1">
-                  <h3 className="text-lg font-bold text-gray-900 dark:text-white">Ad Operations Specialist</h3>
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white">{t('experience.roles.pocketfm.title')}</h3>
                   <span className="px-2 py-0.5 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded text-xs font-medium text-gray-700 dark:text-gray-300">
-                    Contract
+                    {t('experience.roles.pocketfm.type')}
                   </span>
                 </div>
                 <div className="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400">
@@ -577,26 +614,16 @@ export default function Portfolio() {
               </div>
               <div className="flex items-center gap-1 text-sm text-gray-600 dark:text-gray-400">
                 <Calendar className="w-3.5 h-3.5" />
-                Jun 2025 – Present
+                <span>{t('experience.roles.pocketfm.period')}</span>
               </div>
             </div>
             <ul className="space-y-2">
-              <li className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2">
-                <span className="text-gray-400 mt-1">•</span>
-                <span>Own Meta Ads execution across acquisition and engagement campaigns for multiple geographies</span>
-              </li>
-              <li className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2">
-                <span className="text-gray-400 mt-1">•</span>
-                <span>Built creative and audience testing systems that improved CTR by ~16% and reduced cost per result by ~14%</span>
-              </li>
-              <li className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2">
-                <span className="text-gray-400 mt-1">•</span>
-                <span>Designed live performance dashboards to guide budget reallocation and creative scaling</span>
-              </li>
-              <li className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2">
-                <span className="text-gray-400 mt-1">•</span>
-                <span>Worked cross-functionally with content and growth teams to roll out winning creative formats globally</span>
-              </li>
+              {t('experience.roles.pocketfm.bullets').map((bullet, k) => (
+                <li key={k} className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2">
+                  <span className="text-gray-400 mt-1">•</span>
+                  <span>{bullet}</span>
+                </li>
+              ))}
             </ul>
           </motion.div>
 
@@ -610,41 +637,31 @@ export default function Portfolio() {
             <div className="flex items-start justify-between mb-4">
               <div className="flex-1">
                 <div className="flex items-center gap-2 mb-1">
-                  <h3 className="text-lg font-bold text-gray-900 dark:text-white">Digital Marketing Executive</h3>
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white">{t('experience.roles.intertek.title')}</h3>
                 </div>
                 <div className="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400">
                   <span className="flex items-center gap-1">
                     <Briefcase className="w-3.5 h-3.5" />
-                    Intertek India Pvt. Ltd.
+                    {t('experience.roles.intertek.company')}
                   </span>
                   <span className="flex items-center gap-1">
                     <MapPin className="w-3.5 h-3.5" />
-                    Delhi
+                    {t('experience.roles.intertek.location')}
                   </span>
                 </div>
               </div>
               <div className="flex items-center gap-1 text-sm text-gray-600 dark:text-gray-400">
                 <Calendar className="w-3.5 h-3.5" />
-                Sep 2024 – Jun 2025
+                {t('experience.roles.intertek.period')}
               </div>
             </div>
             <ul className="space-y-2">
-              <li className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2">
-                <span className="text-gray-400 mt-1">•</span>
-                <span>Ran paid search, paid social, and organic campaigns across South Asia for 37+ offices</span>
-              </li>
-              <li className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2">
-                <span className="text-gray-400 mt-1">•</span>
-                <span>Used GA4 funnel analysis and CRO tests to lift conversion rate by ~18% and MQLs by ~22%</span>
-              </li>
-              <li className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2">
-                <span className="text-gray-400 mt-1">•</span>
-                <span>Built and optimised landing pages, enquiry forms, and lead routing to improve sales handoff</span>
-              </li>
-              <li className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2">
-                <span className="text-gray-400 mt-1">•</span>
-                <span>Deployed a Landbot chatbot and ran conversation A/B tests to increase lead completion</span>
-              </li>
+              {t('experience.roles.intertek.bullets').map((bullet, k) => (
+                <li key={k} className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2">
+                  <span className="text-gray-400 mt-1">•</span>
+                  <span>{bullet}</span>
+                </li>
+              ))}
             </ul>
           </motion.div>
 
@@ -658,7 +675,7 @@ export default function Portfolio() {
             <div className="flex items-start justify-between mb-4">
               <div className="flex-1">
                 <div className="flex items-center gap-2 mb-1">
-                  <h3 className="text-lg font-bold text-gray-900 dark:text-white">Digital Marketing Associate</h3>
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white">{t('experience.roles.tradebuilder.title')}</h3>
                 </div>
                 <div className="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400">
                   <span className="flex items-center gap-1">
@@ -673,22 +690,16 @@ export default function Portfolio() {
               </div>
               <div className="flex items-center gap-1 text-sm text-gray-600 dark:text-gray-400">
                 <Calendar className="w-3.5 h-3.5" />
-                Sep 2023 – Jul 2024
+                {t('experience.roles.tradebuilder.period')}
               </div>
             </div>
             <ul className="space-y-2">
-              <li className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2">
-                <span className="text-gray-400 mt-1">•</span>
-                <span>Managed Google Ads, Meta Ads, and HubSpot campaigns for B2B lead generation</span>
-              </li>
-              <li className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2">
-                <span className="text-gray-400 mt-1">•</span>
-                <span>Built weekly GA4-based funnel and cohort reports that improved ad ROI by ~20%</span>
-              </li>
-              <li className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2">
-                <span className="text-gray-400 mt-1">•</span>
-                <span>Ran A/B tests on creatives and landing pages to increase CTR by ~12% and lower CPL</span>
-              </li>
+              {t('experience.roles.tradebuilder.bullets').map((bullet, k) => (
+                <li key={k} className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2">
+                  <span className="text-gray-400 mt-1">•</span>
+                  <span>{bullet}</span>
+                </li>
+              ))}
             </ul>
           </motion.div>
 
@@ -702,33 +713,31 @@ export default function Portfolio() {
             <div className="flex items-start justify-between mb-4">
               <div className="flex-1">
                 <div className="flex items-center gap-2 mb-1">
-                  <h3 className="text-lg font-bold text-gray-900 dark:text-white">SEO Intern</h3>
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white">{t('experience.roles.abp.title')}</h3>
                 </div>
                 <div className="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400">
                   <span className="flex items-center gap-1">
                     <Briefcase className="w-3.5 h-3.5" />
-                    ABP Learning Technologies
+                    {t('experience.roles.abp.company')}
                   </span>
                   <span className="flex items-center gap-1">
                     <MapPin className="w-3.5 h-3.5" />
-                    Noida
+                    {t('experience.roles.abp.location')}
                   </span>
                 </div>
               </div>
               <div className="flex items-center gap-1 text-sm text-gray-600 dark:text-gray-400">
                 <Calendar className="w-3.5 h-3.5" />
-                Jun 2023 – Sep 2023
+                {t('experience.roles.abp.period')}
               </div>
             </div>
             <ul className="space-y-2">
-              <li className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2">
-                <span className="text-gray-400 mt-1">•</span>
-                <span>Scaled Instagram to 3,000+ and YouTube to 10,000+ followers using organic-first growth</span>
-              </li>
-              <li className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2">
-                <span className="text-gray-400 mt-1">•</span>
-                <span>Improved search rankings through keyword research, on-page SEO, and metadata optimisation</span>
-              </li>
+              {t('experience.roles.abp.bullets').map((bullet, k) => (
+                <li key={k} className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2">
+                  <span className="text-gray-400 mt-1">•</span>
+                  <span>{bullet}</span>
+                </li>
+              ))}
             </ul>
           </motion.div>
         </motion.div>
@@ -753,17 +762,20 @@ export default function Portfolio() {
             >
               <div className="flex items-center gap-2 mb-3">
                 <div className="p-2 bg-gray-100 dark:bg-gray-800 rounded text-gray-600 dark:text-gray-400">
-                  <Award className="w-5 h-5" />
+                  <Bot className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-gray-900 dark:text-white">Events GTM Engine</h3>
-                  <div className="text-xs text-gray-500 dark:text-gray-400">Packt (2024)</div>
+                  <h3 className="font-bold text-gray-900 dark:text-white">{t('experience.roles.projects.customGpt.title')}</h3>
                 </div>
               </div>
-              <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">Designed paid acquisition funnel for virtual events.</p>
-              <div className="text-xs font-semibold text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-gray-800 p-2 rounded">
-                Impact: 150+ paid attendees, 8.3x ROAS
-              </div>
+              <ul className="space-y-2">
+                {t('experience.roles.projects.customGpt.bullets').map((bullet, i) => (
+                  <li key={i} className="text-sm text-gray-600 dark:text-gray-400 flex items-start gap-2">
+                    <span className="text-gray-400 mt-1">•</span>
+                    <span>{bullet}</span>
+                  </li>
+                ))}
+              </ul>
             </motion.div>
 
             <motion.div
@@ -773,25 +785,32 @@ export default function Portfolio() {
             >
               <div className="flex items-center gap-2 mb-3">
                 <div className="p-2 bg-gray-100 dark:bg-gray-800 rounded text-gray-600 dark:text-gray-400">
-                  <GraduationCap className="w-5 h-5" />
+                  <MessageSquare className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-gray-900 dark:text-white">Academy Launch</h3>
-                  <div className="text-xs text-gray-500 dark:text-gray-400">Pocket FM (2025)</div>
+                  <h3 className="font-bold text-gray-900 dark:text-white">{t('experience.roles.projects.chatbot.title')}</h3>
                 </div>
               </div>
-              <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">Led creator acquisition for audio series platform.</p>
-              <div className="text-xs font-semibold text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-gray-800 p-2 rounded">
-                Impact: -14% CPA, scaled to new geos
-              </div>
+              <ul className="space-y-2">
+                {t('experience.roles.projects.chatbot.bullets').map((bullet, i) => (
+                  <li key={i} className="text-sm text-gray-600 dark:text-gray-400 flex items-start gap-2">
+                    <span className="text-gray-400 mt-1">•</span>
+                    <span>{bullet}</span>
+                  </li>
+                ))}
+              </ul>
             </motion.div>
           </motion.div>
         </div>
 
         {/* Education - Added mt-12 for spacing */}
         <div className="mt-12">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-gray-900 dark:border-white">Education</h2>
-          <div className="bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-800 rounded p-6">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-gray-900 dark:border-white">{t('experience.education')}</h2>
+          <motion.div
+            variants={itemVariants}
+            className="bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-800 rounded p-6"
+            whileHover={{ y: -5 }}
+          >
             <div className="flex items-start gap-3 mb-3">
               <GraduationCap className="w-5 h-5 text-gray-900 dark:text-white mt-0.5" />
               <div>
@@ -802,13 +821,17 @@ export default function Portfolio() {
             <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Jaypee Institute of Information Technology</p>
             <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">Noida, India • 2020 – 2023</p>
             <p className="text-sm font-medium text-gray-900 dark:text-white">CGPA: 7.7 / 10</p>
-          </div>
+          </motion.div>
         </div>
 
         {/* Certifications - Added mt-12 for spacing */}
         <div className="mt-12">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-gray-900 dark:border-white">Certifications</h2>
-          <div className="bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-800 rounded p-6">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-gray-900 dark:border-white">{t('experience.certifications')}</h2>
+          <motion.div
+            variants={itemVariants}
+            className="bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-800 rounded p-6"
+            whileHover={{ y: -5 }}
+          >
             <ul className="space-y-3">
               {[
                 'Google Ads Certification (Skillshop)',
@@ -822,7 +845,7 @@ export default function Portfolio() {
                 </li>
               ))}
             </ul>
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>
@@ -830,34 +853,24 @@ export default function Portfolio() {
   const CaseStudiesPage = () => {
     const caseStudies = [
       {
-        title: "Shipping a Paid GTM Engine for Packt Events",
-        category: "Growth & GTM",
+        title: t('caseStudies.packt.title'),
+        category: t('caseStudies.packt.category'),
         client: "Packt",
-        problem: "Packt needed to launch a new paid events + newsletter vertical and reach 150+ paid attendees while keeping at least 80 percent of registrations net-new.",
-        actions: [
-          "Designed a 30-day GTM plan with creator affiliates, technical communities, and Meta Ads",
-          "Built UTM taxonomy and daily tracking dashboards to measure net-new acquisition",
-          "Created a partner rev-share model and micro-affiliate testing system",
-          "Sequenced pilot tests, kill-switches, and scale decisions across four growth sprints"
-        ],
+        problem: t('caseStudies.packt.problem'),
+        actions: t('caseStudies.packt.actions'),
         results: [
-          { metric: "Paid Attendees Target", value: "150" },
-          { metric: "Net-New Audience", value: "95%" },
-          { metric: "Blended CAC", value: "£12" },
-          { metric: "Projected ROAS", value: "8.3×" }
+          { metric: t('featuredWork.metrics.attendees'), value: "150" },
+          { metric: t('featuredWork.metrics.netNew'), value: "95%" },
+          { metric: t('featuredWork.metrics.cac'), value: "£12" },
+          { metric: t('featuredWork.metrics.roas'), value: "8.3×" }
         ]
       },
       {
-        title: "30-Day CRO Strategy for JonesRoadBeauty.com",
-        category: "Conversion Rate Optimization",
+        title: t('caseStudies.jrb.title'),
+        category: t('caseStudies.jrb.category'),
         client: "Jones Road Beauty",
-        problem: "The brand was leaking revenue across product pages, shade selection, checkout, and post-purchase flows with no internal analytics access at the start.",
-        actions: [
-          "Mapped the full funnel from PDP to post-purchase using outside-in UX and competitive research",
-          "Built hypothesis-driven test clusters for clarity, shade anxiety, first-time buyers, and checkout confidence",
-          "Sequenced tests to prioritize conversion rate before AOV or urgency",
-          "Defined guardrails and decision rules to prevent noisy or conflicting experiments"
-        ],
+        problem: t('caseStudies.jrb.problem'),
+        actions: t('caseStudies.jrb.actions'),
         results: [
           { metric: "Test Clusters", value: "5" },
           { metric: "Funnel Zones", value: "4" },
@@ -866,16 +879,11 @@ export default function Portfolio() {
         ]
       },
       {
-        title: "Scaling User Acquisition for an Audio Platform",
-        category: "Performance Marketing",
+        title: t('caseStudies.audio.title'),
+        category: t('caseStudies.audio.category'),
         client: "Audio Streaming Platform",
-        problem: "The platform needed to scale user acquisition while maintaining cost efficiency across highly competitive digital channels.",
-        actions: [
-          "Conducted extensive audience testing across demographics and interest segments",
-          "Optimized creative formats specifically for mobile-first consumption patterns",
-          "Ran multiple creative and placement A/B tests to isolate winners",
-          "Used Meta's learning phase and bidding controls to scale efficiently"
-        ],
+        problem: t('caseStudies.audio.problem'),
+        actions: t('caseStudies.audio.actions'),
         results: [
           { metric: "CTR", value: "+16%" },
           { metric: "CPA", value: "−14%" },
@@ -920,12 +928,12 @@ export default function Portfolio() {
 
                 <div className="p-6 space-y-5">
                   <div>
-                    <h3 className="text-xs font-bold text-gray-600 dark:text-gray-400 uppercase mb-2 tracking-wide">Problem Statement</h3>
+                    <h3 className="text-xs font-bold text-gray-600 dark:text-gray-400 uppercase mb-2 tracking-wide">{t('caseStudies.labels.problem')}</h3>
                     <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">{study.problem}</p>
                   </div>
 
                   <div>
-                    <h3 className="text-xs font-bold text-gray-600 dark:text-gray-400 uppercase mb-2 tracking-wide">Actions Taken</h3>
+                    <h3 className="text-xs font-bold text-gray-600 dark:text-gray-400 uppercase mb-2 tracking-wide">{t('caseStudies.labels.actions')}</h3>
                     <ul className="space-y-1.5">
                       {study.actions.map((action, j) => (
                         <li key={j} className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2">
@@ -937,7 +945,7 @@ export default function Portfolio() {
                   </div>
 
                   <div>
-                    <h3 className="text-xs font-bold text-gray-600 dark:text-gray-400 uppercase mb-3 tracking-wide">Key Results</h3>
+                    <h3 className="text-xs font-bold text-gray-600 dark:text-gray-400 uppercase mb-3 tracking-wide">{t('caseStudies.labels.results')}</h3>
                     <div className="grid grid-cols-2 gap-3">
                       {study.results.map((result, j) => (
                         <div key={j} className="bg-gray-50 dark:bg-gray-800/50 border border-gray-300 dark:border-gray-700 rounded p-3 text-center">
@@ -958,33 +966,33 @@ export default function Portfolio() {
 
   const CreativeLabPage = () => {
     const creatives = [
-      { goal: 'Brand Awareness', ctr: '2.8%', cpl: '$12' },
-      { goal: 'Lead Generation', ctr: '3.2%', cpl: '$18' },
-      { goal: 'App Install', ctr: '4.1%', cpl: '$8' },
-      { goal: 'Retargeting', ctr: '5.2%', cpl: '$15' },
-      { goal: 'Product Launch', ctr: '3.9%', cpl: '$22' },
-      { goal: 'Event Registration', ctr: '3.5%', cpl: '$14' },
-      { goal: 'Content Download', ctr: '2.9%', cpl: '$10' },
-      { goal: 'Webinar Sign-up', ctr: '4.3%', cpl: '$25' },
-      { goal: 'Trial Conversion', ctr: '3.7%', cpl: '$30' }
+      { goal: t('creativeLab.goals.brandAwareness'), ctr: '2.8%', cpl: '$12' },
+      { goal: t('creativeLab.goals.leadGen'), ctr: '3.2%', cpl: '$18' },
+      { goal: t('creativeLab.goals.appInstall'), ctr: '4.1%', cpl: '$8' },
+      { goal: t('creativeLab.goals.retargeting'), ctr: '5.2%', cpl: '$15' },
+      { goal: t('creativeLab.goals.productLaunch'), ctr: '3.9%', cpl: '$22' },
+      { goal: t('creativeLab.goals.eventReg'), ctr: '3.5%', cpl: '$14' },
+      { goal: t('creativeLab.goals.contentDownload'), ctr: '2.9%', cpl: '$10' },
+      { goal: t('creativeLab.goals.webinarSignup'), ctr: '4.3%', cpl: '$25' },
+      { goal: t('creativeLab.goals.trialConv'), ctr: '3.7%', cpl: '$30' }
     ];
 
     const videos = [
-      { title: 'Product Demo Ad', type: 'Ad Edit', duration: '0:30' },
-      { title: 'Brand Story', type: 'Promo Video', duration: '1:15' },
-      { title: 'Founder Interview', type: 'Podcast Clip', duration: '2:45' },
-      { title: 'Feature Highlight', type: 'Ad Edit', duration: '0:45' }
+      { title: 'Product Demo Ad', type: t('creativeLab.videoTypes.adEdit'), duration: '0:30' },
+      { title: 'Brand Story', type: t('creativeLab.videoTypes.promo'), duration: '1:15' },
+      { title: 'Founder Interview', type: t('creativeLab.videoTypes.podcast'), duration: '2:45' },
+      { title: 'Feature Highlight', type: t('creativeLab.videoTypes.adEdit'), duration: '0:45' }
     ];
 
     return (
       <div className="pt-20 bg-gray-50 dark:bg-gray-950 min-h-screen transition-colors duration-300">
         <div className="max-w-6xl mx-auto px-8 py-12">
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-3">Creative Lab</h1>
-          <p className="text-gray-600 dark:text-gray-400 mb-8 pb-4 border-b-2 border-gray-900 dark:border-white">Ad creative portfolio and video content</p>
+          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-3">{t('creativeLab.title')}</h1>
+          <p className="text-gray-600 dark:text-gray-400 mb-8 pb-4 border-b-2 border-gray-900 dark:border-white">{t('creativeLab.subtitle')}</p>
 
           {/* Ad Creatives */}
           <div className="mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Ad Creatives</h2>
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">{t('creativeLab.adCreatives')}</h2>
             <motion.div
               className="grid grid-cols-3 gap-4"
               initial="hidden"
@@ -1016,7 +1024,7 @@ export default function Portfolio() {
 
           {/* Video Content */}
           <div>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Video Content</h2>
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">{t('creativeLab.videoContent')}</h2>
             <motion.div
               className="grid md:grid-cols-2 gap-4"
               initial="hidden"
@@ -1057,7 +1065,7 @@ export default function Portfolio() {
           <div className="fixed inset-0 bg-gray-900/60 flex items-center justify-center z-50 p-6">
             <div className="bg-white dark:bg-gray-900 border-2 border-gray-900 dark:border-white rounded max-w-2xl w-full max-h-[90vh] overflow-y-auto">
               <div className="bg-gray-900 dark:bg-gray-800 text-white px-6 py-4 flex items-center justify-between sticky top-0 z-10 border-b border-gray-800 dark:border-gray-700">
-                <h3 className="text-lg font-bold">Campaign Performance</h3>
+                <h3 className="text-lg font-bold">{t('creativeLab.modal.title')}</h3>
                 <button onClick={() => setSelectedCreative(null)} className="hover:bg-white/20 p-1 rounded transition-all">
                   <X className="w-5 h-5" />
                 </button>
@@ -1068,15 +1076,15 @@ export default function Portfolio() {
 
                 <div className="space-y-3 bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded p-4">
                   <div className="flex justify-between items-center pb-2 border-b border-gray-300 dark:border-gray-700">
-                    <span className="text-sm text-gray-600 dark:text-gray-400">Campaign Goal</span>
+                    <span className="text-sm text-gray-600 dark:text-gray-400">{t('creativeLab.metrics.goal')}</span>
                     <span className="font-semibold text-gray-900 dark:text-white">{selectedCreative.goal}</span>
                   </div>
                   <div className="flex justify-between items-center pb-2 border-b border-gray-300 dark:border-gray-700">
-                    <span className="text-sm text-gray-600 dark:text-gray-400">Click-Through Rate</span>
+                    <span className="text-sm text-gray-600 dark:text-gray-400">{t('creativeLab.metrics.ctr')}</span>
                     <span className="font-semibold text-gray-900 dark:text-white">{selectedCreative.ctr}</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-sm text-gray-600 dark:text-gray-400">Cost Per Lead</span>
+                    <span className="text-sm text-gray-600 dark:text-gray-400">{t('creativeLab.metrics.cpl')}</span>
                     <span className="font-semibold text-gray-900 dark:text-white">{selectedCreative.cpl}</span>
                   </div>
                 </div>
@@ -1142,8 +1150,8 @@ export default function Portfolio() {
     return (
       <div className="pt-20 bg-gray-50 dark:bg-gray-950 min-h-screen pb-32 transition-colors duration-300">
         <div className="max-w-6xl mx-auto px-8 py-12">
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-3">Performance Metrics</h1>
-          <p className="text-gray-600 dark:text-gray-400 mb-8 pb-4 border-b-2 border-gray-900 dark:border-white">Channel-wise performance across growth, CRO and paid acquisition</p>
+          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-3">{t('metricsPage.title')}</h1>
+          <p className="text-gray-600 dark:text-gray-400 mb-8 pb-4 border-b-2 border-gray-900 dark:border-white">{t('metricsPage.subtitle')}</p>
 
           <motion.div
             initial="hidden"
@@ -1154,19 +1162,19 @@ export default function Portfolio() {
             {/* Summary Cards */}
             <motion.div variants={itemVariants} className="grid md:grid-cols-4 gap-4 mb-8">
               <motion.div whileHover={{ y: -5 }} className="bg-white dark:bg-gray-900/60 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 text-center">
-                <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2">Total Spend</div>
+                <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2">{t('metricsPage.totalSpend')}</div>
                 <div className="text-3xl font-bold text-gray-900 dark:text-white">${(totalSpend / 1000).toFixed(1)}K</div>
               </motion.div>
               <motion.div whileHover={{ y: -5 }} className="bg-white dark:bg-gray-900/60 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 text-center">
-                <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2">Avg CTR</div>
+                <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2">{t('metricsPage.avgCtr')}</div>
                 <div className="text-3xl font-bold text-gray-900 dark:text-white">{avgCTR.toFixed(2)}%</div>
               </motion.div>
               <motion.div whileHover={{ y: -5 }} className="bg-white dark:bg-gray-900/60 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 text-center">
-                <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2">Avg CVR</div>
+                <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2">{t('metricsPage.avgCvr')}</div>
                 <div className="text-3xl font-bold text-gray-900 dark:text-white">{avgCVR.toFixed(2)}%</div>
               </motion.div>
               <motion.div whileHover={{ y: -5 }} className="bg-white dark:bg-gray-900/60 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 text-center">
-                <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2">Avg ROI</div>
+                <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2">{t('metricsPage.avgRoi')}</div>
                 <div className="text-3xl font-bold text-gray-900 dark:text-white">{avgROI.toFixed(0)}%</div>
               </motion.div>
             </motion.div>
@@ -1174,7 +1182,7 @@ export default function Portfolio() {
             {/* Filters */}
             <motion.div variants={itemVariants} className="flex items-center gap-3 mb-6 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-800 rounded p-4 overflow-x-auto whitespace-nowrap no-scrollbar">
               <Filter className="w-4 h-4 text-gray-600 dark:text-gray-400" />
-              <span className="text-sm font-semibold text-gray-600 dark:text-gray-400 uppercase">Channel</span>
+              <span className="text-sm font-semibold text-gray-600 dark:text-gray-400 uppercase">{t('metricsPage.filters.channel')}</span>
               {['all', 'Meta', 'Google Ads', 'LinkedIn', 'Direct'].map(channel => (
                 <button
                   key={channel}
@@ -1184,7 +1192,7 @@ export default function Portfolio() {
                     : 'bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
                     }`}
                 >
-                  {channel === 'all' ? 'All' : channel}
+                  {channel === 'all' ? t('metricsPage.filters.all') : channel}
                 </button>
               ))}
             </motion.div>
@@ -1195,7 +1203,15 @@ export default function Portfolio() {
                 <table className="w-full">
                   <thead className="bg-gray-900 dark:bg-gray-800 text-white">
                     <tr>
-                      {['Client', 'Channel', 'Spend', 'CTR', 'CPL', 'CVR', 'ROI'].map(header => (
+                      {[
+                        t('metricsPage.table.client'),
+                        t('metricsPage.table.channel'),
+                        t('metricsPage.table.spend'),
+                        t('metricsPage.table.ctr'),
+                        t('metricsPage.table.cpl'),
+                        t('metricsPage.table.cvr'),
+                        t('metricsPage.table.roi')
+                      ].map(header => (
                         <th key={header} className="px-4 py-3 text-left text-xs font-bold uppercase tracking-wider whitespace-nowrap">
                           {header}
                         </th>
@@ -1233,27 +1249,27 @@ export default function Portfolio() {
 
             {/* Signal Boxes */}
             <motion.div variants={itemVariants}>
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Key Insights</h2>
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">{t('metricsPage.insights.title')}</h2>
               <div className="grid md:grid-cols-3 gap-4">
                 <motion.div whileHover={{ y: -5 }} className="bg-white dark:bg-gray-900/60 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5">
-                  <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2">Top Channel</div>
-                  <div className="text-lg font-bold text-gray-900 dark:text-white">Meta Ads</div>
+                  <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2">{t('metricsPage.insights.topChannel.title')}</div>
+                  <div className="text-lg font-bold text-gray-900 dark:text-white">{t('metricsPage.insights.topChannel.name')}</div>
                   <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
-                    Best balance of creative testing, audience learning and scale across Pocket FM, Packt and e-commerce.
+                    {t('metricsPage.insights.topChannel.desc')}
                   </p>
                 </motion.div>
                 <motion.div whileHover={{ y: -5 }} className="bg-white dark:bg-gray-900/60 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5">
-                  <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2">Best CVR</div>
-                  <div className="text-lg font-bold text-gray-900 dark:text-white">LinkedIn (B2B)</div>
+                  <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2">{t('metricsPage.insights.bestCvr.title')}</div>
+                  <div className="text-lg font-bold text-gray-900 dark:text-white">{t('metricsPage.insights.bestCvr.name')}</div>
                   <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
-                    High intent decision makers with slower volume but stronger pipeline quality.
+                    {t('metricsPage.insights.bestCvr.desc')}
                   </p>
                 </motion.div>
                 <motion.div whileHover={{ y: -5 }} className="bg-white dark:bg-gray-900/60 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5">
-                  <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2">Highest ROI</div>
-                  <div className="text-lg font-bold text-gray-900 dark:text-white">Packt GTM</div>
+                  <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2">{t('metricsPage.insights.highestRoi.title')}</div>
+                  <div className="text-lg font-bold text-gray-900 dark:text-white">{t('metricsPage.insights.highestRoi.name')}</div>
                   <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
-                    Creator-led distribution plus Meta amplification produced an 8× revenue multiple.
+                    {t('metricsPage.insights.highestRoi.desc')}
                   </p>
                 </motion.div>
               </div>
@@ -1271,7 +1287,7 @@ export default function Portfolio() {
         {/* Top Section: Contact & Socials */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-8">
           <div className="text-sm text-gray-600 dark:text-gray-400 font-medium">
-            © 2026 Kanishk Singh. All rights reserved.
+            {t('footer.copyright')}
           </div>
 
           <div className="flex items-center gap-6">
@@ -1281,7 +1297,7 @@ export default function Portfolio() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Mail className="w-4 h-4" /> Email Me
+              <Mail className="w-4 h-4" /> {t('footer.emailMe')}
             </motion.a>
             <motion.a
               href="https://www.linkedin.com/in/kanishk-singh-ab90b2203/"
@@ -1311,20 +1327,20 @@ export default function Portfolio() {
         {/* Bottom Section: Hobbies */}
         <div className="flex flex-col items-center justify-center text-center">
           <p className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-4">
-            Off the Clock
+            {t('footer.offClock')}
           </p>
           <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-600 dark:text-gray-400">
             <span className="flex items-center gap-2 hover:text-gray-900 dark:hover:text-white transition-colors cursor-default">
-              <Film className="w-4 h-4" /> Film & Video Editing
+              <Film className="w-4 h-4" /> {t('footer.hobbies.film')}
             </span>
             <span className="flex items-center gap-2 hover:text-gray-900 dark:hover:text-white transition-colors cursor-default">
-              <Camera className="w-4 h-4" /> Photography
+              <Camera className="w-4 h-4" /> {t('footer.hobbies.photography')}
             </span>
             <span className="flex items-center gap-2 hover:text-gray-900 dark:hover:text-white transition-colors cursor-default">
-              <Plane className="w-4 h-4" /> Solo Travel
+              <Plane className="w-4 h-4" /> {t('footer.hobbies.travel')}
             </span>
             <span className="flex items-center gap-2 hover:text-gray-900 dark:hover:text-white transition-colors cursor-default">
-              <BookOpen className="w-4 h-4" /> Journaling
+              <BookOpen className="w-4 h-4" /> {t('footer.hobbies.journaling')}
             </span>
           </div>
         </div>
