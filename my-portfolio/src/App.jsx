@@ -137,7 +137,7 @@ const FooterParticles = () => {
 
   return (
     <div
-      className="fixed bottom-0 left-0 right-0 h-64 -z-10 overflow-hidden pointer-events-none"
+      className="fixed bottom-0 left-0 right-0 h-64 z-0 overflow-hidden pointer-events-none"
       style={{
         maskImage: 'linear-gradient(to top, black, transparent)',
         WebkitMaskImage: 'linear-gradient(to top, black, transparent)'
@@ -180,7 +180,7 @@ const ShootingStars = () => {
   }, []);
 
   return (
-    <div className="fixed inset-0 -z-20 overflow-hidden pointer-events-none">
+    <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
       {stars.map((star, i) => (
         <motion.div
           key={i}
@@ -1449,7 +1449,7 @@ export default function Portfolio() {
       <NavBar />
 
       {/* Main Content Grows to fill space */}
-      <div className="flex-grow">
+      <div className="flex-grow z-10 relative">
         {currentPage === 'home' && <PageWrapper><HomePage /></PageWrapper>}
         {currentPage === 'experience' && <PageWrapper><ExperiencePage /></PageWrapper>}
         {currentPage === 'case-studies' && <PageWrapper><CaseStudiesPage /></PageWrapper>}
