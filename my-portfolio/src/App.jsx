@@ -1091,7 +1091,7 @@ export default function Portfolio() {
     const avgROI = summary?.avgROI || (displayMetrics.length ? displayMetrics.reduce((sum, m) => sum + m.roi, 0) / displayMetrics.length : 0);
 
     return (
-      <div className="pt-20 bg-gray-50 min-h-screen">
+      <div className="pt-20 bg-gray-50 min-h-screen pb-32">
         <div className="max-w-6xl mx-auto px-8 py-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-3">Performance Metrics</h1>
           <p className="text-gray-600 mb-8 pb-4 border-b-2 border-gray-900">Channel-wise performance across growth, CRO and paid acquisition</p>
@@ -1123,7 +1123,7 @@ export default function Portfolio() {
             </motion.div>
 
             {/* Filters */}
-            <motion.div variants={itemVariants} className="flex items-center gap-3 mb-6 bg-white border border-gray-300 rounded p-4">
+            <motion.div variants={itemVariants} className="flex items-center gap-3 mb-6 bg-white border border-gray-300 rounded p-4 overflow-x-auto whitespace-nowrap no-scrollbar">
               <Filter className="w-4 h-4 text-gray-600" />
               <span className="text-sm font-semibold text-gray-600 uppercase">Channel</span>
               {['all', 'Meta', 'Google Ads', 'LinkedIn', 'Direct'].map(channel => (
@@ -1141,43 +1141,45 @@ export default function Portfolio() {
             </motion.div>
 
             {/* Table */}
-            <motion.div variants={itemVariants} className="bg-white border-2 border-gray-300 rounded overflow-hidden mb-8">
-              <table className="w-full">
-                <thead className="bg-gray-900 text-white">
-                  <tr>
-                    {['Client', 'Channel', 'Spend', 'CTR', 'CPL', 'CVR', 'ROI'].map(header => (
-                      <th key={header} className="px-4 py-3 text-left text-xs font-bold uppercase tracking-wider">
-                        {header}
-                      </th>
+            <motion.div variants={itemVariants} className="mb-8">
+              <div className="overflow-x-auto border rounded-lg border-gray-200">
+                <table className="w-full">
+                  <thead className="bg-gray-900 text-white">
+                    <tr>
+                      {['Client', 'Channel', 'Spend', 'CTR', 'CPL', 'CVR', 'ROI'].map(header => (
+                        <th key={header} className="px-4 py-3 text-left text-xs font-bold uppercase tracking-wider whitespace-nowrap">
+                          {header}
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-gray-300 bg-white">
+                    {displayMetrics.map((row, i) => (
+                      <motion.tr
+                        key={i}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: i * 0.05 }}
+                        className="hover:bg-gray-50 transition-colors"
+                      >
+                        <td className="px-4 py-3 text-sm font-semibold text-gray-900 whitespace-nowrap">{row.client}</td>
+                        <td className="px-4 py-3 text-sm whitespace-nowrap">
+                          <span className="px-2 py-1 bg-gray-100 border border-gray-300 rounded text-xs font-semibold text-gray-700">
+                            {row.channel}
+                          </span>
+                        </td>
+                        <td className="px-4 py-3 text-sm font-medium text-gray-900 whitespace-nowrap">${row.spend.toLocaleString()}</td>
+                        <td className="px-4 py-3 text-sm text-gray-900 whitespace-nowrap">{row.ctr}%</td>
+                        <td className="px-4 py-3 text-sm text-gray-900 whitespace-nowrap">${row.cpl}</td>
+                        <td className="px-4 py-3 text-sm text-gray-900 whitespace-nowrap">{row.cvr}%</td>
+                        <td className="px-4 py-3 text-sm whitespace-nowrap">
+                          <span className="font-bold text-green-700">{row.roi}%</span>
+                        </td>
+                      </motion.tr>
                     ))}
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-300">
-                  {displayMetrics.map((row, i) => (
-                    <motion.tr
-                      key={i}
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ delay: i * 0.05 }}
-                      className="hover:bg-gray-50 transition-colors"
-                    >
-                      <td className="px-4 py-3 text-sm font-semibold text-gray-900">{row.client}</td>
-                      <td className="px-4 py-3 text-sm">
-                        <span className="px-2 py-1 bg-gray-100 border border-gray-300 rounded text-xs font-semibold text-gray-700">
-                          {row.channel}
-                        </span>
-                      </td>
-                      <td className="px-4 py-3 text-sm font-medium text-gray-900">${row.spend.toLocaleString()}</td>
-                      <td className="px-4 py-3 text-sm text-gray-900">{row.ctr}%</td>
-                      <td className="px-4 py-3 text-sm text-gray-900">${row.cpl}</td>
-                      <td className="px-4 py-3 text-sm text-gray-900">{row.cvr}%</td>
-                      <td className="px-4 py-3 text-sm">
-                        <span className="font-bold text-green-700">{row.roi}%</span>
-                      </td>
-                    </motion.tr>
-                  ))}
-                </tbody>
-              </table>
+                  </tbody>
+                </table>
+              </div>
             </motion.div>
 
             {/* Signal Boxes */}
