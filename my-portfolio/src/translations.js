@@ -102,8 +102,7 @@ export const translations = {
                     bullets: [
                         "Ran paid search, paid social, and organic campaigns across South Asia for 37+ offices",
                         "Used GA4 funnel analysis and CRO tests to lift conversion rate by ~18% and MQLs by ~22%",
-                        "Built and optimised landing pages, enquiry forms, and lead routing to improve sales handoff",
-                        "Deployed a Landbot chatbot and ran conversation A/B tests to increase lead completion"
+                        "Built and optimised landing pages, enquiry forms, and lead routing to improve sales handoff"
                     ]
                 },
                 tradebuilder: {
@@ -123,7 +122,6 @@ export const translations = {
                     location: "Noida",
                     period: "Jan 2023 – Aug 2023",
                     bullets: [
-                        "Improved search rankings through keyword research, on-page SEO, and metadata optimisation"
                     ]
                 },
                 projects: {
@@ -137,7 +135,8 @@ export const translations = {
                     chatbot: {
                         title: "Chatbot Integration for Intertek India Website",
                         bullets: [
-                            "Deployed and optimised a Landbot chatbot on an Optimizely CMS website to capture and qualify leads across multiple business units using conditional logic and A/B testing."
+                            "Deployed a custom chatbot on an Optimizely CMS website to capture and qualify leads across multiple business units using conditional logic.",
+                            "Ran A/B tests on conversation flows and form fields to increase lead completion rates."
                         ]
                     }
                 }
@@ -359,8 +358,7 @@ export const translations = {
                     bullets: [
                         "Voerde betaalde zoek-, sociale- en organische campagnes uit in Zuid-Azië voor 37+ kantoren",
                         "Gebruikte GA4-trechteranalyse en CRO-tests om de conversieratio met ~18% en MQLs met ~22% te verhogen",
-                        "Bouwde en optimaliseerde landingspagina's, aanvraagformulieren en leadroutering om verkoopoverdracht te verbeteren",
-                        "Implementeerde een Landbot-chatbot en voerde conversatie-A/B-tests uit om leadvoltooiing te verhogen"
+                        "Bouwde en optimaliseerde landingspagina's, aanvraagformulieren en leadroutering om verkoopoverdracht te verbeteren"
                     ]
                 },
                 tradebuilder: {
@@ -380,7 +378,6 @@ export const translations = {
                     location: "Noida",
                     period: "Jan 2023 – Aug 2023",
                     bullets: [
-                        "Verbeterde zoekresultaten door zoekwoordenonderzoek, on-page SEO en metadata-optimalisatie"
                     ]
                 },
                 projects: {
@@ -394,7 +391,8 @@ export const translations = {
                     chatbot: {
                         title: "Chatbot-integratie voor Intertek India Website",
                         bullets: [
-                            "Implementeerde en optimaliseerde een Landbot-chatbot op een Optimizely CMS-website om leads vast te leggen en te kwalificeren voor meerdere bedrijfseenheden met behulp van voorwaardelijke logica en A/B-testen."
+                            "Implementeerde en optimaliseerde een Landbot-chatbot op een Optimizely CMS-website om leads vast te leggen en te kwalificeren voor meerdere bedrijfseenheden met behulp van voorwaardelijke logica.",
+                            "Voerde A/B-testen uit op gespreksstromen en formuliervelden om het voltooiingspercentage van leads te verhogen."
                         ]
                     }
                 }

@@ -480,7 +480,7 @@ export default function Portfolio() {
             {(() => {
               const icons = { Target: <Target className="w-5 h-5" />, TrendingUp: <TrendingUp className="w-5 h-5" />, LineChart: <LineChart className="w-5 h-5" /> };
               return t('experience.competencies', { returnObjects: true })?.map((competency, i) => (
-                <motion.div key={i} variants={itemVariants} className="bg-white dark:bg-gray-800/50 backdrop-blur-md border border-gray-300 dark:border-gray-700 rounded p-5">
+                <motion.div key={i} variants={itemVariants} className="bg-white dark:bg-gray-800/50 backdrop-blur-md border border-gray-300 dark:border-gray-700 rounded p-5 hover:border-gray-900 dark:hover:border-white transition-all" whileHover={{ y: -5 }}>
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-9 h-9 bg-gray-900 dark:bg-white rounded flex items-center justify-center text-white dark:text-gray-900">{icons[competency.icon]}</div>
                     <h3 className="font-semibold text-gray-900 dark:text-white text-base">{competency.title}</h3>
@@ -624,7 +624,7 @@ export default function Portfolio() {
             <ul className="space-y-2">
               {t('experience.roles.pocketfm.bullets').map((bullet, k) => (
                 <li key={k} className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2">
-                  <span className="text-gray-400 mt-1">•</span>
+                  <span className="text-gray-400 mt-1.5">•</span>
                   <span>{bullet}</span>
                 </li>
               ))}
@@ -662,7 +662,7 @@ export default function Portfolio() {
             <ul className="space-y-2">
               {t('experience.roles.intertek.bullets').map((bullet, k) => (
                 <li key={k} className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2">
-                  <span className="text-gray-400 mt-1">•</span>
+                  <span className="text-gray-400 mt-1.5">•</span>
                   <span>{bullet}</span>
                 </li>
               ))}
@@ -700,7 +700,7 @@ export default function Portfolio() {
             <ul className="space-y-2">
               {t('experience.roles.tradebuilder.bullets').map((bullet, k) => (
                 <li key={k} className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2">
-                  <span className="text-gray-400 mt-1">•</span>
+                  <span className="text-gray-400 mt-1.5">•</span>
                   <span>{bullet}</span>
                 </li>
               ))}
@@ -738,7 +738,7 @@ export default function Portfolio() {
             <ul className="space-y-2">
               {t('experience.roles.abp.bullets').map((bullet, k) => (
                 <li key={k} className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2">
-                  <span className="text-gray-400 mt-1">•</span>
+                  <span className="text-gray-400 mt-1.5">•</span>
                   <span>{bullet}</span>
                 </li>
               ))}
@@ -775,7 +775,7 @@ export default function Portfolio() {
               <ul className="space-y-2">
                 {t('experience.roles.projects.customGpt.bullets').map((bullet, i) => (
                   <li key={i} className="text-sm text-gray-600 dark:text-gray-400 flex items-start gap-2">
-                    <span className="text-gray-400 mt-1">•</span>
+                    <span className="text-gray-400 mt-1.5">•</span>
                     <span>{bullet}</span>
                   </li>
                 ))}
@@ -798,7 +798,7 @@ export default function Portfolio() {
               <ul className="space-y-2">
                 {t('experience.roles.projects.chatbot.bullets').map((bullet, i) => (
                   <li key={i} className="text-sm text-gray-600 dark:text-gray-400 flex items-start gap-2">
-                    <span className="text-gray-400 mt-1">•</span>
+                    <span className="text-gray-400 mt-1.5">•</span>
                     <span>{bullet}</span>
                   </li>
                 ))}
