@@ -457,7 +457,7 @@ export default function Portfolio() {
               {[
                 { label: t('featuredWork.metrics.attendees'), value: '150' },
                 { label: t('featuredWork.metrics.netNew'), value: '95%' },
-                { label: t('featuredWork.metrics.cac'), value: '£12' },
+                { label: t('featuredWork.metrics.cac'), value: '$12' },
                 { label: t('featuredWork.metrics.roas'), value: '8.3×' }
               ].map((metric, i) => (
                 <div key={i} className="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded p-3 text-center">
@@ -915,7 +915,7 @@ export default function Portfolio() {
         results: [
           { metric: t('featuredWork.metrics.attendees'), value: "150" },
           { metric: t('featuredWork.metrics.netNew'), value: "95%" },
-          { metric: t('featuredWork.metrics.cac'), value: "£12" },
+          { metric: t('featuredWork.metrics.cac'), value: "$12" },
           { metric: t('featuredWork.metrics.roas'), value: "8.3×" }
         ]
       },

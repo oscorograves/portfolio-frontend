@@ -220,7 +220,7 @@ export const translations = {
             packt: {
                 title: "Scaling Paid GTM for Events",
                 category: "Growth & GTM",
-                problem: "Packt needed to launch a new paid events + newsletter vertical and reach 150+ paid attendees while keeping at least 80 percent of registrations net-new.",
+                problem: "Packt needed to launch a new paid events + newsletter vertical and reach 150+ paid attendees while keeping at least 80% of registrations net-new.",
                 actions: [
                     "Designed a 30-day GTM plan with creator affiliates, technical communities, and Meta Ads",
                     "Built UTM taxonomy and daily tracking dashboards to measure net-new acquisition",
@@ -479,7 +479,7 @@ export const translations = {
             packt: {
                 title: "Schalen van Betaalde GTM voor Evenementen",
                 category: "Groei & GTM",
-                problem: "Packt moest een nieuwe betaalde evenementen + nieuwsbrief vertical lanceren en 150+ betaalde bezoekers bereiken en tegelijkertijd minstens 80 procent van de registraties netto-nieuw houden.",
+                problem: "Packt moest een nieuwe betaalde evenementen + nieuwsbrief vertical lanceren en 150+ betaalde bezoekers bereiken en tegelijkertijd minstens 80% van de registraties netto-nieuw houden.",
                 actions: [
                     "Ontwierp een 30-daags GTM-plan met creator-partners, technische gemeenschappen en Meta Ads",
                     "Bouwde UTM-taxonomie en dagelijkse trackingdashboards om netto-nieuwe acquisitie te meten",
