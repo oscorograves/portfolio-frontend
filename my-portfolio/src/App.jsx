@@ -874,10 +874,11 @@ export default function Portfolio() {
         </div>
 
         {/* Creative Modal */}
+        {/* Creative Modal */}
         {selectedCreative && (
           <div className="fixed inset-0 bg-gray-900/60 flex items-center justify-center z-50 p-6">
-            <div className="bg-white border-2 border-gray-900 rounded max-w-2xl w-full overflow-hidden">
-              <div className="bg-gray-900 text-white px-6 py-4 flex items-center justify-between">
+            <div className="bg-white border-2 border-gray-900 rounded max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+              <div className="bg-gray-900 text-white px-6 py-4 flex items-center justify-between sticky top-0 z-10">
                 <h3 className="text-lg font-bold">Campaign Performance</h3>
                 <button onClick={() => setSelectedCreative(null)} className="hover:bg-white/20 p-1 rounded transition-all">
                   <X className="w-5 h-5" />
@@ -885,7 +886,7 @@ export default function Portfolio() {
               </div>
 
               <div className="p-6">
-                <div className="aspect-square bg-gradient-to-br from-gray-100 to-gray-200 rounded mb-6 border border-gray-300"></div>
+                <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 rounded mb-6 border border-gray-300"></div>
 
                 <div className="space-y-3 bg-gray-50 border border-gray-300 rounded p-4">
                   <div className="flex justify-between items-center pb-2 border-b border-gray-300">
