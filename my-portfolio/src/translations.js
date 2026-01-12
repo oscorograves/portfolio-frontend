@@ -54,7 +54,7 @@ export const translations = {
             email: "Email Me",
             offClock: "Off the Clock",
             hobbies: {
-                film: "Film Analysis",
+                film: "Film and Video Editing",
                 photography: "Photography",
                 travel: "Solo Travel",
                 journaling: "Journaling"
