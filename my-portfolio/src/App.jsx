@@ -469,7 +469,7 @@ export default function Portfolio() {
       {/* Core Competencies */}
       <section className="bg-white dark:bg-gray-900 border-b border-gray-300 dark:border-gray-800 transition-colors duration-300">
         <div className="max-w-6xl mx-auto px-8 py-12">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-gray-900 dark:border-white">Core Competencies</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-gray-900 dark:border-white">{t('experience.skills')}</h2>
           <motion.div
             className="grid md:grid-cols-3 gap-6"
             initial="hidden"
@@ -477,32 +477,31 @@ export default function Portfolio() {
             viewport={{ once: true }}
             variants={containerVariants}
           >
-            {[
-              { title: t('experience.skills'), icon: <Target className="w-5 h-5" />, skills: ['Paid Media (Meta, Google, LinkedIn)', 'Campaign Strategy & Scaling', 'Budget Optimization'] },
-              { title: 'Growth Marketing', icon: <TrendingUp className="w-5 h-5" />, skills: ['Landing Page Design', 'Funnel Optimization', 'User Experience Enhancement'] },
-              { title: 'Analytics & CRO', icon: <LineChart className="w-5 h-5" />, skills: ['GA4 Implementation', 'A/B Testing', 'Performance Dashboards'] }
-            ].map((competency, i) => (
-              <motion.div key={i} variants={itemVariants} className="bg-white dark:bg-gray-800/50 backdrop-blur-md border border-gray-300 dark:border-gray-700 rounded p-5">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-9 h-9 bg-gray-900 dark:bg-white rounded flex items-center justify-center text-white dark:text-gray-900">{competency.icon}</div>
-                  <h3 className="font-semibold text-gray-900 dark:text-white text-base">{competency.title}</h3>
-                </div>
-                <ul className="space-y-1.5">
-                  {competency.skills.map((skill, j) => (
-                    <motion.li
-                      key={j}
-                      initial={{ opacity: 0, x: -10 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ delay: j * 0.1 }}
-                      className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2"
-                    >
-                      <span className="text-gray-400 mt-1.5">•</span>
-                      <span>{skill}</span>
-                    </motion.li>
-                  ))}
-                </ul>
-              </motion.div>
-            ))}
+            {(() => {
+              const icons = { Target: <Target className="w-5 h-5" />, TrendingUp: <TrendingUp className="w-5 h-5" />, LineChart: <LineChart className="w-5 h-5" /> };
+              return t('experience.competencies', { returnObjects: true })?.map((competency, i) => (
+                <motion.div key={i} variants={itemVariants} className="bg-white dark:bg-gray-800/50 backdrop-blur-md border border-gray-300 dark:border-gray-700 rounded p-5">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-9 h-9 bg-gray-900 dark:bg-white rounded flex items-center justify-center text-white dark:text-gray-900">{icons[competency.icon]}</div>
+                    <h3 className="font-semibold text-gray-900 dark:text-white text-base">{competency.title}</h3>
+                  </div>
+                  <ul className="space-y-1.5">
+                    {competency.skills.map((skill, j) => (
+                      <motion.li
+                        key={j}
+                        initial={{ opacity: 0, x: -10 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ delay: j * 0.1 }}
+                        className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2"
+                      >
+                        <span className="text-gray-400 mt-1.5">•</span>
+                        <span>{skill}</span>
+                      </motion.li>
+                    ))}
+                  </ul>
+                </motion.div>
+              ));
+            })()}
           </motion.div>
         </div>
       </section>
@@ -519,7 +518,7 @@ export default function Portfolio() {
             variants={containerVariants}
           >
             <motion.div variants={itemVariants}>
-              <h3 className="font-semibold text-gray-900 dark:text-white mb-3">Platforms & Tools</h3>
+              <h3 className="font-semibold text-gray-900 dark:text-white mb-3">{t('experience.platformsParams')}</h3>
               <motion.div
                 className="flex flex-wrap gap-2"
                 variants={containerVariants}
@@ -537,7 +536,7 @@ export default function Portfolio() {
               </motion.div>
             </motion.div>
             <motion.div variants={itemVariants}>
-              <h3 className="font-semibold text-gray-900 dark:text-white mb-3">Languages</h3>
+              <h3 className="font-semibold text-gray-900 dark:text-white mb-3">{t('experience.languages')}</h3>
               <div className="space-y-2">
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-gray-700 dark:text-gray-300">Hindi</span>
@@ -545,7 +544,7 @@ export default function Portfolio() {
                     whileHover={{ scale: 1.1 }}
                     className="text-xs text-gray-600 dark:text-gray-400 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 px-2 py-1 rounded cursor-default"
                   >
-                    Native
+                    {t('experience.languageLevels.native')}
                   </motion.span>
                 </div>
                 <div className="flex justify-between items-center">
@@ -554,7 +553,7 @@ export default function Portfolio() {
                     whileHover={{ scale: 1.1 }}
                     className="text-xs text-gray-600 dark:text-gray-400 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 px-2 py-1 rounded cursor-default"
                   >
-                    C1
+                    {t('experience.languageLevels.c1')}
                   </motion.span>
 
                 </div>
@@ -565,7 +564,7 @@ export default function Portfolio() {
                     whileHover={{ scale: 1.1 }}
                     className="text-xs text-gray-600 dark:text-gray-400 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 px-2 py-1 rounded cursor-default"
                   >
-                    A2
+                    {t('experience.languageLevels.a2')}
                   </motion.span>
 
                 </div>

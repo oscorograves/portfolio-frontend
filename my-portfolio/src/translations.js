@@ -64,7 +64,19 @@ export const translations = {
             title: "Professional Experience",
             present: "Present",
             skills: "Core Competencies",
+            competencies: [
+                { title: "Performance Marketing", icon: "Target", skills: ["Paid Media (Meta, Google, LinkedIn)", "Campaign Strategy & Scaling", "Budget Optimization"] },
+                { title: "Growth Marketing", icon: "TrendingUp", skills: ["Landing Page Design", "Funnel Optimization", "User Experience Enhancement"] },
+                { title: "Analytics & CRO", icon: "LineChart", skills: ["GA4 Implementation", "A/B Testing", "Performance Dashboards"] }
+            ],
+            digitalSkills: "Digital Skills",
+            platformsParams: "Platforms & Tools",
             languages: "Languages",
+            languageLevels: {
+                native: "Native",
+                c1: "C1 (Advanced)",
+                a2: "A2 (Elementary)"
+            },
             education: "Education",
             certifications: "Certifications",
             resumeDownload: "Download Full Resume",
@@ -118,15 +130,14 @@ export const translations = {
                     customGpt: {
                         title: "Custom GPT for Marketing Intelligence",
                         bullets: [
-                            "Engineered a custom GPT integrating SEMrush, Ahrefs, and GA4 to automate competitor intelligence and keyword strategy.",
-                            "Standardized cross-market insights with structured prompt engineering, significantly reducing manual research overhead."
+                            "Built a custom GPT integrating SEMrush, Ahrefs, and GA4 to automate competitor analysis, keyword research, and reporting.",
+                            "Reduced manual research time and standardised insights across campaigns."
                         ]
                     },
                     chatbot: {
                         title: "Chatbot Integration for Intertek India Website",
                         bullets: [
-                            "Launched a high-intent lead capture engine using Landbot on Optimizely CMS, streamlining qualification for multiple business units.",
-                            "Optimized conversion paths via A/B testing conditional flows, driving higher lead completion rates and user engagement."
+                            "Deployed and optimised a Landbot chatbot on an Optimizely CMS website to capture and qualify leads across multiple business units using conditional logic and A/B testing."
                         ]
                     }
                 }
@@ -310,7 +321,19 @@ export const translations = {
             title: "Professionele Ervaring",
             present: "Heden",
             skills: "Kerncompetenties",
+            competencies: [
+                { title: "Prestatiemarketing", icon: "Target", skills: ["Betaalde Media (Meta, Google, LinkedIn)", "Campagnestrategie & Schalen", "Budgetoptimalisatie"] },
+                { title: "Groeimarketing", icon: "TrendingUp", skills: ["Landingspagina Ontwerp", "Trechteroptimalisatie", "Optimalisatie Gebruikerservaring"] },
+                { title: "Analytics & CRO", icon: "LineChart", skills: ["GA4 Implementatie", "A/B Testen", "Prestatiedashboards"] }
+            ],
+            digitalSkills: "Digitale Vaardigheden",
+            platformsParams: "Platformen & Tools",
             languages: "Talen",
+            languageLevels: {
+                native: "Moedertaal",
+                c1: "C1 (Gevorderd)",
+                a2: "A2 (Elementair)"
+            },
             education: "Opleiding",
             certifications: "Certificeringen",
             resumeDownload: "Download Volledig CV",
@@ -364,15 +387,14 @@ export const translations = {
                     customGpt: {
                         title: "Aangepaste GPT voor Marketing Intelligence",
                         bullets: [
-                            "Ontwikkelde een aangepaste GPT die SEMrush, Ahrefs en GA4 integreert om concurrentie-inzichten en zoekwoordstrategie te automatiseren.",
-                            "Standaardiseerde inzichten over markten heen met gestructureerde prompt engineering, waardoor de handmatige onderzoekslast aanzienlijk werd verminderd."
+                            "Bouwde een aangepaste GPT die SEMrush, Ahrefs en GA4 integreert om concurrentieanalyse, zoekwoordonderzoek en rapportage te automatiseren.",
+                            "Verminderde handmatige onderzoekstijd en standaardiseerde inzichten over campagnes heen."
                         ]
                     },
                     chatbot: {
                         title: "Chatbot-integratie voor Intertek India Website",
                         bullets: [
-                            "Lanceerde een engine voor het vastleggen van leads met hoge intentie met behulp van Landbot op Optimizely CMS, wat de kwalificatie voor meerdere business units stroomlijnde.",
-                            "Optimaliseerde conversiepaden via A/B-testen van voorwaardelijke stromen, wat leidde tot hogere leadvoltooiingspercentages en gebruikersbetrokkenheid."
+                            "Implementeerde en optimaliseerde een Landbot-chatbot op een Optimizely CMS-website om leads vast te leggen en te kwalificeren voor meerdere bedrijfseenheden met behulp van voorwaardelijke logica en A/B-testen."
                         ]
                     }
                 }
