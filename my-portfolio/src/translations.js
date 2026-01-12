@@ -122,6 +122,8 @@ export const translations = {
                     location: "Noida",
                     period: "Jan 2023 – Aug 2023",
                     bullets: [
+                        "Scaled Instagram to 3,000+ and YouTube to 10,000+ followers using organic-first growth",
+                        "Improved search rankings through keyword research, on-page SEO, and metadata optimisation"
                     ]
                 },
                 projects: {
@@ -378,6 +380,8 @@ export const translations = {
                     location: "Noida",
                     period: "Jan 2023 – Aug 2023",
                     bullets: [
+                        "Schaalde Instagram naar 3.000+ en YouTube naar 10.000+ volgers met behulp van organische groei",
+                        "Verbeterde zoekresultaten door zoekwoordenonderzoek, on-page SEO en metadata-optimalisatie"
                     ]
                 },
                 projects: {
