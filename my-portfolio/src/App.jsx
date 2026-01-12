@@ -84,7 +84,7 @@ export default function Portfolio() {
                     <Linkedin className="w-4 h-4 mt-0.5 flex-shrink-0" />
                     {/* UPDATED LINKEDIN LINK */}
                     <a href="https://www.linkedin.com/in/kanishk-singh-ab90b2203/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 transition-colors break-all">
-                      linkedin.com/in/kanishk-singh-ab90b2203/
+                      LinkedIn
                     </a>
                   </div>
                 </div>
