@@ -10,9 +10,9 @@ export default function Portfolio() {
     <nav className="fixed top-0 left-0 right-0 bg-white border-b border-gray-300 z-50">
       <div className="max-w-6xl mx-auto px-8 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <img 
-            src="/profile.jpeg" 
-            alt="Kanishka Singh" 
+          <img
+            src="/profile.jpeg"
+            alt="Kanishka Singh"
             className="w-10 h-10 rounded-full object-cover border border-gray-300"
           />
           <div>
@@ -25,11 +25,10 @@ export default function Portfolio() {
             <button
               key={page}
               onClick={() => setCurrentPage(page)}
-              className={`px-4 py-2 text-sm transition-all rounded ${
-                currentPage === page 
-                  ? 'bg-gray-900 text-white' 
+              className={`px-4 py-2 text-sm transition-all rounded ${currentPage === page
+                  ? 'bg-gray-900 text-white'
                   : 'text-gray-700 hover:bg-gray-100'
-              }`}
+                }`}
             >
               {page.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}
             </button>
@@ -64,7 +63,7 @@ export default function Portfolio() {
                 </button>
               </div>
             </div>
-            
+
             <div className="space-y-4">
               <div className="bg-gray-50 border border-gray-300 rounded p-4">
                 <h3 className="text-xs font-semibold text-gray-600 uppercase mb-3">Contact Information</h3>
@@ -560,7 +559,7 @@ export default function Portfolio() {
         <div className="max-w-6xl mx-auto px-8 py-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-3">Case Studies</h1>
           <p className="text-gray-600 mb-8 pb-4 border-b-2 border-gray-900">Detailed performance marketing projects and results</p>
-          
+
           <div className="space-y-6">
             {caseStudies.map((study, i) => (
               <div key={i} className="bg-white border border-gray-300 rounded overflow-hidden">
@@ -575,13 +574,13 @@ export default function Portfolio() {
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="p-6 space-y-5">
                   <div>
                     <h3 className="text-xs font-bold text-gray-600 uppercase mb-2 tracking-wide">Problem Statement</h3>
                     <p className="text-sm text-gray-700 leading-relaxed">{study.problem}</p>
                   </div>
-                  
+
                   <div>
                     <h3 className="text-xs font-bold text-gray-600 uppercase mb-2 tracking-wide">Actions Taken</h3>
                     <ul className="space-y-1.5">
@@ -593,7 +592,7 @@ export default function Portfolio() {
                       ))}
                     </ul>
                   </div>
-                  
+
                   <div>
                     <h3 className="text-xs font-bold text-gray-600 uppercase mb-3 tracking-wide">Key Results</h3>
                     <div className="grid grid-cols-2 gap-3">
@@ -639,7 +638,7 @@ export default function Portfolio() {
         <div className="max-w-6xl mx-auto px-8 py-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-3">Creative Lab</h1>
           <p className="text-gray-600 mb-8 pb-4 border-b-2 border-gray-900">Ad creative portfolio and video content</p>
-          
+
           {/* Ad Creatives */}
           <div className="mb-12">
             <h2 className="text-2xl font-bold text-gray-900 mb-6">Ad Creatives</h2>
@@ -695,10 +694,10 @@ export default function Portfolio() {
                   <X className="w-5 h-5" />
                 </button>
               </div>
-              
+
               <div className="p-6">
                 <div className="aspect-square bg-gradient-to-br from-gray-100 to-gray-200 rounded mb-6 border border-gray-300"></div>
-                
+
                 <div className="space-y-3 bg-gray-50 border border-gray-300 rounded p-4">
                   <div className="flex justify-between items-center pb-2 border-b border-gray-300">
                     <span className="text-sm text-gray-600">Campaign Goal</span>
@@ -743,10 +742,10 @@ export default function Portfolio() {
     useEffect(() => {
       const fetchMetrics = async () => {
         try {
-          const data = filterChannel === 'all' 
+          const data = filterChannel === 'all'
             ? await metricsAPI.getAll()
             : await metricsAPI.getByChannel(filterChannel);
-          
+
           if (data && (data.metrics || data.metricsData)) {
             setMetrics(data.metrics || data.metricsData);
             setSummary(data.summary || null);
@@ -755,7 +754,7 @@ export default function Portfolio() {
           console.log('Using fallback data (API Silent Fail)');
           // No action needed, we already have fallback data set
           if (filterChannel !== 'all') {
-             setMetrics(fallbackMetrics.filter(m => m.channel === filterChannel));
+            setMetrics(fallbackMetrics.filter(m => m.channel === filterChannel));
           }
         }
       };
@@ -775,7 +774,7 @@ export default function Portfolio() {
         <div className="max-w-6xl mx-auto px-8 py-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-3">Performance Metrics</h1>
           <p className="text-gray-600 mb-8 pb-4 border-b-2 border-gray-900">Channel-wise performance across growth, CRO and paid acquisition</p>
-          
+
           {/* Summary Cards */}
           <div className="grid md:grid-cols-4 gap-4 mb-8">
             <div className="bg-white border border-gray-300 rounded p-5 text-center">
@@ -795,7 +794,7 @@ export default function Portfolio() {
               <div className="text-3xl font-bold text-gray-900">{avgROI.toFixed(0)}%</div>
             </div>
           </div>
-          
+
           {/* Filters */}
           <div className="flex items-center gap-3 mb-6 bg-white border border-gray-300 rounded p-4">
             <Filter className="w-4 h-4 text-gray-600" />
@@ -804,11 +803,10 @@ export default function Portfolio() {
               <button
                 key={channel}
                 onClick={() => setFilterChannel(channel)}
-                className={`px-3 py-1.5 text-sm font-medium rounded transition-all ${
-                  filterChannel === channel
+                className={`px-3 py-1.5 text-sm font-medium rounded transition-all ${filterChannel === channel
                     ? 'bg-gray-900 text-white'
                     : 'bg-gray-50 border border-gray-300 text-gray-700 hover:bg-gray-100'
-                }`}
+                  }`}
               >
                 {channel === 'all' ? 'All' : channel}
               </button>
@@ -881,14 +879,64 @@ export default function Portfolio() {
     );
   };
 
+  const Footer = () => (
+    <footer className="bg-white border-t border-gray-300 py-12 mt-12">
+      <div className="max-w-6xl mx-auto px-8">
+
+        {/* Top Section: Contact & Socials */}
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-8">
+          <div className="text-sm text-gray-600 font-medium">
+            © 2026 Kanishka Singh. All rights reserved.
+          </div>
+
+          <div className="flex items-center gap-6">
+            <a href="mailto:oscoro.graves@gmail.com" className="text-gray-600 hover:text-gray-900 transition-colors flex items-center gap-2 text-sm font-medium">
+              <Mail className="w-4 h-4" /> Email Me
+            </a>
+            <a href="https://www.linkedin.com/in/kanishk-singh-ab90b2203/" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-gray-900 transition-colors flex items-center gap-2 text-sm font-medium">
+              <Linkedin className="w-4 h-4" /> LinkedIn
+            </a>
+          </div>
+        </div>
+
+        {/* Divider */}
+        <div className="border-t border-gray-200 w-full mb-8"></div>
+
+        {/* Bottom Section: Hobbies */}
+        <div className="flex flex-col items-center justify-center text-center">
+          <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">
+            Off the Clock
+          </p>
+          <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-600">
+            <span className="flex items-center gap-2 hover:text-gray-900 transition-colors cursor-default">
+              🎬 Film & Video Editing
+            </span>
+            <span className="flex items-center gap-2 hover:text-gray-900 transition-colors cursor-default">
+              📸 Photography
+            </span>
+            <span className="flex items-center gap-2 hover:text-gray-900 transition-colors cursor-default">
+              ✍️ Solo Travel Journaling
+            </span>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 flex flex-col">
       <NavBar />
-      {currentPage === 'home' && <HomePage />}
-      {currentPage === 'experience' && <ExperiencePage />}
-      {currentPage === 'case-studies' && <CaseStudiesPage />}
-      {currentPage === 'creative-lab' && <CreativeLabPage />}
-      {currentPage === 'metrics' && <MetricsPage />}
+
+      {/* Main Content Grows to fill space */}
+      <div className="flex-grow">
+        {currentPage === 'home' && <HomePage />}
+        {currentPage === 'experience' && <ExperiencePage />}
+        {currentPage === 'case-studies' && <CaseStudiesPage />}
+        {currentPage === 'creative-lab' && <CreativeLabPage />}
+        {currentPage === 'metrics' && <MetricsPage />}
+      </div>
+
+      <Footer />
     </div>
   );
 }
