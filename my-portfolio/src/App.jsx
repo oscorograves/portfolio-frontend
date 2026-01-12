@@ -946,7 +946,7 @@ export default function Portfolio() {
         initial={{ y: 100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 1, type: "spring", stiffness: 120 }}
-        className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-md"
+        className="fixed bottom-6 right-6 z-50 w-auto max-w-sm"
       >
         {/* The Audio Element (Hidden) */}
         <audio ref={audioRef} src="/song.mp3" loop />
@@ -961,7 +961,7 @@ export default function Portfolio() {
             </div>
             <div className="flex flex-col min-w-0">
               <span className="text-xs font-bold truncate">Portfolio Mix</span>
-              <span className="text-[10px] text-gray-400 truncate">Kanishka Singh</span>
+              <span className="text-[10px] text-gray-400 truncate">Kanishk Singh</span>
             </div>
           </div>
 
