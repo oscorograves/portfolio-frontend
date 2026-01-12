@@ -70,7 +70,7 @@ export default function Portfolio() {
                 <div className="space-y-2 text-sm">
                   <div className="flex items-start gap-2 text-gray-700">
                     <Mail className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                    <span>oscoro.graves@gmail.com</span>
+                    <a href="mailto:oscoro.graves@gmail.com" className="hover:text-gray-900 transition-colors">Email Me</a>
                   </div>
                   <div className="flex items-start gap-2 text-gray-700">
                     <Phone className="w-4 h-4 mt-0.5 flex-shrink-0" />
