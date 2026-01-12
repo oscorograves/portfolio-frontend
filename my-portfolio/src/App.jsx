@@ -257,11 +257,7 @@ export default function Portfolio() {
             </div>
 
             <motion.div variants={itemVariants} className="space-y-4">
-              {/* Profile Picture with Hero Glow */}
-              <div className="relative inline-block w-full max-w-[200px] mx-auto md:max-w-none">
-                <div className="absolute -inset-4 bg-gradient-to-r from-blue-400 to-purple-500 opacity-30 blur-2xl rounded-full"></div>
-                <img src="/profile.jpeg" alt="Kanishk Singh" className="relative w-full rounded-2xl object-cover border border-gray-300 shadow-lg" />
-              </div>
+
 
               <div className="bg-gray-50 border border-gray-300 rounded p-4">
                 <h3 className="text-xs font-semibold text-gray-600 uppercase mb-3">Contact Information</h3>
