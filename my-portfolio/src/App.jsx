@@ -233,7 +233,7 @@ export default function Portfolio() {
                   whileTap={{ scale: 0.95 }}
                   href="/resume.pdf"
                   download="Kanishk_Singh_Resume.pdf"
-                  className="px-5 py-2.5 border-2 border-gray-900 text-gray-900 text-sm font-medium rounded hover:bg-gray-50 transition-all flex items-center gap-2 cursor-pointer"
+                  className="px-5 py-2.5 border-2 border-gray-900 text-gray-900 text-sm font-medium rounded hover:bg-gray-50 transition-all flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <Download className="w-4 h-4" />
                   Download CV
