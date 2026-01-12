@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { TrendingUp, Target, LineChart, ChevronRight, Play, X, Filter, Mail, Phone, MapPin, Linkedin, Download, Calendar, Briefcase, GraduationCap, Award } from 'lucide-react';
+import { TrendingUp, Target, LineChart, ChevronRight, Play, X, Filter, Mail, Phone, MapPin, Linkedin, Download, Calendar, Briefcase, GraduationCap, Award, Film, Camera, Plane, BookOpen } from 'lucide-react';
 import { metricsAPI } from './services/api.js';
 
 export default function Portfolio() {
@@ -26,8 +26,8 @@ export default function Portfolio() {
               key={page}
               onClick={() => setCurrentPage(page)}
               className={`px-4 py-2 text-sm transition-all rounded ${currentPage === page
-                  ? 'bg-gray-900 text-white'
-                  : 'text-gray-700 hover:bg-gray-100'
+                ? 'bg-gray-900 text-white'
+                : 'text-gray-700 hover:bg-gray-100'
                 }`}
             >
               {page.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}
@@ -804,8 +804,8 @@ export default function Portfolio() {
                 key={channel}
                 onClick={() => setFilterChannel(channel)}
                 className={`px-3 py-1.5 text-sm font-medium rounded transition-all ${filterChannel === channel
-                    ? 'bg-gray-900 text-white'
-                    : 'bg-gray-50 border border-gray-300 text-gray-700 hover:bg-gray-100'
+                  ? 'bg-gray-900 text-white'
+                  : 'bg-gray-50 border border-gray-300 text-gray-700 hover:bg-gray-100'
                   }`}
               >
                 {channel === 'all' ? 'All' : channel}
@@ -886,7 +886,7 @@ export default function Portfolio() {
         {/* Top Section: Contact & Socials */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-8">
           <div className="text-sm text-gray-600 font-medium">
-            © 2026 Kanishka Singh. All rights reserved.
+            © 2026 Kanishk Singh. All rights reserved.
           </div>
 
           <div className="flex items-center gap-6">
@@ -904,18 +904,21 @@ export default function Portfolio() {
 
         {/* Bottom Section: Hobbies */}
         <div className="flex flex-col items-center justify-center text-center">
-          <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">
+          <p className="text-xs font-semibold text-gray-600 uppercase mb-4">
             Off the Clock
           </p>
           <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-600">
             <span className="flex items-center gap-2 hover:text-gray-900 transition-colors cursor-default">
-              🎬 Film & Video Editing
+              <Film className="w-4 h-4" /> Film & Video Editing
             </span>
             <span className="flex items-center gap-2 hover:text-gray-900 transition-colors cursor-default">
-              📸 Photography
+              <Camera className="w-4 h-4" /> Photography
             </span>
             <span className="flex items-center gap-2 hover:text-gray-900 transition-colors cursor-default">
-              ✍️ Solo Travel Journaling
+              <Plane className="w-4 h-4" /> Solo Travel
+            </span>
+            <span className="flex items-center gap-2 hover:text-gray-900 transition-colors cursor-default">
+              <BookOpen className="w-4 h-4" /> Journaling
             </span>
           </div>
         </div>
