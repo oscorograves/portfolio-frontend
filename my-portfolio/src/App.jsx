@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-import { TrendingUp, Target, LineChart, ChevronRight, Play, X, Menu, Filter, Mail, Phone, MapPin, Linkedin, Download, Calendar, Briefcase, GraduationCap, Award, Film, Camera, Plane, BookOpen, Sun, Moon } from 'lucide-react';
+import { TrendingUp, Target, LineChart, ChevronRight, Play, X, Menu, Filter, Mail, Phone, MapPin, Linkedin, Download, Calendar, Briefcase, GraduationCap, Award, Film, Camera, Plane, BookOpen, Sun, Moon, Instagram } from 'lucide-react';
 import { metricsAPI } from './services/api.js';
 
 const PageWrapper = ({ children, className }) => (
@@ -236,7 +236,7 @@ export default function Portfolio() {
   const HomePage = () => (
     <div className="pt-20">
       {/* Header Section */}
-      <section className="bg-white dark:bg-gray-900 border-b border-gray-300 dark:border-gray-800 transition-colors duration-300">
+      <section className="bg-gray-50 dark:bg-gray-950 border-b border-gray-300 dark:border-gray-800 transition-colors duration-300">
         <motion.div
           className="max-w-6xl mx-auto px-8 py-12"
           initial="hidden"
@@ -276,7 +276,7 @@ export default function Portfolio() {
             <motion.div variants={itemVariants} className="space-y-4">
 
 
-              <div className="bg-gray-50 dark:bg-gray-800/50 border border-gray-300 dark:border-gray-700 rounded p-4">
+              <div className="bg-white dark:bg-gray-900/60 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-4">
                 <h3 className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-3">Contact Information</h3>
                 <div className="space-y-2 text-sm">
                   <div className="flex items-start gap-2 text-gray-700 dark:text-gray-300">
@@ -306,7 +306,7 @@ export default function Portfolio() {
                 </div>
               </div>
 
-              <div className="bg-gray-50 dark:bg-gray-800/50 border border-gray-300 dark:border-gray-700 rounded p-4">
+              <div className="bg-white dark:bg-gray-900/60 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-4">
                 <h3 className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-3">Key Metrics</h3>
                 <div className="grid grid-cols-2 gap-2">
                   {[
@@ -317,7 +317,7 @@ export default function Portfolio() {
                   ].map((kpi, i) => (
                     <motion.div
                       key={i}
-                      className="bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded p-2 text-center"
+                      className="bg-white dark:bg-gray-950 border border-gray-300 dark:border-gray-800 rounded p-2 text-center"
                       whileHover={{ scale: 1.05, boxShadow: "0px 5px 15px rgba(0,0,0,0.1)" }}
                     >
                       <div className="text-xs text-gray-600 dark:text-gray-400">{kpi.label}</div>
@@ -332,7 +332,7 @@ export default function Portfolio() {
       </section>
 
       {/* Key Metrics Bar */}
-      <div className="bg-gray-900 dark:bg-gray-800 text-white py-12 transition-colors duration-300">
+      <div className="bg-gray-900 dark:bg-gray-900 text-white py-12 transition-colors duration-300">
         <div className="max-w-6xl mx-auto px-4 md:px-8">
           {/* CHANGED: grid-cols-2 for mobile, md:grid-cols-4 for desktop */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center">
@@ -362,7 +362,7 @@ export default function Portfolio() {
       </div>
 
       {/* Featured Achievement */}
-      <section className="bg-white dark:bg-gray-900 border-b border-gray-300 dark:border-gray-800 transition-colors duration-300">
+      <section className="bg-gray-50 dark:bg-gray-900 border-b border-gray-300 dark:border-gray-800 transition-colors duration-300">
         <div className="max-w-6xl mx-auto px-8 py-12">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-gray-900 dark:border-white">Featured Work</h2>
           <motion.div
@@ -431,7 +431,7 @@ export default function Portfolio() {
               <motion.div
                 key={i}
                 variants={itemVariants}
-                className="bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-800 rounded-xl p-6 hover:border-gray-900 dark:hover:border-white transition-all"
+                className="bg-white dark:bg-gray-900/60 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded-xl p-6 hover:border-gray-900 dark:hover:border-white transition-all"
                 whileHover={{ y: -5 }}
               >
                 <div className="w-10 h-10 bg-gray-900 dark:bg-white rounded-lg flex items-center justify-center text-white dark:text-gray-900 mb-4">
@@ -461,7 +461,7 @@ export default function Portfolio() {
               { title: 'Growth Marketing', icon: <TrendingUp className="w-5 h-5" />, skills: ['Landing Page Design', 'Funnel Optimization', 'User Experience Enhancement'] },
               { title: 'Analytics & CRO', icon: <LineChart className="w-5 h-5" />, skills: ['GA4 Implementation', 'A/B Testing', 'Performance Dashboards'] }
             ].map((competency, i) => (
-              <motion.div key={i} variants={itemVariants} className="bg-gray-50 dark:bg-gray-800/50 border border-gray-300 dark:border-gray-700 rounded p-5">
+              <motion.div key={i} variants={itemVariants} className="bg-white dark:bg-gray-800/50 backdrop-blur-md border border-gray-300 dark:border-gray-700 rounded p-5">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-9 h-9 bg-gray-900 dark:bg-white rounded flex items-center justify-center text-white dark:text-gray-900">{competency.icon}</div>
                   <h3 className="font-semibold text-gray-900 dark:text-white text-base">{competency.title}</h3>
@@ -552,7 +552,7 @@ export default function Portfolio() {
           {/* Pocket FM */}
           <motion.div
             variants={itemVariants}
-            className="bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-800 rounded p-6"
+            className="bg-white dark:bg-gray-900/60 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-6"
             whileHover={{ y: -5, borderColor: '#111827', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
           >
@@ -603,7 +603,7 @@ export default function Portfolio() {
           {/* Intertek */}
           <motion.div
             variants={itemVariants}
-            className="bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-800 rounded p-6"
+            className="bg-white dark:bg-gray-900/60 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-6"
             whileHover={{ y: -5, borderColor: '#111827', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
           >
@@ -651,7 +651,7 @@ export default function Portfolio() {
           {/* Tradebuilder */}
           <motion.div
             variants={itemVariants}
-            className="bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-800 rounded p-6"
+            className="bg-white dark:bg-gray-900/60 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-6"
             whileHover={{ y: -5, borderColor: '#111827', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
           >
@@ -695,7 +695,7 @@ export default function Portfolio() {
           {/* ABP */}
           <motion.div
             variants={itemVariants}
-            className="bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-800 rounded p-6"
+            className="bg-white dark:bg-gray-900/60 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-6"
             whileHover={{ y: -5, borderColor: '#111827', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
           >
@@ -790,25 +790,25 @@ export default function Portfolio() {
 
         {/* Education - Added mt-12 for spacing */}
         <div className="mt-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-gray-900">Education</h2>
-          <div className="bg-white border border-gray-300 rounded p-6">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-gray-900 dark:border-white">Education</h2>
+          <div className="bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-800 rounded p-6">
             <div className="flex items-start gap-3 mb-3">
-              <GraduationCap className="w-5 h-5 text-gray-900 mt-0.5" />
+              <GraduationCap className="w-5 h-5 text-gray-900 dark:text-white mt-0.5" />
               <div>
-                <h3 className="font-bold text-gray-900">Bachelor of Business Administration</h3>
-                <p className="text-sm text-gray-700">Marketing Specialization</p>
+                <h3 className="font-bold text-gray-900 dark:text-white">Bachelor of Business Administration</h3>
+                <p className="text-sm text-gray-700 dark:text-gray-300">Marketing Specialization</p>
               </div>
             </div>
-            <p className="text-sm text-gray-600 mb-1">Jaypee Institute of Information Technology</p>
-            <p className="text-sm text-gray-600 mb-2">Noida, India • 2020 – 2023</p>
-            <p className="text-sm font-medium text-gray-900">CGPA: 7.7 / 10</p>
+            <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Jaypee Institute of Information Technology</p>
+            <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">Noida, India • 2020 – 2023</p>
+            <p className="text-sm font-medium text-gray-900 dark:text-white">CGPA: 7.7 / 10</p>
           </div>
         </div>
 
         {/* Certifications - Added mt-12 for spacing */}
         <div className="mt-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-gray-900">Certifications</h2>
-          <div className="bg-white border border-gray-300 rounded p-6">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-gray-900 dark:border-white">Certifications</h2>
+          <div className="bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-800 rounded p-6">
             <ul className="space-y-3">
               {[
                 'Google Ads Certification (Skillshop)',
@@ -816,8 +816,8 @@ export default function Portfolio() {
                 'Fundamentals of Digital Marketing (Google)',
                 'SEO Certification (HubSpot)'
               ].map((cert, i) => (
-                <li key={i} className="flex items-start gap-2 text-sm text-gray-700">
-                  <Award className="w-4 h-4 text-gray-900 mt-0.5 flex-shrink-0" />
+                <li key={i} className="flex items-start gap-2 text-sm text-gray-700 dark:text-gray-300">
+                  <Award className="w-4 h-4 text-gray-900 dark:text-white mt-0.5 flex-shrink-0" />
                   <span>{cert}</span>
                 </li>
               ))}
@@ -902,7 +902,7 @@ export default function Portfolio() {
               <motion.div
                 key={i}
                 variants={itemVariants}
-                className="bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-800 rounded overflow-hidden"
+                className="bg-white dark:bg-gray-900/60 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded overflow-hidden"
                 whileHover={{ y: -5, boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)' }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
@@ -1153,19 +1153,19 @@ export default function Portfolio() {
           >
             {/* Summary Cards */}
             <motion.div variants={itemVariants} className="grid md:grid-cols-4 gap-4 mb-8">
-              <motion.div whileHover={{ y: -5 }} className="bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-800 rounded p-5 text-center">
+              <motion.div whileHover={{ y: -5 }} className="bg-white dark:bg-gray-900/60 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 text-center">
                 <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2">Total Spend</div>
                 <div className="text-3xl font-bold text-gray-900 dark:text-white">${(totalSpend / 1000).toFixed(1)}K</div>
               </motion.div>
-              <motion.div whileHover={{ y: -5 }} className="bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-800 rounded p-5 text-center">
+              <motion.div whileHover={{ y: -5 }} className="bg-white dark:bg-gray-900/60 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 text-center">
                 <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2">Avg CTR</div>
                 <div className="text-3xl font-bold text-gray-900 dark:text-white">{avgCTR.toFixed(2)}%</div>
               </motion.div>
-              <motion.div whileHover={{ y: -5 }} className="bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-800 rounded p-5 text-center">
+              <motion.div whileHover={{ y: -5 }} className="bg-white dark:bg-gray-900/60 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 text-center">
                 <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2">Avg CVR</div>
                 <div className="text-3xl font-bold text-gray-900 dark:text-white">{avgCVR.toFixed(2)}%</div>
               </motion.div>
-              <motion.div whileHover={{ y: -5 }} className="bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-800 rounded p-5 text-center">
+              <motion.div whileHover={{ y: -5 }} className="bg-white dark:bg-gray-900/60 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 text-center">
                 <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2">Avg ROI</div>
                 <div className="text-3xl font-bold text-gray-900 dark:text-white">{avgROI.toFixed(0)}%</div>
               </motion.div>
@@ -1202,7 +1202,7 @@ export default function Portfolio() {
                       ))}
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-gray-300 dark:divide-gray-800 bg-white dark:bg-gray-900">
+                  <tbody className="divide-y divide-gray-300 dark:divide-gray-800 bg-white dark:bg-gray-900/60 backdrop-blur-md">
                     {displayMetrics.map((row, i) => (
                       <motion.tr
                         key={i}
@@ -1235,21 +1235,21 @@ export default function Portfolio() {
             <motion.div variants={itemVariants}>
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Key Insights</h2>
               <div className="grid md:grid-cols-3 gap-4">
-                <motion.div whileHover={{ y: -5 }} className="bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-800 rounded p-5">
+                <motion.div whileHover={{ y: -5 }} className="bg-white dark:bg-gray-900/60 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5">
                   <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2">Top Channel</div>
                   <div className="text-lg font-bold text-gray-900 dark:text-white">Meta Ads</div>
                   <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
                     Best balance of creative testing, audience learning and scale across Pocket FM, Packt and e-commerce.
                   </p>
                 </motion.div>
-                <motion.div whileHover={{ y: -5 }} className="bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-800 rounded p-5">
+                <motion.div whileHover={{ y: -5 }} className="bg-white dark:bg-gray-900/60 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5">
                   <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2">Best CVR</div>
                   <div className="text-lg font-bold text-gray-900 dark:text-white">LinkedIn (B2B)</div>
                   <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
                     High intent decision makers with slower volume but stronger pipeline quality.
                   </p>
                 </motion.div>
-                <motion.div whileHover={{ y: -5 }} className="bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-800 rounded p-5">
+                <motion.div whileHover={{ y: -5 }} className="bg-white dark:bg-gray-900/60 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5">
                   <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2">Highest ROI</div>
                   <div className="text-lg font-bold text-gray-900 dark:text-white">Packt GTM</div>
                   <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
@@ -1292,6 +1292,16 @@ export default function Portfolio() {
               whileTap={{ scale: 0.95 }}
             >
               <Linkedin className="w-4 h-4" /> LinkedIn
+            </motion.a>
+            <motion.a
+              href="https://www.instagram.com/oscorograves/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors flex items-center gap-2 text-sm font-medium"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Instagram className="w-4 h-4" /> Instagram
             </motion.a>
           </div>
         </div>
