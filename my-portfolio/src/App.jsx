@@ -170,6 +170,42 @@ const FooterParticles = () => {
   );
 };
 
+const ShootingStars = () => {
+  // Generate shooting stars with stable random values
+  const stars = React.useMemo(() => {
+    return [...Array(8)].map(() => ({
+      left: Math.random() * 100, // Random start position 0% to 100%
+      delay: Math.random() * 10 + 5, // Random delay between 5s and 15s
+    }));
+  }, []);
+
+  return (
+    <div className="fixed inset-0 -z-20 overflow-hidden pointer-events-none">
+      {stars.map((star, i) => (
+        <motion.div
+          key={i}
+          className="absolute h-0.5 w-24 bg-gradient-to-r from-transparent via-gray-400 to-transparent rotate-45"
+          style={{
+            top: -100,
+            left: `${star.left}%`
+          }}
+          animate={{
+            top: '100vh',
+            x: -500, // Move diagonally to the left
+            opacity: [0, 1, 0]
+          }}
+          transition={{
+            duration: 2,
+            ease: "easeInOut",
+            repeat: Infinity,
+            repeatDelay: star.delay
+          }}
+        />
+      ))}
+    </div>
+  );
+};
+
 export default function Portfolio() {
   const [currentPage, setCurrentPage] = useState('home');
   const [selectedCreative, setSelectedCreative] = useState(null);
@@ -1424,6 +1460,7 @@ export default function Portfolio() {
       <Footer />
       <MusicPlayer />
       <FooterParticles />
+      <ShootingStars />
     </div>
   );
 }
