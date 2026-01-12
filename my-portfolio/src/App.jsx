@@ -73,7 +73,7 @@ const MusicPlayer = () => {
       initial={{ y: 100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ delay: 1, type: "spring", stiffness: 120 }}
-      className="fixed bottom-4 left-4 right-4 md:left-auto md:right-6 md:w-auto z-50"
+      className="fixed bottom-4 right-4 md:right-6 z-50"
     >
       {/* The Audio Element (Hidden) */}
       <audio ref={audioRef} src="/song.mp3" loop />
@@ -146,7 +146,7 @@ const FireflyBackground = () => {
         <motion.div
           key={p.id}
           // Bright Orange/Gold color with a glow effect (shadow)
-          className="absolute rounded-full bg-orange-500 shadow-[0_0_10px_rgba(249,115,22,0.6)]"
+          className="absolute rounded-full bg-yellow-400 shadow-[0_0_10px_rgba(250,204,21,0.6)]"
           style={{
             left: `${p.left}%`,
             bottom: `${p.bottom}%`,
@@ -231,7 +231,7 @@ export default function Portfolio() {
                   {currentPage === page && (
                     <motion.div
                       layoutId="nav-pill"
-                      className="absolute inset-0 bg-gray-900 dark:bg-white rounded"
+                      className="absolute inset-0 bg-gray-900 dark:bg-yellow-400 rounded"
                       transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                       style={{ zIndex: 0 }} // Behind the text
                     />
@@ -288,7 +288,7 @@ export default function Portfolio() {
                       setIsMenuOpen(false); // Close menu after clicking
                     }}
                     className={`w-full text-left px-4 py-3 text-sm font-medium rounded-lg transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2 ${currentPage === page
-                      ? 'bg-gray-900 dark:bg-white text-white dark:text-gray-900'
+                      ? 'bg-gray-900 dark:bg-yellow-400 text-white dark:text-gray-900'
                       : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800'
                       }`}
                   >
@@ -326,7 +326,7 @@ export default function Portfolio() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => setCurrentPage('case-studies')}
-                  className="px-5 py-2.5 bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-sm font-medium rounded hover:bg-gray-800 dark:hover:bg-gray-100 transition-all cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2"
+                  className="px-5 py-2.5 bg-gray-900 dark:bg-yellow-400 text-white dark:text-gray-900 text-sm font-medium rounded hover:bg-gray-800 dark:hover:bg-yellow-300 transition-all cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2"
                 >
                   {t('hero.viewCaseStudies')}
                 </motion.button>
@@ -335,7 +335,7 @@ export default function Portfolio() {
                   whileTap={{ scale: 0.95 }}
                   href="/resume.pdf"
                   download="Kanishk_Singh_Resume.pdf"
-                  className="px-5 py-2.5 border-2 border-gray-900 dark:border-white text-gray-900 dark:text-white text-sm font-medium rounded hover:bg-gray-50 dark:hover:bg-gray-900 transition-all flex items-center justify-center gap-2 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2"
+                  className="px-5 py-2.5 border-2 border-gray-900 dark:border-yellow-400 text-gray-900 dark:text-yellow-400 text-sm font-medium rounded hover:bg-gray-50 dark:hover:bg-gray-900 transition-all flex items-center justify-center gap-2 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2"
                 >
                   <Download className="w-4 h-4" />
                   {t('hero.downloadCV')}
@@ -351,13 +351,13 @@ export default function Portfolio() {
                 <div className="space-y-2 text-sm">
                   <div className="flex items-start gap-2 text-gray-700 dark:text-gray-300">
                     <Mail className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                    <a href="mailto:oscoro.graves@gmail.com" className="hover:text-gray-900 dark:hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2">oscoro.graves@gmail.com</a>
+                    <a href="mailto:oscoro.graves@gmail.com" className="hover:text-gray-900 dark:hover:text-yellow-400 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2">oscoro.graves@gmail.com</a>
                   </div>
                   <div className="flex items-start gap-2 text-gray-700 dark:text-gray-300">
                     <Phone className="w-4 h-4 mt-0.5 flex-shrink-0" />
                     <a
                       href="tel:+918299406042"
-                      className="hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2"
+                      className="hover:text-gray-900 dark:hover:text-yellow-400 transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2"
                     >
                       +91 8299406042
                     </a>
@@ -369,7 +369,7 @@ export default function Portfolio() {
                   <div className="flex items-start gap-2 text-gray-700 dark:text-gray-300">
                     <Linkedin className="w-4 h-4 mt-0.5 flex-shrink-0" />
                     {/* UPDATED LINKEDIN LINK */}
-                    <a href="https://www.linkedin.com/in/kanishk-singh-ab90b2203/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 dark:hover:text-white transition-colors break-all focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2">
+                    <a href="https://www.linkedin.com/in/kanishk-singh-ab90b2203/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 dark:hover:text-yellow-400 transition-colors break-all focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2">
                       LinkedIn
                     </a>
                   </div>
@@ -434,9 +434,9 @@ export default function Portfolio() {
       {/* Featured Achievement */}
       <section className="border-b border-gray-300 dark:border-gray-800 transition-colors duration-300">
         <div className="max-w-6xl mx-auto px-8 py-12">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-gray-900 dark:border-white">{t('featuredWork.title')}</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-gray-900 dark:border-yellow-400">{t('featuredWork.title')}</h2>
           <motion.div
-            className="bg-gradient-to-br from-gray-50/50 to-gray-100/50 dark:from-gray-800/60 dark:to-gray-900/60 backdrop-blur-md border-2 border-gray-200 dark:border-gray-700 rounded-xl p-8 hover:border-gray-900 dark:hover:border-white transition-all group cursor-pointer"
+            className="bg-gradient-to-br from-gray-50/50 to-gray-100/50 dark:from-gray-800/60 dark:to-gray-900/60 backdrop-blur-md border-2 border-gray-200 dark:border-gray-700 rounded-xl p-8 hover:border-gray-900 dark:hover:border-yellow-400 transition-all group cursor-pointer"
             onClick={() => setCurrentPage('case-studies')}
             whileHover={{ y: -5, boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)' }}
             initial={{ opacity: 0, y: 20 }}
@@ -450,7 +450,7 @@ export default function Portfolio() {
                 <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">{t('featuredWork.projectTitle')}</h3>
                 <p className="text-gray-600 dark:text-gray-300 text-sm">{t('featuredWork.projectDesc')}</p>
               </div>
-              <ChevronRight className="w-6 h-6 text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white group-hover:translate-x-1 transition-all" />
+              <ChevronRight className="w-6 h-6 text-gray-400 group-hover:text-gray-900 dark:group-hover:text-yellow-400 group-hover:translate-x-1 transition-all" />
             </div>
             {/* Mobile: 2 columns, Desktop: 4 columns */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 pt-6 border-t border-gray-100 dark:border-gray-700">
@@ -473,7 +473,7 @@ export default function Portfolio() {
       {/* What I Offer */}
       <section className="border-b border-gray-300 dark:border-gray-800 transition-colors duration-300">
         <div className="max-w-6xl mx-auto px-8 py-12">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-gray-900 dark:border-white">{t('whatIOffer.title')}</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-gray-900 dark:border-yellow-400">{t('whatIOffer.title')}</h2>
           <motion.div
             className="grid md:grid-cols-3 gap-6"
             initial="hidden"
@@ -501,10 +501,10 @@ export default function Portfolio() {
               <motion.div
                 key={i}
                 variants={itemVariants}
-                className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded-xl p-6 hover:border-gray-900 dark:hover:border-white transition-all"
+                className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded-xl p-6 hover:border-gray-900 dark:hover:border-yellow-400 transition-all"
                 whileHover={{ y: -5 }}
               >
-                <div className="w-10 h-10 bg-gray-900 dark:bg-white rounded-lg flex items-center justify-center text-white dark:text-gray-900 mb-4">
+                <div className="w-10 h-10 bg-gray-900 dark:bg-yellow-400 rounded-lg flex items-center justify-center text-white dark:text-gray-900 mb-4">
                   {service.icon}
                 </div>
                 <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">{service.title}</h3>
@@ -518,7 +518,7 @@ export default function Portfolio() {
       {/* Core Competencies */}
       <section className="border-b border-gray-300 dark:border-gray-800 transition-colors duration-300">
         <div className="max-w-6xl mx-auto px-8 py-12">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-gray-900 dark:border-white">{t('experience.skills')}</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-gray-900 dark:border-yellow-400">{t('experience.skills')}</h2>
           <motion.div
             className="grid md:grid-cols-3 gap-6"
             initial="hidden"
@@ -529,9 +529,9 @@ export default function Portfolio() {
             {(() => {
               const icons = { Target: <Target className="w-5 h-5" />, TrendingUp: <TrendingUp className="w-5 h-5" />, LineChart: <LineChart className="w-5 h-5" /> };
               return t('experience.competencies', { returnObjects: true })?.map((competency, i) => (
-                <motion.div key={i} variants={itemVariants} className="bg-white/40 dark:bg-gray-800/40 backdrop-blur-md border border-gray-300 dark:border-gray-700 rounded p-5 hover:border-gray-900 dark:hover:border-white transition-all" whileHover={{ y: -5 }}>
+                <motion.div key={i} variants={itemVariants} className="bg-white/40 dark:bg-gray-800/40 backdrop-blur-md border border-gray-300 dark:border-gray-700 rounded p-5 hover:border-gray-900 dark:hover:border-yellow-400 transition-all" whileHover={{ y: -5 }}>
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-9 h-9 bg-gray-900 dark:bg-white rounded flex items-center justify-center text-white dark:text-gray-900">{icons[competency.icon]}</div>
+                    <div className="w-9 h-9 bg-gray-900 dark:bg-yellow-400 rounded flex items-center justify-center text-white dark:text-gray-900">{icons[competency.icon]}</div>
                     <h3 className="font-semibold text-gray-900 dark:text-white text-base">{competency.title}</h3>
                   </div>
                   <ul className="space-y-1.5">
@@ -559,7 +559,7 @@ export default function Portfolio() {
       {/* Digital Skills */}
       <section className="transition-colors duration-300">
         <div className="max-w-6xl mx-auto px-8 py-12">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-gray-900 dark:border-white">Digital Skills</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-gray-900 dark:border-yellow-400">Digital Skills</h2>
           <motion.div
             className="grid md:grid-cols-2 gap-8"
             initial="hidden"
@@ -577,7 +577,7 @@ export default function Portfolio() {
                   <motion.span
                     key={skill}
                     variants={itemVariants}
-                    whileHover={{ scale: 1.1, backgroundColor: "#f3f4f6" }}
+                    whileHover={{ scale: 1.1, backgroundColor: "#f3f4f6", color: "#111827" }}
                     className="px-3 py-1.5 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded text-sm text-gray-700 dark:text-gray-300 cursor-default"
                   >
                     {skill}
@@ -629,7 +629,7 @@ export default function Portfolio() {
   const ExperiencePage = () => (
     <div className="pt-20 min-h-screen transition-colors duration-300">
       <div className="max-w-6xl mx-auto px-8 py-12">
-        <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-8 pb-4 border-b-2 border-gray-900 dark:border-white">
+        <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-8 pb-4 border-b-2 border-gray-900 dark:border-yellow-400">
           {t('experience.title')}
         </h1>
 
@@ -798,7 +798,7 @@ export default function Portfolio() {
 
         {/* Projects */}
         <div className="mt-12">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-gray-900 dark:border-white">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-gray-900 dark:border-yellow-400">
             Key Projects
           </h2>
 
@@ -859,7 +859,7 @@ export default function Portfolio() {
 
         {/* Education - Added mt-12 for spacing */}
         <div className="mt-12">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-gray-900 dark:border-white">{t('experience.education')}</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-gray-900 dark:border-yellow-400">{t('experience.education')}</h2>
           <motion.div
             variants={itemVariants}
             className="bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-800 rounded p-6"
@@ -880,7 +880,7 @@ export default function Portfolio() {
 
         {/* Certifications - Added mt-12 for spacing */}
         <div className="mt-12">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-gray-900 dark:border-white">{t('experience.certifications')}</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-gray-900 dark:border-yellow-400">{t('experience.certifications')}</h2>
           <motion.div
             variants={itemVariants}
             className="bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-800 rounded p-6"
@@ -951,7 +951,7 @@ export default function Portfolio() {
       <div className="pt-20 min-h-screen transition-colors duration-300">
         <div className="max-w-6xl mx-auto px-8 py-12">
           <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-3">Case Studies</h1>
-          <p className="text-gray-600 dark:text-gray-400 mb-8 pb-4 border-b-2 border-gray-900 dark:border-white">Detailed performance marketing projects and results</p>
+          <p className="text-gray-600 dark:text-gray-400 mb-8 pb-4 border-b-2 border-gray-900 dark:border-yellow-400">Detailed performance marketing projects and results</p>
 
           <motion.div
             className="space-y-6"
@@ -1042,7 +1042,7 @@ export default function Portfolio() {
       <div className="pt-20 min-h-screen transition-colors duration-300">
         <div className="max-w-6xl mx-auto px-8 py-12">
           <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-3">{t('creativeLab.title')}</h1>
-          <p className="text-gray-600 dark:text-gray-400 mb-8 pb-4 border-b-2 border-gray-900 dark:border-white">{t('creativeLab.subtitle')}</p>
+          <p className="text-gray-600 dark:text-gray-400 mb-8 pb-4 border-b-2 border-gray-900 dark:border-yellow-400">{t('creativeLab.subtitle')}</p>
 
           {/* Ad Creatives */}
           <div className="mb-12">
@@ -1059,13 +1059,13 @@ export default function Portfolio() {
                   key={i}
                   variants={itemVariants}
                   onClick={() => setSelectedCreative(creative)}
-                  className="aspect-square bg-white/40 dark:bg-gray-900/40 border-2 border-gray-300 dark:border-gray-800 rounded cursor-pointer hover:border-gray-900 dark:hover:border-white transition-all group"
+                  className="aspect-square bg-white/40 dark:bg-gray-900/40 border-2 border-gray-300 dark:border-gray-800 rounded cursor-pointer hover:border-gray-900 dark:hover:border-yellow-400 transition-all group"
                   whileHover="hover"
                 >
                   <div className="w-full h-full flex flex-col items-center justify-center p-4 relative bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700">
                     <motion.div
                       variants={{ hover: { scale: 1.2 } }}
-                      className="w-12 h-12 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-full flex items-center justify-center mb-3 group-hover:bg-gray-900 dark:group-hover:bg-white group-hover:border-gray-900 dark:group-hover:border-white transition-all"
+                      className="w-12 h-12 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-full flex items-center justify-center mb-3 group-hover:bg-gray-900 dark:group-hover:bg-yellow-400 group-hover:border-gray-900 dark:group-hover:border-yellow-400 transition-all"
                     >
                       <Play className="w-6 h-6 text-gray-700 dark:text-white group-hover:text-white dark:group-hover:text-gray-900 transition-all" />
                     </motion.div>
@@ -1091,12 +1091,12 @@ export default function Portfolio() {
                   key={i}
                   variants={itemVariants}
                   whileHover="hover"
-                  className="bg-white/40 dark:bg-gray-900/40 border border-gray-300 dark:border-gray-800 rounded overflow-hidden hover:border-gray-900 dark:hover:border-white transition-all group cursor-pointer"
+                  className="bg-white/40 dark:bg-gray-900/40 border border-gray-300 dark:border-gray-800 rounded overflow-hidden hover:border-gray-900 dark:hover:border-yellow-400 transition-all group cursor-pointer"
                 >
                   <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700 flex items-center justify-center relative">
                     <motion.div
                       variants={{ hover: { scale: 1.2 } }}
-                      className="w-14 h-14 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-full flex items-center justify-center group-hover:bg-gray-900 dark:group-hover:bg-white group-hover:border-gray-900 dark:group-hover:border-white transition-all"
+                      className="w-14 h-14 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-full flex items-center justify-center group-hover:bg-gray-900 dark:group-hover:bg-yellow-400 group-hover:border-gray-900 dark:group-hover:border-yellow-400 transition-all"
                     >
                       <Play className="w-7 h-7 text-gray-700 dark:text-white group-hover:text-white dark:group-hover:text-gray-900 transition-all" />
                     </motion.div>
@@ -1117,7 +1117,7 @@ export default function Portfolio() {
         {/* Creative Modal */}
         {selectedCreative && (
           <div className="fixed inset-0 bg-gray-900/60 flex items-center justify-center z-50 p-6">
-            <div className="bg-white dark:bg-gray-900 border-2 border-gray-900 dark:border-white rounded max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="bg-white dark:bg-gray-900 border-2 border-gray-900 dark:border-yellow-400 rounded max-w-2xl w-full max-h-[90vh] overflow-y-auto">
               <div className="bg-gray-900 dark:bg-gray-800 text-white px-6 py-4 flex items-center justify-between sticky top-0 z-10 border-b border-gray-800 dark:border-gray-700">
                 <h3 className="text-lg font-bold">{t('creativeLab.modal.title')}</h3>
                 <button onClick={() => setSelectedCreative(null)} className="hover:bg-white/20 p-1 rounded transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2">
@@ -1205,7 +1205,7 @@ export default function Portfolio() {
       <div className="pt-20 min-h-screen pb-32 transition-colors duration-300">
         <div className="max-w-6xl mx-auto px-8 py-12">
           <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-3">{t('metricsPage.title')}</h1>
-          <p className="text-gray-600 dark:text-gray-400 mb-8 pb-4 border-b-2 border-gray-900 dark:border-white">{t('metricsPage.subtitle')}</p>
+          <p className="text-gray-600 dark:text-gray-400 mb-8 pb-4 border-b-2 border-gray-900 dark:border-yellow-400">{t('metricsPage.subtitle')}</p>
 
           <motion.div
             initial="hidden"
@@ -1242,7 +1242,7 @@ export default function Portfolio() {
                   key={channel}
                   onClick={() => setFilterChannel(channel)}
                   className={`px-3 py-1.5 text-sm font-medium rounded transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2 ${filterChannel === channel
-                    ? 'bg-gray-900 text-white dark:bg-white dark:text-gray-900'
+                    ? 'bg-gray-900 text-white dark:bg-yellow-400 dark:text-gray-900'
                     : 'bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
                     }`}
                 >
