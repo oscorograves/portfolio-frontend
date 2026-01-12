@@ -355,12 +355,14 @@ export default function Portfolio() {
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-gray-700">English</span>
-                  <span className="text-xs text-gray-600 bg-white border border-gray-300 px-2 py-1 rounded">C1 (IELTS 7.5)</span>
+                  <span className="text-xs text-gray-600 bg-white border border-gray-300 px-2 py-1 rounded">C1</span>
+
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-gray-700">Dutch</span>
                   {/* UPDATED DUTCH SKILL */}
-                  <span className="text-xs text-gray-600 bg-white border border-gray-300 px-2 py-1 rounded">A2 (Duolingo Score 14)</span>
+                  <span className="text-xs text-gray-600 bg-white border border-gray-300 px-2 py-1 rounded">A2</span>
+
                 </div>
               </div>
             </motion.div>
