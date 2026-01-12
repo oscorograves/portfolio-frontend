@@ -90,7 +90,12 @@ export default function Portfolio() {
                   </div>
                   <div className="flex items-start gap-2 text-gray-700">
                     <Phone className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                    <span>+91 8299406042</span>
+                    <a
+                      href="tel:+918299406042"
+                      className="hover:text-gray-900 transition-colors cursor-pointer"
+                    >
+                      +91 8299406042
+                    </a>
                   </div>
                   <div className="flex items-start gap-2 text-gray-700">
                     <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
