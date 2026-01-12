@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
-import { TrendingUp, Target, LineChart, ChevronRight, Play, X, Filter, Mail, Phone, MapPin, Linkedin, Download, Calendar, Briefcase, GraduationCap, Award, Film, Camera, Plane, BookOpen } from 'lucide-react';
+import { TrendingUp, Target, LineChart, ChevronRight, Play, X, Menu, Filter, Mail, Phone, MapPin, Linkedin, Download, Calendar, Briefcase, GraduationCap, Award, Film, Camera, Plane, BookOpen } from 'lucide-react';
 import { metricsAPI } from './services/api.js';
 
 const PageWrapper = ({ children, className }) => (
@@ -126,43 +126,80 @@ export default function Portfolio() {
   const [currentPage, setCurrentPage] = useState('home');
   const [selectedCreative, setSelectedCreative] = useState(null);
 
-  const NavBar = () => (
-    <nav className="fixed top-0 left-0 right-0 bg-white border-b border-gray-300 z-50">
-      <div className="max-w-6xl mx-auto px-8 py-4 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <img
-            src="/profile.jpeg"
-            alt="Kanishka Singh"
-            className="w-10 h-10 rounded-full object-cover border border-gray-300"
-          />
-          <div>
-            <div className="font-semibold text-gray-900 text-sm">Kanishk Singh</div>
-            <div className="text-xs text-gray-600">Performance & Growth Marketer</div>
-          </div>
-        </div>
-        <div className="flex gap-1">
-          {['home', 'experience', 'case-studies', 'creative-lab', 'metrics'].map(page => (
-            <motion.button
-              key={page}
-              onClick={() => setCurrentPage(page)}
-              className={`relative px-4 py-2 text-sm transition-all rounded z-10 ${currentPage === page ? 'text-white' : 'text-gray-700 hover:bg-gray-100'}`}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+  const NavBar = () => {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    return (
+      <nav className="fixed top-0 left-0 right-0 bg-white border-b border-gray-300 z-50">
+        <div className="max-w-6xl mx-auto px-4 md:px-8 py-4">
+          <div className="flex items-center justify-between">
+
+            {/* Logo Section */}
+            <div className="flex items-center gap-3">
+              <img
+                src="/profile.jpeg"
+                alt="Kanishka Singh"
+                className="w-10 h-10 rounded-full object-cover border border-gray-300"
+              />
+              <div>
+                <div className="font-semibold text-gray-900 text-sm">Kanishk Singh</div>
+                <div className="text-xs text-gray-600">Performance & Growth Marketer</div>
+              </div>
+            </div>
+
+            {/* Desktop Navigation (Hidden on Mobile) */}
+            <div className="hidden md:flex gap-1">
+              {['home', 'experience', 'case-studies', 'creative-lab', 'metrics'].map(page => (
+                <button
+                  key={page}
+                  onClick={() => setCurrentPage(page)}
+                  className={`px-4 py-2 text-sm transition-all rounded ${currentPage === page
+                    ? 'bg-gray-900 text-white'
+                    : 'text-gray-700 hover:bg-gray-100'
+                    }`}
+                >
+                  {page.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}
+                </button>
+              ))}
+            </div>
+
+            {/* Mobile Menu Button (Visible ONLY on Mobile) */}
+            <button
+              className="md:hidden p-2 text-gray-600 hover:bg-gray-100 rounded"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
-              {currentPage === page && (
-                <motion.div
-                  layoutId="activeTab"
-                  className="absolute inset-0 bg-gray-900 rounded"
-                  transition={{ type: "spring", stiffness: 500, damping: 30 }}
-                />
-              )}
-              <span className="relative z-10">{page.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}</span>
-            </motion.button>
-          ))}
+              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
+
+          {/* Mobile Navigation Dropdown (Slides down when menu is open) */}
+          {isMenuOpen && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
+              className="md:hidden pt-4 pb-2 border-t border-gray-100 mt-4 space-y-2 overflow-hidden"
+            >
+              {['home', 'experience', 'case-studies', 'creative-lab', 'metrics'].map(page => (
+                <button
+                  key={page}
+                  onClick={() => {
+                    setCurrentPage(page);
+                    setIsMenuOpen(false); // Close menu after clicking
+                  }}
+                  className={`w-full text-left px-4 py-3 text-sm font-medium rounded-lg transition-all ${currentPage === page
+                    ? 'bg-gray-900 text-white'
+                    : 'text-gray-700 hover:bg-gray-50'
+                    }`}
+                >
+                  {page.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}
+                </button>
+              ))}
+            </motion.div>
+          )}
         </div>
-      </div>
-    </nav>
-  );
+      </nav>
+    );
+  };
 
   const HomePage = () => (
     <div className="pt-20">
@@ -260,30 +297,35 @@ export default function Portfolio() {
         </motion.div>
       </section>
 
-      {/* Quick Stats */}
-      <section className="bg-gray-900 text-white border-b border-gray-800">
-        <div className="max-w-6xl mx-auto px-8 py-8">
-          <motion.div
-            className="grid grid-cols-4 gap-8"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={containerVariants}
-          >
-            {[
-              { label: 'Years Experience', value: '2+' },
-              { label: 'Ad Spend Managed', value: '$267K+' },
-              { label: 'Campaigns Run', value: '25+' },
-              { label: 'Highest ROI', value: '830%' }
-            ].map((stat, i) => (
-              <motion.div key={i} variants={itemVariants} className="text-center">
-                <div className="text-3xl font-bold mb-1">{stat.value}</div>
-                <div className="text-sm text-gray-400">{stat.label}</div>
-              </motion.div>
-            ))}
-          </motion.div>
+      {/* Key Metrics Bar */}
+      <div className="bg-gray-900 text-white py-12">
+        <div className="max-w-6xl mx-auto px-4 md:px-8">
+          {/* CHANGED: grid-cols-2 for mobile, md:grid-cols-4 for desktop */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center">
+
+            <div className="p-2">
+              <div className="text-3xl md:text-4xl font-bold mb-1">2+</div>
+              <div className="text-sm md:text-base text-gray-400">Years Experience</div>
+            </div>
+
+            <div className="p-2">
+              <div className="text-3xl md:text-4xl font-bold mb-1">$267K</div>
+              <div className="text-sm md:text-base text-gray-400">Ad Spend Managed</div>
+            </div>
+
+            <div className="p-2">
+              <div className="text-3xl md:text-4xl font-bold mb-1">25+</div>
+              <div className="text-sm md:text-base text-gray-400">Campaigns Run</div>
+            </div>
+
+            <div className="p-2">
+              <div className="text-3xl md:text-4xl font-bold mb-1">830%</div>
+              <div className="text-sm md:text-base text-gray-400">Highest ROI</div>
+            </div>
+
+          </div>
         </div>
-      </section>
+      </div>
 
       {/* Featured Achievement */}
       <section className="bg-white border-b border-gray-300">
