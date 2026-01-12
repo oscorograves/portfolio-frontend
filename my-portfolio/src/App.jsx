@@ -36,6 +36,92 @@ const itemVariants = {
   }
 };
 
+const MusicPlayer = () => {
+  const [isPlaying, setIsPlaying] = useState(false); // Default false (browser policy)
+  const [volume, setVolume] = useState(0.5);
+  const audioRef = React.useRef(null);
+
+  // Handle Play/Pause
+  const togglePlay = () => {
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.pause();
+      } else {
+        audioRef.current.play().catch(e => console.log("Autoplay blocked by browser"));
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+
+  // Attempt Autoplay on mount
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.volume = volume;
+      // Try to play automatically
+      const playPromise = audioRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => setIsPlaying(true))
+          .catch(() => setIsPlaying(false)); // Autoplay was prevented
+      }
+    }
+  }, []);
+
+  return (
+    <motion.div
+      initial={{ y: 100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ delay: 1, type: "spring", stiffness: 120 }}
+      className="fixed bottom-6 right-6 z-50 w-auto max-w-sm"
+    >
+      {/* The Audio Element (Hidden) */}
+      <audio ref={audioRef} src="/song.mp3" loop />
+
+      {/* The Visual Player */}
+      <div className="bg-gray-900/90 backdrop-blur-md text-white border border-gray-700 rounded-full px-4 py-3 shadow-2xl flex items-center justify-between gap-4">
+
+        {/* Song Info */}
+        <div className="flex items-center gap-3 overflow-hidden">
+          <div className={`w-10 h-10 rounded-full bg-gradient-to-br from-green-400 to-blue-500 flex items-center justify-center ${isPlaying ? 'animate-spin' : ''}`}>
+            <div className="w-3 h-3 bg-gray-900 rounded-full"></div>
+          </div>
+          <div className="flex flex-col min-w-0">
+            <span className="text-xs font-bold truncate">Portfolio Mix</span>
+            <span className="text-[10px] text-gray-400 truncate">Kanishk Singh</span>
+          </div>
+        </div>
+
+        {/* Controls */}
+        <div className="flex items-center gap-3">
+          <button className="text-gray-400 hover:text-white transition-colors">
+            <ChevronRight className="w-5 h-5 rotate-180" /> {/* Reuse Chevron as Prev */}
+          </button>
+
+          <button
+            onClick={togglePlay}
+            className="w-8 h-8 bg-white rounded-full flex items-center justify-center text-black hover:scale-105 transition-transform"
+          >
+            {isPlaying ? (
+              // Pause Icon (Manual primitive to avoid importing new icon)
+              <div className="flex gap-1">
+                <div className="w-1 h-3 bg-black rounded-full"></div>
+                <div className="w-1 h-3 bg-black rounded-full"></div>
+              </div>
+            ) : (
+              <Play className="w-4 h-4 ml-0.5" fill="currentColor" />
+            )}
+          </button>
+
+          <button className="text-gray-400 hover:text-white transition-colors">
+            <ChevronRight className="w-5 h-5" /> {/* Next */}
+          </button>
+        </div>
+
+      </div>
+    </motion.div>
+  );
+};
+
 export default function Portfolio() {
   const [currentPage, setCurrentPage] = useState('home');
   const [selectedCreative, setSelectedCreative] = useState(null);
@@ -910,91 +996,7 @@ export default function Portfolio() {
     );
   };
 
-  const MusicPlayer = () => {
-    const [isPlaying, setIsPlaying] = useState(false); // Default false (browser policy)
-    const [volume, setVolume] = useState(0.5);
-    const audioRef = React.useRef(null);
 
-    // Handle Play/Pause
-    const togglePlay = () => {
-      if (audioRef.current) {
-        if (isPlaying) {
-          audioRef.current.pause();
-        } else {
-          audioRef.current.play().catch(e => console.log("Autoplay blocked by browser"));
-        }
-        setIsPlaying(!isPlaying);
-      }
-    };
-
-    // Attempt Autoplay on mount
-    useEffect(() => {
-      if (audioRef.current) {
-        audioRef.current.volume = volume;
-        // Try to play automatically
-        const playPromise = audioRef.current.play();
-        if (playPromise !== undefined) {
-          playPromise
-            .then(() => setIsPlaying(true))
-            .catch(() => setIsPlaying(false)); // Autoplay was prevented
-        }
-      }
-    }, []);
-
-    return (
-      <motion.div
-        initial={{ y: 100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 1, type: "spring", stiffness: 120 }}
-        className="fixed bottom-6 right-6 z-50 w-auto max-w-sm"
-      >
-        {/* The Audio Element (Hidden) */}
-        <audio ref={audioRef} src="/song.mp3" loop />
-
-        {/* The Visual Player */}
-        <div className="bg-gray-900/90 backdrop-blur-md text-white border border-gray-700 rounded-full px-4 py-3 shadow-2xl flex items-center justify-between gap-4">
-
-          {/* Song Info */}
-          <div className="flex items-center gap-3 overflow-hidden">
-            <div className={`w-10 h-10 rounded-full bg-gradient-to-br from-green-400 to-blue-500 flex items-center justify-center ${isPlaying ? 'animate-spin' : ''}`}>
-              <div className="w-3 h-3 bg-gray-900 rounded-full"></div>
-            </div>
-            <div className="flex flex-col min-w-0">
-              <span className="text-xs font-bold truncate">Portfolio Mix</span>
-              <span className="text-[10px] text-gray-400 truncate">Kanishk Singh</span>
-            </div>
-          </div>
-
-          {/* Controls */}
-          <div className="flex items-center gap-3">
-            <button className="text-gray-400 hover:text-white transition-colors">
-              <ChevronRight className="w-5 h-5 rotate-180" /> {/* Reuse Chevron as Prev */}
-            </button>
-
-            <button
-              onClick={togglePlay}
-              className="w-8 h-8 bg-white rounded-full flex items-center justify-center text-black hover:scale-105 transition-transform"
-            >
-              {isPlaying ? (
-                // Pause Icon (Manual primitive to avoid importing new icon)
-                <div className="flex gap-1">
-                  <div className="w-1 h-3 bg-black rounded-full"></div>
-                  <div className="w-1 h-3 bg-black rounded-full"></div>
-                </div>
-              ) : (
-                <Play className="w-4 h-4 ml-0.5" fill="currentColor" />
-              )}
-            </button>
-
-            <button className="text-gray-400 hover:text-white transition-colors">
-              <ChevronRight className="w-5 h-5" /> {/* Next */}
-            </button>
-          </div>
-
-        </div>
-      </motion.div>
-    );
-  };
 
   const MetricsPage = () => {
     const [filterChannel, setFilterChannel] = useState('all');
