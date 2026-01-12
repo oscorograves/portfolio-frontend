@@ -9,7 +9,7 @@ export const translations = {
         },
         hero: {
             role: "Performance & Growth Marketer",
-            description: "I design paid media, CRO and growth systems that scale revenue. Specializing in data-driven campaign optimization, funnel design, and performance analytics across B2B and B2C channels.",
+            description: "I design paid media, CRO, and growth systems that scale revenue. Specializing in data-driven campaign optimization, funnel design, and performance analytics across B2B and B2C channels.",
             viewCaseStudies: "View Case Studies",
             downloadCV: "Download CV",
             contactInfo: "Contact Information",
@@ -103,7 +103,7 @@ export const translations = {
                     bullets: [
                         "Ran paid search, paid social, and organic campaigns across South Asia for 37+ offices",
                         "Used GA4 funnel analysis and CRO tests to lift conversion rate by ~18% and MQLs by ~22%",
-                        "Built and optimised landing pages, enquiry forms, and lead routing to improve sales handoff"
+                        "Built and optimized landing pages, enquiry forms, and lead routing to improve sales handoff"
                     ]
                 },
                 tradebuilder: {
@@ -124,7 +124,7 @@ export const translations = {
                     period: "Jan 2023 – Aug 2023",
                     bullets: [
                         "Scaled Instagram to 3,000+ and YouTube to 10,000+ followers using organic-first growth",
-                        "Improved search rankings through keyword research, on-page SEO, and metadata optimisation"
+                        "Improved search rankings through keyword research, on-page SEO, and metadata optimization"
                     ]
                 },
                 projects: {
@@ -314,7 +314,7 @@ export const translations = {
             hobbies: {
                 film: "Filmanalyse",
                 photography: "Fotografie",
-                travel: "Solo reizen",
+                travel: "Solo Reizen",
                 journaling: "Journaling"
             },
             copyright: "© 2026 Kanishk Singh. Alle rechten voorbehouden."
@@ -480,7 +480,7 @@ export const translations = {
                 category: "Groei & GTM",
                 problem: "Packt moest een nieuwe betaalde evenementen + nieuwsbrief vertical lanceren en 150+ betaalde bezoekers bereiken en tegelijkertijd minstens 80 procent van de registraties netto-nieuw houden.",
                 actions: [
-                    "Ontwierp een 30-daags GTM-plan met maker-partners, technische gemeenschappen en Meta Ads",
+                    "Ontwierp een 30-daags GTM-plan met creator-partners, technische gemeenschappen en Meta Ads",
                     "Bouwde UTM-taxonomie en dagelijkse trackingdashboards om netto-nieuwe acquisitie te meten",
                     "Creëerde een partner inkomsten-deelmodel en micro-affiliate testsysteem",
                     "Sequentieerde piloottesten, kill-switches en schaalbeslissingen over vier groeisprints"
@@ -502,7 +502,7 @@ export const translations = {
                 category: "Prestatiemarketing",
                 problem: "Het platform moest gebruikersacquisitie schalen en tegelijkertijd de kostenefficiëntie behouden via zeer concurrerende digitale kanalen.",
                 actions: [
-                    "Voerde uitgebreide doelroeptests uit over demografie en interessespigmenten",
+                    "Voerde uitgebreide doelgroeptests uit over demografie en interessesegmenten",
                     "Optimaliseerde creatieve formats specifiek voor mobile-first consumptiepatronen",
                     "Voerde meerdere creatieve en plaatsings-A/B-tests uit om winnaars te isoleren",
                     "Gebruikte Meta's leerfase en biedingscontroles om efficiënt te schalen"
