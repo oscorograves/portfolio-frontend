@@ -462,7 +462,7 @@ export default function Portfolio() {
       </section>
 
       {/* Digital Skills */}
-      <section className="bg-gray-50 border-b border-gray-300">
+      <section className="bg-gray-50">
         <div className="max-w-6xl mx-auto px-8 py-12">
           <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-gray-900">Digital Skills</h2>
           <motion.div
@@ -1231,7 +1231,7 @@ export default function Portfolio() {
   };
 
   const Footer = () => (
-    <footer className="bg-white py-12 mt-12">
+    <footer className="bg-white border-t border-gray-300 py-12 mt-12">
       <div className="max-w-6xl mx-auto px-8">
 
         {/* Top Section: Contact & Socials */}
