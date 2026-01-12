@@ -1247,8 +1247,7 @@ export default function Portfolio() {
           </div>
         </div>
 
-        {/* Divider */}
-        <div className="border-t border-gray-200 w-full mb-8"></div>
+
 
         {/* Bottom Section: Hobbies */}
         <div className="flex flex-col items-center justify-center text-center">
