@@ -309,6 +309,7 @@ export const translations = {
         },
         footer: {
             connect: "Verbinden",
+            emailMe: "Mail Mij",
             email: "Mail Mij",
             offClock: "Vrije Tijd",
             hobbies: {
