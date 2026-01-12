@@ -866,7 +866,7 @@ export default function Portfolio() {
             <motion.div
               variants={itemVariants}
               className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5"
-              whileHover={{ y: -5 }}
+              whileHover={{ y: -5, borderColor: isDarkMode ? '#facc15' : '#2563eb', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }}
             >
               <div className="flex items-center gap-2 mb-3">
                 <div className="p-2 bg-gray-100 dark:bg-gray-800 rounded text-gray-600 dark:text-gray-400">
@@ -889,7 +889,7 @@ export default function Portfolio() {
             <motion.div
               variants={itemVariants}
               className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5"
-              whileHover={{ y: -5 }}
+              whileHover={{ y: -5, borderColor: isDarkMode ? '#facc15' : '#2563eb', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }}
             >
               <div className="flex items-center gap-2 mb-3">
                 <div className="p-2 bg-gray-100 dark:bg-gray-800 rounded text-gray-600 dark:text-gray-400">
@@ -917,7 +917,7 @@ export default function Portfolio() {
           <motion.div
             variants={itemVariants}
             className="bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-800 rounded p-6"
-            whileHover={{ y: -5 }}
+            whileHover={{ y: -5, borderColor: isDarkMode ? '#facc15' : '#2563eb', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }}
           >
             <div className="flex items-start gap-3 mb-3">
               <GraduationCap className="w-5 h-5 text-gray-900 dark:text-white mt-0.5" />
@@ -938,7 +938,7 @@ export default function Portfolio() {
           <motion.div
             variants={itemVariants}
             className="bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-800 rounded p-6"
-            whileHover={{ y: -5 }}
+            whileHover={{ y: -5, borderColor: isDarkMode ? '#facc15' : '#2563eb', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }}
           >
             <ul className="space-y-3">
               {[
@@ -1349,21 +1349,21 @@ export default function Portfolio() {
             <motion.div variants={itemVariants}>
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">{t('metricsPage.insights.title')}</h2>
               <div className="grid md:grid-cols-3 gap-4">
-                <motion.div whileHover={{ y: -5 }} className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5">
+                <motion.div whileHover={{ y: -5, borderColor: isDarkMode ? '#facc15' : '#2563eb', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }} className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5">
                   <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2">{t('metricsPage.insights.topChannel.title')}</div>
                   <div className="text-lg font-bold text-gray-900 dark:text-white">{t('metricsPage.insights.topChannel.name')}</div>
                   <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
                     {t('metricsPage.insights.topChannel.desc')}
                   </p>
                 </motion.div>
-                <motion.div whileHover={{ y: -5 }} className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5">
+                <motion.div whileHover={{ y: -5, borderColor: isDarkMode ? '#facc15' : '#2563eb', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }} className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5">
                   <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2">{t('metricsPage.insights.bestCvr.title')}</div>
                   <div className="text-lg font-bold text-gray-900 dark:text-white">{t('metricsPage.insights.bestCvr.name')}</div>
                   <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
                     {t('metricsPage.insights.bestCvr.desc')}
                   </p>
                 </motion.div>
-                <motion.div whileHover={{ y: -5 }} className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5">
+                <motion.div whileHover={{ y: -5, borderColor: isDarkMode ? '#facc15' : '#2563eb', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }} className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5">
                   <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2">{t('metricsPage.insights.highestRoi.title')}</div>
                   <div className="text-lg font-bold text-gray-900 dark:text-white">{t('metricsPage.insights.highestRoi.name')}</div>
                   <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
