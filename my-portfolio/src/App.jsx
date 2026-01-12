@@ -94,13 +94,13 @@ const MusicPlayer = () => {
 
         {/* Controls */}
         <div className="flex items-center gap-3">
-          <button className="text-gray-400 hover:text-white transition-colors">
+          <button className="text-gray-400 hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2">
             <ChevronRight className="w-5 h-5 rotate-180" /> {/* Reuse Chevron as Prev */}
           </button>
 
           <button
             onClick={togglePlay}
-            className="w-8 h-8 bg-white rounded-full flex items-center justify-center text-black hover:scale-105 transition-transform"
+            className="w-8 h-8 bg-white rounded-full flex items-center justify-center text-black hover:scale-105 transition-transform focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2"
           >
             {isPlaying ? (
               // Pause Icon (Manual primitive to avoid importing new icon)
@@ -113,7 +113,7 @@ const MusicPlayer = () => {
             )}
           </button>
 
-          <button className="text-gray-400 hover:text-white transition-colors">
+          <button className="text-gray-400 hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2">
             <ChevronRight className="w-5 h-5" /> {/* Next */}
           </button>
         </div>
@@ -173,7 +173,7 @@ export default function Portfolio() {
                 <button
                   key={page}
                   onClick={() => setCurrentPage(page)}
-                  className={`relative px-4 py-2 text-sm transition-colors rounded ${currentPage === page
+                  className={`relative px-4 py-2 text-sm transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2 ${currentPage === page
                     ? 'text-white dark:text-gray-900'
                     : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800' // Hover effect only on non-active items
                     }`}
@@ -198,7 +198,7 @@ export default function Portfolio() {
             {/* Language Selector */}
             <button
               onClick={() => setLanguage(language === 'en' ? 'nl' : 'en')}
-              className="flex items-center gap-1 p-2 text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800 rounded-full transition-colors mr-2 text-sm font-medium"
+              className="flex items-center gap-1 p-2 text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800 rounded-full transition-colors mr-2 text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2"
             >
               <Globe className="w-4 h-4" />
               <span>{language.toUpperCase()}</span>
@@ -207,14 +207,14 @@ export default function Portfolio() {
             {/* Dark Mode Toggle */}
             <button
               onClick={() => setIsDarkMode(!isDarkMode)}
-              className="p-2 text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800 rounded-full transition-colors mr-2"
+              className="p-2 text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800 rounded-full transition-colors mr-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2"
             >
               {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
             </button>
 
             {/* Mobile Menu Button (Visible ONLY on Mobile) */}
             <button
-              className="md:hidden p-2 text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800 rounded"
+              className="md:hidden p-2 text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -238,7 +238,7 @@ export default function Portfolio() {
                       setCurrentPage(page);
                       setIsMenuOpen(false); // Close menu after clicking
                     }}
-                    className={`w-full text-left px-4 py-3 text-sm font-medium rounded-lg transition-all ${currentPage === page
+                    className={`w-full text-left px-4 py-3 text-sm font-medium rounded-lg transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2 ${currentPage === page
                       ? 'bg-gray-900 dark:bg-white text-white dark:text-gray-900'
                       : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800'
                       }`}
@@ -277,7 +277,7 @@ export default function Portfolio() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => setCurrentPage('case-studies')}
-                  className="px-5 py-2.5 bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-sm font-medium rounded hover:bg-gray-800 dark:hover:bg-gray-100 transition-all cursor-pointer"
+                  className="px-5 py-2.5 bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-sm font-medium rounded hover:bg-gray-800 dark:hover:bg-gray-100 transition-all cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2"
                 >
                   {t('hero.viewCaseStudies')}
                 </motion.button>
@@ -286,7 +286,7 @@ export default function Portfolio() {
                   whileTap={{ scale: 0.95 }}
                   href="/resume.pdf"
                   download="Kanishk_Singh_Resume.pdf"
-                  className="px-5 py-2.5 border-2 border-gray-900 dark:border-white text-gray-900 dark:text-white text-sm font-medium rounded hover:bg-gray-50 dark:hover:bg-gray-900 transition-all flex items-center justify-center gap-2 cursor-pointer"
+                  className="px-5 py-2.5 border-2 border-gray-900 dark:border-white text-gray-900 dark:text-white text-sm font-medium rounded hover:bg-gray-50 dark:hover:bg-gray-900 transition-all flex items-center justify-center gap-2 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2"
                 >
                   <Download className="w-4 h-4" />
                   {t('hero.downloadCV')}
@@ -302,13 +302,13 @@ export default function Portfolio() {
                 <div className="space-y-2 text-sm">
                   <div className="flex items-start gap-2 text-gray-700 dark:text-gray-300">
                     <Mail className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                    <a href="mailto:oscoro.graves@gmail.com" className="hover:text-gray-900 dark:hover:text-white transition-colors">oscoro.graves@gmail.com</a>
+                    <a href="mailto:oscoro.graves@gmail.com" className="hover:text-gray-900 dark:hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2">oscoro.graves@gmail.com</a>
                   </div>
                   <div className="flex items-start gap-2 text-gray-700 dark:text-gray-300">
                     <Phone className="w-4 h-4 mt-0.5 flex-shrink-0" />
                     <a
                       href="tel:+918299406042"
-                      className="hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer"
+                      className="hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2"
                     >
                       +91 8299406042
                     </a>
@@ -320,7 +320,7 @@ export default function Portfolio() {
                   <div className="flex items-start gap-2 text-gray-700 dark:text-gray-300">
                     <Linkedin className="w-4 h-4 mt-0.5 flex-shrink-0" />
                     {/* UPDATED LINKEDIN LINK */}
-                    <a href="https://www.linkedin.com/in/kanishk-singh-ab90b2203/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 dark:hover:text-white transition-colors break-all">
+                    <a href="https://www.linkedin.com/in/kanishk-singh-ab90b2203/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 dark:hover:text-white transition-colors break-all focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2">
                       LinkedIn
                     </a>
                   </div>
@@ -1070,7 +1070,7 @@ export default function Portfolio() {
             <div className="bg-white dark:bg-gray-900 border-2 border-gray-900 dark:border-white rounded max-w-2xl w-full max-h-[90vh] overflow-y-auto">
               <div className="bg-gray-900 dark:bg-gray-800 text-white px-6 py-4 flex items-center justify-between sticky top-0 z-10 border-b border-gray-800 dark:border-gray-700">
                 <h3 className="text-lg font-bold">{t('creativeLab.modal.title')}</h3>
-                <button onClick={() => setSelectedCreative(null)} className="hover:bg-white/20 p-1 rounded transition-all">
+                <button onClick={() => setSelectedCreative(null)} className="hover:bg-white/20 p-1 rounded transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2">
                   <X className="w-5 h-5" />
                 </button>
               </div>
@@ -1191,7 +1191,7 @@ export default function Portfolio() {
                 <button
                   key={channel}
                   onClick={() => setFilterChannel(channel)}
-                  className={`px-3 py-1.5 text-sm font-medium rounded transition-all ${filterChannel === channel
+                  className={`px-3 py-1.5 text-sm font-medium rounded transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2 ${filterChannel === channel
                     ? 'bg-gray-900 text-white dark:bg-white dark:text-gray-900'
                     : 'bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
                     }`}
@@ -1297,7 +1297,7 @@ export default function Portfolio() {
           <div className="flex items-center gap-6">
             <motion.a
               href="mailto:oscoro.graves@gmail.com"
-              className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors flex items-center gap-2 text-sm font-medium"
+              className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors flex items-center gap-2 text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -1307,7 +1307,7 @@ export default function Portfolio() {
               href="https://www.linkedin.com/in/kanishk-singh-ab90b2203/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors flex items-center gap-2 text-sm font-medium"
+              className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors flex items-center gap-2 text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -1317,7 +1317,7 @@ export default function Portfolio() {
               href="https://www.instagram.com/oscorograves/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors flex items-center gap-2 text-sm font-medium"
+              className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors flex items-center gap-2 text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
