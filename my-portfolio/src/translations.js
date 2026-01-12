@@ -51,6 +51,7 @@ export const translations = {
         footer: {
             connect: "Connect",
             emailMe: "Email Me",
+            email: "Email Me",
             offClock: "Off the Clock",
             hobbies: {
                 film: "Film Analysis",
@@ -58,7 +59,7 @@ export const translations = {
                 travel: "Solo Travel",
                 journaling: "Journaling"
             },
-            copyright: "© 2024 Kanishk Singh. All rights reserved."
+            copyright: "© 2026 Kanishk Singh. All rights reserved."
         },
         experience: {
             title: "Professional Experience",
@@ -308,7 +309,7 @@ export const translations = {
         },
         footer: {
             connect: "Verbinden",
-            emailMe: "Mail Mij",
+            email: "Mail Mij",
             offClock: "Vrije Tijd",
             hobbies: {
                 film: "Filmanalyse",
@@ -316,7 +317,7 @@ export const translations = {
                 travel: "Solo Reizen",
                 journaling: "Journaling"
             },
-            copyright: "© 2024 Kanishk Singh. Alle rechten voorbehouden."
+            copyright: "© 2026 Kanishk Singh. Alle rechten voorbehouden."
         },
         experience: {
             title: "Professionele Ervaring",

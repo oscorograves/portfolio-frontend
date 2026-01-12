@@ -79,7 +79,7 @@ const MusicPlayer = () => {
       <audio ref={audioRef} src="/song.mp3" loop />
 
       {/* The Visual Player */}
-      <div className="bg-gray-900/50 backdrop-blur-lg text-white border border-white/10 rounded-full px-3 py-2 shadow-2xl flex items-center justify-between gap-4">
+      <div className="bg-gray-800/90 dark:bg-gray-900/50 backdrop-blur-lg text-white border border-white/10 rounded-full px-3 py-2 shadow-2xl flex items-center justify-between gap-4">
 
         {/* Song Info */}
         <div className="flex items-center gap-3 overflow-hidden">
@@ -1285,7 +1285,7 @@ export default function Portfolio() {
   };
 
   const Footer = () => (
-    <footer className="bg-white dark:bg-gray-900 border-t border-gray-300 dark:border-gray-800 py-12 mt-12 transition-colors duration-300">
+    <footer className="bg-white dark:bg-gray-900 py-12 transition-colors duration-300">
       <div className="max-w-6xl mx-auto px-8">
 
         {/* Top Section: Contact & Socials */}
@@ -1353,7 +1353,10 @@ export default function Portfolio() {
   );
 
   return (
-    <div className="min-h-screen bg-gray-50/30 dark:bg-gray-950/30 flex flex-col transition-colors duration-300 relative">
+    <div className="min-h-screen flex flex-col transition-colors duration-300 relative">
+      {/* Solid Background Base */}
+      <div className="fixed inset-0 -z-20 bg-gray-50 dark:bg-gray-950 transition-colors duration-300" />
+
       {/* Animated Background Gradients - Global */}
       <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-300/30 dark:bg-purple-900/20 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '8s' }} />
