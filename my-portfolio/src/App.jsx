@@ -123,82 +123,48 @@ const MusicPlayer = () => {
   );
 };
 
-const FooterParticles = () => {
-  // Generate particles with stable random values
-  const particles = React.useMemo(() => {
-    return [...Array(40)].map(() => ({
-      size: Math.random() * 8 + 4, // Random size between 4px (w-1) and 12px (w-3)
-      left: Math.random() * 100, // 0% to 100%
-      bottom: Math.random() * 100, // 0% to 100% relative to container
-      duration: Math.random() * 5 + 3, // 3s to 8s
-      delay: Math.random() * 2 // Random start delay
+const FireflyBackground = () => {
+  // Generate 30 fireflies with stable random values
+  const fireflies = React.useMemo(() => {
+    return Array.from({ length: 30 }).map((_, i) => ({
+      id: i,
+      left: Math.random() * 100, // Random horizontal start
+      bottom: Math.random() * 40, // Start in the bottom 40% of screen
+      size: Math.random() * 6 + 4, // Bigger size (4px - 10px)
+      duration: Math.random() * 5 + 5, // Slow float (5s - 10s)
+      delay: Math.random() * 5,
     }));
   }, []);
 
   return (
-    <div
-      className="fixed bottom-0 left-0 right-0 h-64 z-0 overflow-hidden pointer-events-none"
-      style={{
-        maskImage: 'linear-gradient(to top, black, transparent)',
-        WebkitMaskImage: 'linear-gradient(to top, black, transparent)'
-      }}
-    >
-      {particles.map((p, i) => (
+    <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
+      {/* z-0 ensures it sits on the base layer. 
+         We will make sure your content is z-10.
+      */}
+
+      {fireflies.map((p) => (
         <motion.div
-          key={i}
-          className="absolute bg-orange-500 rounded-full"
+          key={p.id}
+          // Bright Orange/Gold color with a glow effect (shadow)
+          className="absolute rounded-full bg-orange-500 shadow-[0_0_10px_rgba(249,115,22,0.6)]"
           style={{
-            width: p.size,
-            height: p.size,
             left: `${p.left}%`,
             bottom: `${p.bottom}%`,
-            opacity: 0.2 // Base low opacity
+            width: p.size,
+            height: p.size,
+            opacity: 0, // Start invisible
           }}
           animate={{
-            y: [0, -20, 0],
-            opacity: [0.2, 0.5, 0.2]
+            // Float UP and drift SIDEWAYS
+            y: [0, -150],
+            x: [0, Math.random() * 50 - 25],
+            opacity: [0, 0.8, 0], // Fade in to 80% opacity, then out
           }}
           transition={{
             duration: p.duration,
             repeat: Infinity,
-            delay: p.delay,
-            ease: "easeInOut"
-          }}
-        />
-      ))}
-    </div>
-  );
-};
-
-const ShootingStars = () => {
-  // Generate shooting stars with stable random values
-  const stars = React.useMemo(() => {
-    return [...Array(8)].map(() => ({
-      left: Math.random() * 100, // Random start position 0% to 100%
-      delay: Math.random() * 10 + 5, // Random delay between 5s and 15s
-    }));
-  }, []);
-
-  return (
-    <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
-      {stars.map((star, i) => (
-        <motion.div
-          key={i}
-          className="absolute h-0.5 w-24 bg-gradient-to-r from-transparent via-gray-400 to-transparent rotate-45"
-          style={{
-            top: -100,
-            left: `${star.left}%`
-          }}
-          animate={{
-            top: '100vh',
-            x: -500, // Move diagonally to the left
-            opacity: [0, 1, 0]
-          }}
-          transition={{
-            duration: 2,
             ease: "easeInOut",
-            repeat: Infinity,
-            repeatDelay: star.delay
+            delay: p.delay,
           }}
         />
       ))}
@@ -1368,7 +1334,7 @@ export default function Portfolio() {
   };
 
   const Footer = () => (
-    <footer className="bg-white dark:bg-gray-900 py-12 transition-colors duration-300">
+    <footer className="bg-white dark:bg-gray-900 py-12 transition-colors duration-300 relative z-10">
       <div className="max-w-6xl mx-auto px-8">
 
         {/* Top Section: Contact & Socials */}
@@ -1459,8 +1425,7 @@ export default function Portfolio() {
 
       <Footer />
       <MusicPlayer />
-      <FooterParticles />
-      <ShootingStars />
+      <FireflyBackground />
     </div>
   );
 }
