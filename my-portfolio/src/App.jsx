@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 import { TrendingUp, Target, LineChart, ChevronRight, Play, X, Menu, Filter, Mail, Phone, MapPin, Linkedin, Download, Calendar, Briefcase, GraduationCap, Award, Film, Camera, Plane, BookOpen } from 'lucide-react';
 import { metricsAPI } from './services/api.js';
@@ -152,12 +152,24 @@ export default function Portfolio() {
                 <button
                   key={page}
                   onClick={() => setCurrentPage(page)}
-                  className={`px-4 py-2 text-sm transition-all rounded ${currentPage === page
-                    ? 'bg-gray-900 text-white'
-                    : 'text-gray-700 hover:bg-gray-100'
+                  className={`relative px-4 py-2 text-sm transition-colors rounded ${currentPage === page
+                    ? 'text-white'
+                    : 'text-gray-700 hover:bg-gray-100' // Hover effect only on non-active items
                     }`}
                 >
-                  {page.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}
+                  {/* The Background Pill Animation */}
+                  {currentPage === page && (
+                    <motion.div
+                      layoutId="nav-pill"
+                      className="absolute inset-0 bg-gray-900 rounded"
+                      transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                      style={{ zIndex: 0 }} // Behind the text
+                    />
+                  )}
+                  {/* The Text (Must be higher z-index relative to pill) */}
+                  <span className="relative z-10">
+                    {page.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}
+                  </span>
                 </button>
               ))}
             </div>
@@ -172,29 +184,33 @@ export default function Portfolio() {
           </div>
 
           {/* Mobile Navigation Dropdown (Slides down when menu is open) */}
-          {isMenuOpen && (
-            <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: 'auto', opacity: 1 }}
-              className="md:hidden pt-4 pb-2 border-t border-gray-100 mt-4 space-y-2 overflow-hidden"
-            >
-              {['home', 'experience', 'case-studies', 'creative-lab', 'metrics'].map(page => (
-                <button
-                  key={page}
-                  onClick={() => {
-                    setCurrentPage(page);
-                    setIsMenuOpen(false); // Close menu after clicking
-                  }}
-                  className={`w-full text-left px-4 py-3 text-sm font-medium rounded-lg transition-all ${currentPage === page
-                    ? 'bg-gray-900 text-white'
-                    : 'text-gray-700 hover:bg-gray-50'
-                    }`}
-                >
-                  {page.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}
-                </button>
-              ))}
-            </motion.div>
-          )}
+          <AnimatePresence>
+            {isMenuOpen && (
+              <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: 'auto', opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.3, ease: 'easeInOut' }}
+                className="md:hidden pt-4 pb-2 border-t border-gray-100 mt-4 space-y-2 overflow-hidden"
+              >
+                {['home', 'experience', 'case-studies', 'creative-lab', 'metrics'].map(page => (
+                  <button
+                    key={page}
+                    onClick={() => {
+                      setCurrentPage(page);
+                      setIsMenuOpen(false); // Close menu after clicking
+                    }}
+                    className={`w-full text-left px-4 py-3 text-sm font-medium rounded-lg transition-all ${currentPage === page
+                      ? 'bg-gray-900 text-white'
+                      : 'text-gray-700 hover:bg-gray-50'
+                      }`}
+                  >
+                    {page.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}
+                  </button>
+                ))}
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </nav>
     );
