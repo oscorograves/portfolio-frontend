@@ -72,13 +72,13 @@ const MusicPlayer = () => {
       initial={{ y: 100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ delay: 1, type: "spring", stiffness: 120 }}
-      className="fixed bottom-6 right-6 z-50 w-auto max-w-sm"
+      className="fixed bottom-6 right-6 z-50 w-auto"
     >
       {/* The Audio Element (Hidden) */}
       <audio ref={audioRef} src="/song.mp3" loop />
 
       {/* The Visual Player */}
-      <div className="bg-gray-900/90 backdrop-blur-md text-white border border-gray-700 rounded-full px-4 py-3 shadow-2xl flex items-center justify-between gap-4">
+      <div className="bg-gray-900/90 backdrop-blur-md text-white border border-gray-700 rounded-full px-3 py-2 shadow-2xl flex items-center justify-between gap-4">
 
         {/* Song Info */}
         <div className="flex items-center gap-3 overflow-hidden">
