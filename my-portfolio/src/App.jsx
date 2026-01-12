@@ -306,7 +306,7 @@ export default function Portfolio() {
   const HomePage = () => (
     <div className="pt-16">
       {/* Header Section */}
-      <section className="bg-gray-50 dark:bg-gray-950 border-b border-gray-300 dark:border-gray-800 transition-colors duration-300">
+      <section className="border-b border-gray-300 dark:border-gray-800 transition-colors duration-300">
         <motion.div
           className="max-w-6xl mx-auto px-8 pt-6 pb-12"
           initial="hidden"
@@ -432,7 +432,7 @@ export default function Portfolio() {
       </div>
 
       {/* Featured Achievement */}
-      <section className="bg-white dark:bg-gray-900 border-b border-gray-300 dark:border-gray-800 transition-colors duration-300">
+      <section className="border-b border-gray-300 dark:border-gray-800 transition-colors duration-300">
         <div className="max-w-6xl mx-auto px-8 py-12">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-gray-900 dark:border-white">{t('featuredWork.title')}</h2>
           <motion.div
@@ -471,7 +471,7 @@ export default function Portfolio() {
       </section>
 
       {/* What I Offer */}
-      <section className="bg-gray-50 dark:bg-gray-950 border-b border-gray-300 dark:border-gray-800 transition-colors duration-300">
+      <section className="border-b border-gray-300 dark:border-gray-800 transition-colors duration-300">
         <div className="max-w-6xl mx-auto px-8 py-12">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-gray-900 dark:border-white">{t('whatIOffer.title')}</h2>
           <motion.div
@@ -516,7 +516,7 @@ export default function Portfolio() {
       </section>
 
       {/* Core Competencies */}
-      <section className="bg-white dark:bg-gray-900 border-b border-gray-300 dark:border-gray-800 transition-colors duration-300">
+      <section className="border-b border-gray-300 dark:border-gray-800 transition-colors duration-300">
         <div className="max-w-6xl mx-auto px-8 py-12">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-gray-900 dark:border-white">{t('experience.skills')}</h2>
           <motion.div
@@ -556,7 +556,8 @@ export default function Portfolio() {
       </section>
 
       {/* Digital Skills */}
-      <section className="bg-gray-50 dark:bg-gray-950 transition-colors duration-300">
+      {/* Digital Skills */}
+      <section className="transition-colors duration-300">
         <div className="max-w-6xl mx-auto px-8 py-12">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-gray-900 dark:border-white">Digital Skills</h2>
           <motion.div
@@ -947,7 +948,7 @@ export default function Portfolio() {
     ];
 
     return (
-      <div className="pt-20 bg-gray-50 dark:bg-gray-950 min-h-screen transition-colors duration-300">
+      <div className="pt-20 min-h-screen transition-colors duration-300">
         <div className="max-w-6xl mx-auto px-8 py-12">
           <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-3">Case Studies</h1>
           <p className="text-gray-600 dark:text-gray-400 mb-8 pb-4 border-b-2 border-gray-900 dark:border-white">Detailed performance marketing projects and results</p>
@@ -1038,7 +1039,7 @@ export default function Portfolio() {
     ];
 
     return (
-      <div className="pt-20 bg-gray-50 dark:bg-gray-950 min-h-screen transition-colors duration-300">
+      <div className="pt-20 min-h-screen transition-colors duration-300">
         <div className="max-w-6xl mx-auto px-8 py-12">
           <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-3">{t('creativeLab.title')}</h1>
           <p className="text-gray-600 dark:text-gray-400 mb-8 pb-4 border-b-2 border-gray-900 dark:border-white">{t('creativeLab.subtitle')}</p>
@@ -1201,7 +1202,7 @@ export default function Portfolio() {
     const avgROI = summary?.avgROI || (displayMetrics.length ? displayMetrics.reduce((sum, m) => sum + m.roi, 0) / displayMetrics.length : 0);
 
     return (
-      <div className="pt-20 bg-gray-50 dark:bg-gray-950 min-h-screen pb-32 transition-colors duration-300">
+      <div className="pt-20 min-h-screen pb-32 transition-colors duration-300">
         <div className="max-w-6xl mx-auto px-8 py-12">
           <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-3">{t('metricsPage.title')}</h1>
           <p className="text-gray-600 dark:text-gray-400 mb-8 pb-4 border-b-2 border-gray-900 dark:border-white">{t('metricsPage.subtitle')}</p>
