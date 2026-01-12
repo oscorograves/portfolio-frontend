@@ -123,6 +123,53 @@ const MusicPlayer = () => {
   );
 };
 
+const FooterParticles = () => {
+  // Generate particles with stable random values
+  const particles = React.useMemo(() => {
+    return [...Array(40)].map(() => ({
+      size: Math.random() * 8 + 4, // Random size between 4px (w-1) and 12px (w-3)
+      left: Math.random() * 100, // 0% to 100%
+      bottom: Math.random() * 100, // 0% to 100% relative to container
+      duration: Math.random() * 5 + 3, // 3s to 8s
+      delay: Math.random() * 2 // Random start delay
+    }));
+  }, []);
+
+  return (
+    <div
+      className="fixed bottom-0 left-0 right-0 h-64 -z-10 overflow-hidden pointer-events-none"
+      style={{
+        maskImage: 'linear-gradient(to top, black, transparent)',
+        WebkitMaskImage: 'linear-gradient(to top, black, transparent)'
+      }}
+    >
+      {particles.map((p, i) => (
+        <motion.div
+          key={i}
+          className="absolute bg-orange-500 rounded-full"
+          style={{
+            width: p.size,
+            height: p.size,
+            left: `${p.left}%`,
+            bottom: `${p.bottom}%`,
+            opacity: 0.2 // Base low opacity
+          }}
+          animate={{
+            y: [0, -20, 0],
+            opacity: [0.2, 0.5, 0.2]
+          }}
+          transition={{
+            duration: p.duration,
+            repeat: Infinity,
+            delay: p.delay,
+            ease: "easeInOut"
+          }}
+        />
+      ))}
+    </div>
+  );
+};
+
 export default function Portfolio() {
   const [currentPage, setCurrentPage] = useState('home');
   const [selectedCreative, setSelectedCreative] = useState(null);
@@ -1376,6 +1423,7 @@ export default function Portfolio() {
 
       <Footer />
       <MusicPlayer />
+      <FooterParticles />
     </div>
   );
 }
