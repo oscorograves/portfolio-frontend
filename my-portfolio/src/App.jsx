@@ -255,11 +255,11 @@ export default function Portfolio() {
   };
 
   const HomePage = () => (
-    <div className="pt-20">
+    <div className="pt-16">
       {/* Header Section */}
       <section className="bg-gray-50 dark:bg-gray-950 border-b border-gray-300 dark:border-gray-800 transition-colors duration-300">
         <motion.div
-          className="max-w-6xl mx-auto px-8 py-12"
+          className="max-w-6xl mx-auto px-8 pt-6 pb-12"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}

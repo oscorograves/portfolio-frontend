@@ -268,7 +268,7 @@ export const translations = {
         },
         hero: {
             role: "Performance & Growth Marketer",
-            description: "Ik ontwerp betaalde media-, CRO- en groeisystemen die omzet schalen. Gespecialiseerd in datagedreven campagne-optimalisatie, funnelontwerp en prestatieanalyse over B2B- en B2C-kanalen.",
+            description: "Ik ontwerp betaalde media-, CRO- en groeisystemen voor schaalbare omzetgroei. Gespecialiseerd in datagedreven campagne-optimalisatie, funnelontwerp en prestatieanalyse voor B2B- en B2C-kanalen.",
             viewCaseStudies: "Bekijk Casestudies",
             downloadCV: "Download CV",
             contactInfo: "Contactgegevens",
@@ -314,7 +314,7 @@ export const translations = {
             hobbies: {
                 film: "Filmanalyse",
                 photography: "Fotografie",
-                travel: "Solo Reizen",
+                travel: "Solo reizen",
                 journaling: "Journaling"
             },
             copyright: "© 2026 Kanishk Singh. Alle rechten voorbehouden."
@@ -324,9 +324,9 @@ export const translations = {
             present: "Heden",
             skills: "Kerncompetenties",
             competencies: [
-                { title: "Prestatiemarketing", icon: "Target", skills: ["Betaalde Media (Meta, Google, LinkedIn)", "Campagnestrategie & Schalen", "Budgetoptimalisatie"] },
-                { title: "Groeimarketing", icon: "TrendingUp", skills: ["Landingspagina Ontwerp", "Trechteroptimalisatie", "Optimalisatie Gebruikerservaring"] },
-                { title: "Analytics & CRO", icon: "LineChart", skills: ["GA4 Implementatie", "A/B Testen", "Prestatiedashboards"] }
+                { title: "Performance Marketing", icon: "Target", skills: ["Paid Media (Meta, Google, LinkedIn)", "Campagnestrategie & Scaling", "Budgetoptimalisatie"] },
+                { title: "Growth Marketing", icon: "TrendingUp", skills: ["Landingspagina Design", "Funneloptimalisatie", "User Experience Verbetering"] },
+                { title: "Analytics & CRO", icon: "LineChart", skills: ["GA4 Implementatie", "A/B Testen", "Performance Dashboards"] }
             ],
             digitalSkills: "Digitale Vaardigheden",
             platformsParams: "Platformen & Tools",
@@ -344,7 +344,7 @@ export const translations = {
                     title: "Ad Operations Specialist",
                     company: "Pocket FM",
                     type: "Contract",
-                    location: "Op Afstand",
+                    location: "Remote",
                     period: "Jun 2025 – Heden",
                     bullets: [
                         "Beheer van Meta Ads-uitvoering voor acquisitie- en engagementcampagnes voor meerdere regio's",
@@ -367,7 +367,7 @@ export const translations = {
                 tradebuilder: {
                     title: "Digital Marketing Associate",
                     company: "Tradebuilder Inc.",
-                    location: "Op Afstand",
+                    location: "Remote",
                     period: "Sep 2023 – Jul 2024",
                     bullets: [
                         "Beheerde Google Ads, Meta Ads en HubSpot campagnes voor B2B leadgeneratie",
@@ -381,7 +381,7 @@ export const translations = {
                     location: "Noida",
                     period: "Jan 2023 – Aug 2023",
                     bullets: [
-                        "Schaalde Instagram naar 3.000+ en YouTube naar 10.000+ volgers met behulp van organische groei",
+                        "Liet Instagram groeien naar 3.000+ en YouTube naar 10.000+ volgers via organische groei",
                         "Verbeterde zoekresultaten door zoekwoordenonderzoek, on-page SEO en metadata-optimalisatie"
                     ]
                 },
@@ -404,8 +404,8 @@ export const translations = {
             }
         },
         metricsPage: {
-            title: "Prestatie Metrieken",
-            subtitle: "Kanaalspecifieke prestaties over groei, CRO en betaalde acquisitie",
+            title: "Performance Metrics",
+            subtitle: "Kanaalspecifieke prestaties voor groei, CRO en betaalde acquisitie",
             totalSpend: "Totaal Uitgaven",
             avgCtr: "Gem. CTR",
             avgCvr: "Gem. CVR",
@@ -444,8 +444,8 @@ export const translations = {
         },
         creativeLab: {
             title: "Creatief Lab",
-            subtitle: "Advertentie creatief portfolio en video inhoud",
-            adCreatives: "Advertentie Creatives",
+            subtitle: "Advertentiemateriaal en videocontent",
+            adCreatives: "Advertentiemateriaal",
             videoContent: "Video Inhoud",
             metrics: {
                 goal: "Campagnedoel",
