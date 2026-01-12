@@ -78,7 +78,7 @@ const MusicPlayer = () => {
       <audio ref={audioRef} src="/song.mp3" loop />
 
       {/* The Visual Player */}
-      <div className="bg-gray-900/90 backdrop-blur-md text-white border border-gray-700 rounded-full px-3 py-2 shadow-2xl flex items-center justify-between gap-4">
+      <div className="bg-gray-900/80 backdrop-blur-md text-white border border-white/10 rounded-full px-3 py-2 shadow-2xl flex items-center justify-between gap-4">
 
         {/* Song Info */}
         <div className="flex items-center gap-3 overflow-hidden">
@@ -130,7 +130,7 @@ export default function Portfolio() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     return (
-      <nav className="fixed top-0 left-0 right-0 bg-white border-b border-gray-300 z-50">
+      <nav className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md border-b border-white/20 z-50">
         <div className="max-w-6xl mx-auto px-4 md:px-8 py-4">
           <div className="flex items-center justify-between">
 
@@ -257,6 +257,12 @@ export default function Portfolio() {
             </div>
 
             <motion.div variants={itemVariants} className="space-y-4">
+              {/* Profile Picture with Hero Glow */}
+              <div className="relative inline-block w-full max-w-[200px] mx-auto md:max-w-none">
+                <div className="absolute -inset-4 bg-gradient-to-r from-blue-400 to-purple-500 opacity-30 blur-2xl rounded-full"></div>
+                <img src="/profile.jpeg" alt="Kanishk Singh" className="relative w-full rounded-2xl object-cover border border-gray-300 shadow-lg" />
+              </div>
+
               <div className="bg-gray-50 border border-gray-300 rounded p-4">
                 <h3 className="text-xs font-semibold text-gray-600 uppercase mb-3">Contact Information</h3>
                 <div className="space-y-2 text-sm">
