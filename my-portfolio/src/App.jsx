@@ -72,7 +72,7 @@ const MusicPlayer = () => {
       initial={{ y: 100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ delay: 1, type: "spring", stiffness: 120 }}
-      className="fixed z-50 bottom-4 left-1/2 -translate-x-1/2 w-[90%] max-w-sm md:bottom-6 md:right-6 md:left-auto md:translate-x-0 md:w-auto"
+      className="fixed bottom-4 left-4 right-4 md:left-auto md:right-6 md:w-auto z-50"
     >
       {/* The Audio Element (Hidden) */}
       <audio ref={audioRef} src="/song.mp3" loop />
@@ -348,7 +348,8 @@ export default function Portfolio() {
               </div>
               <ChevronRight className="w-6 h-6 text-gray-400 group-hover:text-gray-900 group-hover:translate-x-1 transition-all" />
             </div>
-            <div className="grid grid-cols-4 gap-4 mt-6">
+            {/* Mobile: 2 columns, Desktop: 4 columns */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 pt-6 border-t border-gray-100">
               {[
                 { label: 'Paid Attendees', value: '150' },
                 { label: 'Net-New %', value: '95%' },
