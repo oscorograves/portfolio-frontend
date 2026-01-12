@@ -4,15 +4,37 @@ import { motion } from 'framer-motion';
 import { TrendingUp, Target, LineChart, ChevronRight, Play, X, Filter, Mail, Phone, MapPin, Linkedin, Download, Calendar, Briefcase, GraduationCap, Award, Film, Camera, Plane, BookOpen } from 'lucide-react';
 import { metricsAPI } from './services/api.js';
 
-const PageWrapper = ({ children }) => (
+const PageWrapper = ({ children, className }) => (
   <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.5 }}
+    initial="hidden"
+    animate="visible"
+    exit="hidden"
+    variants={containerVariants}
+    className={className}
   >
     {children}
   </motion.div>
 );
+
+// Global Animation Variants
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5 }
+  }
+};
 
 export default function Portfolio() {
   const [currentPage, setCurrentPage] = useState('home');
@@ -37,12 +59,16 @@ export default function Portfolio() {
             <button
               key={page}
               onClick={() => setCurrentPage(page)}
-              className={`px-4 py-2 text-sm transition-all rounded ${currentPage === page
-                ? 'bg-gray-900 text-white'
-                : 'text-gray-700 hover:bg-gray-100'
-                }`}
+              className={`relative px-4 py-2 text-sm transition-all rounded z-10 ${currentPage === page ? 'text-white' : 'text-gray-700 hover:bg-gray-100'}`}
             >
-              {page.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}
+              {currentPage === page && (
+                <motion.div
+                  layoutId="activeTab"
+                  className="absolute inset-0 bg-gray-900 rounded"
+                  transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                />
+              )}
+              <span className="relative z-10">{page.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}</span>
             </button>
           ))}
         </div>
