@@ -31,7 +31,7 @@ const BackgroundTurtle = () => {
     return (
         // Outer container handles horizontal movement across screen
         <motion.div
-            className="fixed top-1/3 left-0 z-[1] pointer-events-none opacity-40"
+            className="fixed top-1/3 left-0 z-[5] pointer-events-none opacity-40"
             variants={crossingVariants}
             animate="animate"
             initial={false} // Start animation immediately without jumping to initial state
