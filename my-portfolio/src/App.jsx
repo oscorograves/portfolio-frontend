@@ -5,7 +5,6 @@ import { TrendingUp, Target, LineChart, ChevronRight, Play, X, Menu, Filter, Mai
 import { metricsAPI } from './services/api.js';
 import { translations } from './translations.js';
 import NetworkBackground from './components/NetworkBackground';
-import CosmicNebula from './components/CosmicNebula';
 
 // HARDCODED FALLBACK DATA
 const fallbackMetrics = [
@@ -1573,8 +1572,6 @@ export default function Portfolio() {
     <div className="min-h-screen flex flex-col transition-colors duration-300 relative overflow-hidden">
       {/* Solid Background Base */}
       <div className="fixed inset-0 -z-20 bg-gray-50 dark:bg-gray-950 transition-colors duration-300" />
-
-      <CosmicNebula />
 
       {/* Animated Background Gradients - Global */}
       <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
