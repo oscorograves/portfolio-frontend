@@ -228,6 +228,36 @@ const CustomCursor = ({ isDarkMode }) => {
   );
 };
 
+const BlackHoleRing = () => {
+  return (
+    <div className="relative flex items-center justify-center w-10 h-10 mr-2">
+
+      {/* 1. The Main Glow (Backdrop) */}
+      <div className="absolute inset-0 bg-orange-500 rounded-full opacity-20 blur-md animate-pulse" />
+
+      {/* 2. The Tilted Ring (The "Saturn" part) */}
+      <motion.div
+        className="absolute w-full h-full border-[3px] border-orange-400/60 rounded-full"
+        style={{
+          width: '140%',     // Wider than the container
+          height: '40%',     // Squashed to look like a disk
+        }}
+        animate={{ rotate: 360 }} // Spin the ring
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "linear"
+        }}
+      />
+
+      {/* 3. The Event Horizon (Black Void) */}
+      {/* z-10 puts this ON TOP of the back part of the ring to create depth */}
+      <div className="relative w-5 h-5 bg-black rounded-full shadow-[0_0_10px_rgba(249,115,22,0.8)] z-10" />
+
+    </div>
+  );
+};
+
 export default function Portfolio() {
   const [currentPage, setCurrentPage] = useState('home');
   const [selectedCreative, setSelectedCreative] = useState(null);
@@ -261,14 +291,10 @@ export default function Portfolio() {
           <div className="flex items-center justify-between">
 
             {/* Logo Section */}
-            <div className="flex items-center gap-3">
-              <img
-                src="/profile.jpeg"
-                alt="Kanishka Singh"
-                className="w-10 h-10 rounded-full object-cover border border-gray-300 dark:border-gray-700"
-              />
-              <div>
-                <div className="font-semibold text-gray-900 dark:text-white text-sm">Kanishk Singh</div>
+            <div className="flex items-center gap-1">
+              <BlackHoleRing />
+              <div className="font-bold tracking-tight text-gray-900 dark:text-white text-lg">
+                Kanishk Singh
               </div>
             </div>
 
