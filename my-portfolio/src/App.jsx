@@ -425,7 +425,7 @@ export default function Portfolio() {
                       : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800'
                       }`}
                   >
-                    {page.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}
+                    {t('nav.' + page.replace(/-./g, x => x[1].toUpperCase()))}
                   </button>
                 ))}
               </motion.div>
@@ -510,7 +510,7 @@ export default function Portfolio() {
               </div>
 
               <div className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-4">
-                <h3 className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-3">Key Metrics</h3>
+                <h3 className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-3">{t('hero.keyMetrics')}</h3>
                 <div className="grid grid-cols-2 gap-2">
                   {[
                     { label: 'CTR', value: '+16%' },
@@ -591,7 +591,7 @@ export default function Portfolio() {
               <div>
                 <div className="mb-2">
                   <h3 className="text-2xl font-bold text-gray-900 dark:text-white">Packt Events</h3>
-                  <p className="text-lg text-gray-600 dark:text-gray-400 font-medium">Paid GTM & Audience Acquisition</p>
+                  <p className="text-lg text-gray-600 dark:text-gray-400 font-medium">{t('featuredWork.projectSubtitle')}</p>
                 </div>
                 <p className="text-gray-600 dark:text-gray-300 text-sm">{t('featuredWork.projectDesc')}</p>
               </div>
@@ -734,7 +734,7 @@ export default function Portfolio() {
               <h3 className="font-semibold text-gray-900 dark:text-white mb-3">{t('experience.languages')}</h3>
               <div className="space-y-2">
                 <div className="flex justify-between items-center">
-                  <span className="text-sm text-gray-700 dark:text-gray-300">Hindi</span>
+                  <span className="text-sm text-gray-700 dark:text-gray-300">{t('experience.languageList.hindi')}</span>
                   <motion.span
                     whileHover={{ scale: 1.1, backgroundColor: "#f3f4f6", color: "#111827" }}
                     className="text-xs text-gray-600 dark:text-gray-400 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 px-2 py-1 rounded cursor-default"
@@ -743,7 +743,7 @@ export default function Portfolio() {
                   </motion.span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-sm text-gray-700 dark:text-gray-300">English</span>
+                  <span className="text-sm text-gray-700 dark:text-gray-300">{t('experience.languageList.english')}</span>
                   <motion.span
                     whileHover={{ scale: 1.1, backgroundColor: "#f3f4f6", color: "#111827" }}
                     className="text-xs text-gray-600 dark:text-gray-400 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 px-2 py-1 rounded cursor-default"
@@ -753,7 +753,7 @@ export default function Portfolio() {
 
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-sm text-gray-700 dark:text-gray-300">Dutch</span>
+                  <span className="text-sm text-gray-700 dark:text-gray-300">{t('experience.languageList.dutch')}</span>
                   {/* UPDATED DUTCH SKILL */}
                   <motion.span
                     whileHover={{ scale: 1.1, backgroundColor: "#f3f4f6", color: "#111827" }}
@@ -1013,13 +1013,13 @@ export default function Portfolio() {
             <div className="flex items-start gap-3 mb-3">
               <GraduationCap className="w-5 h-5 text-gray-900 dark:text-white mt-0.5" />
               <div>
-                <h3 className="font-bold text-gray-900 dark:text-white">Bachelor of Business Administration</h3>
-                <p className="text-sm text-gray-700 dark:text-gray-300">Marketing Specialization</p>
+                <h3 className="font-bold text-gray-900 dark:text-white">{t('experience.educationDetails.degree')}</h3>
+                <p className="text-sm text-gray-700 dark:text-gray-300">{t('experience.educationDetails.specialization')}</p>
               </div>
             </div>
-            <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Jaypee Institute of Information Technology</p>
-            <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">Noida, India • 2020 – 2023</p>
-            <p className="text-sm font-medium text-gray-900 dark:text-white">CGPA: 7.7 / 10</p>
+            <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">{t('experience.educationDetails.institute')}</p>
+            <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">{t('experience.educationDetails.locationYear')}</p>
+            <p className="text-sm font-medium text-gray-900 dark:text-white">{t('experience.educationDetails.cgpa')}</p>
           </motion.div>
         </div>
 
@@ -1058,7 +1058,6 @@ export default function Portfolio() {
         clientName: t('caseStudies.packt.clientName'),
         badgeText: t('caseStudies.packt.badge'),
         category: t('caseStudies.packt.category'),
-        client: "Packt",
         problem: t('caseStudies.packt.problem'),
         actions: t('caseStudies.packt.actions'),
         results: [
@@ -1075,7 +1074,6 @@ export default function Portfolio() {
         clientName: t('caseStudies.jrb.clientName'),
         badgeText: t('caseStudies.jrb.badge'),
         category: t('caseStudies.jrb.category'),
-        client: "Jones Road Beauty",
         problem: t('caseStudies.jrb.problem'),
         actions: t('caseStudies.jrb.actions'),
         results: [
@@ -1092,14 +1090,13 @@ export default function Portfolio() {
         clientName: t('caseStudies.audio.clientName'),
         badgeText: t('caseStudies.audio.badge'),
         category: t('caseStudies.audio.category'),
-        client: "Audio Streaming Platform",
         problem: t('caseStudies.audio.problem'),
         actions: t('caseStudies.audio.actions'),
         results: [
-          { metric: "CTR", value: "+16%" },
-          { metric: "CPA", value: "−14%" },
-          { metric: "Creative Variants Tested", value: "12+" },
-          { metric: "Scale Phase", value: "Stable" }
+          { metric: t("caseStudies.audio.results.ctr"), value: "+16%" },
+          { metric: t("caseStudies.audio.results.cpa"), value: "−14%" },
+          { metric: t("caseStudies.audio.results.variants"), value: "12+" },
+          { metric: t("caseStudies.audio.results.scale"), value: t("caseStudies.audio.results.stable") }
         ]
       }
     ];

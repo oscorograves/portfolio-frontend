@@ -13,7 +13,8 @@ export const translations = {
             viewCaseStudies: "View Case Studies",
             downloadCV: "Download CV",
             contactInfo: "Contact Information",
-            location: "Noida, India"
+            location: "Noida, India",
+            keyMetrics: "Key Metrics"
         },
         wip: {
             title: "Work in Progress",
@@ -29,6 +30,7 @@ export const translations = {
         featuredWork: {
             title: "Featured Work",
             subtitle: "Growth & GTM",
+            projectSubtitle: "Paid GTM & Audience Acquisition",
             projectTitle: "Shipping a Paid GTM Engine for Packt Events",
             projectDesc: "Launched a paid events vertical and achieved 150+ attendees with 95% net-new audience acquisition",
             metrics: {
@@ -82,6 +84,18 @@ export const translations = {
                 native: "Native",
                 c1: "C1 (Advanced)",
                 a2: "A2 (Elementary)"
+            },
+            languageList: {
+                hindi: "Hindi",
+                english: "English",
+                dutch: "Dutch"
+            },
+            educationDetails: {
+                degree: "Bachelor of Business Administration",
+                specialization: "Marketing Specialization",
+                institute: "Jaypee Institute of Information Technology",
+                locationYear: "Noida, India • 2020 – 2023",
+                cgpa: "CGPA: 7.7 / 10"
             },
             education: "Education",
             certifications: "Certifications",
@@ -262,7 +276,14 @@ export const translations = {
                     "Optimized creative formats specifically for mobile-first consumption patterns",
                     "Ran multiple creative and placement A/B tests to isolate winners",
                     "Used Meta's learning phase and bidding controls to scale efficiently"
-                ]
+                ],
+                results: {
+                    ctr: "CTR",
+                    cpa: "CPA",
+                    variants: "Creative Variants Tested",
+                    scale: "Scale Phase",
+                    stable: "Stable"
+                }
             },
             labels: {
                 problem: "Problem Statement",
@@ -286,7 +307,8 @@ export const translations = {
             viewCaseStudies: "Bekijk Casestudies",
             downloadCV: "Download CV",
             contactInfo: "Contactgegevens",
-            location: "Noida, India"
+            location: "Noida, India",
+            keyMetrics: "Kerncijfers"
         },
         wip: {
             title: "Werk in Uitvoering",
@@ -302,6 +324,7 @@ export const translations = {
         featuredWork: {
             title: "Uitgelicht Werk",
             subtitle: "Groei & GTM",
+            projectSubtitle: "Betaalde GTM & Publiekswerving",
             projectTitle: "Lancering van een Betaalde GTM-motor voor Packt Events",
             projectDesc: "Lanceerde een betaalde evenementenvertical en behaalde 150+ bezoekers met 95% netto-nieuwe publieksacquisitie",
             metrics: {
@@ -355,6 +378,18 @@ export const translations = {
                 native: "Moedertaal",
                 c1: "C1 (Gevorderd)",
                 a2: "A2 (Elementair)"
+            },
+            languageList: {
+                hindi: "Hindi",
+                english: "Engels",
+                dutch: "Nederlands"
+            },
+            educationDetails: {
+                degree: "Bachelor Bedrijfskunde",
+                specialization: "Specialisatie Marketing",
+                institute: "Jaypee Instituut voor Informatietechnologie",
+                locationYear: "Noida, India • 2020 – 2023",
+                cgpa: "CGPA: 7.7 / 10"
             },
             education: "Opleiding",
             certifications: "Certificeringen",
@@ -535,7 +570,14 @@ export const translations = {
                     "Optimaliseerde creatieve formats specifiek voor mobile-first consumptiepatronen",
                     "Voerde meerdere creatieve en plaatsings-A/B-tests uit om winnaars te isoleren",
                     "Gebruikte Meta's leerfase en biedingscontroles om efficiënt te schalen"
-                ]
+                ],
+                results: {
+                    ctr: "CTR",
+                    cpa: "CPA",
+                    variants: "Geteste Creatieve Varianten",
+                    scale: "Schaalfase",
+                    stable: "Stabiel"
+                }
             },
             labels: {
                 problem: "Probleemstelling",
