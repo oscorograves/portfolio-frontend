@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 import { TrendingUp, Target, LineChart, ChevronRight, Play, X, Menu, Filter, Mail, Phone, MapPin, Linkedin, Download, Calendar, Briefcase, GraduationCap, Award, Film, Camera, Plane, BookOpen, Sun, Moon, Instagram, Globe, Bot, MessageSquare, Megaphone, Rocket, PieChart, Construction } from 'lucide-react';
 import { metricsAPI } from './services/api.js';
+import BackgroundTurtle from './BackgroundTurtle';
 import { translations } from './translations.js';
 
 // HARDCODED FALLBACK DATA
@@ -1551,7 +1552,7 @@ export default function Portfolio() {
   );
 
   return (
-    <div className="min-h-screen flex flex-col transition-colors duration-300 relative">
+    <div className="min-h-screen flex flex-col transition-colors duration-300 relative overflow-hidden">
       {/* Solid Background Base */}
       <div className="fixed inset-0 -z-20 bg-gray-50 dark:bg-gray-950 transition-colors duration-300" />
 
@@ -1561,6 +1562,7 @@ export default function Portfolio() {
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-300/30 dark:bg-blue-900/20 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '10s', animationDelay: '1s' }} />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-rose-200/20 dark:bg-rose-900/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '12s', animationDelay: '2s' }} />
       </div>
+      <BackgroundTurtle />
       <CustomCursor isDarkMode={isDarkMode} />
       <NavBar />
 
