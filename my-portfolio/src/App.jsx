@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import CountUp from 'react-countup';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import { TrendingUp, Target, LineChart, ChevronRight, Play, X, Menu, Filter, Mail, Phone, MapPin, Linkedin, Download, Calendar, Briefcase, GraduationCap, Award, Film, Camera, Plane, BookOpen, Sun, Moon, Instagram, Globe, Bot, MessageSquare, Megaphone, Rocket, PieChart, Construction } from 'lucide-react';
@@ -542,22 +543,30 @@ export default function Portfolio() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center">
 
             <div className="p-2">
-              <div className="text-3xl md:text-4xl font-bold mb-1">2+</div>
+              <div className="text-3xl md:text-4xl font-bold mb-1">
+                <CountUp end={2} duration={2.5} suffix="+" enableScrollSpy />
+              </div>
               <div className="text-sm md:text-base text-blue-100 dark:text-gray-400">{t('stats.yearsExp')}</div>
             </div>
 
             <div className="p-2">
-              <div className="text-3xl md:text-4xl font-bold mb-1">$267K</div>
+              <div className="text-3xl md:text-4xl font-bold mb-1">
+                <CountUp end={267} duration={2.5} prefix="$" suffix="K" enableScrollSpy />
+              </div>
               <div className="text-sm md:text-base text-blue-100 dark:text-gray-400">{t('stats.adSpend')}</div>
             </div>
 
             <div className="p-2">
-              <div className="text-3xl md:text-4xl font-bold mb-1">25+</div>
+              <div className="text-3xl md:text-4xl font-bold mb-1">
+                <CountUp end={25} duration={2.5} suffix="+" enableScrollSpy />
+              </div>
               <div className="text-sm md:text-base text-blue-100 dark:text-gray-400">{t('stats.campaigns')}</div>
             </div>
 
             <div className="p-2">
-              <div className="text-3xl md:text-4xl font-bold mb-1">8.3×</div>
+              <div className="text-3xl md:text-4xl font-bold mb-1">
+                <CountUp end={8.3} duration={2.5} suffix="×" decimals={1} enableScrollSpy />
+              </div>
               <div className="text-sm md:text-base text-blue-100 dark:text-gray-400">{t('stats.roi')}</div>
             </div>
 
