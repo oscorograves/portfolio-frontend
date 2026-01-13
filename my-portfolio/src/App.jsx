@@ -299,7 +299,7 @@ export default function Portfolio() {
   const [currentPage, setCurrentPage] = useState('home');
   const [showWip, setShowWip] = useState(false);
   const [selectedCreative, setSelectedCreative] = useState(null);
-  const [isDarkMode, setIsDarkMode] = useState(true);
+  const [isDarkMode, setIsDarkMode] = useState(false);
   const [language, setLanguage] = useState('en');
 
   // Translation Helper
