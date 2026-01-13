@@ -116,7 +116,7 @@ const HeroAvatar = ({ metrics = [], onNavigate }) => {
 
                 {/* The Image Link */}
                 <a
-                    href="https://www.instagram.com/oscoro.graves/"
+                    href="https://www.instagram.com/oscorograves/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="relative w-48 h-48 rounded-full overflow-hidden border-2 border-blue-200 dark:border-gray-800 bg-gray-900 shadow-2xl z-10 group flex-shrink-0 cursor-pointer block hover:border-blue-600 dark:hover:border-yellow-400 transition-all outline-none"
