@@ -704,7 +704,7 @@ export default function Portfolio() {
       {/* Digital Skills */}
       <section className="transition-colors duration-300">
         <div className="max-w-6xl mx-auto px-8 py-12">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-blue-600 dark:border-yellow-400">Digital Skills</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-blue-600 dark:border-yellow-400">{t('experience.digitalSkills')}</h2>
           <motion.div
             className="grid md:grid-cols-2 gap-8"
             initial="hidden"
@@ -1107,8 +1107,8 @@ export default function Portfolio() {
     return (
       <div className="pt-20 min-h-screen transition-colors duration-300">
         <div className="max-w-6xl mx-auto px-8 py-12">
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-3">Case Studies</h1>
-          <p className="text-gray-600 dark:text-gray-400 mb-8 pb-4 border-b-2 border-blue-600 dark:border-yellow-400">Detailed performance marketing projects and results</p>
+          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-3">{t('caseStudies.title')}</h1>
+          <p className="text-gray-600 dark:text-gray-400 mb-8 pb-4 border-b-2 border-blue-600 dark:border-yellow-400">{t('caseStudies.subtitle')}</p>
 
           <motion.div
             className="space-y-6"
