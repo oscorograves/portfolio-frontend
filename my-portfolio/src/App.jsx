@@ -158,8 +158,8 @@ const FireflyBackground = () => {
       {fireflies.map((p) => (
         <motion.div
           key={p.id}
-          // Bright Orange/Gold color with a glow effect (shadow)
-          className="absolute rounded-full bg-yellow-400 shadow-[0_0_10px_rgba(250,204,21,0.6)]"
+          // Blue in light mode, Yellow (Gold) in dark mode
+          className="absolute rounded-full bg-blue-400 dark:bg-yellow-400 shadow-[0_0_10px_rgba(96,165,250,0.6)] dark:shadow-[0_0_10px_rgba(250,204,21,0.6)]"
           style={{
             left: `${p.left}%`,
             bottom: `${p.bottom}%`,
