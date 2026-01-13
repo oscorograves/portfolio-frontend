@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-import { TrendingUp, Target, LineChart, ChevronRight, Play, X, Menu, Filter, Mail, Phone, MapPin, Linkedin, Download, Calendar, Briefcase, GraduationCap, Award, Film, Camera, Plane, BookOpen, Sun, Moon, Instagram, Globe, Bot, MessageSquare, Megaphone, Rocket, PieChart } from 'lucide-react';
+import { TrendingUp, Target, LineChart, ChevronRight, Play, X, Menu, Filter, Mail, Phone, MapPin, Linkedin, Download, Calendar, Briefcase, GraduationCap, Award, Film, Camera, Plane, BookOpen, Sun, Moon, Instagram, Globe, Bot, MessageSquare, Megaphone, Rocket, PieChart, Construction } from 'lucide-react';
 import { metricsAPI } from './services/api.js';
 import { translations } from './translations.js';
 
@@ -244,7 +244,7 @@ const WipModal = ({ isOpen, onClose, t }) => {
 
         <div className="text-center relative z-10">
           <div className="w-16 h-16 bg-blue-100 dark:bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-4 text-blue-600 dark:text-yellow-400">
-            <Rocket className="w-8 h-8" />
+            <Construction className="w-8 h-8" />
           </div>
           <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{t('wip.title')}</h3>
           <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
