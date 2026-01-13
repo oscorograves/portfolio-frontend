@@ -1363,19 +1363,19 @@ export default function Portfolio() {
           >
             {/* Summary Cards */}
             <motion.div variants={itemVariants} className="grid md:grid-cols-4 gap-4 mb-8">
-              <motion.div whileHover={{ y: -5 }} className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 text-center">
+              <motion.div whileHover={{ y: -5 }} className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 text-center hover:border-blue-600 dark:hover:border-yellow-400 transition-all">
                 <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2">{t('metricsPage.totalSpend')}</div>
                 <div className="text-3xl font-bold text-gray-900 dark:text-white">${(totalSpend / 1000).toFixed(1)}K</div>
               </motion.div>
-              <motion.div whileHover={{ y: -5 }} className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 text-center">
+              <motion.div whileHover={{ y: -5 }} className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 text-center hover:border-blue-600 dark:hover:border-yellow-400 transition-all">
                 <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2">{t('metricsPage.avgCtr')}</div>
                 <div className="text-3xl font-bold text-gray-900 dark:text-white">{avgCTR.toFixed(2)}%</div>
               </motion.div>
-              <motion.div whileHover={{ y: -5 }} className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 text-center">
+              <motion.div whileHover={{ y: -5 }} className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 text-center hover:border-blue-600 dark:hover:border-yellow-400 transition-all">
                 <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2">{t('metricsPage.avgCvr')}</div>
                 <div className="text-3xl font-bold text-gray-900 dark:text-white">{avgCVR.toFixed(2)}%</div>
               </motion.div>
-              <motion.div whileHover={{ y: -5 }} className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 text-center">
+              <motion.div whileHover={{ y: -5 }} className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 text-center hover:border-blue-600 dark:hover:border-yellow-400 transition-all">
                 <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2">{t('metricsPage.avgRoi')}</div>
                 <div className="text-3xl font-bold text-gray-900 dark:text-white">{avgROI.toFixed(0)}%</div>
               </motion.div>
