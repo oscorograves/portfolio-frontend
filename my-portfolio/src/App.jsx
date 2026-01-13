@@ -252,7 +252,7 @@ const WipModal = ({ isOpen, onClose, t }) => {
           </p>
           <button
             onClick={onClose}
-            className="w-full py-2.5 bg-blue-600 dark:bg-yellow-400 text-white dark:text-gray-900 font-semibold rounded-lg hover:bg-blue-700 dark:hover:bg-yellow-300 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900"
+            className="w-full py-2.5 bg-blue-600 dark:bg-yellow-400 text-white dark:text-gray-900 font-semibold rounded-lg hover:bg-blue-700 dark:hover:bg-yellow-300 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-white focus:ring-offset-2 dark:focus:ring-offset-gray-900"
           >
             {t('wip.close')}
           </button>
