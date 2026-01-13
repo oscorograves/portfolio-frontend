@@ -371,6 +371,7 @@ export default function Portfolio() {
 
   const NavBar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
 
     return (
       <nav className="fixed top-0 left-0 right-0 bg-white/50 dark:bg-gray-900/50 backdrop-blur-lg border-b border-white/20 dark:border-gray-800 z-50 transition-colors duration-300">
@@ -420,19 +421,47 @@ export default function Portfolio() {
               ))}
             </div>
 
-            {/* Language Selector */}
-            <button
-              onClick={() => {
-                const langs = ['en', 'de', 'nl'];
-                const currentIndex = langs.indexOf(language);
-                const nextIndex = (currentIndex + 1) % langs.length;
-                setLanguage(langs[nextIndex]);
-              }}
-              className="flex items-center gap-1 p-2 text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800 rounded-full transition-colors mr-2 text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2"
-            >
-              <Globe className="w-4 h-4" />
-              <span>{language.toUpperCase()}</span>
-            </button>
+            {/* Language Selector Dropdown */}
+            <div className="relative mr-2">
+              <button
+                onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
+                className="flex items-center gap-1 p-2 text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800 rounded-full transition-colors text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2"
+              >
+                <Globe className="w-4 h-4" />
+                <span>{language.toUpperCase()}</span>
+              </button>
+
+              <AnimatePresence>
+                {isLangMenuOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    className="absolute right-0 mt-2 w-32 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg shadow-xl overflow-hidden z-50"
+                  >
+                    {[
+                      { code: 'en', label: 'English' },
+                      { code: 'de', label: 'Deutsch' },
+                      { code: 'nl', label: 'Nederlands' }
+                    ].map((lang) => (
+                      <button
+                        key={lang.code}
+                        onClick={() => {
+                          setLanguage(lang.code);
+                          setIsLangMenuOpen(false);
+                        }}
+                        className={`w-full text-left px-4 py-2 text-sm transition-colors hover:bg-gray-100 dark:hover:bg-gray-800 ${language === lang.code
+                          ? 'text-blue-600 dark:text-yellow-400 font-bold'
+                          : 'text-gray-700 dark:text-gray-300'
+                          }`}
+                      >
+                        {lang.label}
+                      </button>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
 
             {/* Dark Mode Toggle */}
             <button
