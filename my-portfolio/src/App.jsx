@@ -519,7 +519,7 @@ export default function Portfolio() {
                   ].map((kpi, i) => (
                     <motion.div
                       key={i}
-                      className="bg-white dark:bg-gray-950 border border-gray-300 dark:border-gray-800 rounded p-2 text-center cursor-pointer hover:border-blue-600 dark:hover:border-yellow-400 transition-colors"
+                      className="bg-white dark:bg-gray-950 border border-gray-300 dark:border-gray-800 rounded p-2 text-center cursor-pointer hover:border-blue-600 dark:hover:border-yellow-400 transition-all"
                       onClick={() => setCurrentPage('metrics')}
                       whileHover={{ scale: 1.05, boxShadow: "0px 5px 15px rgba(0,0,0,0.1)" }}
                     >
@@ -1218,7 +1218,7 @@ export default function Portfolio() {
                   key={i}
                   variants={itemVariants}
                   onClick={() => setSelectedCreative(creative)}
-                  className="aspect-square bg-white/40 dark:bg-gray-900/40 border-2 border-gray-300 dark:border-gray-800 rounded cursor-pointer hover:border-blue-600 dark:hover:border-yellow-400 transition-all group"
+                  className="aspect-square bg-white/40 dark:bg-gray-900/40 border border-gray-300 dark:border-gray-800 rounded cursor-pointer hover:border-blue-600 dark:hover:border-yellow-400 transition-all group"
                   whileHover="hover"
                 >
                   <div className="w-full h-full flex flex-col items-center justify-center p-4 relative bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700">
@@ -1494,7 +1494,7 @@ export default function Portfolio() {
               href="https://www.instagram.com/oscorograves/"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-16 h-16 rounded-xl overflow-hidden border border-gray-300 dark:border-gray-800 shrink-0 cursor-pointer block hover:border-blue-600 dark:hover:border-yellow-400 transition-colors"
+              className="w-16 h-16 rounded-xl overflow-hidden border border-gray-300 dark:border-gray-800 shrink-0 cursor-pointer block hover:border-blue-600 dark:hover:border-yellow-400 transition-all"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
             >
