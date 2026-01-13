@@ -10,7 +10,7 @@ const BackgroundTurtle = () => {
                 duration: 80, // Takes 80 seconds to cross (very slow and calming)
                 repeat: Infinity,
                 ease: "linear",
-                delay: 0, // Start immediately
+                delay: -40, // Start halfway through the animation (visible immediately)
             }
         }
     };
@@ -31,7 +31,7 @@ const BackgroundTurtle = () => {
     return (
         // Outer container handles horizontal movement across screen
         <motion.div
-            className="fixed top-1/3 left-0 z-0 pointer-events-none opacity-30"
+            className="fixed top-1/3 left-0 z-[1] pointer-events-none opacity-40"
             variants={crossingVariants}
             animate="animate"
             initial={false} // Start animation immediately without jumping to initial state
