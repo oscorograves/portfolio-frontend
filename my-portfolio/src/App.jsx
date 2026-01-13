@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import CountUp from 'react-countup';
 import { motion, AnimatePresence } from 'framer-motion';
 
-import { TrendingUp, Target, LineChart, ChevronRight, Play, X, Menu, Filter, Mail, Phone, MapPin, Linkedin, Download, Calendar, Briefcase, GraduationCap, Award, Film, Camera, Plane, BookOpen, Sun, Moon, Instagram, Globe, Bot, MessageSquare, Megaphone, Rocket, PieChart, Construction } from 'lucide-react';
+import { TrendingUp, Target, LineChart, ChevronRight, Play, X, Menu, Filter, Mail, Phone, MapPin, Linkedin, Download, Calendar, Briefcase, GraduationCap, Award, Film, Camera, Plane, BookOpen, Sun, Moon, Instagram, Globe, Bot, MessageSquare, Megaphone, Rocket, PieChart, Construction, ExternalLink } from 'lucide-react';
 import { metricsAPI } from './services/api.js';
 import { translations } from './translations.js';
 import NetworkBackground from './components/NetworkBackground';
@@ -1160,6 +1160,12 @@ export default function Portfolio() {
           { metric: t('featuredWork.metrics.netNew'), value: "95%" },
           { metric: t('featuredWork.metrics.cac'), value: "$12" },
           { metric: t('featuredWork.metrics.roas'), value: "8.3×" }
+        ],
+        notionLink: "https://www.notion.so/Scaling-Paid-GTM-for-Events-2e75649dae6380c49e61c8425a4fb4e7?source=copy_link",
+        experiments: [
+          { name: "Meta CTR test", result: "+16%", status: "positive" },
+          { name: "Checkout copy", result: "−23% drop-off", status: "positive" },
+          { name: "Creator blurb", result: "2.4% CTR", status: "neutral" }
         ]
       },
       {
@@ -1230,6 +1236,18 @@ export default function Portfolio() {
                       {study.badgeText}
                     </div>
                   </div>
+                  {study.notionLink && (
+                    <div className="mt-3">
+                      <a
+                        href={study.notionLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-sm font-medium text-blue-100 hover:text-white transition-colors border-b border-transparent hover:border-white pb-0.5"
+                      >
+                        Live project log <ExternalLink className="w-3 h-3" />
+                      </a>
+                    </div>
+                  )}
                 </div>
 
                 <div className="p-6 space-y-5">
@@ -1261,12 +1279,42 @@ export default function Portfolio() {
                       ))}
                     </div>
                   </div>
+
+                  {study.experiments && (
+                    <div className="pt-5 border-t border-gray-200 dark:border-gray-700">
+                      <h3 className="text-xs font-bold text-gray-600 dark:text-gray-400 uppercase mb-3 tracking-wide">Recent Experiments</h3>
+                      <div className="space-y-3 mb-4">
+                        {study.experiments.map((exp, k) => (
+                          <div key={k} className="flex items-center justify-between text-sm">
+                            <span className="text-gray-700 dark:text-gray-300 flex items-center gap-2">
+                              <span className="w-1.5 h-1.5 rounded-full bg-gray-400"></span>
+                              {exp.name}
+                            </span>
+                            <span className={`font-medium ${exp.status === 'positive' ? 'text-green-600 dark:text-green-400' :
+                                exp.status === 'negative' ? 'text-red-600 dark:text-red-400' :
+                                  'text-gray-600 dark:text-gray-400'
+                              }`}>
+                              {exp.result}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                      <a
+                        href={study.notionLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-900 dark:text-white text-sm font-medium rounded transition-colors"
+                      >
+                        View full experiment log in Notion <ExternalLink className="w-3 h-3" />
+                      </a>
+                    </div>
+                  )}
                 </div>
               </motion.div>
             ))}
           </motion.div>
         </div>
-      </div>
+      </div >
     );
   };
 
