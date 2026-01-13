@@ -35,7 +35,7 @@ const HeroAvatar = () => {
                 <div className="absolute inset-0 bg-gradient-to-b from-blue-600/20 to-purple-600/20 rounded-full blur-[40px]" />
 
                 {/* The Image Frame (Crops your square image into a circle) */}
-                <div className="relative w-48 h-48 rounded-full overflow-hidden border-2 border-blue-500/50 bg-gray-900 shadow-2xl z-10 group flex-shrink-0">
+                <div className="relative w-48 h-48 rounded-full overflow-hidden border-2 border-blue-600 bg-gray-900 shadow-2xl z-10 group flex-shrink-0">
 
                     {/* ✅ YOUR SQUARE IMAGE GOES HERE */}
                     {/* 'object-cover' ensures it fills the circle perfectly without stretching */}
@@ -43,7 +43,8 @@ const HeroAvatar = () => {
                     <img
                         src="/profile2.jpeg"
                         alt="Kanishk Singh"
-                        className="w-full h-full rounded-full object-cover object-top scale-125 transition-all duration-500 filter grayscale group-hover:grayscale-0 group-hover:scale-150"
+                        className="w-full h-full rounded-full object-cover object-top scale-125 transition-all duration-500 filter grayscale contrast-125 group-hover:grayscale-0 group-hover:scale-150"
+                        style={{ imageRendering: "pixelated" }}
                     />
 
                     {/* Digital Noise Overlay */}
