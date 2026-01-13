@@ -40,13 +40,12 @@ const HeroAvatar = ({ metrics = [] }) => {
         }
     };
 
-    // Positions for the 4 pointers (adjust as needed relative to 320x320 container)
-    // Assuming container is relative w-full h-80 (320px)
+    // Positions for the 4 pointers (Uniformly spread around the circle)
     const pointerPositions = [
-        { top: "10%", left: "15%" },   // Top Left
-        { top: "15%", right: "15%" },  // Top Right
-        { bottom: "15%", left: "15%" }, // Bottom Left
-        { bottom: "10%", right: "15%" } // Bottom Right
+        { top: "0%", left: "50%", transform: "translateX(-50%) translateZ(40px)" },   // Top Center
+        { top: "50%", right: "0%", transform: "translateY(-50%) translateZ(40px)" },  // Right Center
+        { bottom: "0%", left: "50%", transform: "translateX(-50%) translateZ(40px)" }, // Bottom Center
+        { top: "50%", left: "0%", transform: "translateY(-50%) translateZ(40px)" }    // Left Center
     ];
 
     return (
@@ -72,7 +71,7 @@ const HeroAvatar = ({ metrics = [] }) => {
 
                 {/* --- 5. Interactive Reactor Ring (Replaces old ring) --- */}
                 <motion.div
-                    className="absolute -inset-8 rounded-full border border-blue-500/20 border-dashed"
+                    className="absolute -inset-8 rounded-full border-2 border-blue-500/20 border-dashed"
                     animate={{ rotate: 360 }}
                     transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                     style={{ transformStyle: "preserve-3d", transform: "translateZ(-20px)" }}
@@ -143,17 +142,17 @@ const HeroAvatar = ({ metrics = [] }) => {
                 {metrics.map((metric, index) => (
                     <motion.div
                         key={index}
-                        className="absolute p-2 cursor-pointer z-20 group"
+                        className="absolute p-2 cursor-pointer z-30 group" // z-30 to be above everything
                         style={{
                             ...pointerPositions[index],
-                            transform: "translateZ(40px)"
+                            // transform is handled in pointerPositions now
                         }}
                         onMouseEnter={() => setHoveredMetric(index)}
                         onMouseLeave={() => setHoveredMetric(null)}
                     >
                         {/* The Dot */}
                         <motion.div
-                            className="w-3 h-3 bg-blue-500 rounded-full shadow-lg shadow-blue-500/50"
+                            className="w-3 h-3 bg-blue-500 rounded-full shadow-lg shadow-blue-500/50 ring-2 ring-white dark:ring-gray-900" // Added ring for contrast
                             animate={{ scale: [1, 1.2, 1] }}
                             transition={{ duration: 2, repeat: Infinity, delay: index * 0.5 }}
                         />
@@ -167,12 +166,12 @@ const HeroAvatar = ({ metrics = [] }) => {
                                     initial={{ opacity: 0, y: 10, scale: 0.8 }}
                                     animate={{ opacity: 1, y: 0, scale: 1 }}
                                     exit={{ opacity: 0, y: 5, scale: 0.8 }}
-                                    className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 bg-white dark:bg-gray-800 p-2 rounded-lg shadow-xl border border-gray-200 dark:border-gray-700 whitespace-nowrap min-w-[100px] text-center pointer-events-none"
+                                    className="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 bg-white dark:bg-gray-900 px-4 py-3 rounded-xl shadow-xl border border-gray-200 dark:border-gray-700 whitespace-nowrap min-w-[120px] text-center z-40"
                                 >
-                                    <div className="text-lg font-bold text-gray-900 dark:text-white leading-none">{metric.value}</div>
-                                    <div className="text-[10px] text-gray-500 dark:text-gray-400 mt-1 uppercase font-semibold tracking-wider">{metric.label}</div>
+                                    <div className="text-xl font-bold text-gray-900 dark:text-white leading-none font-sans">{metric.value}</div>
+                                    <div className="text-xs text-gray-500 dark:text-gray-400 mt-1 font-medium font-sans">{metric.label}</div>
                                     {/* Little Arrow */}
-                                    <div className="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-white dark:border-t-gray-800" />
+                                    <div className="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-white dark:border-t-gray-900" />
                                 </motion.div>
                             )}
                         </AnimatePresence>

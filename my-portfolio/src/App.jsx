@@ -566,28 +566,6 @@ export default function Portfolio() {
                   { value: "8.3×", label: t('stats.roi') }
                 ]}
               />
-
-              <div className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-4">
-                <h3 className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-3">{t('hero.keyMetrics')}</h3>
-                <div className="grid grid-cols-2 gap-2">
-                  {[
-                    { label: 'CTR', value: '+16%' },
-                    { label: 'CPA', value: '−14%' },
-                    { label: 'MQL', value: '+22%' },
-                    { label: 'CVR', value: '+18%' }
-                  ].map((kpi, i) => (
-                    <motion.div
-                      key={i}
-                      className="bg-white dark:bg-gray-950 border border-gray-300 dark:border-gray-800 rounded p-2 text-center cursor-pointer hover:border-blue-600 dark:hover:border-yellow-400 transition-all"
-                      onClick={() => setCurrentPage('metrics')}
-                      whileHover={{ scale: 1.05, boxShadow: "0px 5px 15px rgba(0,0,0,0.1)" }}
-                    >
-                      <div className="text-xs text-gray-600 dark:text-gray-400">{kpi.label}</div>
-                      <div className="text-lg font-bold text-gray-900 dark:text-white">{kpi.value}</div>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
             </motion.div>
           </div>
         </motion.div>
