@@ -39,7 +39,7 @@ const HeroAvatar = () => {
                     href="https://www.instagram.com/oscoro.graves/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="relative w-48 h-48 rounded-full overflow-hidden border-2 border-blue-600 bg-gray-900 shadow-2xl z-10 group flex-shrink-0 cursor-pointer block"
+                    className="relative w-48 h-48 rounded-full overflow-hidden border border-gray-300 dark:border-gray-800 bg-gray-900 shadow-2xl z-10 group flex-shrink-0 cursor-pointer block hover:border-blue-600 dark:hover:border-yellow-400 transition-all"
                 >
 
                     {/* ✅ YOUR SQUARE IMAGE GOES HERE */}
@@ -48,8 +48,7 @@ const HeroAvatar = () => {
                     <img
                         src="/profile2.jpeg"
                         alt="Kanishk Singh"
-                        className="w-full h-full rounded-full object-cover object-top scale-125 transition-all duration-500 filter grayscale contrast-125 group-hover:grayscale-0 group-hover:scale-150"
-                        style={{ imageRendering: "pixelated" }}
+                        className="w-full h-full rounded-full object-cover object-top scale-125 transition-all duration-500 filter grayscale group-hover:grayscale-0 group-hover:scale-150"
                     />
 
                     {/* Digital Noise Overlay */}
