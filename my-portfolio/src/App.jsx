@@ -1489,13 +1489,20 @@ export default function Portfolio() {
         {/* Top Section: Contact & Socials */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-8">
           <div className="flex items-center gap-4">
-            <div className="w-16 h-16 rounded-xl overflow-hidden border-2 border-blue-500 dark:border-yellow-400 shrink-0 shadow-sm ring-2 ring-white dark:ring-gray-800">
+            <motion.a
+              href="https://www.instagram.com/oscorograves/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-16 h-16 rounded-xl overflow-hidden border-2 border-blue-500 dark:border-yellow-400 shrink-0 shadow-sm ring-2 ring-white dark:ring-gray-800 cursor-pointer block"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+            >
               <img
                 src="/profile.jpeg"
                 alt="Kanishk Singh"
                 className="w-full h-full object-cover object-bottom scale-[1.75]"
               />
-            </div>
+            </motion.a>
             <div className="text-sm text-gray-600 dark:text-gray-400 font-medium">
               {t('footer.copyright')}
             </div>
