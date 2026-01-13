@@ -91,7 +91,7 @@ const MusicPlayer = () => {
       <audio ref={audioRef} src="/song.mp3" loop />
 
       {/* The Visual Player */}
-      <div className="bg-blue-600/80 dark:bg-gray-900/50 backdrop-blur-lg text-white border border-white/10 rounded-full px-3 py-2 shadow-2xl flex items-center justify-between gap-4">
+      <div className="bg-gray-800/90 dark:bg-gray-900/50 backdrop-blur-lg text-white border border-white/10 rounded-full px-3 py-2 shadow-2xl flex items-center justify-between gap-4">
 
         {/* Song Info */}
         <div className="flex items-center gap-3 overflow-hidden">
@@ -100,13 +100,13 @@ const MusicPlayer = () => {
           </div>
           <div className="flex flex-col min-w-0">
             <span className="text-xs font-bold truncate">Portfolio Mix</span>
-            <span className="text-[10px] text-blue-100 dark:text-gray-400 truncate">Kanishk Singh</span>
+            <span className="text-[10px] text-gray-400 truncate">Kanishk Singh</span>
           </div>
         </div>
 
         {/* Controls */}
         <div className="flex items-center gap-3">
-          <button className="text-blue-100 dark:text-gray-400 hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2">
+          <button className="text-gray-400 hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2">
             <ChevronRight className="w-5 h-5 rotate-180" /> {/* Reuse Chevron as Prev */}
           </button>
 
@@ -125,7 +125,7 @@ const MusicPlayer = () => {
             )}
           </button>
 
-          <button className="text-blue-100 dark:text-gray-400 hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2">
+          <button className="text-gray-400 hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2">
             <ChevronRight className="w-5 h-5" /> {/* Next */}
           </button>
         </div>
