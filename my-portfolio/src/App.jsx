@@ -559,11 +559,12 @@ export default function Portfolio() {
 
             <motion.div variants={itemVariants} className="space-y-4">
               <HeroAvatar
+                onNavigate={setCurrentPage}
                 metrics={[
-                  { value: "2+", label: t('stats.yearsExp') },
-                  { value: "$267K", label: t('stats.adSpend') },
-                  { value: "25+", label: t('stats.campaigns') },
-                  { value: "8.3×", label: t('stats.roi') }
+                  { value: "2+", label: t('stats.yearsExp'), page: 'experience' },
+                  { value: "$267K", label: t('stats.adSpend'), page: 'metrics' },
+                  { value: "25+", label: t('stats.campaigns'), page: 'metrics' },
+                  { value: "8.3×", label: t('stats.roi'), page: 'metrics' }
                 ]}
               />
             </motion.div>

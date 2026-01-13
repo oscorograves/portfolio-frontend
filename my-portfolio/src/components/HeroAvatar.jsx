@@ -1,7 +1,7 @@
 import { motion, useMotionValue, useSpring, useTransform, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 
-const HeroAvatar = ({ metrics = [] }) => {
+const HeroAvatar = ({ metrics = [], onNavigate }) => {
     // --- 1. 3D Tilt / Magnetic Effect Setup ---
     const x = useMotionValue(0);
     const y = useMotionValue(0);
@@ -149,6 +149,7 @@ const HeroAvatar = ({ metrics = [] }) => {
                         }}
                         onMouseEnter={() => setHoveredMetric(index)}
                         onMouseLeave={() => setHoveredMetric(null)}
+                        onClick={() => onNavigate && onNavigate(metric.page)}
                     >
                         {/* The Dot */}
                         <motion.div
