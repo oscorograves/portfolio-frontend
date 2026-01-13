@@ -69,14 +69,7 @@ const HeroAvatar = () => {
                         borderColor: "rgba(37, 99, 235, 0.6)", // blue-600
                         transition: { duration: 0.3 }
                     }}
-                >
-                    {/* Inner faster ring */}
-                    <motion.div
-                        className="absolute inset-2 rounded-full border border-purple-500/20 border-dotted"
-                        animate={{ rotate: -360 }}
-                        transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-                    />
-                </motion.div>
+                />
 
                 {/* --- 3. Particle Effects --- */}
                 {[...Array(6)].map((_, i) => (
