@@ -15,6 +15,11 @@ export const translations = {
             contactInfo: "Contact Information",
             location: "Noida, India"
         },
+        wip: {
+            title: "Work in Progress",
+            message: "Creative Lab is currently under construction. Check back soon for updates!",
+            close: "Close"
+        },
         stats: {
             yearsExp: "Years Experience",
             adSpend: "Ad Spend Managed",
@@ -282,6 +287,11 @@ export const translations = {
             downloadCV: "Download CV",
             contactInfo: "Contactgegevens",
             location: "Noida, India"
+        },
+        wip: {
+            title: "Werk in Uitvoering",
+            message: "Creative Lab is momenteel in aanbouw. Kom binnenkort terug voor updates!",
+            close: "Sluiten"
         },
         stats: {
             yearsExp: "Jaren Ervaring",
