@@ -1,9 +1,11 @@
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 
-const HeroAvatar = () => {
+const HeroAvatar = ({ metrics = [] }) => {
     // --- 1. 3D Tilt / Magnetic Effect Setup ---
     const x = useMotionValue(0);
     const y = useMotionValue(0);
+    const [hoveredMetric, setHoveredMetric] = useState(null);
 
     // Smooth out the mouse movements
     const mouseX = useSpring(x, { stiffness: 150, damping: 15 });
@@ -21,6 +23,7 @@ const HeroAvatar = () => {
     function handleMouseLeave() {
         x.set(0);
         y.set(0);
+        setHoveredMetric(null);
     }
 
     // Map mouse position to rotation (Tile Effect)
@@ -37,6 +40,15 @@ const HeroAvatar = () => {
         }
     };
 
+    // Positions for the 4 pointers (adjust as needed relative to 320x320 container)
+    // Assuming container is relative w-full h-80 (320px)
+    const pointerPositions = [
+        { top: "10%", left: "15%" },   // Top Left
+        { top: "15%", right: "15%" },  // Top Right
+        { bottom: "15%", left: "15%" }, // Bottom Left
+        { bottom: "10%", right: "15%" } // Bottom Right
+    ];
+
     return (
         <motion.div
             className="hidden md:flex relative w-full h-80 items-center justify-center perspective-1000"
@@ -49,7 +61,7 @@ const HeroAvatar = () => {
         >
             {/* 3D Tilt Container */}
             <motion.div
-                className="relative"
+                className="relative w-64 h-64 flex items-center justify-center" // Fixed size container for consistent positioning
                 animate={floatAnimation}
                 style={{
                     rotateX,
@@ -63,7 +75,7 @@ const HeroAvatar = () => {
                     className="absolute -inset-8 rounded-full border border-blue-500/20 border-dashed"
                     animate={{ rotate: 360 }}
                     transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                    style={{ transformStyle: "preserve-3d", TestZ: -20 }}
+                    style={{ transformStyle: "preserve-3d", transform: "translateZ(-20px)" }}
                     whileHover={{
                         scale: 1.1,
                         borderColor: "rgba(37, 99, 235, 0.6)", // blue-600
@@ -101,7 +113,7 @@ const HeroAvatar = () => {
                 ))}
 
                 {/* The Glowing Atmosphere */}
-                <div className="absolute inset-0 bg-gradient-to-b from-blue-600/20 to-purple-600/20 rounded-full blur-[40px] translate-z-[-10px]" />
+                <div className="absolute inset-0 bg-gradient-to-b from-blue-600/20 to-purple-600/20 rounded-full blur-[40px]" style={{ transform: "translateZ(-10px)" }} />
 
                 {/* The Image Link */}
                 <a
@@ -126,6 +138,46 @@ const HeroAvatar = () => {
                     {/* Blue Tint (Disappears on Hover) */}
                     <div className="absolute inset-0 bg-gradient-to-t from-blue-900/50 to-transparent pointer-events-none transition-opacity duration-500 group-hover:opacity-0" />
                 </a>
+
+                {/* --- Metric Pointers --- */}
+                {metrics.map((metric, index) => (
+                    <motion.div
+                        key={index}
+                        className="absolute p-2 cursor-pointer z-20 group"
+                        style={{
+                            ...pointerPositions[index],
+                            transform: "translateZ(40px)"
+                        }}
+                        onMouseEnter={() => setHoveredMetric(index)}
+                        onMouseLeave={() => setHoveredMetric(null)}
+                    >
+                        {/* The Dot */}
+                        <motion.div
+                            className="w-3 h-3 bg-blue-500 rounded-full shadow-lg shadow-blue-500/50"
+                            animate={{ scale: [1, 1.2, 1] }}
+                            transition={{ duration: 2, repeat: Infinity, delay: index * 0.5 }}
+                        />
+
+                        {/* The Connecting Line (Optional - can be CSS only or simple svg) */}
+
+                        {/* The Card */}
+                        <AnimatePresence>
+                            {hoveredMetric === index && (
+                                <motion.div
+                                    initial={{ opacity: 0, y: 10, scale: 0.8 }}
+                                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                                    exit={{ opacity: 0, y: 5, scale: 0.8 }}
+                                    className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 bg-white dark:bg-gray-800 p-2 rounded-lg shadow-xl border border-gray-200 dark:border-gray-700 whitespace-nowrap min-w-[100px] text-center pointer-events-none"
+                                >
+                                    <div className="text-lg font-bold text-gray-900 dark:text-white leading-none">{metric.value}</div>
+                                    <div className="text-[10px] text-gray-500 dark:text-gray-400 mt-1 uppercase font-semibold tracking-wider">{metric.label}</div>
+                                    {/* Little Arrow */}
+                                    <div className="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-white dark:border-t-gray-800" />
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
+                    </motion.div>
+                ))}
 
             </motion.div>
         </motion.div>

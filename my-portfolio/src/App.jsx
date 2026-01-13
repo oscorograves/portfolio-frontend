@@ -558,7 +558,14 @@ export default function Portfolio() {
             </div>
 
             <motion.div variants={itemVariants} className="space-y-4">
-              <HeroAvatar />
+              <HeroAvatar
+                metrics={[
+                  { value: "2+", label: t('stats.yearsExp') },
+                  { value: "$267K", label: t('stats.adSpend') },
+                  { value: "25+", label: t('stats.campaigns') },
+                  { value: "8.3×", label: t('stats.roi') }
+                ]}
+              />
 
               <div className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-4">
                 <h3 className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-3">{t('hero.keyMetrics')}</h3>
