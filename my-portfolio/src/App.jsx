@@ -1182,6 +1182,12 @@ export default function Portfolio() {
           { metric: "Funnel Zones", value: "4" },
           { metric: "Month-1 Focus", value: "Revenue efficiency" },
           { metric: "Outcome", value: "Scalable CRO backlog" }
+        ],
+        notionLink: "https://www.notion.so/30-Day-Conversion-Revenue-Lift-Roadmap-2e75649dae63804895b3fae043d1993a?source=copy_link",
+        experiments: [
+          { name: "Sticky ATC (Mobile)", result: "+8.5% ATC", status: "positive" },
+          { name: "Hero Video Variant B", result: "+12% Engagement", status: "positive" },
+          { name: "Bundle Upsell Modal", result: "-5% CVR (Kill)", status: "negative" }
         ]
       },
       {
@@ -1291,8 +1297,8 @@ export default function Portfolio() {
                               {exp.name}
                             </span>
                             <span className={`font-medium ${exp.status === 'positive' ? 'text-green-600 dark:text-green-400' :
-                                exp.status === 'negative' ? 'text-red-600 dark:text-red-400' :
-                                  'text-gray-600 dark:text-gray-400'
+                              exp.status === 'negative' ? 'text-red-600 dark:text-red-400' :
+                                'text-gray-600 dark:text-gray-400'
                               }`}>
                               {exp.result}
                             </span>
