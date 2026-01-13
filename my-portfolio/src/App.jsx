@@ -1494,20 +1494,8 @@ export default function Portfolio() {
               href="https://www.instagram.com/oscorograves/"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-16 h-16 rounded-xl overflow-hidden border-2 border-blue-500 dark:border-yellow-400 shrink-0 cursor-pointer block"
-              animate={{
-                boxShadow: [
-                  '0 0 0 0px rgba(59, 130, 246, 0)',
-                  '0 0 0 4px rgba(59, 130, 246, 0.2)',
-                  '0 0 0 0px rgba(59, 130, 246, 0)'
-                ]
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-              whileHover={{ scale: 1.1 }}
+              className="w-16 h-16 rounded-xl overflow-hidden border-2 border-gray-300 dark:border-gray-800 shrink-0 cursor-pointer block transition-colors"
+              whileHover={{ scale: 1.1, borderColor: isDarkMode ? '#facc15' : '#2563eb' }}
               whileTap={{ scale: 0.95 }}
             >
               <img
