@@ -570,7 +570,15 @@ export default function Portfolio() {
           <motion.div
 
             className="bg-gradient-to-br from-gray-50/50 to-gray-100/50 dark:from-gray-800/60 dark:to-gray-900/60 backdrop-blur-md border border-gray-200 dark:border-gray-700 rounded-xl p-8 hover:border-blue-600 dark:hover:border-yellow-400 transition-all group cursor-pointer"
-            onClick={() => setCurrentPage('case-studies')}
+            onClick={() => {
+              setCurrentPage('case-studies');
+              setTimeout(() => {
+                const element = document.getElementById('packt');
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+              }, 100);
+            }}
             whileHover={{ y: -5, boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)' }}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -1042,6 +1050,7 @@ export default function Portfolio() {
   const CaseStudiesPage = () => {
     const caseStudies = [
       {
+        id: 'packt',
         title: t('caseStudies.packt.title'),
         projectTitle: t('caseStudies.packt.projectTitle'),
         clientName: t('caseStudies.packt.clientName'),
@@ -1058,6 +1067,7 @@ export default function Portfolio() {
         ]
       },
       {
+        id: 'jrb',
         title: t('caseStudies.jrb.title'),
         projectTitle: t('caseStudies.jrb.projectTitle'),
         clientName: t('caseStudies.jrb.clientName'),
@@ -1074,6 +1084,7 @@ export default function Portfolio() {
         ]
       },
       {
+        id: 'audio',
         title: t('caseStudies.audio.title'),
         projectTitle: t('caseStudies.audio.projectTitle'),
         clientName: t('caseStudies.audio.clientName'),
@@ -1107,6 +1118,7 @@ export default function Portfolio() {
             {caseStudies.map((study, i) => (
               <motion.div
                 key={i}
+                id={study.id}
                 variants={itemVariants}
                 className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded overflow-hidden"
                 whileHover={{ y: -5, boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)' }}
