@@ -575,8 +575,10 @@ export default function Portfolio() {
           >
             <div className="flex items-start justify-between mb-4">
               <div>
-                <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2">{t('featuredWork.subtitle')}</div>
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">{t('featuredWork.projectTitle')}</h3>
+                <div className="mb-2">
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white">Packt Events</h3>
+                  <p className="text-lg text-gray-600 dark:text-gray-400 font-medium">Paid GTM & Audience Acquisition</p>
+                </div>
                 <p className="text-gray-600 dark:text-gray-300 text-sm">{t('featuredWork.projectDesc')}</p>
               </div>
               <ChevronRight className="w-6 h-6 text-gray-400 group-hover:text-blue-600 dark:group-hover:text-yellow-400 group-hover:translate-x-1 transition-all" />
