@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { TrendingUp, Target, LineChart, ChevronRight, Play, X, Menu, Filter, Mail, Phone, MapPin, Linkedin, Download, Calendar, Briefcase, GraduationCap, Award, Film, Camera, Plane, BookOpen, Sun, Moon, Instagram, Globe, Bot, MessageSquare, Megaphone, Rocket, PieChart, Construction } from 'lucide-react';
 import { metricsAPI } from './services/api.js';
 import { translations } from './translations.js';
+import GrowthSystem from './components/GrowthSystem';
 
 // HARDCODED FALLBACK DATA
 const fallbackMetrics = [
