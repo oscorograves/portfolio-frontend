@@ -556,7 +556,7 @@ export default function Portfolio() {
             </div>
 
             <div className="p-2">
-              <div className="text-3xl md:text-4xl font-bold mb-1">830%</div>
+              <div className="text-3xl md:text-4xl font-bold mb-1">8.3×</div>
               <div className="text-sm md:text-base text-blue-100 dark:text-gray-400">{t('stats.roi')}</div>
             </div>
 
