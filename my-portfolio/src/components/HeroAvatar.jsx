@@ -35,7 +35,12 @@ const HeroAvatar = () => {
                 <div className="absolute inset-0 bg-gradient-to-b from-blue-600/20 to-purple-600/20 rounded-full blur-[40px]" />
 
                 {/* The Image Frame (Crops your square image into a circle) */}
-                <div className="relative w-48 h-48 rounded-full overflow-hidden border-2 border-blue-600 bg-gray-900 shadow-2xl z-10 group flex-shrink-0">
+                <a
+                    href="https://www.instagram.com/oscoro.graves/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative w-48 h-48 rounded-full overflow-hidden border-2 border-blue-600 bg-gray-900 shadow-2xl z-10 group flex-shrink-0 cursor-pointer block"
+                >
 
                     {/* ✅ YOUR SQUARE IMAGE GOES HERE */}
                     {/* 'object-cover' ensures it fills the circle perfectly without stretching */}
@@ -52,7 +57,7 @@ const HeroAvatar = () => {
 
                     {/* Blue Tint (Disappears on Hover) */}
                     <div className="absolute inset-0 bg-gradient-to-t from-blue-900/50 to-transparent pointer-events-none transition-opacity duration-500 group-hover:opacity-0" />
-                </div>
+                </a>
 
             </motion.div>
         </motion.div>
