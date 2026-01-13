@@ -508,19 +508,7 @@ export default function Portfolio() {
                 </div>
               </div>
 
-              <motion.div
-                className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border-2 border-blue-500/50 dark:border-blue-400/50 rounded p-4 cursor-pointer relative overflow-hidden"
-                onClick={() => setCurrentPage('metrics')}
-                animate={{
-                  boxShadow: ['0 0 0 0px rgba(59, 130, 246, 0)', '0 0 0 4px rgba(59, 130, 246, 0.2)', '0 0 0 0px rgba(59, 130, 246, 0)']
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-                whileHover={{ scale: 1.02, borderColor: '#3b82f6' }}
-              >
+              <div className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-4">
                 <h3 className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-3">Key Metrics</h3>
                 <div className="grid grid-cols-2 gap-2">
                   {[
@@ -531,7 +519,8 @@ export default function Portfolio() {
                   ].map((kpi, i) => (
                     <motion.div
                       key={i}
-                      className="bg-white dark:bg-gray-950 border border-gray-300 dark:border-gray-800 rounded p-2 text-center"
+                      className="bg-white dark:bg-gray-950 border border-gray-300 dark:border-gray-800 rounded p-2 text-center cursor-pointer hover:border-blue-600 dark:hover:border-yellow-400 transition-colors"
+                      onClick={() => setCurrentPage('metrics')}
                       whileHover={{ scale: 1.05, boxShadow: "0px 5px 15px rgba(0,0,0,0.1)" }}
                     >
                       <div className="text-xs text-gray-600 dark:text-gray-400">{kpi.label}</div>
@@ -539,7 +528,7 @@ export default function Portfolio() {
                     </motion.div>
                   ))}
                 </div>
-              </motion.div>
+              </div>
             </motion.div>
           </div>
         </motion.div>
