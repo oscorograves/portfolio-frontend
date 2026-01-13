@@ -264,15 +264,16 @@ const WipModal = ({ isOpen, onClose, t }) => {
   );
 };
 
-const TypewriterText = ({ text }) => {
+const TypewriterText = ({ text, className, Element = "h1", delay = 0.3 }) => {
   // Split text into array of letters
   const letters = Array.from(text);
+  const MotionComponent = motion[Element] || motion.div;
 
   const container = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.1, delayChildren: 0.3 }
+      transition: { staggerChildren: 0.05, delayChildren: delay }
     }
   };
 
@@ -288,13 +289,13 @@ const TypewriterText = ({ text }) => {
     },
     hidden: {
       opacity: 0,
-      x: -20,
+      x: -10,
     }
   };
 
   return (
-    <motion.h1
-      className="text-5xl font-bold text-gray-900 dark:text-white mb-3"
+    <MotionComponent
+      className={className}
       variants={container}
       initial="hidden"
       whileInView="visible" // Animate when in view
@@ -305,7 +306,7 @@ const TypewriterText = ({ text }) => {
           {letter === " " ? "\u00A0" : letter}
         </motion.span>
       ))}
-    </motion.h1>
+    </MotionComponent>
   );
 };
 
@@ -495,8 +496,17 @@ export default function Portfolio() {
         >
           <div className="grid md:grid-cols-3 gap-8">
             <div className="md:col-span-2">
-              <TypewriterText text="Kanishk Singh" />
-              <motion.p variants={itemVariants} className="text-xl text-gray-700 dark:text-gray-300 mb-6 font-medium">{t('hero.role')}</motion.p>
+              <TypewriterText
+                text="Kanishk Singh"
+                className="text-5xl font-bold text-gray-900 dark:text-white mb-3"
+                Element="h1"
+              />
+              <TypewriterText
+                text={t('hero.role')}
+                className="text-xl text-gray-700 dark:text-gray-300 mb-6 font-medium"
+                Element="p"
+                delay={1.5} // Start after the name finishes (approx)
+              />
               <motion.p variants={itemVariants} className="text-base text-gray-600 dark:text-gray-400 leading-relaxed mb-8">
                 {t('hero.description')}
               </motion.p>
