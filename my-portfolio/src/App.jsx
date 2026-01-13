@@ -329,10 +329,13 @@ export default function Portfolio() {
           <div className="flex items-center justify-between">
 
             {/* Logo Section */}
-            <div className="flex items-center text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+            <button
+              onClick={() => setCurrentPage('home')}
+              className="flex items-center text-xl font-bold tracking-tight text-gray-900 dark:text-white hover:opacity-80 transition-opacity focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2"
+            >
               <OrigamiCraneLogo />
               <span>Kanishk Singh</span>
-            </div>
+            </button>
 
             {/* Desktop Navigation (Hidden on Mobile) */}
             <div className="hidden md:flex gap-1">
@@ -565,7 +568,8 @@ export default function Portfolio() {
         <div className="max-w-6xl mx-auto px-8 py-12">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-blue-600 dark:border-yellow-400">{t('featuredWork.title')}</h2>
           <motion.div
-            className="bg-gradient-to-br from-gray-50/50 to-gray-100/50 dark:from-gray-800/60 dark:to-gray-900/60 backdrop-blur-md border-2 border-gray-200 dark:border-gray-700 rounded-xl p-8 hover:border-blue-600 dark:hover:border-yellow-400 transition-all group cursor-pointer"
+
+            className="bg-gradient-to-br from-gray-50/50 to-gray-100/50 dark:from-gray-800/60 dark:to-gray-900/60 backdrop-blur-md border border-gray-200 dark:border-gray-700 rounded-xl p-8 hover:border-blue-600 dark:hover:border-yellow-400 transition-all group cursor-pointer"
             onClick={() => setCurrentPage('case-studies')}
             whileHover={{ y: -5, boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)' }}
             initial={{ opacity: 0, y: 20 }}
