@@ -1356,9 +1356,10 @@ export default function Portfolio() {
           }
         } catch {
           console.log('Using fallback data (API Silent Fail)');
-          // No action needed, we already have fallback data set
           if (filterChannel !== 'all') {
             setMetrics(fallbackMetrics.filter(m => m.channel === filterChannel));
+          } else {
+            setMetrics(fallbackMetrics);
           }
         }
       };
