@@ -31,7 +31,7 @@ const BackgroundTurtle = () => {
     return (
         // Outer container handles horizontal movement across screen
         <motion.div
-            className="fixed top-1/3 left-0 z-[9] pointer-events-none opacity-50"
+            className="fixed top-1/3 left-0 z-[9] pointer-events-none opacity-80"
             variants={crossingVariants}
             animate="animate"
             initial={false} // Start animation immediately without jumping to initial state
@@ -46,9 +46,8 @@ const BackgroundTurtle = () => {
                     viewBox="0 0 150 100"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
-                    // Using text-teal-300 gives it a nice subtle sea-green color. 
-                    // Change to text-blue-300 or text-gray-300 if you prefer.
-                    className="text-teal-300"
+                    // Darker color for light mode (blue-600), lighter for dark mode (teal-300)
+                    className="text-blue-600 dark:text-teal-300 transition-colors duration-300"
                 >
                     {/* Main Shell Body (Solid low opacity) */}
                     <path
