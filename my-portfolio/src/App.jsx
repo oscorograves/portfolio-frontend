@@ -544,28 +544,28 @@ export default function Portfolio() {
 
             <div className="p-2">
               <div className="text-3xl md:text-4xl font-bold mb-1">
-                <CountUp end={2} duration={2.5} suffix="+" enableScrollSpy />
+                <CountUp end={2} duration={2.5} suffix="+" enableScrollSpy scrollSpyOnce />
               </div>
               <div className="text-sm md:text-base text-blue-100 dark:text-gray-400">{t('stats.yearsExp')}</div>
             </div>
 
             <div className="p-2">
               <div className="text-3xl md:text-4xl font-bold mb-1">
-                <CountUp end={267} duration={2.5} prefix="$" suffix="K" enableScrollSpy />
+                <CountUp end={267} duration={2.5} prefix="$" suffix="K" enableScrollSpy scrollSpyOnce />
               </div>
               <div className="text-sm md:text-base text-blue-100 dark:text-gray-400">{t('stats.adSpend')}</div>
             </div>
 
             <div className="p-2">
               <div className="text-3xl md:text-4xl font-bold mb-1">
-                <CountUp end={25} duration={2.5} suffix="+" enableScrollSpy />
+                <CountUp end={25} duration={2.5} suffix="+" enableScrollSpy scrollSpyOnce />
               </div>
               <div className="text-sm md:text-base text-blue-100 dark:text-gray-400">{t('stats.campaigns')}</div>
             </div>
 
             <div className="p-2">
               <div className="text-3xl md:text-4xl font-bold mb-1">
-                <CountUp end={8.3} duration={2.5} suffix="×" decimals={1} enableScrollSpy />
+                <CountUp end={8.3} duration={2.5} suffix="×" decimals={1} enableScrollSpy scrollSpyOnce />
               </div>
               <div className="text-sm md:text-base text-blue-100 dark:text-gray-400">{t('stats.roi')}</div>
             </div>
