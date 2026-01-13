@@ -13,7 +13,7 @@ const HeroAvatar = () => {
 
     return (
         <motion.div
-            className="relative w-full h-72 flex items-center justify-center"
+            className="hidden md:flex relative w-full h-72 items-center justify-center"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
@@ -39,7 +39,8 @@ const HeroAvatar = () => {
                     href="https://www.instagram.com/oscoro.graves/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="relative w-48 h-48 rounded-full overflow-hidden border border-gray-300 dark:border-gray-800 bg-gray-900 shadow-2xl z-10 group flex-shrink-0 cursor-pointer block hover:border-blue-600 dark:hover:border-yellow-400 transition-all"
+                    className="relative w-48 h-48 rounded-full overflow-hidden border border-gray-300 dark:border-gray-800 bg-gray-900 shadow-2xl z-10 group flex-shrink-0 cursor-pointer block hover:border-blue-600 dark:hover:border-yellow-400 transition-all outline-none"
+                    style={{ WebkitTapHighlightColor: 'transparent' }}
                 >
 
                     {/* ✅ YOUR SQUARE IMAGE GOES HERE */}
