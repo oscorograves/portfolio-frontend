@@ -262,6 +262,39 @@ const WipModal = ({ isOpen, onClose, t }) => {
   );
 };
 
+const OrigamiCraneLogo = () => {
+  return (
+    <div className="relative flex items-center justify-center w-12 h-12 mr-3">
+      {/* 1. The Circle Background */}
+      <div className="absolute inset-0 bg-gray-200 rounded-full" />
+
+      {/* 2. The Floating Crane SVG */}
+      <motion.svg
+        viewBox="0 0 24 24"
+        className="relative z-10 w-8 h-8 text-blue-600"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        // The "Antigravity" Float Effect
+        animate={{ y: [0, -4, 0] }}
+        transition={{
+          duration: 4,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      >
+        {/* The Origami Shape (Geometric vector paths) */}
+        <path d="M12 3L2 12h3l7-6 7 6h3L12 3z" /> {/* Top Wing */}
+        <path d="M12 3v10l-4 4-2-3 6-11z" />      {/* Left Fold */}
+        <path d="M12 3v10l4 4 2-3-6-11z" />       {/* Right Fold */}
+        <path d="M12 13l-4 4h8l-4-4z" />          {/* Body */}
+      </motion.svg>
+    </div>
+  );
+};
+
 export default function Portfolio() {
   const [currentPage, setCurrentPage] = useState('home');
   const [showWip, setShowWip] = useState(false);
@@ -296,15 +329,9 @@ export default function Portfolio() {
           <div className="flex items-center justify-between">
 
             {/* Logo Section */}
-            <div className="flex items-center gap-3">
-              <img
-                src="/profile.jpeg"
-                alt="Kanishka Singh"
-                className="w-10 h-10 rounded-full object-cover border border-gray-300 dark:border-gray-700"
-              />
-              <div>
-                <div className="font-semibold text-gray-900 dark:text-white text-sm">Kanishk Singh</div>
-              </div>
+            <div className="flex items-center text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+              <OrigamiCraneLogo />
+              <span>Kanishk Singh</span>
             </div>
 
             {/* Desktop Navigation (Hidden on Mobile) */}
