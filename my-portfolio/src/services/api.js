@@ -46,6 +46,7 @@ export const contactAPI = {
 
 /**
  * Google Sheets Data Configuration
+ * Fetches live metrics from published CSV
  */
 const SHEET_ID = '2PACX-1vTDn-lJIO3TJJ1TQLIFIbFLYzGo-nYZUv0ID45PnaV-OqqrH8GvU88k-Fvd117bCOKZNcsRH_l79FPd';
 const CSV_URL = `https://docs.google.com/spreadsheets/d/e/${SHEET_ID}/pub?output=csv`;
