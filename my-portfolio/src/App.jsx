@@ -1489,11 +1489,13 @@ export default function Portfolio() {
         {/* Top Section: Contact & Socials */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-8">
           <div className="flex items-center gap-4">
-            <img
-              src="/profile.jpeg"
-              alt="Kanishk Singh"
-              className="w-12 h-12 rounded-lg object-cover border border-gray-200 dark:border-gray-700"
-            />
+            <div className="w-16 h-16 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 shrink-0">
+              <img
+                src="/profile.jpeg"
+                alt="Kanishk Singh"
+                className="w-full h-full object-cover scale-125"
+              />
+            </div>
             <div className="text-sm text-gray-600 dark:text-gray-400 font-medium">
               {t('footer.copyright')}
             </div>
