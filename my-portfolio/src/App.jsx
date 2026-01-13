@@ -406,7 +406,7 @@ export default function Portfolio() {
   };
 
   const HomePage = () => (
-    <div className="pt-16">
+    <div className="pt-32">
       {/* Header Section */}
       <section className="border-b border-gray-300 dark:border-gray-800 transition-colors duration-300">
         <motion.div
