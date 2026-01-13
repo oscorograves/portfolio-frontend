@@ -458,29 +458,29 @@ export default function Portfolio() {
       </section>
 
       {/* Key Metrics Bar */}
-      <div className="bg-gray-900 dark:bg-gray-900 text-white py-12 transition-colors duration-300">
+      <div className="bg-blue-600 dark:bg-gray-900 text-white py-12 transition-colors duration-300">
         <div className="max-w-6xl mx-auto px-4 md:px-8">
           {/* CHANGED: grid-cols-2 for mobile, md:grid-cols-4 for desktop */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center">
 
             <div className="p-2">
               <div className="text-3xl md:text-4xl font-bold mb-1">2+</div>
-              <div className="text-sm md:text-base text-gray-400">{t('stats.yearsExp')}</div>
+              <div className="text-sm md:text-base text-blue-100 dark:text-gray-400">{t('stats.yearsExp')}</div>
             </div>
 
             <div className="p-2">
               <div className="text-3xl md:text-4xl font-bold mb-1">$267K</div>
-              <div className="text-sm md:text-base text-gray-400">{t('stats.adSpend')}</div>
+              <div className="text-sm md:text-base text-blue-100 dark:text-gray-400">{t('stats.adSpend')}</div>
             </div>
 
             <div className="p-2">
               <div className="text-3xl md:text-4xl font-bold mb-1">25+</div>
-              <div className="text-sm md:text-base text-gray-400">{t('stats.campaigns')}</div>
+              <div className="text-sm md:text-base text-blue-100 dark:text-gray-400">{t('stats.campaigns')}</div>
             </div>
 
             <div className="p-2">
               <div className="text-3xl md:text-4xl font-bold mb-1">830%</div>
-              <div className="text-sm md:text-base text-gray-400">{t('stats.roi')}</div>
+              <div className="text-sm md:text-base text-blue-100 dark:text-gray-400">{t('stats.roi')}</div>
             </div>
 
           </div>
@@ -964,6 +964,9 @@ export default function Portfolio() {
     const caseStudies = [
       {
         title: t('caseStudies.packt.title'),
+        projectTitle: t('caseStudies.packt.title'),
+        clientName: "Packt",
+        badgeText: "EdTech",
         category: t('caseStudies.packt.category'),
         client: "Packt",
         problem: t('caseStudies.packt.problem'),
@@ -977,6 +980,9 @@ export default function Portfolio() {
       },
       {
         title: t('caseStudies.jrb.title'),
+        projectTitle: "30-Day CRO Strategy",
+        clientName: "Jones Road Beauty",
+        badgeText: "E-Commerce",
         category: t('caseStudies.jrb.category'),
         client: "Jones Road Beauty",
         problem: t('caseStudies.jrb.problem'),
@@ -990,6 +996,9 @@ export default function Portfolio() {
       },
       {
         title: t('caseStudies.audio.title'),
+        projectTitle: t('caseStudies.audio.title'),
+        clientName: "Audio Platform",
+        badgeText: "Entertainment",
         category: t('caseStudies.audio.category'),
         client: "Audio Streaming Platform",
         problem: t('caseStudies.audio.problem'),
@@ -1025,13 +1034,15 @@ export default function Portfolio() {
                 transition={{ type: "spring", stiffness: 300 }}
               >
                 <div className="bg-blue-600 dark:bg-gray-800 text-white px-6 py-4">
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-start justify-between">
                     <div>
-                      <div className="text-xs uppercase tracking-wide mb-1 opacity-80">{study.category}</div>
-                      <h2 className="text-xl font-bold">{study.title}</h2>
+                      <h2 className="text-2xl font-bold text-white mb-1">{study.clientName}</h2>
+                      <div className="text-lg text-blue-100 dark:text-gray-400 font-medium">
+                        {study.projectTitle}
+                      </div>
                     </div>
-                    <div className="text-xs bg-white/20 px-3 py-1 rounded">
-                      {study.client}
+                    <div className="text-xs bg-white/20 px-3 py-1 rounded whitespace-nowrap ml-4">
+                      {study.badgeText}
                     </div>
                   </div>
                 </div>
