@@ -964,9 +964,9 @@ export default function Portfolio() {
     const caseStudies = [
       {
         title: t('caseStudies.packt.title'),
-        projectTitle: t('caseStudies.packt.title'),
-        clientName: "Packt",
-        badgeText: "EdTech",
+        projectTitle: t('caseStudies.packt.projectTitle'),
+        clientName: t('caseStudies.packt.clientName'),
+        badgeText: t('caseStudies.packt.badge'),
         category: t('caseStudies.packt.category'),
         client: "Packt",
         problem: t('caseStudies.packt.problem'),
@@ -980,9 +980,9 @@ export default function Portfolio() {
       },
       {
         title: t('caseStudies.jrb.title'),
-        projectTitle: "30-Day CRO Strategy",
-        clientName: "Jones Road Beauty",
-        badgeText: "E-Commerce",
+        projectTitle: t('caseStudies.jrb.projectTitle'),
+        clientName: t('caseStudies.jrb.clientName'),
+        badgeText: t('caseStudies.jrb.badge'),
         category: t('caseStudies.jrb.category'),
         client: "Jones Road Beauty",
         problem: t('caseStudies.jrb.problem'),
@@ -996,9 +996,9 @@ export default function Portfolio() {
       },
       {
         title: t('caseStudies.audio.title'),
-        projectTitle: t('caseStudies.audio.title'),
-        clientName: "Audio Platform",
-        badgeText: "Entertainment",
+        projectTitle: t('caseStudies.audio.projectTitle'),
+        clientName: t('caseStudies.audio.clientName'),
+        badgeText: t('caseStudies.audio.badge'),
         category: t('caseStudies.audio.category'),
         client: "Audio Streaming Platform",
         problem: t('caseStudies.audio.problem'),

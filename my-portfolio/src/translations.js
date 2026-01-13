@@ -219,6 +219,9 @@ export const translations = {
             subtitle: "Detailed performance marketing projects and results",
             packt: {
                 title: "Scaling Paid GTM for Events",
+                projectTitle: "Scaling Paid GTM for Events",
+                clientName: "Packt",
+                badge: "EdTech",
                 category: "Growth & GTM",
                 problem: "Packt needed to launch a new paid events + newsletter vertical and reach 150+ paid attendees while keeping at least 80% of registrations net-new.",
                 actions: [
@@ -230,6 +233,9 @@ export const translations = {
             },
             jrb: {
                 title: "30-Day CRO Strategy for JonesRoadBeauty.com",
+                projectTitle: "30-Day CRO Strategy",
+                clientName: "Jones Road Beauty",
+                badge: "E-Commerce",
                 category: "Conversion Rate Optimization",
                 problem: "The brand was leaking revenue across product pages, shade selection, checkout, and post-purchase flows with no internal analytics access at the start.",
                 actions: [
@@ -241,6 +247,9 @@ export const translations = {
             },
             audio: {
                 title: "Scaling User Acquisition for an Audio Platform",
+                projectTitle: "Scaling User Acquisition",
+                clientName: "Audio Platform",
+                badge: "Entertainment",
                 category: "Performance Marketing",
                 problem: "The platform needed to scale user acquisition while maintaining cost efficiency across highly competitive digital channels.",
                 actions: [
@@ -478,6 +487,9 @@ export const translations = {
             subtitle: "Gedetailleerde prestatiemarketingprojecten en resultaten",
             packt: {
                 title: "Schalen van Betaalde GTM voor Evenementen",
+                projectTitle: "Schalen van Betaalde GTM",
+                clientName: "Packt",
+                badge: "EdTech",
                 category: "Groei & GTM",
                 problem: "Packt moest een nieuwe betaalde evenementen + nieuwsbrief vertical lanceren en 150+ betaalde bezoekers bereiken en tegelijkertijd minstens 80% van de registraties netto-nieuw houden.",
                 actions: [
@@ -489,6 +501,9 @@ export const translations = {
             },
             jrb: {
                 title: "30-Daagse CRO Strategie voor JonesRoadBeauty.com",
+                projectTitle: "30-Daagse CRO Strategie",
+                clientName: "Jones Road Beauty",
+                badge: "E-Commerce",
                 category: "Conversie-optimalisatie",
                 problem: "Het merk verloor omzet over productpagina's, tintselectie, checkout en post-aankoopstromen zonder interne analysetoegang bij de start.",
                 actions: [
@@ -500,6 +515,9 @@ export const translations = {
             },
             audio: {
                 title: "Schalen van Gebruikersacquisitie voor een Audioplatform",
+                projectTitle: "Schalen van Gebruikersacquisitie",
+                clientName: "Audioplatform",
+                badge: "Entertainment",
                 category: "Prestatiemarketing",
                 problem: "Het platform moest gebruikersacquisitie schalen en tegelijkertijd de kostenefficiëntie behouden via zeer concurrerende digitale kanalen.",
                 actions: [
