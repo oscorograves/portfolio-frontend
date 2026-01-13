@@ -734,7 +734,7 @@ export default function Portfolio() {
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-gray-700 dark:text-gray-300">Hindi</span>
                   <motion.span
-                    whileHover={{ scale: 1.1 }}
+                    whileHover={{ scale: 1.1, backgroundColor: "#f3f4f6", color: "#111827" }}
                     className="text-xs text-gray-600 dark:text-gray-400 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 px-2 py-1 rounded cursor-default"
                   >
                     {t('experience.languageLevels.native')}
@@ -743,7 +743,7 @@ export default function Portfolio() {
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-gray-700 dark:text-gray-300">English</span>
                   <motion.span
-                    whileHover={{ scale: 1.1 }}
+                    whileHover={{ scale: 1.1, backgroundColor: "#f3f4f6", color: "#111827" }}
                     className="text-xs text-gray-600 dark:text-gray-400 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 px-2 py-1 rounded cursor-default"
                   >
                     {t('experience.languageLevels.c1')}
@@ -754,7 +754,7 @@ export default function Portfolio() {
                   <span className="text-sm text-gray-700 dark:text-gray-300">Dutch</span>
                   {/* UPDATED DUTCH SKILL */}
                   <motion.span
-                    whileHover={{ scale: 1.1 }}
+                    whileHover={{ scale: 1.1, backgroundColor: "#f3f4f6", color: "#111827" }}
                     className="text-xs text-gray-600 dark:text-gray-400 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 px-2 py-1 rounded cursor-default"
                   >
                     {t('experience.languageLevels.a2')}
