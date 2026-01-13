@@ -243,7 +243,7 @@ const WipModal = ({ isOpen, onClose, t }) => {
         <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-purple-500/20 rounded-full blur-3xl pointer-events-none" />
 
         <div className="text-center relative z-10">
-          <div className="w-16 h-16 bg-blue-100 dark:bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-4 text-blue-600 dark:text-yellow-400">
+          <div className="w-16 h-16 bg-blue-50 dark:bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-4 text-blue-600 dark:text-yellow-400">
             <Construction className="w-8 h-8" />
           </div>
           <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{t('wip.title')}</h3>
