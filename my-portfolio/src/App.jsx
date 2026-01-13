@@ -266,12 +266,12 @@ const OrigamiCraneLogo = () => {
   return (
     <div className="relative flex items-center justify-center w-12 h-12 mr-3">
       {/* 1. The Circle Background */}
-      <div className="absolute inset-0 bg-gray-200 rounded-full" />
+      <div className="absolute inset-0 bg-gray-200 dark:bg-gray-800 rounded-full" />
 
       {/* 2. The Floating Crane SVG */}
       <motion.svg
         viewBox="0 0 24 24"
-        className="relative z-10 w-8 h-8 text-blue-600"
+        className="relative z-10 w-8 h-8 text-blue-600 dark:text-yellow-400"
         fill="none"
         stroke="currentColor"
         strokeWidth="1.5"
