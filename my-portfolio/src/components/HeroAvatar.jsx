@@ -40,12 +40,12 @@ const HeroAvatar = ({ metrics = [] }) => {
         }
     };
 
-    // Positions for the 4 pointers (Uniformly spread around the circle)
+    // Positions for the 4 pointers (X Pattern / Corners)
     const pointerPositions = [
-        { top: "0%", left: "50%", transform: "translateX(-50%) translateZ(40px)" },   // Top Center
-        { top: "50%", right: "0%", transform: "translateY(-50%) translateZ(40px)" },  // Right Center
-        { bottom: "0%", left: "50%", transform: "translateX(-50%) translateZ(40px)" }, // Bottom Center
-        { top: "50%", left: "0%", transform: "translateY(-50%) translateZ(40px)" }    // Left Center
+        { top: "14%", left: "14%", transform: "translateZ(40px)" },   // Top Left
+        { top: "14%", right: "14%", transform: "translateZ(40px)" },  // Top Right
+        { bottom: "14%", left: "14%", transform: "translateZ(40px)" }, // Bottom Left
+        { bottom: "14%", right: "14%", transform: "translateZ(40px)" } // Bottom Right
     ];
 
     return (
@@ -71,13 +71,13 @@ const HeroAvatar = ({ metrics = [] }) => {
 
                 {/* --- 5. Interactive Reactor Ring (Replaces old ring) --- */}
                 <motion.div
-                    className="absolute -inset-8 rounded-full border-2 border-blue-500/20 border-dashed"
+                    className="absolute -inset-8 rounded-full border border-blue-500/20 dark:border-yellow-400/20 border-dashed"
                     animate={{ rotate: 360 }}
                     transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                     style={{ transformStyle: "preserve-3d", transform: "translateZ(-20px)" }}
                     whileHover={{
                         scale: 1.1,
-                        borderColor: "rgba(37, 99, 235, 0.6)", // blue-600
+                        opacity: 0.8,
                         transition: { duration: 0.3 }
                     }}
                 />
@@ -86,7 +86,7 @@ const HeroAvatar = ({ metrics = [] }) => {
                 {[...Array(6)].map((_, i) => (
                     <motion.div
                         key={i}
-                        className="absolute w-1 h-1 bg-blue-400 rounded-full"
+                        className="absolute w-1 h-1 bg-blue-400 dark:bg-yellow-400 rounded-full"
                         initial={{
                             x: Math.random() * 200 - 100,
                             y: Math.random() * 200 - 100,
@@ -112,14 +112,14 @@ const HeroAvatar = ({ metrics = [] }) => {
                 ))}
 
                 {/* The Glowing Atmosphere */}
-                <div className="absolute inset-0 bg-gradient-to-b from-blue-600/20 to-purple-600/20 rounded-full blur-[40px]" style={{ transform: "translateZ(-10px)" }} />
+                <div className="absolute inset-0 bg-gradient-to-b from-blue-600/20 to-purple-600/20 dark:from-yellow-400/10 dark:to-orange-500/10 rounded-full blur-[40px]" style={{ transform: "translateZ(-10px)" }} />
 
                 {/* The Image Link */}
                 <a
                     href="https://www.instagram.com/oscoro.graves/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="relative w-48 h-48 rounded-full overflow-hidden border border-gray-300 dark:border-gray-800 bg-gray-900 shadow-2xl z-10 group flex-shrink-0 cursor-pointer block hover:border-blue-600 dark:hover:border-yellow-400 transition-all outline-none"
+                    className="relative w-48 h-48 rounded-full overflow-hidden border-2 border-gray-300 dark:border-gray-700 bg-gray-900 shadow-2xl z-10 group flex-shrink-0 cursor-pointer block hover:border-blue-600 dark:hover:border-yellow-400 transition-all outline-none"
                     style={{
                         WebkitTapHighlightColor: 'transparent',
                         transform: "translateZ(20px)" // Pop out effect
@@ -152,7 +152,7 @@ const HeroAvatar = ({ metrics = [] }) => {
                     >
                         {/* The Dot */}
                         <motion.div
-                            className="w-3 h-3 bg-blue-500 rounded-full shadow-lg shadow-blue-500/50 ring-2 ring-white dark:ring-gray-900" // Added ring for contrast
+                            className="w-3 h-3 bg-blue-600 dark:bg-yellow-400 rounded-full shadow-lg shadow-blue-600/50 dark:shadow-yellow-400/50 ring-2 ring-white dark:ring-gray-900" // Added ring for contrast
                             animate={{ scale: [1, 1.2, 1] }}
                             transition={{ duration: 2, repeat: Infinity, delay: index * 0.5 }}
                         />
