@@ -41,7 +41,7 @@ const HeroAvatar = () => {
                     {/* 'object-cover' ensures it fills the circle perfectly without stretching */}
                     {/* Using profile2.jpg as found in the directory */}
                     <img
-                        src="/profile2.jpg"
+                        src="/profile2.jpeg"
                         alt="Kanishk Singh"
                         className="w-full h-full object-cover object-top transition-all duration-500 filter grayscale group-hover:grayscale-0 group-hover:scale-110"
                     />
@@ -52,16 +52,6 @@ const HeroAvatar = () => {
                     {/* Blue Tint (Disappears on Hover) */}
                     <div className="absolute inset-0 bg-gradient-to-t from-blue-900/50 to-transparent pointer-events-none transition-opacity duration-500 group-hover:opacity-0" />
                 </div>
-
-                {/* Floating Status Chip */}
-                <motion.div
-                    className="absolute -right-6 bottom-4 bg-gray-900/90 border border-green-500/30 px-3 py-1.5 rounded text-xs font-mono text-green-400 shadow-[0_0_15px_rgba(34,197,94,0.2)] flex items-center gap-2 z-20 backdrop-blur-md"
-                    animate={{ y: [0, -8, 0] }}
-                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                >
-                    <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
-                    ONLINE
-                </motion.div>
 
             </motion.div>
         </motion.div>
