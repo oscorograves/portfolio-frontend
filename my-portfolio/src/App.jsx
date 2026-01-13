@@ -6,6 +6,7 @@ import { TrendingUp, Target, LineChart, ChevronRight, Play, X, Menu, Filter, Mai
 import { metricsAPI } from './services/api.js';
 import { translations } from './translations.js';
 import NetworkBackground from './components/NetworkBackground';
+import HeroAvatar from './components/HeroAvatar';
 
 // HARDCODED FALLBACK DATA
 const fallbackMetrics = [
@@ -510,7 +511,7 @@ export default function Portfolio() {
               <motion.p variants={itemVariants} className="text-base text-gray-600 dark:text-gray-400 leading-relaxed mb-8">
                 {t('hero.description')}
               </motion.p>
-              <motion.div variants={itemVariants} className="flex gap-3">
+              <motion.div variants={itemVariants} className="flex gap-3 mb-8">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -530,40 +531,34 @@ export default function Portfolio() {
                   {t('hero.downloadCV')}
                 </motion.a>
               </motion.div>
+
+              <motion.div
+                variants={itemVariants}
+                className="flex flex-wrap gap-6 text-sm text-gray-600 dark:text-gray-400 border-t border-gray-200 dark:border-gray-800 pt-6"
+              >
+                <div className="flex items-center gap-2">
+                  <Mail className="w-4 h-4 text-blue-600 dark:text-yellow-400" />
+                  <a href="mailto:oscoro.graves@gmail.com" className="hover:text-black dark:hover:text-white transition-colors">
+                    oscoro.graves@gmail.com
+                  </a>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Linkedin className="w-4 h-4 text-blue-600 dark:text-yellow-400" />
+                  <a href="https://www.linkedin.com/in/kanishk-singh-ab90b2203/" target="_blank" rel="noopener noreferrer" className="hover:text-black dark:hover:text-white transition-colors">
+                    LinkedIn
+                  </a>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Phone className="w-4 h-4 text-blue-600 dark:text-yellow-400" />
+                  <a href="tel:+918299406042" className="hover:text-black dark:hover:text-white transition-colors">
+                    +91 8299406042
+                  </a>
+                </div>
+              </motion.div>
             </div>
 
             <motion.div variants={itemVariants} className="space-y-4">
-
-
-              <div className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-4">
-                <h3 className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-3">{t('hero.contactInfo')}</h3>
-                <div className="space-y-2 text-sm">
-                  <div className="flex items-start gap-2 text-gray-700 dark:text-gray-300">
-                    <Mail className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                    <a href="mailto:oscoro.graves@gmail.com" className="hover:text-blue-600 dark:hover:text-yellow-400 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2">oscoro.graves@gmail.com</a>
-                  </div>
-                  <div className="flex items-start gap-2 text-gray-700 dark:text-gray-300">
-                    <Phone className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                    <a
-                      href="tel:+918299406042"
-                      className="hover:text-blue-600 dark:hover:text-yellow-400 transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
-                    >
-                      +91 8299406042
-                    </a>
-                  </div>
-                  <div className="flex items-start gap-2 text-gray-700 dark:text-gray-300">
-                    <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                    <span>{t('hero.location')}</span>
-                  </div>
-                  <div className="flex items-start gap-2 text-gray-700 dark:text-gray-300">
-                    <Linkedin className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                    {/* UPDATED LINKEDIN LINK */}
-                    <a href="https://www.linkedin.com/in/kanishk-singh-ab90b2203/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 dark:hover:text-yellow-400 transition-colors break-all focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2">
-                      LinkedIn
-                    </a>
-                  </div>
-                </div>
-              </div>
+              <HeroAvatar />
 
               <div className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-4">
                 <h3 className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-3">{t('hero.keyMetrics')}</h3>
