@@ -355,7 +355,7 @@ export const translations = {
             email: "Mail Mij",
             offClock: "Vrije Tijd",
             hobbies: {
-                film: "Filmanalyse",
+                film: "Film- en Videomontage",
                 photography: "Fotografie",
                 travel: "Solo Reizen",
                 journaling: "Journaling"
@@ -586,5 +586,300 @@ export const translations = {
                 client: "Klant"
             }
         }
+    },
+    de: {
+        nav: {
+            home: "Startseite",
+            experience: "Erfahrung",
+            caseStudies: "Fallstudien",
+            creativeLab: "Kreativlabor",
+            metrics: "Kennzahlen"
+        },
+        hero: {
+            role: "Performance- & Wachstums-Marketer",
+            description: "Ich entwerfe Paid Media-, CRO- und Wachstumssysteme, die den Umsatz skalieren. Spezialisiert auf datengestützte Kampagnenoptimierung, Funnel-Design und Performance-Analysen über B2B- und B2C-Kanäle hinweg.",
+            viewCaseStudies: "Fallstudien ansehen",
+            downloadCV: "Lebenslauf herunterladen",
+            contactInfo: "Kontaktinformationen",
+            location: "Noida, Indien",
+            keyMetrics: "Wichtige Kennzahlen"
+        },
+        wip: {
+            title: "In Arbeit",
+            message: "Das Kreativlabor befindet sich derzeit im Aufbau. Schauen Sie bald wieder vorbei für Updates!",
+            close: "Schließen"
+        },
+        stats: {
+            yearsExp: "Jahre Erfahrung",
+            adSpend: "Verwaltetes Anzeigenbudget",
+            campaigns: "Durchgeführte Kampagnen",
+            roi: "Höchster ROI"
+        },
+        featuredWork: {
+            title: "Ausgewählte Arbeiten",
+            subtitle: "Wachstum & GTM",
+            projectSubtitle: "Paid GTM & Publikumsgewinnung",
+            projectTitle: "Einführung einer Paid GTM-Engine für Packt Events",
+            projectDesc: "Start einer Paid-Events-Sparte und Erreichung von 150+ Teilnehmern mit 95% Neukundengewinnung",
+            metrics: {
+                attendees: "Zahlende Teilnehmer",
+                netNew: "Netto-Neu %",
+                cac: "Gemischter CAC",
+                roas: "Prognostizierter ROAS"
+            }
+        },
+        whatIOffer: {
+            title: "Was ich biete",
+            paidMedia: {
+                title: "Paid Media Strategie & Ausführung",
+                desc: "End-to-End-Kampagnenmanagement auf Meta, Google und LinkedIn mit Fokus auf Creative-Tests und Zielgruppenoptimierung"
+            },
+            cro: {
+                title: "CRO-Audits & A/B-Tests",
+                desc: "Datengestützte Konversionsoptimierung durch Hypothesentests, Nutzerforschung und systematische Experimente"
+            },
+            analytics: {
+                title: "Performance-Dashboards & Analytik",
+                desc: "Benutzerdefiniertes GA4-Tracking, UTM-Architektur und Echtzeit-Dashboards für umsetzbare Wachstumserkenntnisse"
+            }
+        },
+        footer: {
+            connect: "Verbinden",
+            emailMe: "Schreib mir",
+            email: "Schreib mir",
+            offClock: "Freizeit",
+            hobbies: {
+                film: "Film- und Videobearbeitung",
+                photography: "Fotografie",
+                travel: "Alleinreisen",
+                journaling: "Tagebuchschreiben"
+            },
+            copyright: "© 2026 Kanishk Singh. Alle Rechte vorbehalten."
+        },
+        experience: {
+            title: "Berufserfahrung",
+            present: "Heute",
+            skills: "Kernkompetenzen",
+            competencies: [
+                { title: "Performance-Marketing", icon: "Target", skills: ["Paid Media (Meta, Google, LinkedIn)", "Kampagnenstrategie & Skalierung", "Budgetoptimierung"] },
+                { title: "Wachstumsmarketing", icon: "TrendingUp", skills: ["Landingpage-Design", "Funnel-Optimierung", "Verbesserung der Nutzererfahrung"] },
+                { title: "Analytik & CRO", icon: "LineChart", skills: ["GA4-Implementierung", "A/B-Tests", "Performance-Dashboards"] }
+            ],
+            digitalSkills: "Digitale Fähigkeiten",
+            platformsParams: "Plattformen & Tools",
+            languages: "Sprachen",
+            languageLevels: {
+                native: "Muttersprache",
+                c1: "C1 (Fortgeschritten)",
+                a2: "A2 (Grundkenntnisse)"
+            },
+            languageList: {
+                hindi: "Hindi",
+                english: "Englisch",
+                dutch: "Niederländisch",
+                german: "Deutsch"
+            },
+            educationDetails: {
+                degree: "Bachelor of Business Administration",
+                specialization: "Spezialisierung Marketing",
+                institute: "Jaypee Institute of Information Technology",
+                locationYear: "Noida, Indien • 2020 – 2023",
+                cgpa: "CGPA: 7.7 / 10"
+            },
+            education: "Ausbildung",
+            certifications: "Zertifizierungen",
+            resumeDownload: "Vollständigen Lebenslauf herunterladen",
+            roles: {
+                pocketfm: {
+                    title: "Ad Operations Spezialist",
+                    company: "Pocket FM",
+                    type: "Vertrag",
+                    location: "Remote",
+                    period: "Jun 2025 – Heute",
+                    bullets: [
+                        "Leitung der Meta Ads-Ausführung für Akquisitions- und Engagement-Kampagnen in mehreren Regionen",
+                        "Aufbau von Creative- und Zielgruppen-Testsystemen, die die CTR um ~16% verbesserten und die Kosten pro Ergebnis um ~14% senkten",
+                        "Entwurf von Live-Performance-Dashboards zur Steuerung der Budgetumverteilung und Skalierung von Creatives",
+                        "Funktionsübergreifende Zusammenarbeit mit Content- und Wachstumsteams zur weltweiten Einführung erfolgreicher Creative-Formate"
+                    ]
+                },
+                intertek: {
+                    title: "Digital Marketing Executive",
+                    company: "Intertek India Pvt. Ltd.",
+                    location: "Delhi",
+                    period: "Sep 2024 – Jun 2025",
+                    bullets: [
+                        "Durchführung von Paid Search-, Paid Social- und organischen Kampagnen in Südasien für 37+ Büros",
+                        "Nutzung von GA4-Funnel-Analysen und CRO-Tests zur Steigerung der Konversionsrate um ~18% und der MQLs um ~22%",
+                        "Erstellung und Optimierung von Landingpages, Anfrageformularen und Lead-Routing zur Verbesserung der Vertriebsübergabe"
+                    ]
+                },
+                tradebuilder: {
+                    title: "Digital Marketing Associate",
+                    company: "Tradebuilder Inc.",
+                    location: "Remote",
+                    period: "Sep 2023 – Jul 2024",
+                    bullets: [
+                        "Verwaltung von Google Ads-, Meta Ads- und HubSpot-Kampagnen zur B2B-Leadgenerierung",
+                        "Erstellung wöchentlicher GA4-basierter Funnel- und Kohortenberichte, die den Anzeigen-ROI um ~20% verbesserten",
+                        "Durchführung von A/B-Tests für Creatives und Landingpages zur Steigerung der CTR um ~12% und Senkung des CPL"
+                    ]
+                },
+                abp: {
+                    title: "SEO-Praktikant",
+                    company: "ABP Learning Technologies",
+                    location: "Noida",
+                    period: "Jan 2023 – Aug 2023",
+                    bullets: [
+                        "Skalierung von Instagram auf 3.000+ und YouTube auf 10.000+ Follower durch organisch-erstes Wachstum",
+                        "Verbesserung der Suchergebnisse durch Keyword-Recherche, On-Page-SEO und Metadaten-Optimierung"
+                    ]
+                },
+                projects: {
+                    customGpt: {
+                        title: "Benutzerdefinierter GPT für Marketing-Intelligence",
+                        bullets: [
+                            "Entwicklung eines benutzerdefinierten GPT, der SEMrush, Ahrefs und GA4 integriert, um Wettbewerbsanalysen, Keyword-Recherche und Berichterstattung zu automatisieren.",
+                            "Reduzierung der manuellen Recherchezeit und Standardisierung von Erkenntnissen über Kampagnen hinweg."
+                        ]
+                    },
+                    chatbot: {
+                        title: "Chatbot-Integration für Intertek Indien Website",
+                        bullets: [
+                            "Implementierung eines benutzerdefinierten Chatbots auf einer Optimizely CMS-Website zur Erfassung und Qualifizierung von Leads für mehrere Geschäftsbereiche mittels bedingter Logik.",
+                            "Durchführung von A/B-Tests zu Gesprächsabläufen und Formularfeldern zur Steigerung der Lead-Abschlussraten."
+                        ]
+                    }
+                }
+            }
+        },
+        metricsPage: {
+            title: "Performance-Kennzahlen",
+            subtitle: "Kanalübergreifende Leistung in den Bereichen Wachstum, CRO und bezahlte Akquise",
+            totalSpend: "Gesamtausgaben",
+            avgCtr: "Ø CTR",
+            avgCvr: "Ø CVR",
+            avgRoi: "Ø ROI",
+            filters: {
+                channel: "Kanal",
+                all: "Alle"
+            },
+            table: {
+                client: "Kunde",
+                channel: "Kanal",
+                spend: "Ausgaben",
+                ctr: "CTR",
+                cpl: "CPL",
+                cvr: "CVR",
+                roi: "ROI"
+            },
+            insights: {
+                title: "Wichtige Erkenntnisse",
+                topChannel: {
+                    title: "Top-Kanal",
+                    name: "Meta Ads",
+                    desc: "Beste Balance aus Creative-Tests, Zielgruppen-Learning und Skalierung über Pocket FM, Packt und E-Commerce hinweg."
+                },
+                bestCvr: {
+                    title: "Beste CVR",
+                    name: "LinkedIn (B2B)",
+                    desc: "Entscheidungsträger mit hoher Absicht, geringerem Volumen, aber stärkerer Pipeline-Qualität."
+                },
+                highestRoi: {
+                    title: "Höchster ROI",
+                    name: "Packt GTM",
+                    desc: "Creator-geführte Distribution plus Meta-Verstärkung erzeugten einen 8-fachen Umsatzmultiplikator."
+                }
+            }
+        },
+        creativeLab: {
+            title: "Kreativlabor",
+            subtitle: "Anzeigen-Creatives und Videoinhalte",
+            adCreatives: "Anzeigen-Creatives",
+            videoContent: "Videoinhalte",
+            metrics: {
+                goal: "Kampagnenziel",
+                ctr: "Klickrate (CTR)",
+                cpl: "Kosten pro Lead"
+            },
+            goals: {
+                brandAwareness: "Markenbekanntheit",
+                leadGen: "Leadgenerierung",
+                appInstall: "App-Installation",
+                retargeting: "Retargeting",
+                productLaunch: "Produkteinführung",
+                eventReg: "Event-Registrierung",
+                contentDownload: "Content-Download",
+                webinarSignup: "Webinar-Anmeldung",
+                trialConv: "Testphasen-Konvers."
+            },
+            videoTypes: {
+                adEdit: "Anzeigen-Edit",
+                promo: "Promo-Video",
+                podcast: "Podcast-Clip"
+            },
+            modal: {
+                title: "Kampagnenleistung"
+            }
+        },
+        caseStudies: {
+            title: "Fallstudien",
+            subtitle: "Detaillierte Performance-Marketing-Projekte und Ergebnisse",
+            packt: {
+                title: "Skalierung von Paid GTM für Events",
+                projectTitle: "Skalierung von Paid GTM",
+                clientName: "Packt",
+                badge: "EdTech",
+                category: "Wachstum & GTM",
+                problem: "Packt musste eine neue Paid-Events + Newsletter-Sparte starten und 150+ zahlende Teilnehmer erreichen, wobei mindestens 80% der Registrierungen netto-neu sein sollten.",
+                actions: [
+                    "Entwurf eines 30-Tage GTM-Plans mit Creator-Partnern, technischen Communities und Meta Ads",
+                    "Aufbau einer UTM-Taxonomie und täglicher Tracking-Dashboards zur Messung der Neukundengewinnung",
+                    "Erstellung eines Partner-Rev-Share-Modells und eines Mikro-Affiliate-Testsystems",
+                    "Sequenzierung von Pilottests, Kill-Switches und Skalierungsentscheidungen über vier Wachstumssprints hinweg"
+                ]
+            },
+            jrb: {
+                title: "30-Tage CRO-Strategie für JonesRoadBeauty.com",
+                projectTitle: "30-Tage CRO-Strategie",
+                clientName: "Jones Road Beauty",
+                badge: "E-Commerce",
+                category: "Konversionsoptimierung",
+                problem: "Die Marke verlor Umsatz auf Produktseiten, bei der Farbauswahl, im Checkout und in Post-Purchase-Flows ohne internen Analysezugriff zu Beginn.",
+                actions: [
+                    "Kartierung des vollständigen Funnels von der PDP bis zum Post-Purchase mittels Outside-In UX- und Wettbewerbsforschung",
+                    "Aufbau hypothesengetriebener Testcluster für Klarheit, Farbauswahl-Unsicherheit, Erstkäufer und Checkout-Vertrauen",
+                    "Sequenzierung von Tests zur Priorisierung der Konversionsrate vor AOV oder Dringlichkeit",
+                    "Definition von Leitplanken und Entscheidungsregeln zur Vermeidung von verrauschten oder widersprüchlichen Experimenten"
+                ]
+            },
+            audio: {
+                title: "Skalierung der Nutzerakquise für eine Audio-Plattform",
+                projectTitle: "Skalierung der Nutzerakquise",
+                clientName: "Audio-Plattform",
+                badge: "Unterhaltung",
+                category: "Performance-Marketing",
+                problem: "Die Plattform musste die Nutzerakquise skalieren und gleichzeitig die Kosteneffizienz über stark umkämpfte digitale Kanäle hinweg aufrechterthalten.",
+                actions: [
+                    "Durchführung umfangreicher Zielgruppentests über Demografien und Interessensegmente hinweg",
+                    "Optimierung von Creative-Formaten speziell für Mobile-First-Konsumgewohnheiten",
+                    "Durchführung mehrerer Creative- und Platzierungs-A/B-Tests zur Isolierung von Gewinnern",
+                    "Nutzung von Metas Lernphase und Gebotssteuerungen zur effizienten Skalierung"
+                ],
+                results: {
+                    ctr: "CTR",
+                    cpa: "CPA",
+                    variants: "Getestete Creative-Varianten",
+                    scale: "Skalierungsphase",
+                    stable: "Stabil"
+                }
+            },
+            labels: {
+                problem: "Problemstellung",
+                actions: "Ergriffene Maßnahmen",
+                results: "Wichtigste Ergebnisse",
+                client: "Kunde"
+            }
+        }
     }
-};
+}

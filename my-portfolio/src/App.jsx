@@ -422,7 +422,12 @@ export default function Portfolio() {
 
             {/* Language Selector */}
             <button
-              onClick={() => setLanguage(language === 'en' ? 'nl' : 'en')}
+              onClick={() => {
+                const langs = ['en', 'de', 'nl'];
+                const currentIndex = langs.indexOf(language);
+                const nextIndex = (currentIndex + 1) % langs.length;
+                setLanguage(langs[nextIndex]);
+              }}
               className="flex items-center gap-1 p-2 text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800 rounded-full transition-colors mr-2 text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2"
             >
               <Globe className="w-4 h-4" />
