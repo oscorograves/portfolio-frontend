@@ -1489,7 +1489,7 @@ export default function Portfolio() {
         {/* Top Section: Contact & Socials */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-8">
           <div className="flex items-center gap-4">
-            <div className="w-16 h-16 rounded-xl overflow-hidden border-2 border-white dark:border-gray-600 shrink-0 shadow-sm ring-2 ring-gray-100 dark:ring-gray-800">
+            <div className="w-16 h-16 rounded-xl overflow-hidden border-2 border-gray-300 dark:border-gray-600 shrink-0 shadow-sm ring-2 ring-white dark:ring-gray-800">
               <img
                 src="/profile.jpeg"
                 alt="Kanishk Singh"
