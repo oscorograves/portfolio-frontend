@@ -767,6 +767,9 @@ export default function Portfolio() {
           </motion.div>
         </div>
       </section>
+
+      {/* Growth Operating System */}
+      <GrowthSystem />
     </div>
   );
 
