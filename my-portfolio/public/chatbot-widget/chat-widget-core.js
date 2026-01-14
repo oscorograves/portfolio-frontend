@@ -133,12 +133,14 @@
             });
 
             const responseText = await response.text();
+            console.log('[ChatWidget] Response Status:', response.status);
+            console.log('[ChatWidget] Response Text:', responseText);
+
             let data;
             try {
                 data = JSON.parse(responseText);
             } catch (e) {
-                console.error('[ChatWidget] Non-JSON response:', responseText);
-                throw new Error(`Server returned invalid response: ${responseText.substring(0, 50)}...`);
+                throw new Error(`Server returned status ${response.status}: ${responseText.substring(0, 50)}...`);
             }
 
             removeTypingIndicator();
