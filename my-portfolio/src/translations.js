@@ -8,6 +8,7 @@ export const translations = {
             metrics: "Metrics"
         },
         hero: {
+            name: "Kanishk Singh",
             role: "Performance & Growth Marketer",
             description: "I design paid media, CRO, and growth systems that scale revenue. Specializing in data-driven campaign optimization, funnel design, and performance analytics across B2B and B2C channels.",
             viewCaseStudies: "View Case Studies",
@@ -27,10 +28,15 @@ export const translations = {
             campaigns: "Campaigns Run",
             roi: "Highest ROI"
         },
+        music: {
+            title: "Portfolio Mix",
+            artist: "Kanishk Singh"
+        },
         featuredWork: {
             title: "Featured Work",
             subtitle: "Growth & GTM",
             projectSubtitle: "Paid GTM & Audience Acquisition",
+            packtTitle: "Packt Events",
             projectTitle: "Shipping a Paid GTM Engine for Packt Events",
             projectDesc: "Launched a paid events vertical and achieved 150+ attendees with 95% net-new audience acquisition",
             metrics: {
@@ -242,6 +248,9 @@ export const translations = {
                 clientName: "Packt",
                 badge: "EdTech",
                 category: "Growth & GTM",
+                recentExperiments: "Recent Experiments",
+                viewProjectLog: "Live project log",
+                viewExperimentLog: "View full experiment log in Notion",
                 problem: "Packt needed to launch a new paid events + newsletter vertical and reach 150+ paid attendees while keeping at least 80% of registrations net-new.",
                 actions: [
                     "Designed a 30-day GTM plan with creator affiliates, technical communities, and Meta Ads",
@@ -302,6 +311,7 @@ export const translations = {
             metrics: "Metrieken"
         },
         hero: {
+            name: "Kanishk Singh",
             role: "Performance & Growth Marketer",
             description: "Ik ontwerp betaalde media-, CRO- en groeisystemen voor schaalbare omzetgroei. Gespecialiseerd in datagedreven campagne-optimalisatie, funnelontwerp en prestatieanalyse voor B2B- en B2C-kanalen.",
             viewCaseStudies: "Bekijk Casestudies",
@@ -321,10 +331,15 @@ export const translations = {
             campaigns: "Campagnes Gedraaid",
             roi: "Hoogste ROI"
         },
+        music: {
+            title: "Portfolio Mix",
+            artist: "Kanishk Singh"
+        },
         featuredWork: {
             title: "Uitgelicht Werk",
             subtitle: "Groei & GTM",
             projectSubtitle: "Betaalde GTM & Publiekswerving",
+            packtTitle: "Packt Events",
             projectTitle: "Lancering van een Betaalde GTM-motor voor Packt Events",
             projectDesc: "Lanceerde een betaalde evenementenvertical en behaalde 150+ bezoekers met 95% netto-nieuwe publieksacquisitie",
             metrics: {
@@ -536,6 +551,9 @@ export const translations = {
                 clientName: "Packt",
                 badge: "EdTech",
                 category: "Groei & GTM",
+                recentExperiments: "Recente Experimenten",
+                viewProjectLog: "Live projectlogboek",
+                viewExperimentLog: "Bekijk volledig experimentenlogboek in Notion",
                 problem: "Packt moest een nieuwe betaalde evenementen + nieuwsbrief vertical lanceren en 150+ betaalde bezoekers bereiken en tegelijkertijd minstens 80% van de registraties netto-nieuw houden.",
                 actions: [
                     "Ontwierp een 30-daags GTM-plan met creator-partners, technische gemeenschappen en Meta Ads",
@@ -596,6 +614,7 @@ export const translations = {
             metrics: "Kennzahlen"
         },
         hero: {
+            name: "Kanishk Singh",
             role: "Performance- & Wachstums-Marketer",
             description: "Ich entwerfe Paid Media-, CRO- und Wachstumssysteme, die den Umsatz skalieren. Spezialisiert auf datengestützte Kampagnenoptimierung, Funnel-Design und Performance-Analysen über B2B- und B2C-Kanäle hinweg.",
             viewCaseStudies: "Fallstudien ansehen",
@@ -615,10 +634,15 @@ export const translations = {
             campaigns: "Durchgeführte Kampagnen",
             roi: "Höchster ROI"
         },
+        music: {
+            title: "Portfolio Mix",
+            artist: "Kanishk Singh"
+        },
         featuredWork: {
             title: "Ausgewählte Arbeiten",
             subtitle: "Wachstum & GTM",
             projectSubtitle: "Paid GTM & Publikumsgewinnung",
+            packtTitle: "Packt Events",
             projectTitle: "Einführung einer Paid GTM-Engine für Packt Events",
             projectDesc: "Start einer Paid-Events-Sparte und Erreichung von 150+ Teilnehmern mit 95% Neukundengewinnung",
             metrics: {
@@ -831,6 +855,9 @@ export const translations = {
                 clientName: "Packt",
                 badge: "EdTech",
                 category: "Wachstum & GTM",
+                recentExperiments: "Aktuelle Experimente",
+                viewProjectLog: "Live-Projektprotokoll",
+                viewExperimentLog: "Vollständiges Experiment-Protokoll in Notion ansehen",
                 problem: "Packt musste eine neue Paid-Events + Newsletter-Sparte starten und 150+ zahlende Teilnehmer erreichen, wobei mindestens 80% der Registrierungen netto-neu sein sollten.",
                 actions: [
                     "Entwurf eines 30-Tage GTM-Plans mit Creator-Partnern, technischen Communities und Meta Ads",

@@ -102,8 +102,8 @@ const MusicPlayer = () => {
             <div className="w-3 h-3 bg-gray-900 rounded-full"></div>
           </div>
           <div className="flex flex-col min-w-0">
-            <span className="text-xs font-bold truncate">Portfolio Mix</span>
-            <span className="text-[10px] text-gray-400 truncate">Kanishk Singh</span>
+            <span className="text-xs font-bold truncate">{t('music.title')}</span>
+            <span className="text-[10px] text-gray-400 truncate">{t('music.artist')}</span>
           </div>
         </div>
 
@@ -384,7 +384,7 @@ export default function Portfolio() {
               className="flex items-center text-xl font-bold tracking-tight text-gray-900 dark:text-white hover:opacity-80 transition-opacity focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2"
             >
               <OrigamiCraneLogo />
-              <span>Kanishk Singh</span>
+              <span>{t('hero.name')}</span>
             </button>
 
             {/* Desktop Navigation (Hidden on Mobile) */}
@@ -532,7 +532,7 @@ export default function Portfolio() {
           <div className="grid md:grid-cols-3 gap-8">
             <div className="md:col-span-2">
               <TypewriterText
-                text="Kanishk Singh"
+                text={t('hero.name')}
                 className="text-5xl font-bold text-gray-900 dark:text-white mb-3"
                 Element="h1"
               />
@@ -685,7 +685,7 @@ export default function Portfolio() {
             <div className="flex items-start justify-between mb-4">
               <div>
                 <div className="mb-2">
-                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white">Packt Events</h3>
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white">{t('featuredWork.packtTitle')}</h3>
                   <p className="text-lg text-gray-600 dark:text-gray-400 font-medium">{t('featuredWork.projectSubtitle')}</p>
                 </div>
                 <p className="text-gray-600 dark:text-gray-300 text-sm">{t('featuredWork.projectDesc')}</p>
@@ -1250,7 +1250,7 @@ export default function Portfolio() {
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-1 text-sm font-medium text-blue-100 hover:text-white transition-colors border-b border-transparent hover:border-white pb-0.5"
                       >
-                        Live project log <ExternalLink className="w-3 h-3" />
+                        {t('caseStudies.viewProjectLog')} <ExternalLink className="w-3 h-3" />
                       </a>
                     </div>
                   )}
@@ -1288,7 +1288,7 @@ export default function Portfolio() {
 
                   {study.experiments && (
                     <div className="pt-5 border-t border-gray-200 dark:border-gray-700">
-                      <h3 className="text-xs font-bold text-gray-600 dark:text-gray-400 uppercase mb-3 tracking-wide">Recent Experiments</h3>
+                      <h3 className="text-xs font-bold text-gray-600 dark:text-gray-400 uppercase mb-3 tracking-wide">{t('caseStudies.recentExperiments')}</h3>
                       <div className="space-y-3 mb-4">
                         {study.experiments.map((exp, k) => (
                           <div key={k} className="flex items-center justify-between text-sm">
@@ -1311,7 +1311,7 @@ export default function Portfolio() {
                         rel="noopener noreferrer"
                         className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-900 dark:text-white text-sm font-medium rounded transition-colors"
                       >
-                        View full experiment log in Notion <ExternalLink className="w-3 h-3" />
+                        {t('caseStudies.viewExperimentLog')} <ExternalLink className="w-3 h-3" />
                       </a>
                     </div>
                   )}
