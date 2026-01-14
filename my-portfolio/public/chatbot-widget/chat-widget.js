@@ -1,8 +1,6 @@
 (function () {
     // Configuration - Use environment-specific URL
-    const API_URL = window.location.hostname === 'localhost'
-        ? 'http://localhost:3000/api/chat'
-        : 'https://portfolio-chatbot-backend.onrender.com/api/chat'; // Will be updated after deployment
+    const API_URL = '/api/chat'; // Relative path handled by Vite proxy (dev) and server (prod)
 
     // Create and inject CSS
     const link = document.createElement('link');
@@ -144,7 +142,8 @@
             }
         } catch (err) {
             removeTypingIndicator();
-            addMessage('Error: Could not connect to the server.', 'bot');
+            console.error('[ChatWidget] Fetch Error:', err);
+            addMessage(`Error: Could not connect to the server. (${err.message})`, 'bot');
             console.error(err);
         } finally {
             input.disabled = false;
