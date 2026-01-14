@@ -1450,6 +1450,8 @@ export default function Portfolio() {
     // Fetch in background (Silent Update)
     useEffect(() => {
       const fetchMetrics = async () => {
+        const timerLabel = `Filter change to: ${filterChannel}`;
+        console.time(timerLabel);
         try {
           const data = filterChannel === 'all'
             ? await metricsAPI.getAll()
@@ -1466,6 +1468,8 @@ export default function Portfolio() {
           } else {
             setMetrics(fallbackMetrics);
           }
+        } finally {
+          console.timeEnd(timerLabel);
         }
       };
       fetchMetrics();
