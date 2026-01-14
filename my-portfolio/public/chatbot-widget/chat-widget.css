@@ -1,0 +1,391 @@
+/* Chat Container - Top Right Position */
+.chat-widget-container {
+    position: fixed;
+    top: 12.5px;
+    /* Vertically centered */
+    right: 24px;
+    /* Standard right spacing */
+    left: auto;
+    /* Reset left */
+    transform: none;
+    /* Reset transform */
+    z-index: 9999;
+    font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Toggle Button */
+.chat-widget-toggle {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+
+    /* Light Mode: Blue-600 */
+    background-color: #2563eb;
+    color: white;
+
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    z-index: 20;
+}
+
+.chat-widget-toggle:hover {
+    transform: scale(1.05) rotate(-5deg);
+    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.5);
+}
+
+.chat-widget-toggle:active {
+    transform: scale(0.95);
+}
+
+.chat-widget-icon {
+    width: 26px;
+    height: 26px;
+    stroke-width: 2.5px;
+}
+
+/* Chat Window */
+.chat-window {
+    position: absolute;
+    top: 72px;
+    /* Below the button */
+    right: 0;
+    /* Aligned to right edge */
+    left: auto;
+    width: 360px;
+    height: 550px;
+    max-height: calc(100vh - 120px);
+
+    /* Glassmorphism - Light Mode */
+    background: rgba(255, 255, 255, 0.95);
+    /* More opaque like the cards */
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(229, 231, 235, 0.5);
+    /* gray-200ish */
+
+    /* Match Metric Cards: rounded-xl (12px) + shadow-xl */
+    border-radius: 12px;
+    box-shadow:
+        0 20px 25px -5px rgba(0, 0, 0, 0.1),
+        0 8px 10px -6px rgba(0, 0, 0, 0.1);
+
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+    /* Allow arrow to stick out */
+
+    opacity: 0;
+    transform: translateY(-10px) scale(0.95);
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    transform-origin: top right;
+}
+
+/* Arrow / Tail pointing to the button */
+.chat-window::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    /* Stick out top */
+    right: 20px;
+    /* Center aligned with button roughly */
+    left: auto;
+    transform: none;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+
+    /* Pointing UP: border-bottom is the colored part */
+    border-bottom: 8px solid rgba(255, 255, 255, 0.95);
+}
+
+/* Dark mode arrow override - handled in dark section */
+
+.chat-window.open {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: all;
+}
+
+/* Header */
+.chat-header {
+    /* Transparent header to blend with glass */
+    background: transparent;
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.chat-header-title {
+    font-weight: 700;
+    font-size: 16px;
+    color: #111827;
+    /* Gray-900 */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Bot Status Dot via CSS */
+.chat-header-title::before {
+    content: '';
+    display: block;
+    width: 8px;
+    height: 8px;
+    background-color: #10b981;
+    /* Green-500 */
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+}
+
+.chat-close-btn {
+    background: rgba(0, 0, 0, 0.05);
+    /* Subtle bg */
+    border: none;
+    color: #4b5563;
+    cursor: pointer;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+.chat-close-btn:hover {
+    background: rgba(0, 0, 0, 0.1);
+    color: #111827;
+}
+
+/* Messages Area */
+.chat-messages {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    scroll-behavior: smooth;
+}
+
+.chat-message {
+    padding: 12px 16px;
+    border-radius: 12px;
+    /* Match rounded-xl */
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 85%;
+    position: relative;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.chat-message.bot {
+    background: white;
+    color: #374151;
+    /* Gray-700 */
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+}
+
+.chat-message.user {
+    background: #2563eb;
+    /* Blue-600 */
+    color: white;
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+/* Input Area */
+.chat-input-area {
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.5);
+    /* Semi-transparent */
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.chat-input {
+    flex: 1;
+    padding: 12px 16px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: white;
+    border-radius: 24px;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.2s;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.chat-input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.chat-send-btn {
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
+}
+
+.chat-send-btn:hover {
+    transform: scale(1.05);
+    background: #1d4ed8;
+}
+
+.chat-send-btn:disabled {
+    background: #cbd5e1;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Typing Indicator */
+.typing-indicator.bot {
+    background: white;
+    /* Match bot bubbles */
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    width: fit-content;
+}
+
+.typing-indicator span {
+    width: 6px;
+    height: 6px;
+    background-color: #9ca3af;
+    border-radius: 50%;
+    animation: bounce 1.4s infinite ease-in-out;
+}
+
+.typing-indicator span:nth-child(1) {
+    animation-delay: -0.32s;
+}
+
+.typing-indicator span:nth-child(2) {
+    animation-delay: -0.16s;
+}
+
+/* ------------------------------------------- */
+/* DARK MODE OVERRIDES                         */
+/* ------------------------------------------- */
+
+.dark .chat-widget-toggle {
+    background-color: #facc15;
+    /* Yellow-400 */
+    color: #111827;
+    /* Gray-900 */
+    box-shadow: 0 4px 20px rgba(250, 204, 21, 0.4);
+}
+
+.dark .chat-widget-toggle:hover {
+    box-shadow: 0 8px 25px rgba(250, 204, 21, 0.5);
+}
+
+.dark .chat-window {
+    background: rgba(17, 24, 39, 0.95);
+    /* Gray-900 */
+    border-color: rgba(55, 65, 81, 0.5);
+    /* gray-700 */
+}
+
+.dark .chat-window::before {
+    border-bottom-color: rgba(17, 24, 39, 0.95);
+}
+
+.dark .chat-header {
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark .chat-header-title {
+    color: #f3f4f6;
+    /* Gray-100 */
+}
+
+/* Green dot stays green or maybe yellow? Let's keep green for "online" */
+
+.dark .chat-close-btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: #9ca3af;
+}
+
+.dark .chat-close-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.dark .chat-message.bot {
+    background: #374151;
+    /* Gray-700 */
+    color: #f3f4f6;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.dark .chat-message.user {
+    background: #facc15;
+    /* Yellow-400 */
+    color: #111827;
+    /* Gray-900 Text */
+    box-shadow: 0 4px 12px rgba(250, 204, 21, 0.2);
+}
+
+.dark .chat-input-area {
+    background: rgba(17, 24, 39, 0.5);
+    border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark .chat-input {
+    background: #1f2937;
+    /* Gray-800 */
+    border-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.dark .chat-input:focus {
+    border-color: #facc15;
+    box-shadow: 0 0 0 3px rgba(250, 204, 21, 0.1);
+}
+
+.dark .chat-send-btn {
+    background: #facc15;
+    color: #111827;
+    box-shadow: 0 2px 8px rgba(250, 204, 21, 0.3);
+}
+
+.dark .chat-send-btn:hover {
+    background: #eab308;
+}
+
+.dark .typing-indicator.bot {
+    background: #374151;
+}
+
+.dark .typing-indicator span {
+    background-color: #d1d5db;
+}
