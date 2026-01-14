@@ -433,8 +433,8 @@
         /* Rounded top corners only */
         transform-origin: bottom center;
         margin: 0;
-        pointer-events: all;
-        /* Re-enable clicks */
+        pointer-events: none;
+        /* Re-enable clicks only when open */
         z-index: 10000;
         /* Ensure above everything */
     }
