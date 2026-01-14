@@ -488,7 +488,7 @@ export default function Portfolio() {
                 animate={{ height: 'auto', opacity: 1 }}
                 exit={{ height: 0, opacity: 0 }}
                 transition={{ duration: 0.3, ease: 'easeInOut' }}
-                className="md:hidden pt-4 pb-2 border-t border-gray-100 dark:border-gray-800 mt-4 space-y-2 overflow-hidden"
+                className="md:hidden pt-4 pb-2 border-t border-gray-100 dark:border-gray-800 mt-4 space-y-2 overflow-hidden relative z-50"
               >
                 {['home', 'experience', 'case-studies', 'creative-lab', 'metrics'].map(page => (
                   <button
@@ -519,10 +519,9 @@ export default function Portfolio() {
                       window.toggleChatWidget();
                     }
                   }}
-                  className="w-full text-left px-4 py-3 text-sm font-medium rounded-lg transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 flex items-center gap-2"
+                  className="w-full text-left px-4 py-3 text-sm font-medium rounded-lg transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800"
                 >
-                  <Bot className="w-4 h-4" />
-                  <span>{t('nav.chatWithAI') || "Chat with AI"}</span>
+                  {t('nav.chatWithAI') || "Chat with AI"}
                 </button>
               </motion.div>
             )}
