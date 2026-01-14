@@ -1177,7 +1177,8 @@ export default function Portfolio() {
           { metric: t("caseStudies.audio.results.cpa"), value: "−14%" },
           { metric: t("caseStudies.audio.results.variants"), value: "12+" },
           { metric: t("caseStudies.audio.results.scale"), value: t("caseStudies.audio.results.stable") }
-        ]
+        ],
+        comingSoonLog: true
       }
     ];
 
@@ -1225,6 +1226,13 @@ export default function Portfolio() {
                       >
                         {t('caseStudies.viewProjectLog')} <ExternalLink className="w-3 h-3" />
                       </a>
+                    </div>
+                  )}
+                  {study.comingSoonLog && (
+                    <div className="mt-3">
+                      <span className="inline-flex items-center gap-1 text-sm font-medium text-blue-100 cursor-default opacity-80">
+                        {t('caseStudies.projectLogComingSoon')} <Construction className="w-3 h-3" />
+                      </span>
                     </div>
                   )}
                 </div>

@@ -300,7 +300,8 @@ export const translations = {
             },
             recentExperiments: "Recent Experiments",
             viewProjectLog: "Live project log",
-            viewExperimentLog: "View full experiment log in Notion"
+            viewExperimentLog: "View full experiment log in Notion",
+            projectLogComingSoon: "Project log coming soon"
         }
     },
     nl: {
@@ -604,7 +605,8 @@ export const translations = {
             },
             recentExperiments: "Recente Experimenten",
             viewProjectLog: "Live projectlogboek",
-            viewExperimentLog: "Bekijk volledig experimentenlogboek in Notion"
+            viewExperimentLog: "Bekijk volledig experimentenlogboek in Notion",
+            projectLogComingSoon: "Projectlogboek binnenkort beschikbaar"
         }
     },
     de: {
@@ -909,7 +911,8 @@ export const translations = {
             },
             recentExperiments: "Aktuelle Experimente",
             viewProjectLog: "Live-Projektprotokoll",
-            viewExperimentLog: "Vollständiges Experiment-Protokoll in Notion ansehen"
+            viewExperimentLog: "Vollständiges Experiment-Protokoll in Notion ansehen",
+            projectLogComingSoon: "Projektprotokoll folgt bald"
         }
     }
 }
