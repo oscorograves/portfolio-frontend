@@ -4,6 +4,7 @@ require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+const portfolioData = require('./portfolio-data');
 
 // Middleware
 app.use(cors());
@@ -36,7 +37,16 @@ app.post('/api/chat', async (req, res) => {
             body: JSON.stringify({
                 model: "llama-3.3-70b-versatile",
                 messages: [
-                    { role: "system", content: "You are a helpful assistant for Kanishk Singh's portfolio website. Answer questions about his experience, projects, and skills based on general knowledge or politely decline if unknown." },
+                    {
+                        role: "system",
+                        content: `You are a helpful assistant for Kanishk Singh's portfolio website. 
+                        Here is the detailed context about Kanishk's professional experience, projects, skills, and case studies:
+                        ${JSON.stringify(portfolioData)}
+                        
+                        Answer questions based on this context. Be professional, concise, and helpful. 
+                        If the answer is not in the context, use your general knowledge but mention that this specific detail isn't in his portfolio.
+                        Do not make up facts about his work.`
+                    },
                     { role: "user", content: message }
                 ],
                 temperature: 0.7
