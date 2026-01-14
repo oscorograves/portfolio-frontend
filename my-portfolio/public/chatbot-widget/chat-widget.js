@@ -1,6 +1,8 @@
 (function () {
-    // Configuration
-    const API_URL = 'http://localhost:3000/api/chat';
+    // Configuration - Use environment-specific URL
+    const API_URL = window.location.hostname === 'localhost'
+        ? 'http://localhost:3000/api/chat'
+        : 'https://portfolio-chatbot-backend.onrender.com/api/chat'; // Will be updated after deployment
 
     // Create and inject CSS
     const link = document.createElement('link');
