@@ -11,61 +11,56 @@ app.use(cors());
 app.use(express.json());
 
 // OpenAI Route
+// --- System Prompt Construction ---
+const SYSTEM_PROMPT = `You are a helpful assistant for Kanishk Singh's portfolio website. 
+Here is the detailed context about Kanishk's professional experience, projects, skills, and case studies:
+${JSON.stringify(portfolioData)}
+
+Answer questions based on this context. Be professional, concise, and helpful. 
+If the answer is not in the context, use your general knowledge but mention that this specific detail isn't in his portfolio.
+Do not make up facts about his work.`;
+
 app.post('/api/chat', async (req, res) => {
+    const { message } = req.body;
+    const geminiKey = process.env.GEMINI_API_KEY;
+
+    if (!message) {
+        return res.status(400).json({ error: 'Message is required' });
+    }
+
+    if (!geminiKey) {
+        console.error('Missing Gemini API Key');
+        return res.status(500).json({ error: 'Server configuration error (Missing API Key)' });
+    }
+
+    // Dynamic import for node-fetch (ESM module)
+    const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
+
     try {
-        const { message } = req.body;
-        const apiKey = process.env.GROQ_API_KEY;
-
-        if (!apiKey) {
-            console.error('Missing Groq API Key');
-            return res.status(500).json({ error: 'Server configuration error (Missing API Key)' });
-        }
-
-        if (!message) {
-            return res.status(400).json({ error: 'Message is required' });
-        }
-
-        // Dynamic import for node-fetch (ESM module)
-        const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
-
-        const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+        // --- GEMINI API CALL ---
+        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${geminiKey}`, {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${apiKey}`
-            },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                model: "llama-3.3-70b-versatile",
-                messages: [
-                    {
-                        role: "system",
-                        content: `You are a helpful assistant for Kanishk Singh's portfolio website. 
-                        Here is the detailed context about Kanishk's professional experience, projects, skills, and case studies:
-                        ${JSON.stringify(portfolioData)}
-                        
-                        Answer questions based on this context. Be professional, concise, and helpful. 
-                        If the answer is not in the context, use your general knowledge but mention that this specific detail isn't in his portfolio.
-                        Do not make up facts about his work.`
-                    },
-                    { role: "user", content: message }
-                ],
-                temperature: 0.7
+                system_instruction: { parts: [{ text: SYSTEM_PROMPT }] },
+                contents: [{ parts: [{ text: message }] }]
             })
         });
 
         const data = await response.json();
 
         if (!response.ok) {
-            console.error('Groq API Error:', data);
-            return res.status(response.status).json({ error: data.error?.message || 'Error fetching from Groq' });
+            console.error('Gemini API Error:', data);
+            return res.status(response.status).json({ error: data.error?.message || 'Error fetching from Gemini' });
         }
 
-        const botMessage = data.choices[0].message.content;
-        res.json({ reply: botMessage });
+        const replyText = data.candidates?.[0]?.content?.parts?.[0]?.text || "No response generated.";
+        console.log(`[Gemini] Responded to: ${message.substring(0, 20)}...`);
+        res.json({ reply: replyText });
 
     } catch (error) {
         console.error('Server Error:', error);
-        res.status(500).json({ error: 'Internal Server Error' });
+        res.status(500).json({ error: 'Failed to fetch response from Gemini.' });
     }
 });
 
