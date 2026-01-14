@@ -510,6 +510,20 @@ export default function Portfolio() {
                     {t('nav.' + page.replace(/-./g, x => x[1].toUpperCase()))}
                   </button>
                 ))}
+
+                {/* Chat with AI Button (Mobile Only) */}
+                <button
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    if (window.toggleChatWidget) {
+                      window.toggleChatWidget();
+                    }
+                  }}
+                  className="w-full text-left px-4 py-3 text-sm font-medium rounded-lg transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 flex items-center gap-2"
+                >
+                  <Bot className="w-4 h-4" />
+                  <span>{t('nav.chatWithAI') || "Chat with AI"}</span>
+                </button>
               </motion.div>
             )}
           </AnimatePresence>

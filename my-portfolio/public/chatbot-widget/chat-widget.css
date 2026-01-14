@@ -389,3 +389,58 @@
 .dark .typing-indicator span {
     background-color: #d1d5db;
 }
+
+/* ------------------------------------------- */
+/* MOBILE RESPONSIVENESS (< 768px)             */
+/* ------------------------------------------- */
+
+@media (max-width: 768px) {
+
+    /* Hide the floating toggle button on mobile */
+    .chat-widget-toggle {
+        display: none !important;
+    }
+
+    /* Adjust Container Position */
+    .chat-widget-container {
+        top: auto;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        width: 100%;
+        height: 0;
+        /* Container shouldn't block clicks when closed */
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        pointer-events: none;
+        /* Let clicks pass through container */
+    }
+
+    /* Fullscreen-ish or Centered Chat Window */
+    .chat-window {
+        position: fixed;
+        /* Fixed to viewport */
+        top: auto;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 85vh;
+        /* Take up most of the screen */
+        max-height: 85vh;
+        border-radius: 20px 20px 0 0;
+        /* Rounded top corners only */
+        transform-origin: bottom center;
+        margin: 0;
+        pointer-events: all;
+        /* Re-enable clicks */
+        z-index: 10000;
+        /* Ensure above everything */
+    }
+
+    /* Remove the arrow/tail */
+    .chat-window::before {
+        display: none;
+    }
+}

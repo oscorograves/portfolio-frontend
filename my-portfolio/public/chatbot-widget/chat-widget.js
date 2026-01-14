@@ -88,6 +88,9 @@
         }
     };
 
+    // Expose toggle globally for React App
+    window.toggleChatWidget = toggleChat;
+
     const addMessage = (text, sender) => {
         const msgDiv = document.createElement('div');
         msgDiv.className = `chat-message ${sender}`;
