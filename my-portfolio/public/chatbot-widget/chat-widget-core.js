@@ -132,13 +132,13 @@
                 body: JSON.stringify({ message: text })
             });
 
-            const text = await response.text();
+            const responseText = await response.text();
             let data;
             try {
-                data = JSON.parse(text);
+                data = JSON.parse(responseText);
             } catch (e) {
-                console.error('[ChatWidget] Non-JSON response:', text);
-                throw new Error(`Server returned invalid response: ${text.substring(0, 50)}...`);
+                console.error('[ChatWidget] Non-JSON response:', responseText);
+                throw new Error(`Server returned invalid response: ${responseText.substring(0, 50)}...`);
             }
 
             removeTypingIndicator();
