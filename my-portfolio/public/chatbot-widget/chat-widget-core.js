@@ -1,7 +1,8 @@
 (function () {
     console.log("Chat Widget v3 Loaded");
-    // Configuration - Use environment-specific URL
-    const API_URL = '/api/chat'; // Relative path handled by Vite proxy (dev) and server (prod)
+    const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+        ? 'http://127.0.0.1:3000/api/chat'
+        : 'https://portfolio-chatbot-backend.onrender.com/api/chat';
 
     // Create and inject CSS
     const link = document.createElement('link');
