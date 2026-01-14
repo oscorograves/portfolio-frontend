@@ -37,7 +37,7 @@ Answer questions based on this context.
 If the answer is not in the context, state that clearly and briefly.
 IMPORTANT: Provide your response in plain text only. Do not use Markdown formatting, bullet points, asterisks (*), or bold text. Use simple numbering (1, 2, 3) or dashes (-) for lists if absolutely necessary, but prefer paragraph format.`;
 
-const MODELS = ["gemini-3.0-pro", "gemini-3.0-flash", "gemini-2.5-flash", "groq-llama3"];
+const MODELS = ["gemini-3-pro-preview", "gemini-3-flash-preview", "gemini-2.5-flash", "groq-llama3"];
 
 app.post('/api/chat', async (req, res) => {
     const { message } = req.body;
