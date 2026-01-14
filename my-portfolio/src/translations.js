@@ -248,9 +248,6 @@ export const translations = {
                 clientName: "Packt",
                 badge: "EdTech",
                 category: "Growth & GTM",
-                recentExperiments: "Recent Experiments",
-                viewProjectLog: "Live project log",
-                viewExperimentLog: "View full experiment log in Notion",
                 problem: "Packt needed to launch a new paid events + newsletter vertical and reach 150+ paid attendees while keeping at least 80% of registrations net-new.",
                 actions: [
                     "Designed a 30-day GTM plan with creator affiliates, technical communities, and Meta Ads",
@@ -299,7 +296,10 @@ export const translations = {
                 actions: "Actions Taken",
                 results: "Key Results",
                 client: "Client"
-            }
+            },
+            recentExperiments: "Recent Experiments",
+            viewProjectLog: "Live project log",
+            viewExperimentLog: "View full experiment log in Notion"
         }
     },
     nl: {
@@ -551,9 +551,6 @@ export const translations = {
                 clientName: "Packt",
                 badge: "EdTech",
                 category: "Groei & GTM",
-                recentExperiments: "Recente Experimenten",
-                viewProjectLog: "Live projectlogboek",
-                viewExperimentLog: "Bekijk volledig experimentenlogboek in Notion",
                 problem: "Packt moest een nieuwe betaalde evenementen + nieuwsbrief vertical lanceren en 150+ betaalde bezoekers bereiken en tegelijkertijd minstens 80% van de registraties netto-nieuw houden.",
                 actions: [
                     "Ontwierp een 30-daags GTM-plan met creator-partners, technische gemeenschappen en Meta Ads",
@@ -602,7 +599,10 @@ export const translations = {
                 actions: "Ondernomen Acties",
                 results: "Belangrijkste Resultaten",
                 client: "Klant"
-            }
+            },
+            recentExperiments: "Recente Experimenten",
+            viewProjectLog: "Live projectlogboek",
+            viewExperimentLog: "Bekijk volledig experimentenlogboek in Notion"
         }
     },
     de: {
@@ -855,9 +855,6 @@ export const translations = {
                 clientName: "Packt",
                 badge: "EdTech",
                 category: "Wachstum & GTM",
-                recentExperiments: "Aktuelle Experimente",
-                viewProjectLog: "Live-Projektprotokoll",
-                viewExperimentLog: "Vollständiges Experiment-Protokoll in Notion ansehen",
                 problem: "Packt musste eine neue Paid-Events + Newsletter-Sparte starten und 150+ zahlende Teilnehmer erreichen, wobei mindestens 80% der Registrierungen netto-neu sein sollten.",
                 actions: [
                     "Entwurf eines 30-Tage GTM-Plans mit Creator-Partnern, technischen Communities und Meta Ads",
@@ -906,7 +903,10 @@ export const translations = {
                 actions: "Ergriffene Maßnahmen",
                 results: "Wichtigste Ergebnisse",
                 client: "Kunde"
-            }
+            },
+            recentExperiments: "Aktuelle Experimente",
+            viewProjectLog: "Live-Projektprotokoll",
+            viewExperimentLog: "Vollständiges Experiment-Protokoll in Notion ansehen"
         }
     }
 }

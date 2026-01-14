@@ -52,7 +52,7 @@ const itemVariants = {
   }
 };
 
-const MusicPlayer = () => {
+const MusicPlayer = ({ t }) => {
   const [isPlaying, setIsPlaying] = useState(false); // Default false (browser policy)
   const [volume, setVolume] = useState(0.5);
   const audioRef = React.useRef(null);
@@ -1742,7 +1742,7 @@ export default function Portfolio() {
       </div>
 
       <Footer />
-      <MusicPlayer />
+      <MusicPlayer t={t} />
       <FireflyBackground />
       <WipModal isOpen={showWip} onClose={() => setShowWip(false)} t={t} />
     </div>
