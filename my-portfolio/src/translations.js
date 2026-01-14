@@ -5,7 +5,8 @@ export const translations = {
             experience: "Experience",
             caseStudies: "Case Studies",
             creativeLab: "Creative Lab",
-            metrics: "Metrics"
+            metrics: "Metrics",
+            chatWithAI: "Chat with AI"
         },
         hero: {
             name: "Kanishk Singh",
@@ -308,7 +309,8 @@ export const translations = {
             experience: "Ervaring",
             caseStudies: "Casestudies",
             creativeLab: "Creatief Lab",
-            metrics: "Metrieken"
+            metrics: "Metrieken",
+            chatWithAI: "Chat met AI"
         },
         hero: {
             name: "Kanishk Singh",
@@ -611,7 +613,8 @@ export const translations = {
             experience: "Erfahrung",
             caseStudies: "Fallstudien",
             creativeLab: "Kreativlabor",
-            metrics: "Kennzahlen"
+            metrics: "Kennzahlen",
+            chatWithAI: "Mit KI chatten"
         },
         hero: {
             name: "Kanishk Singh",
