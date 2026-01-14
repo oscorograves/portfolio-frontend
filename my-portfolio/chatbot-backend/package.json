@@ -5,13 +5,16 @@
     "main": "server.js",
     "scripts": {
         "start": "node server.js",
+        "start:stable": "pm2 start server.js --name chatbot-backend --time",
+        "stop": "pm2 stop chatbot-backend",
         "dev": "nodemon server.js"
     },
     "dependencies": {
         "cors": "^2.8.5",
         "dotenv": "^16.3.1",
         "express": "^4.18.2",
-        "node-fetch": "^3.3.2"
+        "node-fetch": "^3.3.2",
+        "pm2": "^6.0.14"
     },
     "devDependencies": {
         "nodemon": "^3.0.1"
