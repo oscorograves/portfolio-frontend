@@ -374,7 +374,7 @@ export default function Portfolio() {
     const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
 
     return (
-      <nav className="fixed top-0 left-0 right-0 bg-white/50 dark:bg-gray-900/50 backdrop-blur-lg border-b border-white/20 dark:border-gray-800 z-50 transition-colors duration-300">
+      <nav className="fixed top-0 left-0 right-0 bg-white/50 dark:bg-gray-900/50 backdrop-blur-lg border-b border-white/20 dark:border-gray-800 z-[1000] transition-colors duration-300">
         <div className="max-w-6xl mx-auto px-4 md:px-8 py-4">
           <div className="flex items-center justify-between">
 
@@ -488,7 +488,7 @@ export default function Portfolio() {
                 animate={{ height: 'auto', opacity: 1 }}
                 exit={{ height: 0, opacity: 0 }}
                 transition={{ duration: 0.3, ease: 'easeInOut' }}
-                className="md:hidden pt-4 pb-2 border-t border-gray-100 dark:border-gray-800 mt-4 space-y-2 overflow-hidden relative z-50"
+                className="md:hidden pt-4 pb-2 border-t border-gray-100 dark:border-gray-800 mt-4 space-y-2 overflow-hidden relative z-[1001]"
               >
                 {['home', 'experience', 'case-studies', 'creative-lab', 'metrics'].map(page => (
                   <button
@@ -502,7 +502,7 @@ export default function Portfolio() {
                         setIsMenuOpen(false); // Close menu after clicking
                       }
                     }}
-                    className={`w-full text-left px-4 py-3 text-sm font-medium rounded-lg transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 ${currentPage === page
+                    className={`w-full text-left px-4 py-3 text-sm font-medium rounded-lg transition-all cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 ${currentPage === page
                       ? 'bg-blue-600 dark:bg-yellow-400 text-white dark:text-gray-900'
                       : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800'
                       }`}
@@ -519,7 +519,7 @@ export default function Portfolio() {
                       window.toggleChatWidget();
                     }
                   }}
-                  className="w-full text-left px-4 py-3 text-sm font-medium rounded-lg transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800"
+                  className="w-full text-left px-4 py-3 text-sm font-medium rounded-lg transition-all cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800"
                 >
                   {t('nav.chatWithAI') || "Chat with AI"}
                 </button>
