@@ -18,7 +18,8 @@ ${JSON.stringify(portfolioData)}
 
 Answer questions based on this context. Be professional, concise, and helpful. 
 If the answer is not in the context, use your general knowledge but mention that this specific detail isn't in his portfolio.
-Do not make up facts about his work.`;
+Do not make up facts about his work.
+IMPORTANT: Provide your response in plain text only. Do not use Markdown formatting, bullet points, asterisks (*), or bold text. Use simple numbering (1, 2, 3) or dashes (-) for lists if absolutely necessary, but prefer paragraph format.`;
 
 app.post('/api/chat', async (req, res) => {
     const { message } = req.body;
