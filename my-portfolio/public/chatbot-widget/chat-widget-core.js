@@ -149,13 +149,13 @@
             if (response.ok) {
                 addMessage(data.reply, 'bot');
             } else {
-                addMessage(`Error: ${data.error || 'Something went wrong.'}`, 'bot');
+                console.warn('[ChatWidget] Backend Error:', data);
+                addMessage("I'm having a bit of trouble connecting to the brain. Please try again briefly.", 'bot');
             }
         } catch (err) {
             removeTypingIndicator();
-            console.error('[ChatWidget] Fetch Error:', err);
-            addMessage(`Error: Could not connect to the server. (${err.message})`, 'bot');
-            console.error(err);
+            console.error('[ChatWidget] Connection Error:', err);
+            addMessage("Connection timeout. I'm waking up from a cold start—please wait 10 seconds and try again!", 'bot');
         } finally {
             input.disabled = false;
             sendBtn.disabled = false;

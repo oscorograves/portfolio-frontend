@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const fetch = require('node-fetch');
 require('dotenv').config();
 
 const app = express();
@@ -11,66 +12,35 @@ app.use(cors());
 app.use(express.json());
 
 // Global Error Handling
-process.on('uncaughtException', (err) => {
-    console.error(`[${new Date().toISOString()}] Uncaught Exception:`, err);
-});
-
-process.on('unhandledRejection', (reason, promise) => {
-    console.error(`[${new Date().toISOString()}] Unhandled Rejection at:`, promise, 'reason:', reason);
-});
+process.on('uncaughtException', (err) => console.error(`[${new Date().toISOString()}] Uncaught Exception:`, err));
+process.on('unhandledRejection', (reason, promise) => console.error(`[${new Date().toISOString()}] Unhandled Rejection at:`, promise, 'reason:', reason));
 
 // Health Check
-app.get('/health', (req, res) => {
-    res.status(200).json({ status: 'ok', uptime: process.uptime() });
-});
+app.get('/health', (req, res) => res.status(200).json({ status: 'ok', uptime: process.uptime() }));
 
-// Constants
+// System Prompt
 const SYSTEM_PROMPT = `You are a helpful assistant for Kanishk Singh's portfolio website. 
 Here is the detailed context about Kanishk's professional experience, projects, skills, and case studies:
 ${JSON.stringify(portfolioData)}
 
 Answer questions based on this context. 
-If the answer is not in the context, state that clearly and briefly.
-IMPORTANT: Provide your response in plain text only. Do not use Markdown formatting, bullet points, asterisks (*), or bold text. Use simple numbering (1, 2, 3) or dashes (-) for lists if absolutely necessary, but prefer paragraph format.`;
+If the answer is not in the context, state that clearly and briefly (e.g. "I don't have information about that in Kanishk's portfolio").
+IMPORTANT: Provide your response in plain text only. Do not use Markdown, bullet points, or bold text. Keep it conversational.`;
 
-const MODELS = ["gemini-3-pro-preview", "gemini-3-flash-preview", "gemini-2.5-flash", "groq-llama3"];
-
-// Helper: Dynamic Fetch
-const getFetch = async () => {
-    const { default: fetch } = await import('node-fetch');
-    return fetch;
+// Timeout Wrapper
+const fetchWithTimeout = (url, options, timeout = 60000) => {
+    return Promise.race([
+        fetch(url, options),
+        new Promise((_, reject) => setTimeout(() => reject(new Error('Timeout')), timeout))
+    ]);
 };
 
-// Helper: Call Gemini
-async function callGemini(model, message, apiKey, signal) {
-    const fetch = await getFetch();
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
+// API Call Helpers
+async function callGroq(message, apiKey) {
+    if (!apiKey) throw new Error("Missing Groq API Key");
+    console.log(`[${new Date().toISOString()}] Calling Groq (Llama 3)...`);
 
-    const response = await fetch(url, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            system_instruction: { parts: [{ text: SYSTEM_PROMPT }] },
-            contents: [{ parts: [{ text: message }] }]
-        }),
-        signal
-    });
-
-    if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        throw { status: response.status, message: errorData.error?.message || response.statusText };
-    }
-
-    const data = await response.json();
-    return data.candidates?.[0]?.content?.parts?.[0]?.text || "No response generated.";
-}
-
-// Helper: Call Groq
-async function callGroq(message, apiKey, signal) {
-    const fetch = await getFetch();
-    const url = 'https://api.groq.com/openai/v1/chat/completions';
-
-    const response = await fetch(url, {
+    const response = await fetchWithTimeout('https://api.groq.com/openai/v1/chat/completions', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -82,71 +52,71 @@ async function callGroq(message, apiKey, signal) {
                 { role: "system", content: SYSTEM_PROMPT },
                 { role: "user", content: message }
             ]
-        }),
-        signal
+        })
     });
 
     if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        throw { status: response.status, message: errorData.error?.message || response.statusText };
+        const err = await response.json().catch(() => ({}));
+        throw new Error(`Groq Error ${response.status}: ${err.error?.message || response.statusText}`);
     }
 
     const data = await response.json();
-    return data.choices?.[0]?.message?.content || "No response generated.";
+    return data.choices?.[0]?.message?.content || "No response from Groq.";
 }
 
+async function callGemini(message, apiKey) {
+    if (!apiKey) throw new Error("Missing Gemini API Key");
+    console.log(`[${new Date().toISOString()}] Calling Gemini (Fallback)...`);
+
+    const model = "gemini-1.5-flash"; // Using a stable, fast model for fallback
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
+
+    const response = await fetchWithTimeout(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            system_instruction: { parts: [{ text: SYSTEM_PROMPT }] },
+            contents: [{ parts: [{ text: message }] }]
+        })
+    });
+
+    if (!response.ok) {
+        const err = await response.json().catch(() => ({}));
+        throw new Error(`Gemini Error ${response.status}: ${err.error?.message || response.statusText}`);
+    }
+
+    const data = await response.json();
+    return data.candidates?.[0]?.content?.parts?.[0]?.text || "No response from Gemini.";
+}
+
+// Main Chat Endpoint
 app.post('/api/chat', async (req, res) => {
     const { message } = req.body;
     const geminiKey = process.env.GEMINI_API_KEY;
     const groqKey = process.env.GROQ_API_KEY;
 
     if (!message) return res.status(400).json({ error: 'Message is required' });
-    if (!geminiKey) return res.status(500).json({ error: 'Server configuration error (Missing Gemini API Key)' });
 
-    let lastError = null;
-
-    for (const model of MODELS) {
-        console.log(`[${new Date().toISOString()}] Attempting with model: ${model}`);
-
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 60000); // 60s timeout for cold starts
-
+    try {
+        // 1. Try Groq (Llama 3) First
         try {
-            let reply;
-            if (model === 'groq-llama3') {
-                if (!groqKey) {
-                    console.warn('Skipping Groq: Missing API Key');
-                    continue;
-                }
-                reply = await callGroq(message, groqKey, controller.signal);
-            } else {
-                reply = await callGemini(model, message, geminiKey, controller.signal);
-            }
-
-            clearTimeout(timeoutId);
-            console.log(`[${new Date().toISOString()}] Success: ${model}`);
+            const reply = await callGroq(message, groqKey);
             return res.json({ reply });
-
-        } catch (error) {
-            clearTimeout(timeoutId);
-
-            const isTimeout = error.name === 'AbortError';
-            const status = error.status || (isTimeout ? 504 : 500);
-            const errMsg = error.message || (isTimeout ? 'Timeout' : 'Unknown Error');
-
-            console.warn(`[${new Date().toISOString()}] Failed: ${model} (${status} - ${errMsg})`);
-
-            lastError = { status, message: errMsg };
-
-            // Should we retry? 429 (Too Many Requests) or 503 (Service Unavailable) or 504 (Timeout) -> YES/Continue
-            // 400 (Bad Request) -> NO/Break (but we'll just continue to be safe in this fallback loop)
+        } catch (groqError) {
+            console.error(`[${new Date().toISOString()}] Groq Failed:`, groqError.message);
+            // Fallthrough to Gemini
         }
-    }
 
-    console.error(`[${new Date().toISOString()}] All models failed.`);
-    res.status(lastError?.status || 500).json({
-        error: "I'm having trouble connecting right now. Please try again in a moment."
-    });
+        // 2. Fallback to Gemini
+        const reply = await callGemini(message, geminiKey);
+        return res.json({ reply });
+
+    } catch (finalError) {
+        console.error(`[${new Date().toISOString()}] All models failed:`, finalError.message);
+        res.status(503).json({
+            error: "I'm currently experiencing heavy traffic. Please try again in 30 seconds."
+        });
+    }
 });
 
 app.listen(PORT, () => {
