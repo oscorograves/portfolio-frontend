@@ -109,7 +109,7 @@ app.post('/api/chat', async (req, res) => {
         console.log(`[${new Date().toISOString()}] Attempting with model: ${model}`);
 
         const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 35000); // 35s timeout
+        const timeoutId = setTimeout(() => controller.abort(), 60000); // 60s timeout for cold starts
 
         try {
             let reply;
