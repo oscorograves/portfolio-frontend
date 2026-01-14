@@ -6,7 +6,14 @@ const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 /**
  * Generic API request function
  */
-async function apiRequest(endpoint, options = {}) {
+const MAX_RETRIES = 3;
+const RETRY_DELAY = 1000;
+
+async function wait(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function apiRequest(endpoint, options = {}, retries = 0) {
   const url = `${API_URL}/api${endpoint}`;
 
   const config = {
@@ -21,12 +28,24 @@ async function apiRequest(endpoint, options = {}) {
     const response = await fetch(url, config);
 
     if (!response.ok) {
+      if (response.status >= 500 && retries < MAX_RETRIES) {
+        console.warn(`API Request failed with ${response.status}. Retrying (${retries + 1}/${MAX_RETRIES})...`);
+        await wait(RETRY_DELAY * (retries + 1)); // Exponential backoff-ish
+        return apiRequest(endpoint, options, retries + 1);
+      }
       const error = await response.json().catch(() => ({ error: 'Request failed' }));
       throw new Error(error.error || `HTTP error! status: ${response.status}`);
     }
 
     return await response.json();
   } catch (error) {
+    // Retry on network errors too (fetch throws on network failure)
+    if (retries < MAX_RETRIES && (error.name === 'TypeError' || error.message.includes('fetch'))) {
+      console.warn(`Network error. Retrying (${retries + 1}/${MAX_RETRIES})...`);
+      await wait(RETRY_DELAY * (retries + 1));
+      return apiRequest(endpoint, options, retries + 1);
+    }
+
     console.error('API request error:', error);
     throw error;
   }
