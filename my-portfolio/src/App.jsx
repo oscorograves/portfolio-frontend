@@ -209,7 +209,7 @@ const CustomCursor = ({ isDarkMode }) => {
     <>
       {/* Small Dot */}
       <motion.div
-        className={`fixed top-0 left-0 w-3 h-3 rounded-full pointer-events-none z-[9999] hidden md:block ${isDarkMode ? 'bg-yellow-400' : 'bg-blue-600'
+        className={`fixed top-0 left-0 w-3 h-3 rounded-full pointer-events-none z-[99999] hidden md:block ${isDarkMode ? 'bg-yellow-400' : 'bg-blue-600'
           }`}
         animate={{ x: mousePosition.x - 6, y: mousePosition.y - 6 }}
         transition={{ type: "tween", ease: "backOut", duration: 0 }}
@@ -217,7 +217,7 @@ const CustomCursor = ({ isDarkMode }) => {
 
       {/* Large Ring */}
       <motion.div
-        className={`fixed top-0 left-0 w-8 h-8 border-2 rounded-full pointer-events-none z-[9999] hidden md:block ${isDarkMode ? 'border-yellow-400' : 'border-blue-600'
+        className={`fixed top-0 left-0 w-8 h-8 border-2 rounded-full pointer-events-none z-[99999] hidden md:block ${isDarkMode ? 'border-yellow-400' : 'border-blue-600'
           }`}
         animate={{ x: mousePosition.x - 16, y: mousePosition.y - 16 }}
         transition={{

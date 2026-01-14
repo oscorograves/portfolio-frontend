@@ -62,8 +62,8 @@
     max-height: calc(100vh - 120px);
 
     /* Glassmorphism - Light Mode */
-    background: rgba(255, 255, 255, 0.95);
-    /* More opaque like the cards */
+    background: rgba(255, 255, 255, 0.75);
+    /* Semi-transparent for glassmorphism effect */
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border: 1px solid rgba(229, 231, 235, 0.5);
@@ -103,7 +103,7 @@
     border-right: 8px solid transparent;
 
     /* Pointing UP: border-bottom is the colored part */
-    border-bottom: 8px solid rgba(255, 255, 255, 0.95);
+    border-bottom: 8px solid rgba(255, 255, 255, 0.75);
 }
 
 /* Dark mode arrow override - handled in dark section */
@@ -309,14 +309,14 @@
 }
 
 .dark .chat-window {
-    background: rgba(17, 24, 39, 0.95);
-    /* Gray-900 */
+    background: rgba(17, 24, 39, 0.75);
+    /* Gray-900 - Semi-transparent for glassmorphism */
     border-color: rgba(55, 65, 81, 0.5);
     /* gray-700 */
 }
 
 .dark .chat-window::before {
-    border-bottom-color: rgba(17, 24, 39, 0.95);
+    border-bottom-color: rgba(17, 24, 39, 0.75);
 }
 
 .dark .chat-header {
