@@ -1,4 +1,5 @@
 (function () {
+    console.log("Chat Widget v3 Loaded");
     // Configuration - Use environment-specific URL
     const API_URL = '/api/chat'; // Relative path handled by Vite proxy (dev) and server (prod)
 
@@ -131,7 +132,14 @@
                 body: JSON.stringify({ message: text })
             });
 
-            const data = await response.json();
+            const text = await response.text();
+            let data;
+            try {
+                data = JSON.parse(text);
+            } catch (e) {
+                console.error('[ChatWidget] Non-JSON response:', text);
+                throw new Error(`Server returned invalid response: ${text.substring(0, 50)}...`);
+            }
 
             removeTypingIndicator();
 
