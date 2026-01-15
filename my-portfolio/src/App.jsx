@@ -1447,15 +1447,14 @@ export default function Portfolio() {
     const [metrics, setMetrics] = useState(fallbackMetrics);
     const [summary, setSummary] = useState(null);
 
-    // Fetch in background (Silent Update)
+    // Fetch ALL data once on mount
     useEffect(() => {
       const fetchMetrics = async () => {
-        const timerLabel = `Filter change to: ${filterChannel}`;
+        const timerLabel = `Initial metrics fetch`;
         console.time(timerLabel);
         try {
-          const data = filterChannel === 'all'
-            ? await metricsAPI.getAll()
-            : await metricsAPI.getByChannel(filterChannel);
+          // Always fetch ALL data initially
+          const data = await metricsAPI.getAll();
 
           if (data && (data.metrics || data.metricsData)) {
             setMetrics(data.metrics || data.metricsData);
@@ -1463,20 +1462,19 @@ export default function Portfolio() {
           }
         } catch {
           console.log('Using fallback data (API Silent Fail)');
-          if (filterChannel !== 'all') {
-            setMetrics(fallbackMetrics.filter(m => m.channel === filterChannel));
-          } else {
-            setMetrics(fallbackMetrics);
-          }
+          setMetrics(fallbackMetrics);
         } finally {
           console.timeEnd(timerLabel);
         }
       };
       fetchMetrics();
-    }, [filterChannel]);
+    }, []); // Empty dependency array = run only once
 
-    // Handle filtering locally for fallback if needed, or use state
-    const displayMetrics = metrics;
+    // Handle filtering locally
+    const displayMetrics = React.useMemo(() => {
+      if (filterChannel === 'all') return metrics;
+      return metrics.filter(m => m.channel === filterChannel);
+    }, [metrics, filterChannel]);
 
     const totalSpend = summary?.totalSpend || displayMetrics.reduce((sum, m) => sum + m.spend, 0);
     const avgCTR = summary?.avgCTR || (displayMetrics.length ? displayMetrics.reduce((sum, m) => sum + m.ctr, 0) / displayMetrics.length : 0);
