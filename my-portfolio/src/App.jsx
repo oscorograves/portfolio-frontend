@@ -15,7 +15,7 @@ const WipModal = React.lazy(() => import('./components/WipModal'));
 // HARDCODED FALLBACK DATA
 const fallbackMetrics = [
   { client: 'Pocket FM', channel: 'Meta', spend: 6000, ctr: 2.6, cpl: 0.21, cvr: 4.2, roi: 250 },
-  { client: 'Packt', channel: 'Meta', spend: 3500, ctr: 2.3, cpl: 0.28, cvr: 5.8, roi: 280 },
+  { client: 'Packt', channel: 'Meta', spend: 3500, ctr: 2.3, cpl: 0.28, cvr: 5.8, roi: 430 },
   { client: 'Intertek', channel: 'Google Ads', spend: 8500, ctr: 2.2, cpl: 1.05, cvr: 6.5, roi: 320 },
   { client: 'Pocket FM', channel: 'Google Ads', spend: 5200, ctr: 2.7, cpl: 0.95, cvr: 4.8, roi: 240 },
   { client: 'B2B SaaS', channel: 'LinkedIn', spend: 4800, ctr: 1.4, cpl: 5.80, cvr: 9.2, roi: 380 },
@@ -617,7 +617,7 @@ export default function Portfolio() {
                 whileHover={{ scale: 1.2 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                <CountUp end={3.8} duration={2.5} suffix="×" decimals={1} enableScrollSpy scrollSpyOnce />
+                <CountUp end={4.3} duration={2.5} suffix="×" decimals={1} enableScrollSpy scrollSpyOnce />
               </motion.div>
               <div className="text-sm md:text-base text-blue-100 dark:text-gray-400">{t('stats.roi')}</div>
             </div>
