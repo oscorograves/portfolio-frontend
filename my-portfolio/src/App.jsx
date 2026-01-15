@@ -66,7 +66,7 @@ const MusicPlayer = ({ t }) => {
       if (isPlaying) {
         audioRef.current.pause();
       } else {
-        audioRef.current.play().catch(e => console.log("Autoplay blocked by browser"));
+        audioRef.current.play().catch(() => { });
       }
       setIsPlaying(!isPlaying);
     }
@@ -661,25 +661,14 @@ export default function Portfolio() {
             {/* Mobile: 2 columns, Desktop: 4 columns */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 pt-6 border-t border-gray-100 dark:border-gray-700">
               {[
-                { label: t('featuredWork.metrics.attendees'), value: 150, suffix: '' },
-                { label: t('featuredWork.metrics.netNew'), value: 80, suffix: '%+' },
-                { label: t('featuredWork.metrics.cac'), value: 23, prefix: '$' },
-                { label: t('featuredWork.metrics.roas'), value: 4.3, suffix: '×', decimals: 1 }
+                { label: t('featuredWork.metrics.attendees'), value: '150' },
+                { label: t('featuredWork.metrics.netNew'), value: '80%+' },
+                { label: t('featuredWork.metrics.cac'), value: '$23' },
+                { label: t('featuredWork.metrics.roas'), value: '4.3×' }
               ].map((metric, i) => (
                 <div key={i} className="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded p-3 text-center">
                   <div className="text-xs text-gray-600 dark:text-gray-400 mb-1">{metric.label}</div>
-                  <div className="text-xl font-bold text-gray-900 dark:text-white">
-                    <CountUp
-                      start={0}
-                      end={metric.value}
-                      duration={2.5}
-                      decimals={metric.decimals || 0}
-                      prefix={metric.prefix || ''}
-                      suffix={metric.suffix || ''}
-                      enableScrollSpy
-                      scrollSpyOnce
-                    />
-                  </div>
+                  <div className="text-xl font-bold text-gray-900 dark:text-white">{metric.value}</div>
                 </div>
               ))}
             </div>
@@ -1262,31 +1251,12 @@ export default function Portfolio() {
                   <div>
                     <h3 className="text-xs font-bold text-gray-600 dark:text-gray-400 uppercase mb-3 tracking-wide">{t('caseStudies.labels.results')}</h3>
                     <div className="grid grid-cols-2 gap-3">
-                      {study.results.map((result, j) => {
-                        const match = result.value.match(/^([^0-9\.]*)([0-9\.]+)([^0-9\.]*)$/);
-                        const isNumeric = match && !isNaN(parseFloat(match[2]));
-                        return (
-                          <div key={j} className="bg-gray-50 dark:bg-gray-800/50 border border-gray-300 dark:border-gray-700 rounded p-3 text-center">
-                            <div className="text-xs text-gray-600 dark:text-gray-400 mb-1">{result.metric}</div>
-                            <div className="text-2xl font-bold text-gray-900 dark:text-white">
-                              {isNumeric ? (
-                                <CountUp
-                                  start={0}
-                                  end={parseFloat(match[2])}
-                                  duration={2.5}
-                                  decimals={match[2].includes('.') ? match[2].split('.')[1].length : 0}
-                                  prefix={match[1]}
-                                  suffix={match[3]}
-                                  enableScrollSpy
-                                  scrollSpyOnce
-                                />
-                              ) : (
-                                result.value
-                              )}
-                            </div>
-                          </div>
-                        );
-                      })}
+                      {study.results.map((result, j) => (
+                        <div key={j} className="bg-gray-50 dark:bg-gray-800/50 border border-gray-300 dark:border-gray-700 rounded p-3 text-center">
+                          <div className="text-xs text-gray-600 dark:text-gray-400 mb-1">{result.metric}</div>
+                          <div className="text-2xl font-bold text-gray-900 dark:text-white">{result.value}</div>
+                        </div>
+                      ))}
                     </div>
                   </div>
 
@@ -1456,8 +1426,6 @@ export default function Portfolio() {
     // Fetch ALL data once on mount
     useEffect(() => {
       const fetchMetrics = async () => {
-        const timerLabel = `Initial metrics fetch`;
-        console.time(timerLabel);
         try {
           // Always fetch ALL data initially
           const data = await metricsAPI.getAll();
@@ -1467,10 +1435,7 @@ export default function Portfolio() {
             setSummary(data.summary || null);
           }
         } catch {
-          console.log('Using fallback data (API Silent Fail)');
           setMetrics(fallbackMetrics);
-        } finally {
-          console.timeEnd(timerLabel);
         }
       };
       fetchMetrics();
