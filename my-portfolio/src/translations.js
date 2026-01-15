@@ -6,6 +6,7 @@ export const translations = {
             caseStudies: "Case Studies",
             creativeLab: "Creative Lab",
             metrics: "Metrics",
+            portfolio: "Portfolio",
             chatWithAI: "Chat with AI"
         },
         hero: {
@@ -39,7 +40,7 @@ export const translations = {
             projectSubtitle: "Paid GTM & Audience Acquisition",
             packtTitle: "Packt Events",
             projectTitle: "Shipping a Paid GTM Engine for Packt Events",
-            projectDesc: "Launched a paid events vertical and achieved 150+ attendees with 95% net-new audience acquisition",
+            projectDesc: "Launched a paid events vertical and achieved 150+ attendees with 80%+ net-new audience acquisition",
             metrics: {
                 attendees: "Paid Attendees",
                 netNew: "Net-New %",
@@ -249,12 +250,11 @@ export const translations = {
                 clientName: "Packt",
                 badge: "EdTech",
                 category: "Growth & GTM",
-                problem: "Packt needed to launch a new paid events + newsletter vertical and reach 150+ paid attendees while keeping at least 80% of registrations net-new.",
+                problem: "Engineering teams face intense pressure to integrate LLM features within tight (2-3 week) delivery timelines but lack production-ready implementation patterns.",
                 actions: [
-                    "Designed a 30-day GTM plan with creator affiliates, technical communities, and Meta Ads",
-                    "Built UTM taxonomy and daily tracking dashboards to measure net-new acquisition",
-                    "Created a partner rev-share model and micro-affiliate testing system",
-                    "Sequenced pilot tests, kill-switches, and scale decisions across four growth sprints"
+                    "Implemented a phased Meta Ads strategy: Learning (6 ad sets), Scale (top performers), and Retargeting",
+                    "Established Tier 1 (Rev-share) and Tier 2 (Flat-fee) creator partnerships with 5K+ audiences",
+                    "Executed community seeding via newsletter sponsorships and placements in GitHub, Reddit, and Discord"
                 ]
             },
             jrb: {
@@ -299,9 +299,9 @@ export const translations = {
                 client: "Client"
             },
             recentExperiments: "Recent Experiments",
-            viewProjectLog: "Live project log",
-            viewExperimentLog: "View full experiment log in Notion",
-            projectLogComingSoon: "Project log coming soon"
+            viewProjectLog: "Project Report",
+            viewExperimentLog: "View full project report",
+            projectLogComingSoon: "Project report coming soon"
         }
     },
     nl: {
@@ -311,6 +311,7 @@ export const translations = {
             caseStudies: "Casestudies",
             creativeLab: "Creatief Lab",
             metrics: "Metrieken",
+            portfolio: "Portfolio",
             chatWithAI: "Chat met AI"
         },
         hero: {
@@ -344,7 +345,7 @@ export const translations = {
             projectSubtitle: "Betaalde GTM & Publiekswerving",
             packtTitle: "Packt Events",
             projectTitle: "Lancering van een Betaalde GTM-motor voor Packt Events",
-            projectDesc: "Lanceerde een betaalde evenementenvertical en behaalde 150+ bezoekers met 95% netto-nieuwe publieksacquisitie",
+            projectDesc: "Lanceerde een betaalde evenementenvertical en behaalde 150+ bezoekers met 80%+ netto-nieuwe publieksacquisitie",
             metrics: {
                 attendees: "Betaalde Bezoekers",
                 netNew: "Netto-Nieuw %",
@@ -604,9 +605,9 @@ export const translations = {
                 client: "Klant"
             },
             recentExperiments: "Recente Experimenten",
-            viewProjectLog: "Live projectlogboek",
-            viewExperimentLog: "Bekijk volledig experimentenlogboek in Notion",
-            projectLogComingSoon: "Projectlogboek binnenkort beschikbaar"
+            viewProjectLog: "Projectrapport",
+            viewExperimentLog: "Bekijk volledig projectrapport",
+            projectLogComingSoon: "Projectrapport binnenkort beschikbaar"
         }
     },
     de: {
@@ -616,6 +617,7 @@ export const translations = {
             caseStudies: "Fallstudien",
             creativeLab: "Kreativlabor",
             metrics: "Kennzahlen",
+            portfolio: "Portfolio",
             chatWithAI: "Mit KI chatten"
         },
         hero: {
@@ -910,9 +912,9 @@ export const translations = {
                 client: "Kunde"
             },
             recentExperiments: "Aktuelle Experimente",
-            viewProjectLog: "Live-Projektprotokoll",
-            viewExperimentLog: "Vollständiges Experiment-Protokoll in Notion ansehen",
-            projectLogComingSoon: "Projektprotokoll folgt bald"
+            viewProjectLog: "Projektbericht",
+            viewExperimentLog: "Vollständigen Projektbericht ansehen",
+            projectLogComingSoon: "Projektbericht folgt bald"
         }
     }
 }

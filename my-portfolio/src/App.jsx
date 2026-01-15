@@ -2,25 +2,25 @@ import React, { useState, useEffect, Suspense } from 'react';
 import CountUp from 'react-countup';
 import { motion, AnimatePresence } from 'framer-motion';
 
-import { TrendingUp, Target, LineChart, ChevronRight, Play, X, Menu, Filter, Mail, Phone, MapPin, Linkedin, Download, Calendar, Briefcase, GraduationCap, Award, Film, Camera, Plane, BookOpen, Sun, Moon, Instagram, Globe, Bot, MessageSquare, Megaphone, Rocket, PieChart, Construction, ExternalLink } from 'lucide-react';
+import { TrendingUp, Target, LineChart, ChevronRight, Play, X, Menu, Filter, Mail, Phone, MapPin, Linkedin, Download, Calendar, Briefcase, GraduationCap, Award, Film, Camera, Plane, BookOpen, Sun, Moon, Instagram, Globe, Bot, MessageSquare, Megaphone, Rocket, PieChart, Construction, ExternalLink, FileSpreadsheet, FileText } from 'lucide-react';
 import { metricsAPI } from './services/api.js';
 import { translations } from './translations.js';
 import NetworkBackground from './components/NetworkBackground';
 import HeroAvatar from './components/HeroAvatar';
+
 
 // Lazy Load WipModal
 const WipModal = React.lazy(() => import('./components/WipModal'));
 
 // HARDCODED FALLBACK DATA
 const fallbackMetrics = [
-  { client: 'Pocket FM', channel: 'Meta', spend: 45000, ctr: 3.2, cpl: 12, cvr: 4.8, roi: 280 },
-  { client: 'Packt', channel: 'Meta', spend: 1800, ctr: 2.4, cpl: 24, cvr: 6.1, roi: 830 },
-  { client: 'Intertek', channel: 'Google Ads', spend: 62000, ctr: 2.1, cpl: 85, cvr: 8.2, roi: 340 },
-  { client: 'Jones Road Beauty', channel: 'Direct', spend: 0, ctr: 0, cpl: 0, cvr: 3.4, roi: 0 },
-  { client: 'Pocket FM', channel: 'Google Ads', spend: 28000, ctr: 2.8, cpl: 15, cvr: 5.2, roi: 245 },
-  { client: 'B2B SaaS', channel: 'LinkedIn', spend: 38000, ctr: 1.8, cpl: 95, cvr: 12.1, roi: 420 },
-  { client: 'E-commerce', channel: 'Meta', spend: 52000, ctr: 4.1, cpl: 8, cvr: 3.2, roi: 190 },
-  { client: 'B2B SaaS', channel: 'Meta', spend: 41000, ctr: 2.9, cpl: 42, cvr: 9.8, roi: 380 }
+  { client: 'Pocket FM', channel: 'Meta', spend: 6000, ctr: 2.6, cpl: 0.21, cvr: 4.2, roi: 250 },
+  { client: 'Packt', channel: 'Meta', spend: 3500, ctr: 2.3, cpl: 0.28, cvr: 5.8, roi: 280 },
+  { client: 'Intertek', channel: 'Google Ads', spend: 8500, ctr: 2.2, cpl: 1.05, cvr: 6.5, roi: 320 },
+  { client: 'Pocket FM', channel: 'Google Ads', spend: 5200, ctr: 2.7, cpl: 0.95, cvr: 4.8, roi: 240 },
+  { client: 'B2B SaaS', channel: 'LinkedIn', spend: 4800, ctr: 1.4, cpl: 5.80, cvr: 9.2, roi: 380 },
+  { client: 'E-commerce', channel: 'Meta', spend: 7200, ctr: 3.1, cpl: 0.18, cvr: 3.8, roi: 220 },
+  { client: 'B2B SaaS', channel: 'Meta', spend: 5500, ctr: 2.5, cpl: 0.52, cvr: 7.5, roi: 340 }
 ];
 
 const PageWrapper = ({ children, className }) => (
@@ -76,13 +76,6 @@ const MusicPlayer = ({ t }) => {
   useEffect(() => {
     if (audioRef.current) {
       audioRef.current.volume = volume;
-      // Try to play automatically
-      const playPromise = audioRef.current.play();
-      if (playPromise !== undefined) {
-        playPromise
-          .then(() => setIsPlaying(true))
-          .catch(() => setIsPlaying(false)); // Autoplay was prevented
-      }
     }
   }, []);
 
@@ -569,9 +562,9 @@ export default function Portfolio() {
                 onNavigate={setCurrentPage}
                 metrics={[
                   { value: "2+", label: t('stats.yearsExp'), page: 'experience' },
-                  { value: "$267K", label: t('stats.adSpend'), page: 'metrics' },
-                  { value: "25+", label: t('stats.campaigns'), page: 'metrics' },
-                  { value: "8.3×", label: t('stats.roi'), page: 'metrics' }
+                  { value: "$41K", label: t('stats.adSpend'), page: 'metrics' },
+                  { value: "12+", label: t('stats.campaigns'), page: 'metrics' },
+                  { value: "3.8×", label: t('stats.roi'), page: 'metrics' }
                 ]}
               />
             </motion.div>
@@ -602,7 +595,7 @@ export default function Portfolio() {
                 whileHover={{ scale: 1.2 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                <CountUp end={267} duration={2.5} prefix="$" suffix="K" enableScrollSpy scrollSpyOnce />
+                <CountUp end={41} duration={2.5} prefix="$" suffix="K" enableScrollSpy scrollSpyOnce />
               </motion.div>
               <div className="text-sm md:text-base text-blue-100 dark:text-gray-400">{t('stats.adSpend')}</div>
             </div>
@@ -613,7 +606,7 @@ export default function Portfolio() {
                 whileHover={{ scale: 1.2 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                <CountUp end={25} duration={2.5} suffix="+" enableScrollSpy scrollSpyOnce />
+                <CountUp end={12} duration={2.5} suffix="+" enableScrollSpy scrollSpyOnce />
               </motion.div>
               <div className="text-sm md:text-base text-blue-100 dark:text-gray-400">{t('stats.campaigns')}</div>
             </div>
@@ -624,7 +617,7 @@ export default function Portfolio() {
                 whileHover={{ scale: 1.2 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                <CountUp end={8.3} duration={2.5} suffix="×" decimals={1} enableScrollSpy scrollSpyOnce />
+                <CountUp end={3.8} duration={2.5} suffix="×" decimals={1} enableScrollSpy scrollSpyOnce />
               </motion.div>
               <div className="text-sm md:text-base text-blue-100 dark:text-gray-400">{t('stats.roi')}</div>
             </div>
@@ -668,14 +661,25 @@ export default function Portfolio() {
             {/* Mobile: 2 columns, Desktop: 4 columns */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 pt-6 border-t border-gray-100 dark:border-gray-700">
               {[
-                { label: t('featuredWork.metrics.attendees'), value: '150' },
-                { label: t('featuredWork.metrics.netNew'), value: '95%' },
-                { label: t('featuredWork.metrics.cac'), value: '$12' },
-                { label: t('featuredWork.metrics.roas'), value: '8.3×' }
+                { label: t('featuredWork.metrics.attendees'), value: 150, suffix: '' },
+                { label: t('featuredWork.metrics.netNew'), value: 80, suffix: '%+' },
+                { label: t('featuredWork.metrics.cac'), value: 23, prefix: '$' },
+                { label: t('featuredWork.metrics.roas'), value: 4.3, suffix: '×', decimals: 1 }
               ].map((metric, i) => (
                 <div key={i} className="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded p-3 text-center">
                   <div className="text-xs text-gray-600 dark:text-gray-400 mb-1">{metric.label}</div>
-                  <div className="text-xl font-bold text-gray-900 dark:text-white">{metric.value}</div>
+                  <div className="text-xl font-bold text-gray-900 dark:text-white">
+                    <CountUp
+                      start={0}
+                      end={metric.value}
+                      duration={2.5}
+                      decimals={metric.decimals || 0}
+                      prefix={metric.prefix || ''}
+                      suffix={metric.suffix || ''}
+                      enableScrollSpy
+                      scrollSpyOnce
+                    />
+                  </div>
                 </div>
               ))}
             </div>
@@ -1130,15 +1134,15 @@ export default function Portfolio() {
         actions: t('caseStudies.packt.actions'),
         results: [
           { metric: t('featuredWork.metrics.attendees'), value: "150" },
-          { metric: t('featuredWork.metrics.netNew'), value: "95%" },
-          { metric: t('featuredWork.metrics.cac'), value: "$12" },
-          { metric: t('featuredWork.metrics.roas'), value: "8.3×" }
+          { metric: t('featuredWork.metrics.netNew'), value: "80%+" },
+          { metric: t('featuredWork.metrics.cac'), value: "$23" },
+          { metric: t('featuredWork.metrics.roas'), value: "4.3×" }
         ],
         notionLink: "https://www.notion.so/Scaling-Paid-GTM-for-Events-2e75649dae6380c49e61c8425a4fb4e7?source=copy_link",
         experiments: [
-          { name: "Meta CTR test", result: "+16%", status: "positive" },
-          { name: "Checkout copy", result: "−23% drop-off", status: "positive" },
-          { name: "Creator blurb", result: "2.4% CTR", status: "neutral" }
+          { name: "Creative Testing", result: "3 hooks × 2 formats", status: "positive" },
+          { name: "Kill Switch Protocol", result: "CPC < $3.00", status: "positive" },
+          { name: "Community Seeding", result: ">3m Watch Time", status: "positive" }
         ]
       },
       {
@@ -1200,8 +1204,8 @@ export default function Portfolio() {
                 key={i}
                 id={study.id}
                 variants={itemVariants}
-                className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded overflow-hidden"
-                whileHover={{ y: -5, boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)' }}
+                className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded overflow-hidden hover:border-blue-600 dark:hover:border-yellow-400 transition-all group"
+                whileHover={{ y: -5, borderColor: isDarkMode ? '#facc15' : '#2563eb', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
                 <div className="bg-blue-600 dark:bg-gray-800 text-white px-6 py-4">
@@ -1258,34 +1262,36 @@ export default function Portfolio() {
                   <div>
                     <h3 className="text-xs font-bold text-gray-600 dark:text-gray-400 uppercase mb-3 tracking-wide">{t('caseStudies.labels.results')}</h3>
                     <div className="grid grid-cols-2 gap-3">
-                      {study.results.map((result, j) => (
-                        <div key={j} className="bg-gray-50 dark:bg-gray-800/50 border border-gray-300 dark:border-gray-700 rounded p-3 text-center">
-                          <div className="text-xs text-gray-600 dark:text-gray-400 mb-1">{result.metric}</div>
-                          <div className="text-2xl font-bold text-gray-900 dark:text-white">{result.value}</div>
-                        </div>
-                      ))}
+                      {study.results.map((result, j) => {
+                        const match = result.value.match(/^([^0-9\.]*)([0-9\.]+)([^0-9\.]*)$/);
+                        const isNumeric = match && !isNaN(parseFloat(match[2]));
+                        return (
+                          <div key={j} className="bg-gray-50 dark:bg-gray-800/50 border border-gray-300 dark:border-gray-700 rounded p-3 text-center">
+                            <div className="text-xs text-gray-600 dark:text-gray-400 mb-1">{result.metric}</div>
+                            <div className="text-2xl font-bold text-gray-900 dark:text-white">
+                              {isNumeric ? (
+                                <CountUp
+                                  start={0}
+                                  end={parseFloat(match[2])}
+                                  duration={2.5}
+                                  decimals={match[2].includes('.') ? match[2].split('.')[1].length : 0}
+                                  prefix={match[1]}
+                                  suffix={match[3]}
+                                  enableScrollSpy
+                                  scrollSpyOnce
+                                />
+                              ) : (
+                                result.value
+                              )}
+                            </div>
+                          </div>
+                        );
+                      })}
                     </div>
                   </div>
 
-                  {study.experiments && (
+                  {study.notionLink && (
                     <div className="pt-5 border-t border-gray-200 dark:border-gray-700">
-                      <h3 className="text-xs font-bold text-gray-600 dark:text-gray-400 uppercase mb-3 tracking-wide">{t('caseStudies.recentExperiments')}</h3>
-                      <div className="space-y-3 mb-4">
-                        {study.experiments.map((exp, k) => (
-                          <div key={k} className="flex items-center justify-between text-sm">
-                            <span className="text-gray-700 dark:text-gray-300 flex items-center gap-2">
-                              <span className="w-1.5 h-1.5 rounded-full bg-gray-400"></span>
-                              {exp.name}
-                            </span>
-                            <span className={`font-medium ${exp.status === 'positive' ? 'text-green-600 dark:text-green-400' :
-                              exp.status === 'negative' ? 'text-red-600 dark:text-red-400' :
-                                'text-gray-600 dark:text-gray-400'
-                              }`}>
-                              {exp.result}
-                            </span>
-                          </div>
-                        ))}
-                      </div>
                       <a
                         href={study.notionLink}
                         target="_blank"
@@ -1517,7 +1523,7 @@ export default function Portfolio() {
             <motion.div variants={itemVariants} className="flex items-center gap-3 mb-6 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-800 rounded p-4 overflow-x-auto whitespace-nowrap no-scrollbar">
               <Filter className="w-4 h-4 text-gray-600 dark:text-gray-400" />
               <span className="text-sm font-semibold text-gray-600 dark:text-gray-400 uppercase">{t('metricsPage.filters.channel')}</span>
-              {['all', 'Meta', 'Google Ads', 'LinkedIn', 'Direct'].map(channel => (
+              {['all', 'Meta', 'Google Ads', 'LinkedIn'].map(channel => (
                 <button
                   key={channel}
                   onClick={() => setFilterChannel(channel)}
@@ -1608,9 +1614,75 @@ export default function Portfolio() {
                 </motion.div>
               </div>
             </motion.div>
+
+            {/* Performance Ledger - External Link */}
+            {/* Divider Line */}
           </motion.div>
         </div>
-      </div>
+
+        {/* Full-width Divider */}
+        <div className="border-t border-gray-300 dark:border-gray-800 w-full"></div>
+
+        <div className="max-w-6xl mx-auto px-8 py-12">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={containerVariants}
+          >
+            <div className="mt-0">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-blue-600 dark:border-yellow-400">
+                Resources
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Performance Ledger - External Link */}
+              <motion.a
+                href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTDn-lJIO3TJJ1TQLIFIbFLYzGo-nYZUv0ID45PnaV-OqqrH8GvU88k-Fvd117bCOKZNcsRH_l79FPd/pubhtml"
+                target="_blank"
+                rel="noopener noreferrer"
+                variants={itemVariants}
+                className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 hover:border-blue-600 dark:hover:border-yellow-400 transition-all block group"
+                whileHover={{ y: -5, borderColor: isDarkMode ? '#facc15' : '#2563eb', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }}
+              >
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-9 h-9 bg-blue-600 dark:bg-yellow-400 rounded flex items-center justify-center text-white dark:text-gray-900">
+                      <FileSpreadsheet className="w-5 h-5" />
+                    </div>
+                    <h3 className="text-lg font-bold text-gray-900 dark:text-white">Performance Ledger (2024)</h3>
+                  </div>
+                  <ExternalLink className="w-5 h-5 text-gray-400 group-hover:text-blue-600 dark:group-hover:text-yellow-400 transition-colors" />
+                </div>
+                <p className="text-sm text-gray-600 dark:text-gray-400">View detailed campaign performance data and monitoring sheet</p>
+              </motion.a>
+
+              {/* Professional Reference Bar */}
+              <motion.a
+                href="/Professional_LOR.pdf"
+                download="Professional_LOR.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                variants={itemVariants}
+                className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 hover:border-blue-600 dark:hover:border-yellow-400 transition-all block group cursor-pointer"
+                whileHover={{ y: -5, borderColor: isDarkMode ? '#facc15' : '#2563eb', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }}
+              >
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-9 h-9 bg-blue-600 dark:bg-yellow-400 rounded flex items-center justify-center text-white dark:text-gray-900">
+                      <FileText className="w-5 h-5" />
+                    </div>
+                    <h3 className="text-lg font-bold text-gray-900 dark:text-white">Professional Reference</h3>
+                  </div>
+                  <Download className="w-5 h-5 text-gray-400 group-hover:text-blue-600 dark:group-hover:text-yellow-400 transition-colors" />
+                </div>
+                <p className="text-sm text-gray-600 dark:text-gray-400">Download professional letter of recommendation (PDF)</p>
+              </motion.a>
+            </div>
+          </motion.div>
+        </div>
+      </div >
     );
   };
 
@@ -1721,6 +1793,7 @@ export default function Portfolio() {
         {currentPage === 'home' && <PageWrapper><HomePage /></PageWrapper>}
         {currentPage === 'experience' && <PageWrapper><ExperiencePage /></PageWrapper>}
         {currentPage === 'case-studies' && <PageWrapper><CaseStudiesPage /></PageWrapper>}
+        {currentPage === 'portfolio' && <PageWrapper><PortfolioPage containerVariants={containerVariants} /></PageWrapper>}
         {currentPage === 'creative-lab' && <PageWrapper><CreativeLabPage /></PageWrapper>}
         {currentPage === 'metrics' && <PageWrapper><MetricsPage /></PageWrapper>}
       </div>
