@@ -14,13 +14,13 @@ const WipModal = React.lazy(() => import('./components/WipModal'));
 
 // HARDCODED FALLBACK DATA
 const fallbackMetrics = [
-  { client: 'Pocket FM', channel: 'Meta', spend: 6000, ctr: 2.6, cpl: 0.21, cvr: 4.2, roi: 250 },
-  { client: 'Packt', channel: 'Meta', spend: 3500, ctr: 2.3, cpl: 0.28, cvr: 5.8, roi: 430 },
-  { client: 'Intertek', channel: 'Google Ads', spend: 8500, ctr: 2.2, cpl: 1.05, cvr: 6.5, roi: 320 },
-  { client: 'Pocket FM', channel: 'Google Ads', spend: 5200, ctr: 2.7, cpl: 0.95, cvr: 4.8, roi: 240 },
-  { client: 'B2B SaaS', channel: 'LinkedIn', spend: 4800, ctr: 1.4, cpl: 5.80, cvr: 9.2, roi: 380 },
-  { client: 'E-commerce', channel: 'Meta', spend: 7200, ctr: 3.1, cpl: 0.18, cvr: 3.8, roi: 220 },
-  { client: 'B2B SaaS', channel: 'Meta', spend: 5500, ctr: 2.5, cpl: 0.52, cvr: 7.5, roi: 340 }
+  { client: 'Pocket FM', channel: 'Meta', spend: 6000, ctr: 2.6, cpl: 12.80, cvr: 4.2, roi: 250 },
+  { client: 'Packt', channel: 'Meta', spend: 3500, ctr: 2.3, cpl: 23.00, cvr: 5.8, roi: 430 },
+  { client: 'Intertek', channel: 'Google Ads', spend: 8500, ctr: 2.2, cpl: 15.30, cvr: 6.5, roi: 320 },
+  { client: 'Pocket FM', channel: 'Google Ads', spend: 5200, ctr: 2.7, cpl: 16.90, cvr: 4.8, roi: 240 },
+  { client: 'B2B SaaS', channel: 'LinkedIn', spend: 4800, ctr: 1.4, cpl: 58.20, cvr: 9.2, roi: 380 },
+  { client: 'E-commerce', channel: 'Meta', spend: 7200, ctr: 3.1, cpl: 11.90, cvr: 3.8, roi: 220 },
+  { client: 'B2B SaaS', channel: 'Meta', spend: 5500, ctr: 2.5, cpl: 7.50, cvr: 7.5, roi: 340 }
 ];
 
 const PageWrapper = ({ children, className }) => (
@@ -564,7 +564,7 @@ export default function Portfolio() {
                   { value: "2+", label: t('stats.yearsExp'), page: 'experience' },
                   { value: "$41K", label: t('stats.adSpend'), page: 'metrics' },
                   { value: "12+", label: t('stats.campaigns'), page: 'metrics' },
-                  { value: "3.8×", label: t('stats.roi'), page: 'metrics' }
+                  { value: "4.3×", label: t('stats.roi'), page: 'metrics' }
                 ]}
               />
             </motion.div>
