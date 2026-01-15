@@ -651,7 +651,7 @@ export const translations = {
             projectSubtitle: "Paid GTM & Publikumsgewinnung",
             packtTitle: "Packt Events",
             projectTitle: "Einführung einer Paid GTM-Engine für Packt Events",
-            projectDesc: "Start einer Paid-Events-Sparte und Erreichung von 150+ Teilnehmern mit 95% Neukundengewinnung",
+            projectDesc: "Start einer Paid-Events-Sparte und Erreichung von 150+ Teilnehmern mit 80%+ Neukundengewinnung",
             metrics: {
                 attendees: "Zahlende Teilnehmer",
                 netNew: "Netto-Neu %",
