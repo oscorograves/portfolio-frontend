@@ -250,7 +250,7 @@ export const translations = {
                 clientName: "Packt",
                 badge: "EdTech",
                 category: "Growth & GTM",
-                problem: "Engineering teams face intense pressure to integrate LLM features within tight (2-3 week) delivery timelines but lack production-ready implementation patterns.",
+                problem: "Acquiring 150 paying engineers for a $100 LLM workshop with a limited $3,500 budget requires a high-efficiency GTM engine. The challenge is to identify and convert high-intent users without existing audiences, achieving >4.3x ROAS and >80% net new customers.",
                 actions: [
                     "Implemented a phased Meta Ads strategy: Learning (6 ad sets), Scale (top performers), and Retargeting",
                     "Established Tier 1 (Rev-share) and Tier 2 (Flat-fee) creator partnerships with 5K+ audiences",
@@ -555,7 +555,7 @@ export const translations = {
                 clientName: "Packt",
                 badge: "EdTech",
                 category: "Groei & GTM",
-                problem: "Packt moest een nieuwe betaalde evenementen + nieuwsbrief vertical lanceren en 150+ betaalde bezoekers bereiken en tegelijkertijd minstens 80% van de registraties netto-nieuw houden.",
+                problem: "Het werven van 150 betalende engineers voor een LLM-workshop van $100 met een beperkt budget van $3.500 vereist een zeer efficiënte GTM-machine. De uitdaging is om gebruikers met een hoge intentie te identificeren en converteren zonder bestaand publiek, waarbij >4,3x ROAS en >80% netto nieuwe klanten worden behaald.",
                 actions: [
                     "Ontwierp een 30-daags GTM-plan met creator-partners, technische gemeenschappen en Meta Ads",
                     "Bouwde UTM-taxonomie en dagelijkse trackingdashboards om netto-nieuwe acquisitie te meten",
@@ -862,7 +862,7 @@ export const translations = {
                 clientName: "Packt",
                 badge: "EdTech",
                 category: "Wachstum & GTM",
-                problem: "Packt musste eine neue Paid-Events + Newsletter-Sparte starten und 150+ zahlende Teilnehmer erreichen, wobei mindestens 80% der Registrierungen netto-neu sein sollten.",
+                problem: "Die Gewinnung von 150 zahlenden Ingenieuren für einen 100-Dollar-LLM-Workshop mit einem begrenzten Budget von 3.500 Dollar erfordert eine hocheffiziente GTM-Engine. Die Herausforderung besteht darin, Nutzer mit hoher Absicht ohne bestehende Zielgruppen zu identifizieren und zu konvertieren, wobei ein ROAS von >4,3x und >80 % Netto-Neukunden erreicht werden müssen.",
                 actions: [
                     "Entwurf eines 30-Tage GTM-Plans mit Creator-Partnern, technischen Communities und Meta Ads",
                     "Aufbau einer UTM-Taxonomie und täglicher Tracking-Dashboards zur Messung der Neukundengewinnung",
