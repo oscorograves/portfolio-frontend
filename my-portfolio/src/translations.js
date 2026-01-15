@@ -42,10 +42,10 @@ export const translations = {
             projectTitle: "Shipping a Paid GTM Engine for Packt Events",
             projectDesc: "Launched a paid events vertical and achieved 150+ attendees with 80%+ net-new audience acquisition",
             metrics: {
-                attendees: "Paid Attendees",
-                netNew: "Net-New %",
-                cac: "Blended CAC",
-                roas: "Projected ROAS"
+                attendees: "Ad Spend",
+                netNew: "CVR",
+                cac: "CPL",
+                roas: "ROI"
             }
         },
         whatIOffer: {
@@ -347,10 +347,10 @@ export const translations = {
             projectTitle: "Lancering van een Betaalde GTM-motor voor Packt Events",
             projectDesc: "Lanceerde een betaalde evenementenvertical en behaalde 150+ bezoekers met 80%+ netto-nieuwe publieksacquisitie",
             metrics: {
-                attendees: "Betaalde Bezoekers",
-                netNew: "Netto-Nieuw %",
-                cac: "Gemengde CAC",
-                roas: "Geprojecteerde ROAS"
+                attendees: "Advertentiebudget",
+                netNew: "Conversie %",
+                cac: "CPL",
+                roas: "ROI"
             }
         },
         whatIOffer: {
@@ -653,10 +653,10 @@ export const translations = {
             projectTitle: "Einführung einer Paid GTM-Engine für Packt Events",
             projectDesc: "Start einer Paid-Events-Sparte und Erreichung von 150+ Teilnehmern mit 80%+ Neukundengewinnung",
             metrics: {
-                attendees: "Zahlende Teilnehmer",
-                netNew: "Netto-Neu %",
-                cac: "Gemischter CAC",
-                roas: "Prognostizierter ROAS"
+                attendees: "Werbeausgaben",
+                netNew: "Conversion-Rate",
+                cac: "CPL",
+                roas: "ROI"
             }
         },
         whatIOffer: {

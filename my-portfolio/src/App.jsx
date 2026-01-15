@@ -661,10 +661,10 @@ export default function Portfolio() {
             {/* Mobile: 2 columns, Desktop: 4 columns */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 pt-6 border-t border-gray-100 dark:border-gray-700">
               {[
-                { label: t('featuredWork.metrics.attendees'), value: '150' },
-                { label: t('featuredWork.metrics.netNew'), value: '80%+' },
-                { label: t('featuredWork.metrics.cac'), value: '$23' },
-                { label: t('featuredWork.metrics.roas'), value: '4.3×' }
+                { label: t('featuredWork.metrics.attendees'), value: '$3,500' },
+                { label: t('featuredWork.metrics.netNew'), value: '5.8%' },
+                { label: t('featuredWork.metrics.cac'), value: '$0.28' },
+                { label: t('featuredWork.metrics.roas'), value: '280%' }
               ].map((metric, i) => (
                 <div key={i} className="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded p-3 text-center">
                   <div className="text-xs text-gray-600 dark:text-gray-400 mb-1">{metric.label}</div>
@@ -1122,10 +1122,10 @@ export default function Portfolio() {
         problem: t('caseStudies.packt.problem'),
         actions: t('caseStudies.packt.actions'),
         results: [
-          { metric: t('featuredWork.metrics.attendees'), value: "150" },
-          { metric: t('featuredWork.metrics.netNew'), value: "80%+" },
-          { metric: t('featuredWork.metrics.cac'), value: "$23" },
-          { metric: t('featuredWork.metrics.roas'), value: "4.3×" }
+          { metric: t('featuredWork.metrics.attendees'), value: "$3,500" },
+          { metric: t('featuredWork.metrics.netNew'), value: "5.8%" },
+          { metric: t('featuredWork.metrics.cac'), value: "$0.28" },
+          { metric: t('featuredWork.metrics.roas'), value: "280%" }
         ],
         notionLink: "https://www.notion.so/Scaling-Paid-GTM-for-Events-2e75649dae6380c49e61c8425a4fb4e7?source=copy_link",
         experiments: [
