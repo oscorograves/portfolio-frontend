@@ -1335,7 +1335,7 @@ export default function Portfolio() {
           <div className="mb-12">
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">{t('creativeLab.adCreatives')}</h2>
             <motion.div
-              className="grid grid-cols-3 gap-4"
+              className="grid grid-cols-2 md:grid-cols-3 gap-4"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -1635,6 +1635,7 @@ export default function Portfolio() {
                 src="/profile.jpeg"
                 alt="Kanishk Singh"
                 className="w-full h-full object-cover object-bottom scale-[1.75]"
+                loading="lazy"
               />
             </motion.a>
             <div className="text-sm text-gray-600 dark:text-gray-400 font-medium">
