@@ -842,7 +842,7 @@ export const translations = {
                 eventReg: "Event-Registrierung",
                 contentDownload: "Content-Download",
                 webinarSignup: "Webinar-Anmeldung",
-                trialConv: "Testphasen-Konvers."
+                trialConv: "Testphasen-Konversion"
             },
             videoTypes: {
                 adEdit: "Anzeigen-Edit",
