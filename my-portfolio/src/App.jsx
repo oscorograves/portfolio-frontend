@@ -76,6 +76,15 @@ const MusicPlayer = ({ t }) => {
   useEffect(() => {
     if (audioRef.current) {
       audioRef.current.volume = volume;
+      const playPromise = audioRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise.then(_ => {
+          setIsPlaying(true);
+        })
+          .catch(error => {
+            setIsPlaying(false);
+          });
+      }
     }
   }, []);
 
@@ -87,7 +96,7 @@ const MusicPlayer = ({ t }) => {
       className="fixed bottom-4 right-4 md:right-6 z-50"
     >
       {/* The Audio Element (Hidden) */}
-      <audio ref={audioRef} src="/song.mp3" loop />
+      <audio ref={audioRef} src="/song.mp3" loop autoPlay />
 
       {/* The Visual Player */}
       <div className="bg-gray-800/90 dark:bg-gray-900/50 backdrop-blur-lg text-white border border-white/10 rounded-full px-3 py-2 shadow-2xl flex items-center justify-between gap-4">
@@ -1068,7 +1077,7 @@ export default function Portfolio() {
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-blue-600 dark:border-yellow-400">{t('experience.education')}</h2>
           <motion.div
             variants={itemVariants}
-            className="bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-800 rounded p-6"
+            className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-6"
             whileHover={{ y: -5, borderColor: isDarkMode ? '#facc15' : '#2563eb', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }}
           >
             <div className="flex items-start gap-3 mb-3">
@@ -1089,16 +1098,11 @@ export default function Portfolio() {
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-blue-600 dark:border-yellow-400">{t('experience.certifications')}</h2>
           <motion.div
             variants={itemVariants}
-            className="bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-800 rounded p-6"
+            className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-6"
             whileHover={{ y: -5, borderColor: isDarkMode ? '#facc15' : '#2563eb', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }}
           >
             <ul className="space-y-3">
-              {[
-                'Google Ads Certification (Skillshop)',
-                'Social Media Marketing (HubSpot)',
-                'Fundamentals of Digital Marketing (Google)',
-                'SEO Certification (HubSpot)'
-              ].map((cert, i) => (
+              {(t('experience.certificationsList', { returnObjects: true }) || []).map((cert, i) => (
                 <li key={i} className="flex items-start gap-2 text-sm text-gray-700 dark:text-gray-300">
                   <Award className="w-4 h-4 text-gray-900 dark:text-white mt-0.5 flex-shrink-0" />
                   <span>{cert}</span>
@@ -1128,11 +1132,7 @@ export default function Portfolio() {
           { metric: t('featuredWork.metrics.roas'), value: "4.3×" }
         ],
         notionLink: "https://www.notion.so/Scaling-Paid-GTM-for-Events-2e75649dae6380c49e61c8425a4fb4e7?source=copy_link",
-        experiments: [
-          { name: "Creative Testing", result: "3 hooks × 2 formats", status: "positive" },
-          { name: "Kill Switch Protocol", result: "CPC < $3.00", status: "positive" },
-          { name: "Community Seeding", result: ">3m Watch Time", status: "positive" }
-        ]
+        experiments: t('caseStudies.packt.experimentsData', { returnObjects: true }) || []
       },
       {
         id: 'jrb',
@@ -1144,17 +1144,13 @@ export default function Portfolio() {
         problem: t('caseStudies.jrb.problem'),
         actions: t('caseStudies.jrb.actions'),
         results: [
-          { metric: "Test Clusters", value: "5" },
-          { metric: "Funnel Zones", value: "4" },
-          { metric: "Month-1 Focus", value: "Revenue efficiency" },
-          { metric: "Outcome", value: "Scalable CRO backlog" }
+          { metric: t('caseStudies.jrb.resultsData.testClusters'), value: "5" },
+          { metric: t('caseStudies.jrb.resultsData.funnelZones'), value: "4" },
+          { metric: t('caseStudies.jrb.resultsData.month1Focus'), value: t('caseStudies.jrb.resultsData.month1FocusValue') },
+          { metric: t('caseStudies.jrb.resultsData.outcome'), value: t('caseStudies.jrb.resultsData.outcomeValue') }
         ],
         notionLink: "https://www.notion.so/30-Day-Conversion-Revenue-Lift-Roadmap-2e75649dae63804895b3fae043d1993a?source=copy_link",
-        experiments: [
-          { name: "Sticky ATC (Mobile)", result: "+8.5% ATC", status: "positive" },
-          { name: "Hero Video Variant B", result: "+12% Engagement", status: "positive" },
-          { name: "Bundle Upsell Modal", result: "-5% CVR (Kill)", status: "negative" }
-        ]
+        experiments: t('caseStudies.jrb.experimentsData', { returnObjects: true }) || []
       },
       {
         id: 'audio',
@@ -1295,10 +1291,10 @@ export default function Portfolio() {
     ];
 
     const videos = [
-      { title: 'Product Demo Ad', type: t('creativeLab.videoTypes.adEdit'), duration: '0:30' },
-      { title: 'Brand Story', type: t('creativeLab.videoTypes.promo'), duration: '1:15' },
-      { title: 'Founder Interview', type: t('creativeLab.videoTypes.podcast'), duration: '2:45' },
-      { title: 'Feature Highlight', type: t('creativeLab.videoTypes.adEdit'), duration: '0:45' }
+      { title: t('creativeLab.videoTitles.productDemo'), type: t('creativeLab.videoTypes.adEdit'), duration: '0:30' },
+      { title: t('creativeLab.videoTitles.brandStory'), type: t('creativeLab.videoTypes.promo'), duration: '1:15' },
+      { title: t('creativeLab.videoTitles.founderInterview'), type: t('creativeLab.videoTypes.podcast'), duration: '2:45' },
+      { title: t('creativeLab.videoTitles.featureHighlight'), type: t('creativeLab.videoTypes.adEdit'), duration: '0:45' }
     ];
 
     return (

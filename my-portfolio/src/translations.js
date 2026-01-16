@@ -170,7 +170,13 @@ export const translations = {
                         ]
                     }
                 }
-            }
+            },
+            certificationsList: [
+                "Google Ads Certification (Skillshop)",
+                "Social Media Marketing (HubSpot)",
+                "Fundamentals of Digital Marketing (Google)",
+                "SEO Certification (HubSpot)"
+            ]
         },
         metricsPage: {
             title: "Performance Metrics",
@@ -237,6 +243,12 @@ export const translations = {
                 promo: "Promo Video",
                 podcast: "Podcast Clip"
             },
+            videoTitles: {
+                productDemo: "Product Demo Ad",
+                brandStory: "Brand Story",
+                founderInterview: "Founder Interview",
+                featureHighlight: "Feature Highlight"
+            },
             modal: {
                 title: "Campaign Performance"
             }
@@ -255,6 +267,11 @@ export const translations = {
                     "Implemented a phased Meta Ads strategy: Learning (6 ad sets), Scale (top performers), and Retargeting",
                     "Established Tier 1 (Rev-share) and Tier 2 (Flat-fee) creator partnerships with 5K+ audiences",
                     "Executed community seeding via newsletter sponsorships and placements in GitHub, Reddit, and Discord"
+                ],
+                experimentsData: [
+                    { name: "Creative Testing", result: "3 hooks × 2 formats" },
+                    { name: "Kill Switch Protocol", result: "CPC < $3.00" },
+                    { name: "Community Seeding", result: ">3m Watch Time" }
                 ]
             },
             jrb: {
@@ -269,6 +286,19 @@ export const translations = {
                     "Built hypothesis-driven test clusters for clarity, shade anxiety, first-time buyers, and checkout confidence",
                     "Sequenced tests to prioritize conversion rate before AOV or urgency",
                     "Defined guardrails and decision rules to prevent noisy or conflicting experiments"
+                ],
+                resultsData: {
+                    testClusters: "Test Clusters",
+                    funnelZones: "Funnel Zones",
+                    month1Focus: "Month-1 Focus",
+                    month1FocusValue: "Revenue efficiency",
+                    outcome: "Outcome",
+                    outcomeValue: "Scalable CRO backlog"
+                },
+                experimentsData: [
+                    { name: "Sticky ATC (Mobile)", result: "+8.5% ATC" },
+                    { name: "Hero Video Variant B", result: "+12% Engagement" },
+                    { name: "Bundle Upsell Modal", result: "-5% CVR (Kill)" }
                 ]
             },
             audio: {
@@ -475,7 +505,13 @@ export const translations = {
                         ]
                     }
                 }
-            }
+            },
+            certificationsList: [
+                "Google Ads Certificering (Skillshop)",
+                "Social Media Marketing (HubSpot)",
+                "Basisprincipes van Digitale Marketing (Google)",
+                "SEO Certificering (HubSpot)"
+            ]
         },
         metricsPage: {
             title: "Performance Metrics",
@@ -542,6 +578,12 @@ export const translations = {
                 promo: "Promotievideo",
                 podcast: "Podcastfragment"
             },
+            videoTitles: {
+                productDemo: "Productdemo Advertentie",
+                brandStory: "Merkverhaal",
+                founderInterview: "Oprichter Interview",
+                featureHighlight: "Functie Uitgelicht"
+            },
             modal: {
                 title: "Campagne Prestaties"
             }
@@ -561,6 +603,11 @@ export const translations = {
                     "Bouwde UTM-taxonomie en dagelijkse trackingdashboards om netto-nieuwe acquisitie te meten",
                     "Creëerde een partner inkomsten-deelmodel en micro-affiliate testsysteem",
                     "Sequentieerde piloottesten, kill-switches en schaalbeslissingen over vier groeisprints"
+                ],
+                experimentsData: [
+                    { name: "Creatieve Testen", result: "3 hooks × 2 formaten" },
+                    { name: "Kill Switch Protocol", result: "CPC < $3.00" },
+                    { name: "Community Seeding", result: ">3m Kijktijd" }
                 ]
             },
             jrb: {
@@ -575,6 +622,19 @@ export const translations = {
                     "Bouwde hypothesegedreven testclusters voor duidelijkheid, tintangst, eerste kopers en checkout-vertrouwen",
                     "Sequentieerde tests om conversieratio te prioriteren boven AOV of urgentie",
                     "Definieerde vangrails en beslissingsregels om luidruchtige of tegenstrijdige experimenten te voorkomen"
+                ],
+                resultsData: {
+                    testClusters: "Testclusters",
+                    funnelZones: "Trechterzones",
+                    month1Focus: "Focus Maand 1",
+                    month1FocusValue: "Omzetefficiëntie",
+                    outcome: "Uitkomst",
+                    outcomeValue: "Schaalbare CRO-backlog"
+                },
+                experimentsData: [
+                    { name: "Sticky ATC (Mobiel)", result: "+8.5% ATC" },
+                    { name: "Hero Video Variant B", result: "+12% Betrokkenheid" },
+                    { name: "Bundle Upsell Modal", result: "-5% CVR (Kill)" }
                 ]
             },
             audio: {
@@ -782,7 +842,13 @@ export const translations = {
                         ]
                     }
                 }
-            }
+            },
+            certificationsList: [
+                "Google Ads Zertifizierung (Skillshop)",
+                "Social Media Marketing (HubSpot)",
+                "Grundlagen des digitalen Marketings (Google)",
+                "SEO Zertifizierung (HubSpot)"
+            ]
         },
         metricsPage: {
             title: "Performance-Kennzahlen",
@@ -849,6 +915,12 @@ export const translations = {
                 promo: "Promo-Video",
                 podcast: "Podcast-Clip"
             },
+            videoTitles: {
+                productDemo: "Produktdemo-Anzeige",
+                brandStory: "Markengeschichte",
+                founderInterview: "Gründerinterview",
+                featureHighlight: "Feature-Highlight"
+            },
             modal: {
                 title: "Kampagnenleistung"
             }
@@ -868,6 +940,11 @@ export const translations = {
                     "Aufbau einer UTM-Taxonomie und täglicher Tracking-Dashboards zur Messung der Neukundengewinnung",
                     "Erstellung eines Partner-Rev-Share-Modells und eines Mikro-Affiliate-Testsystems",
                     "Sequenzierung von Pilottests, Kill-Switches und Skalierungsentscheidungen über vier Wachstumssprints hinweg"
+                ],
+                experimentsData: [
+                    { name: "Kreativ-Tests", result: "3 Hooks × 2 Formate" },
+                    { name: "Kill-Switch-Protokoll", result: "CPC < 3,00 $" },
+                    { name: "Community Seeding", result: ">3 Min. Wiedergabezeit" }
                 ]
             },
             jrb: {
@@ -882,6 +959,19 @@ export const translations = {
                     "Aufbau hypothesengetriebener Testcluster für Klarheit, Farbauswahl-Unsicherheit, Erstkäufer und Checkout-Vertrauen",
                     "Sequenzierung von Tests zur Priorisierung der Konversionsrate vor AOV oder Dringlichkeit",
                     "Definition von Leitplanken und Entscheidungsregeln zur Vermeidung von verrauschten oder widersprüchlichen Experimenten"
+                ],
+                resultsData: {
+                    testClusters: "Test-Cluster",
+                    funnelZones: "Funnel-Zonen",
+                    month1Focus: "Monat-1 Fokus",
+                    month1FocusValue: "Umsatzeffizienz",
+                    outcome: "Ergebnis",
+                    outcomeValue: "Skalierbarer CRO-Backlog"
+                },
+                experimentsData: [
+                    { name: "Sticky ATC (Mobil)", result: "+8,5% ATC" },
+                    { name: "Hero Video Variante B", result: "+12% Engagement" },
+                    { name: "Bundle Upsell Modal", result: "-5% CVR (Kill)" }
                 ]
             },
             audio: {
