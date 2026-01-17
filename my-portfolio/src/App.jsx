@@ -65,10 +65,12 @@ const MusicPlayer = ({ t }) => {
     if (audioRef.current) {
       if (isPlaying) {
         audioRef.current.pause();
+        setIsPlaying(false);
       } else {
-        audioRef.current.play().catch(() => { });
+        audioRef.current.play()
+          .then(() => setIsPlaying(true))
+          .catch(() => setIsPlaying(false));
       }
-      setIsPlaying(!isPlaying);
     }
   };
 
@@ -1167,7 +1169,7 @@ export default function Portfolio() {
           { metric: t("caseStudies.audio.results.variants"), value: "12+" },
           { metric: t("caseStudies.audio.results.scale"), value: t("caseStudies.audio.results.stable") }
         ],
-        comingSoonLog: true
+        notionLink: "https://www.notion.so/Scaling-User-Acquisition-2eb5649dae6380b98236eeafece26268?source=copy_link"
       }
     ];
 
