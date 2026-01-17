@@ -213,7 +213,7 @@ export const translations = {
                 highestRoi: {
                     title: "Highest ROI",
                     name: "Packt GTM",
-                    desc: "Creator-led distribution plus Meta amplification produced an 8× revenue multiple."
+                    desc: "Creator-led distribution plus Meta amplification produced an 4× revenue multiple."
                 }
             }
         },
@@ -548,7 +548,7 @@ export const translations = {
                 highestRoi: {
                     title: "Hoogste ROI",
                     name: "Packt GTM",
-                    desc: "Creator-geleide distributie plus Meta-versterking produceerde een 8× omzetveelvoud."
+                    desc: "Creator-geleide distributie plus Meta-versterking produceerde een 4× omzetveelvoud."
                 }
             }
         },
@@ -885,7 +885,7 @@ export const translations = {
                 highestRoi: {
                     title: "Höchster ROI",
                     name: "Packt GTM",
-                    desc: "Creator-geführte Distribution plus Meta-Verstärkung erzeugten einen 8-fachen Umsatzmultiplikator."
+                    desc: "Creator-geführte Distribution plus Meta-Verstärkung erzeugten einen 4-fachen Umsatzmultiplikator."
                 }
             }
         },
