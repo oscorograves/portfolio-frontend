@@ -591,9 +591,13 @@ export default function Portfolio() {
 
             <div className="p-2">
               <motion.div
-                className="text-3xl md:text-4xl font-bold mb-1 inline-block cursor-default"
+                className="text-3xl md:text-4xl font-bold mb-1 inline-block cursor-pointer"
                 whileHover={{ scale: 1.2 }}
                 transition={{ type: "spring", stiffness: 300 }}
+                onClick={() => {
+                  setCurrentPage('experience');
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
               >
                 <CountUp end={2} duration={2.5} suffix="+" enableScrollSpy scrollSpyOnce />
               </motion.div>
@@ -602,9 +606,13 @@ export default function Portfolio() {
 
             <div className="p-2">
               <motion.div
-                className="text-3xl md:text-4xl font-bold mb-1 inline-block cursor-default"
+                className="text-3xl md:text-4xl font-bold mb-1 inline-block cursor-pointer"
                 whileHover={{ scale: 1.2 }}
                 transition={{ type: "spring", stiffness: 300 }}
+                onClick={() => {
+                  setCurrentPage('metrics');
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
               >
                 <CountUp end={41} duration={2.5} prefix="$" suffix="K" enableScrollSpy scrollSpyOnce />
               </motion.div>
@@ -613,9 +621,13 @@ export default function Portfolio() {
 
             <div className="p-2">
               <motion.div
-                className="text-3xl md:text-4xl font-bold mb-1 inline-block cursor-default"
+                className="text-3xl md:text-4xl font-bold mb-1 inline-block cursor-pointer"
                 whileHover={{ scale: 1.2 }}
                 transition={{ type: "spring", stiffness: 300 }}
+                onClick={() => {
+                  setCurrentPage('metrics');
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
               >
                 <CountUp end={12} duration={2.5} suffix="+" enableScrollSpy scrollSpyOnce />
               </motion.div>
@@ -624,9 +636,13 @@ export default function Portfolio() {
 
             <div className="p-2">
               <motion.div
-                className="text-3xl md:text-4xl font-bold mb-1 inline-block cursor-default"
+                className="text-3xl md:text-4xl font-bold mb-1 inline-block cursor-pointer"
                 whileHover={{ scale: 1.2 }}
                 transition={{ type: "spring", stiffness: 300 }}
+                onClick={() => {
+                  setCurrentPage('metrics');
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
               >
                 <CountUp end={4.3} duration={2.5} suffix="×" decimals={1} enableScrollSpy scrollSpyOnce />
               </motion.div>
