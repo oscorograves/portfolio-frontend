@@ -1153,6 +1153,23 @@ export default function Portfolio() {
         experiments: t('caseStudies.packt.experimentsData', { returnObjects: true }) || []
       },
       {
+        id: 'audio',
+        title: t('caseStudies.audio.title'),
+        projectTitle: t('caseStudies.audio.projectTitle'),
+        clientName: t('caseStudies.audio.clientName'),
+        badgeText: t('caseStudies.audio.badge'),
+        category: t('caseStudies.audio.category'),
+        problem: t('caseStudies.audio.problem'),
+        actions: t('caseStudies.audio.actions'),
+        results: [
+          { metric: t("caseStudies.audio.results.ctr"), value: "+16%" },
+          { metric: t("caseStudies.audio.results.cpa"), value: "−14%" },
+          { metric: t("caseStudies.audio.results.variants"), value: "12+" },
+          { metric: t("caseStudies.audio.results.scale"), value: t("caseStudies.audio.results.stable") }
+        ],
+        notionLink: "https://www.notion.so/Scaling-User-Acquisition-2eb5649dae6380b98236eeafece26268?source=copy_link"
+      },
+      {
         id: 'jrb',
         title: t('caseStudies.jrb.title'),
         projectTitle: t('caseStudies.jrb.projectTitle'),
@@ -1169,23 +1186,6 @@ export default function Portfolio() {
         ],
         notionLink: "https://www.notion.so/30-Day-Conversion-Revenue-Lift-Roadmap-2e75649dae63804895b3fae043d1993a?source=copy_link",
         experiments: t('caseStudies.jrb.experimentsData', { returnObjects: true }) || []
-      },
-      {
-        id: 'audio',
-        title: t('caseStudies.audio.title'),
-        projectTitle: t('caseStudies.audio.projectTitle'),
-        clientName: t('caseStudies.audio.clientName'),
-        badgeText: t('caseStudies.audio.badge'),
-        category: t('caseStudies.audio.category'),
-        problem: t('caseStudies.audio.problem'),
-        actions: t('caseStudies.audio.actions'),
-        results: [
-          { metric: t("caseStudies.audio.results.ctr"), value: "+16%" },
-          { metric: t("caseStudies.audio.results.cpa"), value: "−14%" },
-          { metric: t("caseStudies.audio.results.variants"), value: "12+" },
-          { metric: t("caseStudies.audio.results.scale"), value: t("caseStudies.audio.results.stable") }
-        ],
-        notionLink: "https://www.notion.so/Scaling-User-Acquisition-2eb5649dae6380b98236eeafece26268?source=copy_link"
       }
     ];
 
