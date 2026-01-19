@@ -76,18 +76,34 @@ const MusicPlayer = ({ t }) => {
 
   // Attempt Autoplay on mount
   useEffect(() => {
-    if (audioRef.current) {
-      audioRef.current.volume = volume;
-      const playPromise = audioRef.current.play();
-      if (playPromise !== undefined) {
-        playPromise.then(_ => {
+    const playAudio = async () => {
+      if (audioRef.current) {
+        audioRef.current.volume = volume;
+        try {
+          await audioRef.current.play();
           setIsPlaying(true);
-        })
-          .catch(error => {
-            setIsPlaying(false);
-          });
+        } catch (err) {
+          setIsPlaying(false);
+          // If autoplay fails, wait for user interaction
+          const enableAudio = async () => {
+            if (audioRef.current) {
+              try {
+                await audioRef.current.play();
+                setIsPlaying(true);
+                document.removeEventListener('click', enableAudio);
+                document.removeEventListener('keydown', enableAudio);
+              } catch (e) {
+                // Keep listening if it fails again (unlikely on interaction)
+              }
+            }
+          };
+          document.addEventListener('click', enableAudio);
+          document.addEventListener('keydown', enableAudio);
+        }
       }
-    }
+    };
+
+    playAudio();
   }, []);
 
   return (
