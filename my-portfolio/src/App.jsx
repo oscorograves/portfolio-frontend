@@ -591,7 +591,7 @@ export default function Portfolio() {
                   { value: "2+", label: t('stats.yearsExp'), page: 'experience' },
                   { value: "$41K", label: t('stats.adSpend'), page: 'metrics' },
                   { value: "12+", label: t('stats.campaigns'), page: 'metrics' },
-                  { value: "4.3×", label: t('stats.roi'), page: 'metrics' }
+                  { value: `${Math.max(...fallbackMetrics.map(m => m.roi))}%`, label: t('stats.roi'), page: 'metrics' }
                 ]}
               />
             </motion.div>
@@ -660,7 +660,7 @@ export default function Portfolio() {
                   window.scrollTo({ top: 0, behavior: 'smooth' });
                 }}
               >
-                <CountUp end={4.3} duration={2.5} suffix="×" decimals={1} enableScrollSpy scrollSpyOnce />
+                <CountUp end={Math.max(...fallbackMetrics.map(m => m.roi))} duration={2.5} suffix="%" enableScrollSpy scrollSpyOnce />
               </motion.div>
               <div className="text-sm md:text-base text-blue-100 dark:text-gray-400">{t('stats.roi')}</div>
             </div>
@@ -1512,6 +1512,13 @@ export default function Portfolio() {
                 <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2">{t('metricsPage.avgRoi')}</div>
                 <div className="text-3xl font-bold text-gray-900 dark:text-white">{avgROI.toFixed(0)}%</div>
               </motion.div>
+            </motion.div>
+
+            {/* ROI Formula */}
+            <motion.div variants={itemVariants} className="mb-8 flex justify-end">
+              <div className="text-sm text-gray-500 dark:text-gray-400 font-mono bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded inline-block">
+                ROI = (Revenue - Cost) ÷ Cost × 100
+              </div>
             </motion.div>
 
             {/* Filters */}
