@@ -15,7 +15,7 @@ const WipModal = React.lazy(() => import('./components/WipModal'));
 // HARDCODED FALLBACK DATA
 const fallbackMetrics = [
   { client: 'Pocket FM', channel: 'Meta', spend: 6000, ctr: 2.6, cpl: 12.80, cvr: 4.2, roi: 250 },
-  { client: 'Packt', channel: 'Meta', spend: 3500, ctr: 2.3, cpl: 23.00, cvr: 5.8, roi: 430 },
+  { client: 'Packt', channel: 'Meta', spend: 3500, ctr: 2.3, cpl: 23.00, cvr: 5.8, roi: 329 },
   { client: 'Intertek', channel: 'Google Ads', spend: 8500, ctr: 2.2, cpl: 15.30, cvr: 6.5, roi: 320 },
   { client: 'Pocket FM', channel: 'Google Ads', spend: 5200, ctr: 2.7, cpl: 16.90, cvr: 4.8, roi: 240 },
   { client: 'B2B SaaS', channel: 'LinkedIn', spend: 4800, ctr: 1.4, cpl: 58.20, cvr: 9.2, roi: 380 },
