@@ -1,0 +1,13 @@
+<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="2048" height="2048" fill="none" stroke="#2563eb" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Increased stroke width relative to viewbox? No, viewBox is small (24), so stroke 1.5 is huge if I only scale width/height. width/height scales the viewport. 
+       Actually, if I set width/height to 2048 but viewBox stays 0 0 24 24, the stroke-width of 1.5 (in user units) will scale up massively and look correct.
+       Wait, stroke-width is in user units (24px coordinate system). 1.5/24 is thick. 
+       If I render at 2048px, the stroke will be 1.5 * (2048/24) pixels wide. That is consistent scaling.
+       However, the user might want a filled shape? The code says `fill="none" stroke="currentColor"`.
+       So lines are correct.
+  -->
+  <path d="M12 3L2 12h3l7-6 7 6h3L12 3z" />
+  <path d="M12 3v10l-4 4-2-3 6-11z" />
+  <path d="M12 3v10l4 4 2-3-6-11z" />
+  <path d="M12 13l-4 4h8l-4-4z" />
+</svg>
