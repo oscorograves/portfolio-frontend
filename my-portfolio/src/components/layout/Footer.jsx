@@ -20,17 +20,21 @@ const Footer = ({ t }) => {
                         {t('footer.offClock')}
                     </span>
                     <div className="flex items-center gap-6">
-                        <motion.div whileHover={{ y: -2 }} className="flex flex-col items-center gap-1 group cursor-default">
+                        <motion.div whileHover={{ y: -2 }} className="flex flex-col items-center gap-1 group cursor-default relative">
                             <Film className="w-4 h-4 text-gray-400 group-hover:text-amber-600 dark:text-gray-600 dark:group-hover:text-yellow-400 transition-colors" />
+                            <span className="text-[10px] font-mono text-gray-500 dark:text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity absolute -bottom-5 left-1/2 -translate-x-1/2 whitespace-nowrap">{t('footer.hobbies.film')}</span>
                         </motion.div>
-                        <motion.div whileHover={{ y: -2 }} className="flex flex-col items-center gap-1 group cursor-default">
+                        <motion.div whileHover={{ y: -2 }} className="flex flex-col items-center gap-1 group cursor-default relative">
                             <Camera className="w-4 h-4 text-gray-400 group-hover:text-amber-600 dark:text-gray-600 dark:group-hover:text-yellow-400 transition-colors" />
+                            <span className="text-[10px] font-mono text-gray-500 dark:text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity absolute -bottom-5 left-1/2 -translate-x-1/2 whitespace-nowrap">{t('footer.hobbies.photography')}</span>
                         </motion.div>
-                        <motion.div whileHover={{ y: -2 }} className="flex flex-col items-center gap-1 group cursor-default">
+                        <motion.div whileHover={{ y: -2 }} className="flex flex-col items-center gap-1 group cursor-default relative">
                             <Plane className="w-4 h-4 text-gray-400 group-hover:text-amber-600 dark:text-gray-600 dark:group-hover:text-yellow-400 transition-colors" />
+                            <span className="text-[10px] font-mono text-gray-500 dark:text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity absolute -bottom-5 left-1/2 -translate-x-1/2 whitespace-nowrap">{t('footer.hobbies.travel')}</span>
                         </motion.div>
-                        <motion.div whileHover={{ y: -2 }} className="flex flex-col items-center gap-1 group cursor-default">
+                        <motion.div whileHover={{ y: -2 }} className="flex flex-col items-center gap-1 group cursor-default relative">
                             <Book className="w-4 h-4 text-gray-400 group-hover:text-amber-600 dark:text-gray-600 dark:group-hover:text-yellow-400 transition-colors" />
+                            <span className="text-[10px] font-mono text-gray-500 dark:text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity absolute -bottom-5 left-1/2 -translate-x-1/2 whitespace-nowrap">{t('footer.hobbies.journaling')}</span>
                         </motion.div>
                     </div>
                 </div>
