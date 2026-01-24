@@ -42,8 +42,8 @@ const DigitalSkills = ({ t }) => {
                                 <motion.span
                                     key={skill}
                                     variants={itemVariants}
-                                    whileHover={{ scale: 1.1, backgroundColor: "#f3f4f6", color: "#111827" }}
-                                    className="px-3 py-1.5 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded text-sm text-gray-700 dark:text-gray-300 cursor-default"
+                                    whileHover={{ scale: 1.1 }}
+                                    className="px-3 py-1.5 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded text-sm text-gray-700 dark:text-gray-300 cursor-default hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white transition-colors"
                                 >
                                     {skill}
                                 </motion.span>
@@ -56,8 +56,8 @@ const DigitalSkills = ({ t }) => {
                             <div className="flex justify-between items-center">
                                 <span className="text-sm text-gray-700 dark:text-gray-300">{t('experience.languageList.hindi')}</span>
                                 <motion.span
-                                    whileHover={{ scale: 1.1, backgroundColor: "#f3f4f6", color: "#111827" }}
-                                    className="text-xs text-gray-600 dark:text-gray-400 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 px-2 py-1 rounded cursor-default"
+                                    whileHover={{ scale: 1.1 }}
+                                    className="text-xs text-gray-600 dark:text-gray-400 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 px-2 py-1 rounded cursor-default hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white transition-colors"
                                 >
                                     {t('experience.languageLevels.native')}
                                 </motion.span>
@@ -65,8 +65,8 @@ const DigitalSkills = ({ t }) => {
                             <div className="flex justify-between items-center">
                                 <span className="text-sm text-gray-700 dark:text-gray-300">{t('experience.languageList.english')}</span>
                                 <motion.span
-                                    whileHover={{ scale: 1.1, backgroundColor: "#f3f4f6", color: "#111827" }}
-                                    className="text-xs text-gray-600 dark:text-gray-400 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 px-2 py-1 rounded cursor-default"
+                                    whileHover={{ scale: 1.1 }}
+                                    className="text-xs text-gray-600 dark:text-gray-400 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 px-2 py-1 rounded cursor-default hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white transition-colors"
                                 >
                                     {t('experience.languageLevels.c1')}
                                 </motion.span>
@@ -74,14 +74,12 @@ const DigitalSkills = ({ t }) => {
                             </div>
                             <div className="flex justify-between items-center">
                                 <span className="text-sm text-gray-700 dark:text-gray-300">{t('experience.languageList.dutch')}</span>
-                                {/* UPDATED DUTCH SKILL */}
                                 <motion.span
-                                    whileHover={{ scale: 1.1, backgroundColor: "#f3f4f6", color: "#111827" }}
-                                    className="text-xs text-gray-600 dark:text-gray-400 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 px-2 py-1 rounded cursor-default"
+                                    whileHover={{ scale: 1.1 }}
+                                    className="text-xs text-gray-600 dark:text-gray-400 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 px-2 py-1 rounded cursor-default hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white transition-colors"
                                 >
                                     {t('experience.languageLevels.a2')}
                                 </motion.span>
-
                             </div>
                         </div>
                     </motion.div>
