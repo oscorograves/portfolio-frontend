@@ -7,7 +7,7 @@ import useMousePosition from './hooks/useMousePosition';
 // Layout
 import NavBar from './components/layout/NavBar';
 import Footer from './components/layout/Footer';
-import MusicPlayer from './components/layout/MusicPlayer';
+
 
 // Animations
 import FireflyBackground from './components/animations/FireflyBackground';
@@ -131,7 +131,7 @@ export default function Portfolio() {
       </div>
 
       <Footer t={t} />
-      <MusicPlayer t={t} />
+
 
       {/* Modals */}
       <Suspense fallback={null}>

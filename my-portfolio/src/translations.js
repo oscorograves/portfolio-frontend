@@ -30,10 +30,7 @@ export const translations = {
             campaigns: "Campaigns Run",
             roi: "Highest ROI"
         },
-        music: {
-            title: "Portfolio Mix",
-            artist: "Kanishk Singh"
-        },
+
         featuredWork: {
             title: "Featured Work",
             subtitle: "Growth & GTM",
@@ -367,10 +364,7 @@ export const translations = {
             campaigns: "Campagnes Gedraaid",
             roi: "Hoogste ROI"
         },
-        music: {
-            title: "Portfolio Mix",
-            artist: "Kanishk Singh"
-        },
+
         featuredWork: {
             title: "Uitgelicht Werk",
             subtitle: "Groei & GTM",
@@ -705,10 +699,7 @@ export const translations = {
             campaigns: "Durchgeführte Kampagnen",
             roi: "Höchster ROI"
         },
-        music: {
-            title: "Portfolio Mix",
-            artist: "Kanishk Singh"
-        },
+
         featuredWork: {
             title: "Ausgewählte Arbeiten",
             subtitle: "Wachstum & GTM",
