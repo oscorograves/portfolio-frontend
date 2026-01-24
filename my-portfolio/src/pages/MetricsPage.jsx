@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import Resources from '../components/sections/Resources';
 
 const itemVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -21,18 +22,46 @@ const containerVariants = {
 };
 
 const MetricsPage = ({ t, fallbackMetrics, isDarkMode }) => {
-    // Aggregate Metrics Logic (Simplified for static display)
-    const totalSpend = fallbackMetrics.reduce((acc, curr) => acc + curr.spend, 0);
-    const avgCTR = fallbackMetrics.reduce((acc, curr) => acc + curr.ctr, 0) / fallbackMetrics.length;
-    const avgCVR = fallbackMetrics.reduce((acc, curr) => acc + curr.cvr, 0) / fallbackMetrics.length;
-    const avgROI = fallbackMetrics.reduce((acc, curr) => acc + curr.roi, 0) / fallbackMetrics.length;
+    const [selectedChannel, setSelectedChannel] = React.useState('All');
+
+    // Filter metrics based on selection
+    const filteredMetrics = selectedChannel === 'All'
+        ? fallbackMetrics
+        : fallbackMetrics.filter(m => m.channel === selectedChannel);
+
+    // Get unique channels
+    const channels = ['All', ...new Set(fallbackMetrics.map(m => m.channel))];
+
+    // Aggregate Metrics Logic (Dynamic based on filter)
+    const totalSpend = filteredMetrics.reduce((acc, curr) => acc + curr.spend, 0);
+    const avgCTR = filteredMetrics.length ? filteredMetrics.reduce((acc, curr) => acc + curr.ctr, 0) / filteredMetrics.length : 0;
+    const avgCVR = filteredMetrics.length ? filteredMetrics.reduce((acc, curr) => acc + curr.cvr, 0) / filteredMetrics.length : 0;
+    const avgROI = filteredMetrics.length ? filteredMetrics.reduce((acc, curr) => acc + curr.roi, 0) / filteredMetrics.length : 0;
 
     return (
         <div className="pt-20 min-h-screen transition-colors duration-300">
             <div className="max-w-6xl mx-auto px-8 py-12">
-                <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-8 pb-4 border-b-2 border-amber-600 dark:border-yellow-400">
-                    {t('metricsPage.title')}
-                </h1>
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4 border-b-2 border-amber-600 dark:border-yellow-400 pb-4">
+                    <h1 className="text-4xl font-bold text-gray-900 dark:text-white">
+                        {t('metricsPage.title')}
+                    </h1>
+
+                    {/* Filter Buttons */}
+                    <div className="flex flex-wrap gap-2">
+                        {channels.map(channel => (
+                            <button
+                                key={channel}
+                                onClick={() => setSelectedChannel(channel)}
+                                className={`px-4 py-1.5 rounded-full text-sm font-mono border transition-all ${selectedChannel === channel
+                                        ? 'bg-amber-600 dark:bg-yellow-400 text-white dark:text-gray-900 border-amber-600 dark:border-yellow-400 font-bold'
+                                        : 'bg-white/50 dark:bg-gray-800/50 text-gray-600 dark:text-gray-400 border-gray-300 dark:border-gray-700 hover:border-amber-500 dark:hover:border-yellow-300'
+                                    }`}
+                            >
+                                {channel === 'All' ? t('metricsPage.filters.all') : channel}
+                            </button>
+                        ))}
+                    </div>
+                </div>
 
                 <motion.div
                     className="space-y-8"
@@ -80,7 +109,7 @@ const MetricsPage = ({ t, fallbackMetrics, isDarkMode }) => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {fallbackMetrics.map((row, index) => (
+                                    {filteredMetrics.map((row, index) => (
                                         <tr key={index} className="border-b border-gray-200 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
                                             <td className="px-6 py-4 font-medium text-gray-900 dark:text-white">{row.client}</td>
                                             <td className="px-6 py-4 text-gray-600 dark:text-gray-400">{row.channel}</td>
@@ -124,6 +153,9 @@ const MetricsPage = ({ t, fallbackMetrics, isDarkMode }) => {
                         </div>
                     </div>
                 </motion.div>
+
+                {/* Resources Section at Bottom of Metrics Page */}
+                <Resources t={t} />
             </div>
         </div>
     );
