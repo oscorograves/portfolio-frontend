@@ -69,7 +69,7 @@ export const translations = {
             emailMe: "Email Me",
             email: "Email Me",
             offClock: "Off the Clock",
-            rights: "All rights reserved.",
+            rights: "Open Source Architecture. UI/UX & Brand Identity © 2026 Kanishk Singh. Proprietary assets; unauthorized reproduction prohibited.",
             hobbies: {
                 film: "Film and Video Editing",
                 photography: "Photography",
@@ -406,7 +406,7 @@ export const translations = {
             emailMe: "Mail Mij",
             email: "Mail Mij",
             offClock: "Vrije Tijd",
-            rights: "Alle rechten voorbehouden.",
+            rights: "Open Source Architectuur. UI/UX & Huisstijl © 2026 Kanishk Singh. Eigendomsreserves; ongeoorloofde reproductie verboden.",
             hobbies: {
                 film: "Film- en Videomontage",
                 photography: "Fotografie",
@@ -744,7 +744,7 @@ export const translations = {
             emailMe: "Schreib mir",
             email: "Schreib mir",
             offClock: "Freizeit",
-            rights: "Alle Rechte vorbehalten.",
+            rights: "Open Source Architektur. UI/UX & Markenidentität © 2026 Kanishk Singh. Eigentumsrechtlich geschützte Assets; unbefugte Vervielfältigung verboten.",
             hobbies: {
                 film: "Film- und Videobearbeitung",
                 photography: "Fotografie",
