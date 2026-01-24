@@ -65,9 +65,11 @@ export const translations = {
         },
         footer: {
             connect: "Connect",
+            contact: "Contact",
             emailMe: "Email Me",
             email: "Email Me",
             offClock: "Off the Clock",
+            rights: "All rights reserved.",
             hobbies: {
                 film: "Film and Video Editing",
                 photography: "Photography",
@@ -400,9 +402,11 @@ export const translations = {
         },
         footer: {
             connect: "Verbinden",
+            contact: "Contact",
             emailMe: "Mail Mij",
             email: "Mail Mij",
             offClock: "Vrije Tijd",
+            rights: "Alle rechten voorbehouden.",
             hobbies: {
                 film: "Film- en Videomontage",
                 photography: "Fotografie",
@@ -736,9 +740,11 @@ export const translations = {
         },
         footer: {
             connect: "Verbinden",
+            contact: "Kontakt",
             emailMe: "Schreib mir",
             email: "Schreib mir",
             offClock: "Freizeit",
+            rights: "Alle Rechte vorbehalten.",
             hobbies: {
                 film: "Film- und Videobearbeitung",
                 photography: "Fotografie",
