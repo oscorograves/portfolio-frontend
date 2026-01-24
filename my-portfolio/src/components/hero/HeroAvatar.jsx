@@ -119,7 +119,7 @@ const HeroAvatar = ({ metrics = [], onNavigate }) => {
                     href="https://www.instagram.com/oscorograves/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="relative w-48 h-48 rounded-full overflow-hidden border-2 border-amber-200 dark:border-gray-800 bg-gray-900 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] z-10 group flex-shrink-0 cursor-pointer block hover:border-amber-600 dark:hover:border-yellow-400 transition-all outline-none"
+                    className="relative w-48 h-48 rounded-full overflow-hidden border-2 border-transparent dark:border-gray-800 bg-gray-900 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] z-10 group flex-shrink-0 cursor-pointer block hover:border-amber-600 dark:hover:border-yellow-400 transition-all outline-none"
                     style={{
                         WebkitTapHighlightColor: 'transparent',
                         transform: "translateZ(20px)" // Pop out effect
