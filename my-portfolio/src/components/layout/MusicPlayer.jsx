@@ -99,7 +99,7 @@ const MusicPlayer = ({ t }) => {
                 frameBorder="no"
                 allow="autoplay"
                 src={`https://w.soundcloud.com/player/?url=${encodeURIComponent(PLAYLIST_URL)}&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true`}
-                style={{ display: 'none' }} // Hide the default player
+                style={{ position: 'absolute', width: '1px', height: '1px', opacity: 0, pointerEvents: 'none', border: 'none' }} // Hide visual but keep in DOM for API
             ></iframe>
 
             {/* Custom Visual Player */}
