@@ -71,7 +71,7 @@ const HeroAvatar = ({ metrics = [], onNavigate }) => {
 
                 {/* --- 5. Interactive Reactor Ring (Replaces old ring) --- */}
                 <motion.div
-                    className="absolute -inset-8 rounded-full border border-blue-500/20 dark:border-yellow-400/20 border-dashed"
+                    className="absolute -inset-8 rounded-full border border-orange-500/20 dark:border-yellow-400/20 border-dashed"
                     animate={{ rotate: 360 }}
                     transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                     style={{ transformStyle: "preserve-3d", transform: "translateZ(-20px)" }}
@@ -86,7 +86,7 @@ const HeroAvatar = ({ metrics = [], onNavigate }) => {
                 {[...Array(6)].map((_, i) => (
                     <motion.div
                         key={i}
-                        className="absolute w-1 h-1 bg-blue-400 dark:bg-yellow-400 rounded-full"
+                        className="absolute w-1 h-1 bg-orange-400 dark:bg-yellow-400 rounded-full"
                         initial={{
                             x: Math.random() * 200 - 100,
                             y: Math.random() * 200 - 100,
@@ -119,7 +119,7 @@ const HeroAvatar = ({ metrics = [], onNavigate }) => {
                     href="https://www.instagram.com/oscorograves/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="relative w-48 h-48 rounded-full overflow-hidden border-2 border-blue-200 dark:border-gray-800 bg-gray-900 shadow-2xl z-10 group flex-shrink-0 cursor-pointer block hover:border-blue-600 dark:hover:border-yellow-400 transition-all outline-none"
+                    className="relative w-48 h-48 rounded-full overflow-hidden border-2 border-orange-200 dark:border-gray-800 bg-gray-900 shadow-2xl z-10 group flex-shrink-0 cursor-pointer block hover:border-orange-600 dark:hover:border-yellow-400 transition-all outline-none"
                     style={{
                         WebkitTapHighlightColor: 'transparent',
                         transform: "translateZ(20px)" // Pop out effect
@@ -153,7 +153,7 @@ const HeroAvatar = ({ metrics = [], onNavigate }) => {
                     >
                         {/* The Dot */}
                         <motion.div
-                            className="w-3 h-3 bg-blue-600 dark:bg-yellow-400 rounded-full shadow-lg shadow-blue-600/50 dark:shadow-yellow-400/50 ring-2 ring-white dark:ring-gray-900" // Added ring for contrast
+                            className="w-3 h-3 bg-orange-600 dark:bg-yellow-400 rounded-full shadow-lg shadow-orange-600/50 dark:shadow-yellow-400/50 ring-2 ring-white dark:ring-gray-900" // Added ring for contrast
                             animate={{ scale: [1, 1.2, 1] }}
                             transition={{ duration: 2, repeat: Infinity, delay: index * 0.5 }}
                         />
