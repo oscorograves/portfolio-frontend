@@ -53,8 +53,8 @@ const MetricsPage = ({ t, fallbackMetrics, isDarkMode }) => {
                                 key={channel}
                                 onClick={() => setSelectedChannel(channel)}
                                 className={`px-4 py-1.5 rounded-full text-sm font-mono border transition-all ${selectedChannel === channel
-                                        ? 'bg-amber-600 dark:bg-yellow-400 text-white dark:text-gray-900 border-amber-600 dark:border-yellow-400 font-bold'
-                                        : 'bg-white/50 dark:bg-gray-800/50 text-gray-600 dark:text-gray-400 border-gray-300 dark:border-gray-700 hover:border-amber-500 dark:hover:border-yellow-300'
+                                    ? 'bg-amber-600 dark:bg-yellow-400 text-white dark:text-gray-900 border-amber-600 dark:border-yellow-400 font-bold'
+                                    : 'bg-white/50 dark:bg-gray-800/50 text-gray-600 dark:text-gray-400 border-gray-300 dark:border-gray-700 hover:border-amber-500 dark:hover:border-yellow-300'
                                     }`}
                             >
                                 {channel === 'All' ? t('metricsPage.filters.all') : channel}
@@ -153,10 +153,10 @@ const MetricsPage = ({ t, fallbackMetrics, isDarkMode }) => {
                         </div>
                     </div>
                 </motion.div>
-
-                {/* Resources Section at Bottom of Metrics Page */}
-                <Resources t={t} />
             </div>
+
+            {/* Resources Section (Full Width Border) */}
+            <Resources t={t} />
         </div>
     );
 };
