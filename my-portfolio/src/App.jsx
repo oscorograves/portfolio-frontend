@@ -117,7 +117,7 @@ const MusicPlayer = ({ t }) => {
       <audio ref={audioRef} src="/song.mp3" loop autoPlay />
 
       {/* The Visual Player */}
-      <div className="bg-gray-800/90 dark:bg-gray-900/50 backdrop-blur-lg text-white border border-white/10 rounded-full px-3 py-2 shadow-2xl flex items-center justify-between gap-4">
+      <div className="bg-gray-800/90 dark:bg-gray-900/50 backdrop-blur-lg text-white border border-white/10 rounded-full px-3 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex items-center justify-between gap-4">
 
         {/* Song Info */}
         <div className="flex items-center gap-3 overflow-hidden">
@@ -185,7 +185,7 @@ const FireflyBackground = () => {
         <motion.div
           key={p.id}
           // Orange in light mode, Yellow (Gold) in dark mode
-          className="absolute rounded-full bg-orange-400 dark:bg-yellow-400 shadow-[0_0_20px_rgba(251,146,60,0.8)] dark:shadow-[0_0_20px_rgba(250,204,21,0.8)]"
+          className="absolute rounded-full bg-amber-400 dark:bg-yellow-400 shadow-[0_0_20px_rgba(251,146,60,0.8)] dark:shadow-[0_0_20px_rgba(250,204,21,0.8)]"
           style={{
             left: `${p.left}%`,
             bottom: `${p.bottom}%`,
@@ -232,7 +232,7 @@ const CustomCursor = ({ isDarkMode }) => {
     <>
       {/* Small Dot */}
       <motion.div
-        className={`fixed top-0 left-0 w-3 h-3 rounded-full pointer-events-none z-[99999] hidden md:block ${isDarkMode ? 'bg-yellow-400' : 'bg-orange-600'
+        className={`fixed top-0 left-0 w-3 h-3 rounded-full pointer-events-none z-[99999] hidden md:block ${isDarkMode ? 'bg-yellow-400' : 'bg-amber-600'
           }`}
         animate={{ x: mousePosition.x - 6, y: mousePosition.y - 6 }}
         transition={{ type: "tween", ease: "backOut", duration: 0 }}
@@ -240,7 +240,7 @@ const CustomCursor = ({ isDarkMode }) => {
 
       {/* Large Ring */}
       <motion.div
-        className={`fixed top-0 left-0 w-8 h-8 border-2 rounded-full pointer-events-none z-[99999] hidden md:block ${isDarkMode ? 'border-yellow-400' : 'border-orange-600'
+        className={`fixed top-0 left-0 w-8 h-8 border-2 rounded-full pointer-events-none z-[99999] hidden md:block ${isDarkMode ? 'border-yellow-400' : 'border-amber-600'
           }`}
         animate={{ x: mousePosition.x - 16, y: mousePosition.y - 16 }}
         transition={{
@@ -311,7 +311,7 @@ const OrigamiCraneLogo = () => {
       {/* 2. The Floating Crane SVG */}
       <motion.svg
         viewBox="0 0 24 24"
-        className="relative z-10 w-8 h-8 text-orange-600 dark:text-yellow-400"
+        className="relative z-10 w-8 h-8 text-amber-600 dark:text-yellow-400"
         fill="none"
         stroke="currentColor"
         strokeWidth="1.5"
@@ -365,7 +365,7 @@ export default function Portfolio() {
     const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
 
     return (
-      <nav className="fixed top-0 left-0 right-0 bg-white/50 dark:bg-gray-900/50 backdrop-blur-lg border-b border-white/20 dark:border-gray-800 z-[1000] transition-colors duration-300">
+      <nav className="fixed top-0 left-0 right-0 bg-white/50 dark:bg-gray-900/50 backdrop-blur-lg border-b border-gray-900 dark:border-gray-800 z-[1000] transition-colors duration-300">
         <div className="max-w-6xl mx-auto px-4 md:px-8 py-4">
           <div className="flex items-center justify-between">
 
@@ -399,7 +399,7 @@ export default function Portfolio() {
                   {currentPage === page && (
                     <motion.div
                       layoutId="nav-pill"
-                      className="absolute inset-0 bg-orange-600 dark:bg-yellow-400 rounded"
+                      className="absolute inset-0 bg-amber-600 dark:bg-yellow-400 rounded"
                       transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                       style={{ zIndex: 0 }} // Behind the text
                     />
@@ -428,7 +428,7 @@ export default function Portfolio() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
-                    className="absolute right-0 mt-2 w-32 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg shadow-xl overflow-hidden z-50"
+                    className="absolute right-0 mt-2 w-32 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] overflow-hidden z-50"
                   >
                     {[
                       { code: 'en', label: 'English' },
@@ -442,7 +442,7 @@ export default function Portfolio() {
                           setIsLangMenuOpen(false);
                         }}
                         className={`w-full text-left px-4 py-2 text-sm transition-colors hover:bg-gray-100 dark:hover:bg-gray-800 ${language === lang.code
-                          ? 'text-orange-600 dark:text-yellow-400 font-bold'
+                          ? 'text-amber-600 dark:text-yellow-400 font-bold'
                           : 'text-gray-700 dark:text-gray-300'
                           }`}
                       >
@@ -493,8 +493,8 @@ export default function Portfolio() {
                         setIsMenuOpen(false); // Close menu after clicking
                       }
                     }}
-                    className={`w-full text-left px-4 py-3 text-sm font-medium rounded-lg transition-all cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 ${currentPage === page
-                      ? 'bg-orange-600 dark:bg-yellow-400 text-white dark:text-gray-900'
+                    className={`w-full text-left px-4 py-3 text-sm font-medium rounded-lg transition-all cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 font-mono ${currentPage === page
+                      ? 'bg-amber-600 dark:bg-yellow-400 text-white dark:text-gray-900'
                       : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800'
                       }`}
                   >
@@ -543,7 +543,7 @@ export default function Portfolio() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => setCurrentPage('case-studies')}
-                  className="px-5 py-2.5 bg-orange-600 dark:bg-yellow-400 text-white dark:text-gray-900 text-sm font-medium rounded hover:bg-orange-700 dark:hover:bg-yellow-300 transition-all cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-600 focus-visible:ring-offset-2"
+                  className="px-5 py-2.5 bg-amber-600 dark:bg-yellow-400 text-white dark:text-gray-900 text-sm font-medium rounded hover:bg-amber-700 dark:hover:bg-yellow-300 transition-all cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-600 focus-visible:ring-offset-2 font-mono shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
                 >
                   {t('hero.viewCaseStudies')}
                 </motion.button>
@@ -552,7 +552,7 @@ export default function Portfolio() {
                   whileTap={{ scale: 0.95 }}
                   href="/resume.pdf"
                   download="Kanishk_Singh_Resume.pdf"
-                  className="px-5 py-2.5 border-2 border-orange-600 dark:border-yellow-400 text-orange-600 dark:text-yellow-400 text-sm font-medium rounded hover:bg-orange-50 dark:hover:bg-gray-900 transition-all flex items-center justify-center gap-2 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-600 focus-visible:ring-offset-2"
+                  className="px-5 py-2.5 border-2 border-amber-600 dark:border-yellow-400 text-amber-600 dark:text-yellow-400 text-sm font-medium rounded hover:bg-amber-50 dark:hover:bg-gray-900 transition-all flex items-center justify-center gap-2 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-600 focus-visible:ring-offset-2 font-mono shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
                 >
                   <Download className="w-4 h-4" />
                   {t('hero.downloadCV')}
@@ -564,19 +564,19 @@ export default function Portfolio() {
                 className="flex flex-wrap gap-6 text-sm text-gray-600 dark:text-gray-400 border-t border-gray-200 dark:border-gray-800 pt-6"
               >
                 <div className="flex items-center gap-2">
-                  <Mail className="w-4 h-4 text-orange-600 dark:text-yellow-400" />
+                  <Mail className="w-4 h-4 text-amber-600 dark:text-yellow-400" />
                   <a href="mailto:oscoro.graves@gmail.com" className="hover:text-black dark:hover:text-white transition-colors">
                     oscoro.graves@gmail.com
                   </a>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Linkedin className="w-4 h-4 text-orange-600 dark:text-yellow-400" />
+                  <Linkedin className="w-4 h-4 text-amber-600 dark:text-yellow-400" />
                   <a href="https://www.linkedin.com/in/kanishk-singh-ab90b2203/" target="_blank" rel="noopener noreferrer" className="hover:text-black dark:hover:text-white transition-colors">
                     LinkedIn
                   </a>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Phone className="w-4 h-4 text-orange-600 dark:text-yellow-400" />
+                  <Phone className="w-4 h-4 text-amber-600 dark:text-yellow-400" />
                   <a href="tel:+918299406042" className="hover:text-black dark:hover:text-white transition-colors">
                     +91 8299406042
                   </a>
@@ -600,14 +600,14 @@ export default function Portfolio() {
       </section>
 
       {/* Key Metrics Bar */}
-      <div className="bg-gradient-to-r from-orange-600 via-red-600 to-orange-600 dark:bg-gray-900 text-white py-12 transition-colors duration-300">
+      <div className="bg-gradient-to-r from-amber-600 via-yellow-500 to-amber-600 dark:bg-gray-900 text-white py-12 transition-colors duration-300">
         <div className="max-w-6xl mx-auto px-4 md:px-8">
           {/* CHANGED: grid-cols-2 for mobile, md:grid-cols-4 for desktop */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center">
 
             <div className="p-2">
               <motion.div
-                className="text-3xl md:text-4xl font-bold mb-1 inline-block cursor-pointer"
+                className="text-3xl md:text-4xl font-bold mb-1 inline-block cursor-pointer font-mono"
                 whileHover={{ scale: 1.2 }}
                 transition={{ type: "spring", stiffness: 300 }}
                 onClick={() => {
@@ -622,7 +622,7 @@ export default function Portfolio() {
 
             <div className="p-2">
               <motion.div
-                className="text-3xl md:text-4xl font-bold mb-1 inline-block cursor-pointer"
+                className="text-3xl md:text-4xl font-bold mb-1 inline-block cursor-pointer font-mono"
                 whileHover={{ scale: 1.2 }}
                 transition={{ type: "spring", stiffness: 300 }}
                 onClick={() => {
@@ -637,7 +637,7 @@ export default function Portfolio() {
 
             <div className="p-2">
               <motion.div
-                className="text-3xl md:text-4xl font-bold mb-1 inline-block cursor-pointer"
+                className="text-3xl md:text-4xl font-bold mb-1 inline-block cursor-pointer font-mono"
                 whileHover={{ scale: 1.2 }}
                 transition={{ type: "spring", stiffness: 300 }}
                 onClick={() => {
@@ -652,7 +652,7 @@ export default function Portfolio() {
 
             <div className="p-2">
               <motion.div
-                className="text-3xl md:text-4xl font-bold mb-1 inline-block cursor-pointer"
+                className="text-3xl md:text-4xl font-bold mb-1 inline-block cursor-pointer font-mono"
                 whileHover={{ scale: 1.2 }}
                 transition={{ type: "spring", stiffness: 300 }}
                 onClick={() => {
@@ -672,10 +672,10 @@ export default function Portfolio() {
       {/* Featured Achievement */}
       <section className="border-b border-gray-300 dark:border-gray-800 transition-colors duration-300">
         <div className="max-w-6xl mx-auto px-8 py-12">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-orange-600 dark:border-yellow-400">{t('featuredWork.title')}</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-amber-600 dark:border-yellow-400">{t('featuredWork.title')}</h2>
           <motion.div
 
-            className="bg-gradient-to-br from-gray-50/50 to-gray-100/50 dark:from-gray-800/60 dark:to-gray-900/60 backdrop-blur-md border border-gray-200 dark:border-gray-700 rounded-xl p-8 hover:border-orange-600 dark:hover:border-yellow-400 transition-all group cursor-pointer outline outline-2 outline-offset-4 outline-gray-200"
+            className="bg-gradient-to-br from-gray-50/50 to-gray-100/50 dark:from-gray-800/60 dark:to-gray-900/60 backdrop-blur-md border border-gray-200 dark:border-gray-700 rounded-xl p-8 hover:border-amber-600 dark:hover:border-yellow-400 transition-all group cursor-pointer outline outline-2 outline-offset-4 outline-gray-900 outline-2"
             onClick={() => {
               setCurrentPage('case-studies');
               setTimeout(() => {
@@ -699,7 +699,7 @@ export default function Portfolio() {
                 </div>
                 <p className="text-gray-600 dark:text-gray-300 text-sm">{t('featuredWork.projectDesc')}</p>
               </div>
-              <ChevronRight className="w-6 h-6 text-gray-400 group-hover:text-orange-600 dark:group-hover:text-yellow-400 group-hover:translate-x-1 transition-all" />
+              <ChevronRight className="w-6 h-6 text-gray-400 group-hover:text-amber-600 dark:group-hover:text-yellow-400 group-hover:translate-x-1 transition-all" />
             </div>
             {/* Mobile: 2 columns, Desktop: 4 columns */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 pt-6 border-t border-gray-100 dark:border-gray-700">
@@ -722,7 +722,7 @@ export default function Portfolio() {
       {/* What I Offer */}
       <section className="border-b border-gray-300 dark:border-gray-800 transition-colors duration-300">
         <div className="max-w-6xl mx-auto px-8 py-12">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-orange-600 dark:border-yellow-400">{t('whatIOffer.title')}</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-amber-600 dark:border-yellow-400">{t('whatIOffer.title')}</h2>
           <motion.div
             className="grid md:grid-cols-3 gap-6"
             initial="hidden"
@@ -750,10 +750,10 @@ export default function Portfolio() {
               <motion.div
                 key={i}
                 variants={itemVariants}
-                className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded-xl p-6 hover:border-orange-600 dark:hover:border-yellow-400 transition-all outline outline-2 outline-offset-4 outline-gray-200"
+                className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded-xl p-6 hover:border-amber-600 dark:hover:border-yellow-400 transition-all outline outline-2 outline-offset-4 outline-gray-900 outline-2"
                 whileHover={{ y: -5 }}
               >
-                <div className="w-10 h-10 bg-orange-600 dark:bg-yellow-400 rounded-lg flex items-center justify-center text-white dark:text-gray-900 mb-4">
+                <div className="w-10 h-10 bg-amber-600 dark:bg-yellow-400 rounded-lg flex items-center justify-center text-white dark:text-gray-900 mb-4">
                   {service.icon}
                 </div>
                 <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">{service.title}</h3>
@@ -767,7 +767,7 @@ export default function Portfolio() {
       {/* Core Competencies */}
       <section className="border-b border-gray-300 dark:border-gray-800 transition-colors duration-300">
         <div className="max-w-6xl mx-auto px-8 py-12">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-orange-600 dark:border-yellow-400">{t('experience.skills')}</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-amber-600 dark:border-yellow-400">{t('experience.skills')}</h2>
           <motion.div
             className="grid md:grid-cols-3 gap-6"
             initial="hidden"
@@ -778,9 +778,9 @@ export default function Portfolio() {
             {(() => {
               const icons = { Target: <Megaphone className="w-5 h-5" />, TrendingUp: <Rocket className="w-5 h-5" />, LineChart: <PieChart className="w-5 h-5" /> };
               return t('experience.competencies', { returnObjects: true })?.map((competency, i) => (
-                <motion.div key={i} variants={itemVariants} className="bg-white/40 dark:bg-gray-800/40 backdrop-blur-md border border-gray-300 dark:border-gray-700 rounded p-5 hover:border-orange-600 dark:hover:border-yellow-400 transition-all outline outline-2 outline-offset-4 outline-gray-200" whileHover={{ y: -5 }}>
+                <motion.div key={i} variants={itemVariants} className="bg-white/40 dark:bg-gray-800/40 backdrop-blur-md border border-gray-300 dark:border-gray-700 rounded p-5 hover:border-amber-600 dark:hover:border-yellow-400 transition-all outline outline-2 outline-offset-4 outline-gray-900 outline-2" whileHover={{ y: -5 }}>
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-9 h-9 bg-orange-600 dark:bg-yellow-400 rounded flex items-center justify-center text-white dark:text-gray-900">{icons[competency.icon]}</div>
+                    <div className="w-9 h-9 bg-amber-600 dark:bg-yellow-400 rounded flex items-center justify-center text-white dark:text-gray-900">{icons[competency.icon]}</div>
                     <h3 className="font-semibold text-gray-900 dark:text-white text-base">{competency.title}</h3>
                   </div>
                   <ul className="space-y-1.5">
@@ -808,7 +808,7 @@ export default function Portfolio() {
       {/* Digital Skills */}
       <section className="transition-colors duration-300">
         <div className="max-w-6xl mx-auto px-8 py-12">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-orange-600 dark:border-yellow-400">{t('experience.digitalSkills')}</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-amber-600 dark:border-yellow-400">{t('experience.digitalSkills')}</h2>
           <motion.div
             className="grid md:grid-cols-2 gap-8"
             initial="hidden"
@@ -878,7 +878,7 @@ export default function Portfolio() {
   const ExperiencePage = () => (
     <div className="pt-20 min-h-screen transition-colors duration-300">
       <div className="max-w-6xl mx-auto px-8 py-12">
-        <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-8 pb-4 border-b-2 border-orange-600 dark:border-yellow-400">
+        <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-8 pb-4 border-b-2 border-amber-600 dark:border-yellow-400">
           {t('experience.title')}
         </h1>
 
@@ -892,7 +892,7 @@ export default function Portfolio() {
           {/* Pocket FM */}
           <motion.div
             variants={itemVariants}
-            className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-6 outline outline-2 outline-offset-4 outline-gray-200"
+            className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-6 outline outline-2 outline-offset-4 outline-gray-900 outline-2"
             whileHover={{ y: -5, borderColor: isDarkMode ? '#facc15' : '#ea580c', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
           >
@@ -933,7 +933,7 @@ export default function Portfolio() {
           {/* Intertek */}
           <motion.div
             variants={itemVariants}
-            className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-6 outline outline-2 outline-offset-4 outline-gray-200"
+            className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-6 outline outline-2 outline-offset-4 outline-gray-900 outline-2"
             whileHover={{ y: -5, borderColor: isDarkMode ? '#facc15' : '#ea580c', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
           >
@@ -971,7 +971,7 @@ export default function Portfolio() {
           {/* Tradebuilder */}
           <motion.div
             variants={itemVariants}
-            className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-6 outline outline-2 outline-offset-4 outline-gray-200"
+            className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-6 outline outline-2 outline-offset-4 outline-gray-900 outline-2"
             whileHover={{ y: -5, borderColor: isDarkMode ? '#facc15' : '#ea580c', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
           >
@@ -1009,7 +1009,7 @@ export default function Portfolio() {
           {/* ABP */}
           <motion.div
             variants={itemVariants}
-            className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-6 outline outline-2 outline-offset-4 outline-gray-200"
+            className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-6 outline outline-2 outline-offset-4 outline-gray-900 outline-2"
             whileHover={{ y: -5, borderColor: isDarkMode ? '#facc15' : '#ea580c', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
           >
@@ -1047,7 +1047,7 @@ export default function Portfolio() {
 
         {/* Projects */}
         <div className="mt-12">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-orange-600 dark:border-yellow-400">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-amber-600 dark:border-yellow-400">
             Key Projects
           </h2>
 
@@ -1060,7 +1060,7 @@ export default function Portfolio() {
           >
             <motion.div
               variants={itemVariants}
-              className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 outline outline-2 outline-offset-4 outline-gray-200"
+              className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 outline outline-2 outline-offset-4 outline-gray-900 outline-2"
               whileHover={{ y: -5, borderColor: isDarkMode ? '#facc15' : '#ea580c', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }}
             >
               <div className="flex items-center gap-2 mb-3">
@@ -1083,7 +1083,7 @@ export default function Portfolio() {
 
             <motion.div
               variants={itemVariants}
-              className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 outline outline-2 outline-offset-4 outline-gray-200"
+              className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 outline outline-2 outline-offset-4 outline-gray-900 outline-2"
               whileHover={{ y: -5, borderColor: isDarkMode ? '#facc15' : '#ea580c', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }}
             >
               <div className="flex items-center gap-2 mb-3">
@@ -1108,10 +1108,10 @@ export default function Portfolio() {
 
         {/* Education - Added mt-12 for spacing */}
         <div className="mt-12">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-orange-600 dark:border-yellow-400">{t('experience.education')}</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-amber-600 dark:border-yellow-400">{t('experience.education')}</h2>
           <motion.div
             variants={itemVariants}
-            className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-6 outline outline-2 outline-offset-4 outline-gray-200"
+            className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-6 outline outline-2 outline-offset-4 outline-gray-900 outline-2"
             whileHover={{ y: -5, borderColor: isDarkMode ? '#facc15' : '#ea580c', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }}
           >
             <div className="flex items-start gap-3 mb-3">
@@ -1129,10 +1129,10 @@ export default function Portfolio() {
 
         {/* Certifications - Added mt-12 for spacing */}
         <div className="mt-12">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-orange-600 dark:border-yellow-400">{t('experience.certifications')}</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-amber-600 dark:border-yellow-400">{t('experience.certifications')}</h2>
           <motion.div
             variants={itemVariants}
-            className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-6 outline outline-2 outline-offset-4 outline-gray-200"
+            className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-6 outline outline-2 outline-offset-4 outline-gray-900 outline-2"
             whileHover={{ y: -5, borderColor: isDarkMode ? '#facc15' : '#ea580c', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }}
           >
             <ul className="space-y-3">
@@ -1209,7 +1209,7 @@ export default function Portfolio() {
       <div className="pt-20 min-h-screen transition-colors duration-300">
         <div className="max-w-6xl mx-auto px-8 py-12">
           <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-3">{t('caseStudies.title')}</h1>
-          <p className="text-gray-600 dark:text-gray-400 mb-8 pb-4 border-b-2 border-orange-600 dark:border-yellow-400">{t('caseStudies.subtitle')}</p>
+          <p className="text-gray-600 dark:text-gray-400 mb-8 pb-4 border-b-2 border-amber-600 dark:border-yellow-400">{t('caseStudies.subtitle')}</p>
 
           <motion.div
             className="space-y-6"
@@ -1223,7 +1223,7 @@ export default function Portfolio() {
                 key={i}
                 id={study.id}
                 variants={itemVariants}
-                className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded overflow-hidden hover:border-orange-600 dark:hover:border-yellow-400 transition-all group outline outline-2 outline-offset-4 outline-gray-200"
+                className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded overflow-hidden hover:border-amber-600 dark:hover:border-yellow-400 transition-all group outline outline-2 outline-offset-4 outline-gray-900 outline-2"
                 whileHover={{ y: -5, borderColor: isDarkMode ? '#facc15' : '#ea580c', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
@@ -1335,7 +1335,7 @@ export default function Portfolio() {
       <div className="pt-20 min-h-screen transition-colors duration-300">
         <div className="max-w-6xl mx-auto px-8 py-12">
           <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-3">{t('creativeLab.title')}</h1>
-          <p className="text-gray-600 dark:text-gray-400 mb-8 pb-4 border-b-2 border-orange-600 dark:border-yellow-400">{t('creativeLab.subtitle')}</p>
+          <p className="text-gray-600 dark:text-gray-400 mb-8 pb-4 border-b-2 border-amber-600 dark:border-yellow-400">{t('creativeLab.subtitle')}</p>
 
           {/* Ad Creatives */}
           <div className="mb-12">
@@ -1352,13 +1352,13 @@ export default function Portfolio() {
                   key={i}
                   variants={itemVariants}
                   onClick={() => setSelectedCreative(creative)}
-                  className="aspect-square bg-white/40 dark:bg-gray-900/40 border border-gray-300 dark:border-gray-800 rounded cursor-pointer hover:border-orange-600 dark:hover:border-yellow-400 transition-all group outline outline-2 outline-offset-4 outline-gray-200"
+                  className="aspect-square bg-white/40 dark:bg-gray-900/40 border border-gray-300 dark:border-gray-800 rounded cursor-pointer hover:border-amber-600 dark:hover:border-yellow-400 transition-all group outline outline-2 outline-offset-4 outline-gray-900 outline-2"
                   whileHover="hover"
                 >
                   <div className="w-full h-full flex flex-col items-center justify-center p-4 relative bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700">
                     <motion.div
                       variants={{ hover: { scale: 1.2 } }}
-                      className="w-12 h-12 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-full flex items-center justify-center mb-3 group-hover:bg-orange-600 dark:group-hover:bg-yellow-400 group-hover:border-orange-600 dark:group-hover:border-yellow-400 transition-all"
+                      className="w-12 h-12 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-full flex items-center justify-center mb-3 group-hover:bg-amber-600 dark:group-hover:bg-yellow-400 group-hover:border-amber-600 dark:group-hover:border-yellow-400 transition-all"
                     >
                       <Play className="w-6 h-6 text-gray-700 dark:text-white group-hover:text-white dark:group-hover:text-gray-900 transition-all" />
                     </motion.div>
@@ -1384,12 +1384,12 @@ export default function Portfolio() {
                   key={i}
                   variants={itemVariants}
                   whileHover="hover"
-                  className="bg-white/40 dark:bg-gray-900/40 border border-gray-300 dark:border-gray-800 rounded overflow-hidden hover:border-orange-600 dark:hover:border-yellow-400 transition-all group cursor-pointer outline outline-2 outline-offset-4 outline-gray-200"
+                  className="bg-white/40 dark:bg-gray-900/40 border border-gray-300 dark:border-gray-800 rounded overflow-hidden hover:border-amber-600 dark:hover:border-yellow-400 transition-all group cursor-pointer outline outline-2 outline-offset-4 outline-gray-900 outline-2"
                 >
                   <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700 flex items-center justify-center relative">
                     <motion.div
                       variants={{ hover: { scale: 1.2 } }}
-                      className="w-14 h-14 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-full flex items-center justify-center group-hover:bg-orange-600 dark:group-hover:bg-yellow-400 group-hover:border-orange-600 dark:group-hover:border-yellow-400 transition-all"
+                      className="w-14 h-14 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-full flex items-center justify-center group-hover:bg-amber-600 dark:group-hover:bg-yellow-400 group-hover:border-amber-600 dark:group-hover:border-yellow-400 transition-all"
                     >
                       <Play className="w-7 h-7 text-gray-700 dark:text-white group-hover:text-white dark:group-hover:text-gray-900 transition-all" />
                     </motion.div>
@@ -1410,10 +1410,10 @@ export default function Portfolio() {
         {/* Creative Modal */}
         {selectedCreative && (
           <div className="fixed inset-0 bg-gray-900/60 flex items-center justify-center z-50 p-6">
-            <div className="bg-white dark:bg-gray-900 border-2 border-orange-600 dark:border-yellow-400 rounded max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="bg-white dark:bg-gray-900 border-2 border-amber-600 dark:border-yellow-400 rounded max-w-2xl w-full max-h-[90vh] overflow-y-auto">
               <div className="bg-gradient-to-r from-orange-600 to-red-600 dark:bg-gray-800 text-white px-6 py-4 flex items-center justify-between sticky top-0 z-10 border-b border-gray-800 dark:border-gray-700">
                 <h3 className="text-lg font-bold">{t('creativeLab.modal.title')}</h3>
-                <button onClick={() => setSelectedCreative(null)} className="hover:bg-white/20 p-1 rounded transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-600 focus-visible:ring-offset-2">
+                <button onClick={() => setSelectedCreative(null)} className="hover:bg-white/20 p-1 rounded transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-600 focus-visible:ring-offset-2">
                   <X className="w-5 h-5" />
                 </button>
               </div>
@@ -1486,7 +1486,7 @@ export default function Portfolio() {
       <div className="pt-20 min-h-screen pb-32 transition-colors duration-300">
         <div className="max-w-6xl mx-auto px-8 py-12">
           <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-3">{t('metricsPage.title')}</h1>
-          <p className="text-gray-600 dark:text-gray-400 mb-8 pb-4 border-b-2 border-orange-600 dark:border-yellow-400">{t('metricsPage.subtitle')}</p>
+          <p className="text-gray-600 dark:text-gray-400 mb-8 pb-4 border-b-2 border-amber-600 dark:border-yellow-400">{t('metricsPage.subtitle')}</p>
 
           <motion.div
             initial="hidden"
@@ -1496,21 +1496,21 @@ export default function Portfolio() {
           >
             {/* Summary Cards */}
             <motion.div variants={itemVariants} className="grid md:grid-cols-4 gap-4 mb-8">
-              <motion.div whileHover={{ y: -5 }} className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 text-center hover:border-orange-600 dark:hover:border-yellow-400 transition-all outline outline-2 outline-offset-4 outline-gray-200">
-                <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2">{t('metricsPage.totalSpend')}</div>
-                <div className="text-3xl font-bold text-gray-900 dark:text-white">${(totalSpend / 1000).toFixed(1)}K</div>
+              <motion.div whileHover={{ y: -5 }} className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 text-center hover:border-amber-600 dark:hover:border-yellow-400 transition-all outline outline-2 outline-offset-4 outline-gray-900 outline-2">
+                <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2 font-mono">{t('metricsPage.totalSpend')}</div>
+                <div className="text-3xl font-bold text-gray-900 dark:text-white font-mono">${(totalSpend / 1000).toFixed(1)}K</div>
               </motion.div>
-              <motion.div whileHover={{ y: -5 }} className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 text-center hover:border-orange-600 dark:hover:border-yellow-400 transition-all outline outline-2 outline-offset-4 outline-gray-200">
-                <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2">{t('metricsPage.avgCtr')}</div>
-                <div className="text-3xl font-bold text-gray-900 dark:text-white">{avgCTR.toFixed(2)}%</div>
+              <motion.div whileHover={{ y: -5 }} className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 text-center hover:border-amber-600 dark:hover:border-yellow-400 transition-all outline outline-2 outline-offset-4 outline-gray-900 outline-2">
+                <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2 font-mono">{t('metricsPage.avgCtr')}</div>
+                <div className="text-3xl font-bold text-gray-900 dark:text-white font-mono">{avgCTR.toFixed(2)}%</div>
               </motion.div>
-              <motion.div whileHover={{ y: -5 }} className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 text-center hover:border-orange-600 dark:hover:border-yellow-400 transition-all outline outline-2 outline-offset-4 outline-gray-200">
-                <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2">{t('metricsPage.avgCvr')}</div>
-                <div className="text-3xl font-bold text-gray-900 dark:text-white">{avgCVR.toFixed(2)}%</div>
+              <motion.div whileHover={{ y: -5 }} className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 text-center hover:border-amber-600 dark:hover:border-yellow-400 transition-all outline outline-2 outline-offset-4 outline-gray-900 outline-2">
+                <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2 font-mono">{t('metricsPage.avgCvr')}</div>
+                <div className="text-3xl font-bold text-gray-900 dark:text-white font-mono">{avgCVR.toFixed(2)}%</div>
               </motion.div>
-              <motion.div whileHover={{ y: -5 }} className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 text-center hover:border-orange-600 dark:hover:border-yellow-400 transition-all outline outline-2 outline-offset-4 outline-gray-200">
-                <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2">{t('metricsPage.avgRoi')}</div>
-                <div className="text-3xl font-bold text-gray-900 dark:text-white">{avgROI.toFixed(0)}%</div>
+              <motion.div whileHover={{ y: -5 }} className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 text-center hover:border-amber-600 dark:hover:border-yellow-400 transition-all outline outline-2 outline-offset-4 outline-gray-900 outline-2">
+                <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2 font-mono">{t('metricsPage.avgRoi')}</div>
+                <div className="text-3xl font-bold text-gray-900 dark:text-white font-mono">{avgROI.toFixed(0)}%</div>
               </motion.div>
             </motion.div>
 
@@ -1529,8 +1529,8 @@ export default function Portfolio() {
                 <button
                   key={channel}
                   onClick={() => setFilterChannel(channel)}
-                  className={`px-3 py-1.5 text-sm font-medium rounded transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-600 focus-visible:ring-offset-2 ${filterChannel === channel
-                    ? 'bg-orange-600 text-white dark:bg-yellow-400 dark:text-gray-900'
+                  className={`px-3 py-1.5 text-sm font-medium rounded transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-600 focus-visible:ring-offset-2 ${filterChannel === channel
+                    ? 'bg-amber-600 text-white dark:bg-yellow-400 dark:text-gray-900'
                     : 'bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
                     }`}
                 >
@@ -1593,22 +1593,22 @@ export default function Portfolio() {
             <motion.div variants={itemVariants}>
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">{t('metricsPage.insights.title')}</h2>
               <div className="grid md:grid-cols-3 gap-4">
-                <motion.div whileHover={{ y: -5, borderColor: isDarkMode ? '#facc15' : '#ea580c', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }} className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 outline outline-2 outline-offset-4 outline-gray-200">
-                  <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2">{t('metricsPage.insights.topChannel.title')}</div>
+                <motion.div whileHover={{ y: -5, borderColor: isDarkMode ? '#facc15' : '#ea580c', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }} className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 outline outline-2 outline-offset-4 outline-gray-900 outline-2">
+                  <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2 font-mono">{t('metricsPage.insights.topChannel.title')}</div>
                   <div className="text-lg font-bold text-gray-900 dark:text-white">{t('metricsPage.insights.topChannel.name')}</div>
                   <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
                     {t('metricsPage.insights.topChannel.desc')}
                   </p>
                 </motion.div>
-                <motion.div whileHover={{ y: -5, borderColor: isDarkMode ? '#facc15' : '#ea580c', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }} className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 outline outline-2 outline-offset-4 outline-gray-200">
-                  <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2">{t('metricsPage.insights.bestCvr.title')}</div>
+                <motion.div whileHover={{ y: -5, borderColor: isDarkMode ? '#facc15' : '#ea580c', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }} className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 outline outline-2 outline-offset-4 outline-gray-900 outline-2">
+                  <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2 font-mono">{t('metricsPage.insights.bestCvr.title')}</div>
                   <div className="text-lg font-bold text-gray-900 dark:text-white">{t('metricsPage.insights.bestCvr.name')}</div>
                   <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
                     {t('metricsPage.insights.bestCvr.desc')}
                   </p>
                 </motion.div>
-                <motion.div whileHover={{ y: -5, borderColor: isDarkMode ? '#facc15' : '#ea580c', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }} className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 outline outline-2 outline-offset-4 outline-gray-200">
-                  <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2">{t('metricsPage.insights.highestRoi.title')}</div>
+                <motion.div whileHover={{ y: -5, borderColor: isDarkMode ? '#facc15' : '#ea580c', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }} className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 outline outline-2 outline-offset-4 outline-gray-900 outline-2">
+                  <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2 font-mono">{t('metricsPage.insights.highestRoi.title')}</div>
                   <div className="text-lg font-bold text-gray-900 dark:text-white">{t('metricsPage.insights.highestRoi.name')}</div>
                   <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
                     {t('metricsPage.insights.highestRoi.desc')}
@@ -1633,7 +1633,7 @@ export default function Portfolio() {
             variants={containerVariants}
           >
             <div className="mt-0">
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-orange-600 dark:border-yellow-400">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-amber-600 dark:border-yellow-400">
                 Resources
               </h2>
             </div>
@@ -1645,17 +1645,17 @@ export default function Portfolio() {
                 target="_blank"
                 rel="noopener noreferrer"
                 variants={itemVariants}
-                className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 hover:border-orange-600 dark:hover:border-yellow-400 transition-all block group outline outline-2 outline-offset-4 outline-gray-200"
+                className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 hover:border-amber-600 dark:hover:border-yellow-400 transition-all block group outline outline-2 outline-offset-4 outline-gray-900 outline-2"
                 whileHover={{ y: -5, borderColor: isDarkMode ? '#facc15' : '#ea580c', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }}
               >
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 bg-orange-600 dark:bg-yellow-400 rounded flex items-center justify-center text-white dark:text-gray-900">
+                    <div className="w-9 h-9 bg-amber-600 dark:bg-yellow-400 rounded flex items-center justify-center text-white dark:text-gray-900">
                       <FileSpreadsheet className="w-5 h-5" />
                     </div>
                     <h3 className="text-lg font-bold text-gray-900 dark:text-white">Performance Ledger (2024)</h3>
                   </div>
-                  <ExternalLink className="w-5 h-5 text-gray-400 group-hover:text-orange-600 dark:group-hover:text-yellow-400 transition-colors" />
+                  <ExternalLink className="w-5 h-5 text-gray-400 group-hover:text-amber-600 dark:group-hover:text-yellow-400 transition-colors" />
                 </div>
                 <p className="text-sm text-gray-600 dark:text-gray-400">View detailed campaign performance data and monitoring sheet</p>
               </motion.a>
@@ -1667,17 +1667,17 @@ export default function Portfolio() {
                 target="_blank"
                 rel="noopener noreferrer"
                 variants={itemVariants}
-                className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 hover:border-orange-600 dark:hover:border-yellow-400 transition-all block group cursor-pointer outline outline-2 outline-offset-4 outline-gray-200"
+                className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 hover:border-amber-600 dark:hover:border-yellow-400 transition-all block group cursor-pointer outline outline-2 outline-offset-4 outline-gray-900 outline-2"
                 whileHover={{ y: -5, borderColor: isDarkMode ? '#facc15' : '#ea580c', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }}
               >
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 bg-orange-600 dark:bg-yellow-400 rounded flex items-center justify-center text-white dark:text-gray-900">
+                    <div className="w-9 h-9 bg-amber-600 dark:bg-yellow-400 rounded flex items-center justify-center text-white dark:text-gray-900">
                       <FileText className="w-5 h-5" />
                     </div>
                     <h3 className="text-lg font-bold text-gray-900 dark:text-white">Professional Reference</h3>
                   </div>
-                  <Download className="w-5 h-5 text-gray-400 group-hover:text-orange-600 dark:group-hover:text-yellow-400 transition-colors" />
+                  <Download className="w-5 h-5 text-gray-400 group-hover:text-amber-600 dark:group-hover:text-yellow-400 transition-colors" />
                 </div>
                 <p className="text-sm text-gray-600 dark:text-gray-400">Download professional letter of recommendation (PDF)</p>
               </motion.a>
@@ -1699,7 +1699,7 @@ export default function Portfolio() {
               href="https://www.instagram.com/oscorograves/"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-16 h-16 rounded-xl overflow-hidden border border-gray-300 dark:border-gray-800 shrink-0 cursor-pointer block hover:border-orange-600 dark:hover:border-yellow-400 transition-all"
+              className="w-16 h-16 rounded-xl overflow-hidden border border-gray-300 dark:border-gray-800 shrink-0 cursor-pointer block hover:border-amber-600 dark:hover:border-yellow-400 transition-all"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -1718,7 +1718,7 @@ export default function Portfolio() {
           <div className="flex items-center gap-6">
             <motion.a
               href="mailto:oscoro.graves@gmail.com"
-              className="text-gray-600 dark:text-gray-400 hover:text-orange-600 dark:hover:text-white transition-colors flex items-center gap-2 text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-600 focus-visible:ring-offset-2"
+              className="text-gray-600 dark:text-gray-400 hover:text-amber-600 dark:hover:text-white transition-colors flex items-center gap-2 text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-600 focus-visible:ring-offset-2"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -1728,7 +1728,7 @@ export default function Portfolio() {
               href="https://www.linkedin.com/in/kanishk-singh-ab90b2203/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-600 dark:text-gray-400 hover:text-orange-600 dark:hover:text-white transition-colors flex items-center gap-2 text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-600 focus-visible:ring-offset-2"
+              className="text-gray-600 dark:text-gray-400 hover:text-amber-600 dark:hover:text-white transition-colors flex items-center gap-2 text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-600 focus-visible:ring-offset-2"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -1738,7 +1738,7 @@ export default function Portfolio() {
               href="https://www.instagram.com/oscorograves/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-600 dark:text-gray-400 hover:text-orange-600 dark:hover:text-white transition-colors flex items-center gap-2 text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-600 focus-visible:ring-offset-2"
+              className="text-gray-600 dark:text-gray-400 hover:text-amber-600 dark:hover:text-white transition-colors flex items-center gap-2 text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-600 focus-visible:ring-offset-2"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -1755,16 +1755,16 @@ export default function Portfolio() {
             {t('footer.offClock')}
           </p>
           <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-600 dark:text-gray-400">
-            <span className="flex items-center gap-2 hover:text-orange-600 dark:hover:text-white transition-colors cursor-default">
+            <span className="flex items-center gap-2 hover:text-amber-600 dark:hover:text-white transition-colors cursor-default">
               <Film className="w-4 h-4" /> {t('footer.hobbies.film')}
             </span>
-            <span className="flex items-center gap-2 hover:text-orange-600 dark:hover:text-white transition-colors cursor-default">
+            <span className="flex items-center gap-2 hover:text-amber-600 dark:hover:text-white transition-colors cursor-default">
               <Camera className="w-4 h-4" /> {t('footer.hobbies.photography')}
             </span>
-            <span className="flex items-center gap-2 hover:text-orange-600 dark:hover:text-white transition-colors cursor-default">
+            <span className="flex items-center gap-2 hover:text-amber-600 dark:hover:text-white transition-colors cursor-default">
               <Plane className="w-4 h-4" /> {t('footer.hobbies.travel')}
             </span>
-            <span className="flex items-center gap-2 hover:text-orange-600 dark:hover:text-white transition-colors cursor-default">
+            <span className="flex items-center gap-2 hover:text-amber-600 dark:hover:text-white transition-colors cursor-default">
               <BookOpen className="w-4 h-4" /> {t('footer.hobbies.journaling')}
             </span>
           </div>
