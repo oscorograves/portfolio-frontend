@@ -12,7 +12,7 @@ import MusicPlayer from './components/layout/MusicPlayer';
 // Animations
 import FireflyBackground from './components/animations/FireflyBackground';
 import CustomCursor from './components/animations/CustomCursor';
-import MatrixBackground from './components/animations/MatrixBackground';
+import ModernGrid from './components/animations/ModernGrid';
 
 // UI
 import PageWrapper from './components/ui/PageWrapper';
@@ -79,8 +79,8 @@ export default function Portfolio() {
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-300/30 dark:bg-blue-900/20 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '10s', animationDelay: '1s' }} />
       </div>
 
-      {/* Matrix Background */}
-      <MatrixBackground />
+      {/* Modern Grid Background */}
+      <ModernGrid isDarkMode={isDarkMode} />
       <FireflyBackground />
       <CustomCursor isDarkMode={isDarkMode} />
 
