@@ -27,7 +27,7 @@ const Hero = ({ t, setCurrentPage, fallbackMetrics }) => {
     return (
         <section className="border-b border-gray-300 dark:border-gray-800 transition-colors duration-300">
             <motion.div
-                className="max-w-6xl mx-auto px-8 pt-6 pb-12"
+                className="max-w-6xl mx-auto px-4 md:px-8 pt-6 pb-12"
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
@@ -37,7 +37,7 @@ const Hero = ({ t, setCurrentPage, fallbackMetrics }) => {
                     <div className="md:col-span-2">
                         <TypewriterText
                             text={t('hero.name')}
-                            className="text-5xl font-bold text-gray-900 dark:text-white mb-3"
+                            className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-3"
                             Element="h1"
                         />
                         <TypewriterText

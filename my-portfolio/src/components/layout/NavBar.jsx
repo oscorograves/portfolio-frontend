@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, Globe, Sun, Moon, X } from 'lucide-react';
 import OrigamiCraneLogo from '../animations/OrigamiCraneLogo';
+import ThemeToggle from '../theme/ThemeToggle';
 
 const NavBar = ({
     currentPage,
@@ -39,6 +40,7 @@ const NavBar = ({
                                 onClick={() => {
                                     if (page === 'creative-lab') {
                                         setShowWip(true);
+                                        setCurrentPage(page);
                                     } else {
                                         setCurrentPage(page);
                                     }
@@ -108,12 +110,7 @@ const NavBar = ({
                     </div>
 
                     {/* Dark Mode Toggle */}
-                    <button
-                        onClick={() => setIsDarkMode(!isDarkMode)}
-                        className="p-2 text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800 rounded-full transition-colors mr-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2"
-                    >
-                        {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-                    </button>
+                    <ThemeToggle isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
 
                     {/* Mobile Menu Button (Visible ONLY on Mobile) */}
                     <button
@@ -140,6 +137,7 @@ const NavBar = ({
                                     onClick={() => {
                                         if (page === 'creative-lab') {
                                             setShowWip(true);
+                                            setCurrentPage(page);
                                             setIsMenuOpen(false);
                                         } else {
                                             setCurrentPage(page);
