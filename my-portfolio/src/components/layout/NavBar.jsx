@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, Globe, Sun, Moon, X } from 'lucide-react';
+import { List, Globe, Sun, Moon, X } from 'phosphor-react';
 import OrigamiCraneLogo from '../animations/OrigamiCraneLogo';
 import ThemeToggle from '../theme/ThemeToggle';
 
@@ -73,7 +73,7 @@ const NavBar = ({
                             onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
                             className="flex items-center gap-1 p-2 text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800 rounded-full transition-colors text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2"
                         >
-                            <Globe className="w-4 h-4" />
+                            <Globe className="w-5 h-5" weight="duotone" />
                             <span>{language.toUpperCase()}</span>
                         </button>
 
@@ -117,7 +117,7 @@ const NavBar = ({
                         className="md:hidden p-2 text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2"
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
                     >
-                        {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                        {isMenuOpen ? <X className="w-7 h-7" weight="duotone" /> : <List className="w-7 h-7" weight="duotone" />}
                     </button>
                 </div>
 

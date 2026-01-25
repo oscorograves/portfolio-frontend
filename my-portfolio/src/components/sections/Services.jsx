@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Target, TrendingUp, LineChart } from 'lucide-react';
+import { Target, TrendUp, ChartLineUp } from 'phosphor-react';
 
 const itemVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -37,17 +37,17 @@ const Services = ({ t }) => {
                         {
                             title: t('whatIOffer.paidMedia.title'),
                             description: t('whatIOffer.paidMedia.desc'),
-                            icon: <Target className="w-5 h-5" />
+                            icon: <Target className="w-8 h-8" weight="duotone" />
                         },
                         {
                             title: t('whatIOffer.cro.title'),
                             description: t('whatIOffer.cro.desc'),
-                            icon: <TrendingUp className="w-5 h-5" />
+                            icon: <TrendUp className="w-8 h-8" weight="duotone" />
                         },
                         {
                             title: t('whatIOffer.analytics.title'),
                             description: t('whatIOffer.analytics.desc'),
-                            icon: <LineChart className="w-5 h-5" />
+                            icon: <ChartLineUp className="w-8 h-8" weight="duotone" />
                         }
                     ].map((service, i) => (
                         <motion.div
@@ -56,7 +56,7 @@ const Services = ({ t }) => {
                             className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded-xl p-6 hover:border-amber-600 dark:hover:border-yellow-400 transition-all outline outline-2 outline-offset-4 outline-gray-900 outline-2"
                             whileHover={{ y: -5 }}
                         >
-                            <div className="w-10 h-10 bg-amber-600 dark:bg-yellow-400 rounded-lg flex items-center justify-center text-white dark:text-gray-900 mb-4">
+                            <div className="w-14 h-14 bg-amber-600 dark:bg-yellow-400 rounded-lg flex items-center justify-center text-white dark:text-gray-900 mb-4">
                                 {service.icon}
                             </div>
                             <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">{service.title}</h3>

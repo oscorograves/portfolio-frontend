@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Download, FileSpreadsheet, ExternalLink } from 'lucide-react';
+import { DownloadSimple, MicrosoftExcelLogo, ArrowSquareOut } from 'phosphor-react';
 
 const Resources = ({ t }) => {
     return (
@@ -20,15 +20,15 @@ const Resources = ({ t }) => {
                         whileHover={{ y: -5 }}
                     >
                         {/* Icon Container (Matched to Services: Solid Amber) */}
-                        <div className="w-10 h-10 bg-amber-600 dark:bg-yellow-400 rounded-lg flex items-center justify-center text-white dark:text-gray-900 shrink-0">
-                            <Download className="w-5 h-5" />
+                        <div className="w-14 h-14 bg-amber-600 dark:bg-yellow-400 rounded-lg flex items-center justify-center text-white dark:text-gray-900 shrink-0">
+                            <DownloadSimple className="w-8 h-8" weight="duotone" />
                         </div>
                         <div>
                             <div className="flex items-center gap-2">
                                 <h3 className="text-lg font-bold text-gray-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-yellow-400 transition-colors">
                                     Professional Reference
                                 </h3>
-                                <ExternalLink className="w-3 h-3 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                <ArrowSquareOut className="w-4 h-4 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity" weight="duotone" />
                             </div>
                             <p className="text-sm text-gray-600 dark:text-gray-300 mt-2 leading-relaxed">
                                 Letter of Recommendation detailing professional impact, strategic thinking, and campaign performance.
@@ -44,15 +44,15 @@ const Resources = ({ t }) => {
                         whileHover={{ y: -5 }}
                     >
                         {/* Icon Container (Matched to Services: Solid Amber) */}
-                        <div className="w-10 h-10 bg-amber-600 dark:bg-yellow-400 rounded-lg flex items-center justify-center text-white dark:text-gray-900 shrink-0">
-                            <FileSpreadsheet className="w-5 h-5" />
+                        <div className="w-14 h-14 bg-amber-600 dark:bg-yellow-400 rounded-lg flex items-center justify-center text-white dark:text-gray-900 shrink-0">
+                            <MicrosoftExcelLogo className="w-8 h-8" weight="duotone" />
                         </div>
                         <div>
                             <div className="flex items-center gap-2">
                                 <h3 className="text-lg font-bold text-gray-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-yellow-400 transition-colors">
                                     Promotions Monitoring Sheet - 2024
                                 </h3>
-                                <ExternalLink className="w-3 h-3 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                <ArrowSquareOut className="w-4 h-4 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity" weight="duotone" />
                             </div>
                             <p className="text-sm text-gray-600 dark:text-gray-300 mt-2 leading-relaxed">
                                 Ad performance sheet from 2024

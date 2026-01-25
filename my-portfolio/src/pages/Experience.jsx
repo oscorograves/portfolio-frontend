@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Briefcase, MapPin, Calendar, Bot, MessageSquare, GraduationCap, Award } from 'lucide-react';
+import { Briefcase, MapPin, CalendarBlank, Robot, ChatCircle, GraduationCap, Medal } from 'phosphor-react';
 
 const itemVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -53,17 +53,17 @@ const Experience = ({ t, isDarkMode }) => {
                                 </div>
                                 <div className="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400">
                                     <span className="flex items-center gap-1">
-                                        <Briefcase className="w-3.5 h-3.5" />
+                                        <Briefcase className="w-4 h-4" weight="duotone" />
                                         Pocket FM
                                     </span>
                                     <span className="flex items-center gap-1">
-                                        <MapPin className="w-3.5 h-3.5" />
+                                        <MapPin className="w-4 h-4" weight="duotone" />
                                         Remote
                                     </span>
                                 </div>
                             </div>
                             <div className="flex items-center gap-1 text-sm text-gray-600 dark:text-gray-400">
-                                <Calendar className="w-3.5 h-3.5" />
+                                <CalendarBlank className="w-4 h-4" weight="duotone" />
                                 <span>{t('experience.roles.pocketfm.period')}</span>
                             </div>
                         </div>
@@ -91,17 +91,17 @@ const Experience = ({ t, isDarkMode }) => {
                                 </div>
                                 <div className="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400">
                                     <span className="flex items-center gap-1">
-                                        <Briefcase className="w-3.5 h-3.5" />
+                                        <Briefcase className="w-4 h-4" weight="duotone" />
                                         {t('experience.roles.intertek.company')}
                                     </span>
                                     <span className="flex items-center gap-1">
-                                        <MapPin className="w-3.5 h-3.5" />
+                                        <MapPin className="w-4 h-4" weight="duotone" />
                                         {t('experience.roles.intertek.location')}
                                     </span>
                                 </div>
                             </div>
                             <div className="flex items-center gap-1 text-sm text-gray-600 dark:text-gray-400">
-                                <Calendar className="w-3.5 h-3.5" />
+                                <CalendarBlank className="w-4 h-4" weight="duotone" />
                                 {t('experience.roles.intertek.period')}
                             </div>
                         </div>
@@ -129,17 +129,17 @@ const Experience = ({ t, isDarkMode }) => {
                                 </div>
                                 <div className="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400">
                                     <span className="flex items-center gap-1">
-                                        <Briefcase className="w-3.5 h-3.5" />
+                                        <Briefcase className="w-4 h-4" weight="duotone" />
                                         Tradebuilder Inc.
                                     </span>
                                     <span className="flex items-center gap-1">
-                                        <MapPin className="w-3.5 h-3.5" />
+                                        <MapPin className="w-4 h-4" weight="duotone" />
                                         Remote
                                     </span>
                                 </div>
                             </div>
                             <div className="flex items-center gap-1 text-sm text-gray-600 dark:text-gray-400">
-                                <Calendar className="w-3.5 h-3.5" />
+                                <CalendarBlank className="w-4 h-4" weight="duotone" />
                                 {t('experience.roles.tradebuilder.period')}
                             </div>
                         </div>
@@ -167,17 +167,17 @@ const Experience = ({ t, isDarkMode }) => {
                                 </div>
                                 <div className="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400">
                                     <span className="flex items-center gap-1">
-                                        <Briefcase className="w-3.5 h-3.5" />
+                                        <Briefcase className="w-4 h-4" weight="duotone" />
                                         {t('experience.roles.abp.company')}
                                     </span>
                                     <span className="flex items-center gap-1">
-                                        <MapPin className="w-3.5 h-3.5" />
+                                        <MapPin className="w-4 h-4" weight="duotone" />
                                         {t('experience.roles.abp.location')}
                                     </span>
                                 </div>
                             </div>
                             <div className="flex items-center gap-1 text-sm text-gray-600 dark:text-gray-400">
-                                <Calendar className="w-3.5 h-3.5" />
+                                <CalendarBlank className="w-4 h-4" weight="duotone" />
                                 {t('experience.roles.abp.period')}
                             </div>
                         </div>
@@ -212,7 +212,7 @@ const Experience = ({ t, isDarkMode }) => {
                         >
                             <div className="flex items-center gap-2 mb-3">
                                 <div className="p-2 bg-gray-100 dark:bg-gray-800 rounded text-gray-600 dark:text-gray-400">
-                                    <Bot className="w-5 h-5" />
+                                    <Robot className="w-6 h-6" weight="duotone" />
                                 </div>
                                 <div>
                                     <h3 className="font-bold text-gray-900 dark:text-white">{t('experience.roles.projects.customGpt.title')}</h3>
@@ -235,7 +235,7 @@ const Experience = ({ t, isDarkMode }) => {
                         >
                             <div className="flex items-center gap-2 mb-3">
                                 <div className="p-2 bg-gray-100 dark:bg-gray-800 rounded text-gray-600 dark:text-gray-400">
-                                    <MessageSquare className="w-5 h-5" />
+                                    <ChatCircle className="w-6 h-6" weight="duotone" />
                                 </div>
                                 <div>
                                     <h3 className="font-bold text-gray-900 dark:text-white">{t('experience.roles.projects.chatbot.title')}</h3>
@@ -262,7 +262,7 @@ const Experience = ({ t, isDarkMode }) => {
                         whileHover={{ y: -5, borderColor: isDarkMode ? '#facc15' : '#ea580c', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }}
                     >
                         <div className="flex items-start gap-3 mb-3">
-                            <GraduationCap className="w-5 h-5 text-gray-900 dark:text-white mt-0.5" />
+                            <GraduationCap className="w-6 h-6 text-gray-900 dark:text-white mt-0.5" weight="duotone" />
                             <div>
                                 <h3 className="font-bold text-gray-900 dark:text-white">{t('experience.educationDetails.degree')}</h3>
                                 <p className="text-sm text-gray-700 dark:text-gray-300">{t('experience.educationDetails.specialization')}</p>
@@ -285,7 +285,7 @@ const Experience = ({ t, isDarkMode }) => {
                         <ul className="space-y-3">
                             {(t('experience.certificationsList', { returnObjects: true }) || []).map((cert, i) => (
                                 <li key={i} className="flex items-start gap-2 text-sm text-gray-700 dark:text-gray-300">
-                                    <Award className="w-4 h-4 text-gray-900 dark:text-white mt-0.5 flex-shrink-0" />
+                                    <Medal className="w-5 h-5 text-gray-900 dark:text-white mt-0.5 flex-shrink-0" weight="duotone" />
                                     <span>{cert}</span>
                                 </li>
                             ))}

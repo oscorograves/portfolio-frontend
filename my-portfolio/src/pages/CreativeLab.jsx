@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Play, X } from 'lucide-react';
+import { Play, X } from 'phosphor-react';
 
 const itemVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -72,7 +72,7 @@ const CreativeLab = ({ t }) => {
                                         variants={{ hover: { scale: 1.2 } }}
                                         className="w-12 h-12 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-full flex items-center justify-center mb-3 group-hover:bg-amber-600 dark:group-hover:bg-yellow-400 group-hover:border-amber-600 dark:group-hover:border-yellow-400 transition-all"
                                     >
-                                        <Play className="w-6 h-6 text-gray-700 dark:text-white group-hover:text-white dark:group-hover:text-gray-900 transition-all" />
+                                        <Play className="w-6 h-6 text-gray-700 dark:text-white group-hover:text-white dark:group-hover:text-gray-900 transition-all" weight="duotone" />
                                     </motion.div>
                                     <div className="text-xs font-semibold text-gray-700 dark:text-gray-300 text-center">{creative.goal}</div>
                                 </div>
@@ -103,7 +103,7 @@ const CreativeLab = ({ t }) => {
                                         variants={{ hover: { scale: 1.2 } }}
                                         className="w-14 h-14 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-full flex items-center justify-center group-hover:bg-amber-600 dark:group-hover:bg-yellow-400 group-hover:border-amber-600 dark:group-hover:border-yellow-400 transition-all"
                                     >
-                                        <Play className="w-7 h-7 text-gray-700 dark:text-white group-hover:text-white dark:group-hover:text-gray-900 transition-all" />
+                                        <Play className="w-8 h-8 text-gray-700 dark:text-white group-hover:text-white dark:group-hover:text-gray-900 transition-all" weight="duotone" />
                                     </motion.div>
                                 </div>
                                 <div className="p-4">
@@ -126,7 +126,7 @@ const CreativeLab = ({ t }) => {
                         <div className="bg-gradient-to-r from-orange-600 to-red-600 dark:bg-gray-800 text-white px-6 py-4 flex items-center justify-between sticky top-0 z-10 border-b border-gray-800 dark:border-gray-700">
                             <h3 className="text-lg font-bold">{t('creativeLab.modal.title')}</h3>
                             <button onClick={() => setSelectedCreative(null)} className="hover:bg-white/20 p-1 rounded transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-600 focus-visible:ring-offset-2">
-                                <X className="w-5 h-5" />
+                                <X className="w-5 h-5" weight="duotone" />
                             </button>
                         </div>
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Construction } from 'lucide-react';
+import { ArrowSquareOut, Barricade } from 'phosphor-react';
 
 const itemVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -120,14 +120,14 @@ const CaseStudies = ({ t, isDarkMode }) => {
                                             rel="noopener noreferrer"
                                             className="inline-flex items-center gap-1 text-sm font-medium text-orange-100 hover:text-white transition-colors border-b border-transparent hover:border-white pb-0.5"
                                         >
-                                            {t('caseStudies.viewProjectLog')} <ExternalLink className="w-3 h-3" />
+                                            {t('caseStudies.viewProjectLog')} <ArrowSquareOut className="w-4 h-4" weight="duotone" />
                                         </a>
                                     </div>
                                 )}
                                 {study.comingSoonLog && (
                                     <div className="mt-3">
                                         <span className="inline-flex items-center gap-1 text-sm font-medium text-orange-100 cursor-default opacity-80">
-                                            {t('caseStudies.projectLogComingSoon')} <Construction className="w-3 h-3" />
+                                            {t('caseStudies.projectLogComingSoon')} <Barricade className="w-4 h-4" weight="duotone" />
                                         </span>
                                     </div>
                                 )}
@@ -171,7 +171,7 @@ const CaseStudies = ({ t, isDarkMode }) => {
                                             rel="noopener noreferrer"
                                             className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-900 dark:text-white text-sm font-medium rounded transition-colors"
                                         >
-                                            {t('caseStudies.viewExperimentLog')} <ExternalLink className="w-3 h-3" />
+                                            {t('caseStudies.viewExperimentLog')} <ArrowSquareOut className="w-4 h-4" weight="duotone" />
                                         </a>
                                     </div>
                                 )}

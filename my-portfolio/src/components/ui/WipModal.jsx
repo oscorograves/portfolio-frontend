@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Construction } from 'lucide-react';
+import { Barricade } from 'phosphor-react';
 
 const WipModal = ({ isOpen, onClose, t }) => {
     if (!isOpen) return null;
@@ -18,7 +18,7 @@ const WipModal = ({ isOpen, onClose, t }) => {
 
                 <div className="text-center relative z-10">
                     <div className="w-16 h-16 bg-amber-50 dark:bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-4 text-amber-600 dark:text-yellow-400">
-                        <Construction className="w-8 h-8" />
+                        <Barricade className="w-10 h-10" weight="duotone" />
                     </div>
                     <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{t('wip.title')}</h3>
                     <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">

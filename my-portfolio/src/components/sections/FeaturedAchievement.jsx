@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ChevronRight } from 'lucide-react';
+import { CaretRight } from 'phosphor-react';
 
 const FeaturedAchievement = ({ t, setCurrentPage, isDarkMode }) => {
     return (
@@ -33,7 +33,7 @@ const FeaturedAchievement = ({ t, setCurrentPage, isDarkMode }) => {
                             </div>
                             <p className="text-gray-600 dark:text-gray-300 text-sm">{t('featuredWork.projectDesc')}</p>
                         </div>
-                        <ChevronRight className="w-6 h-6 text-gray-400 group-hover:text-amber-600 dark:group-hover:text-yellow-400 group-hover:translate-x-1 transition-all" />
+                        <CaretRight className="w-6 h-6 text-gray-400 group-hover:text-amber-600 dark:group-hover:text-yellow-400 group-hover:translate-x-1 transition-all" weight="duotone" />
                     </div>
                     {/* Mobile: 2 columns, Desktop: 4 columns */}
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 pt-6 border-t border-gray-100 dark:border-gray-700">
