@@ -135,7 +135,7 @@ export default function Portfolio() {
 
       {/* Modals */}
       <Suspense fallback={null}>
-        {showWip && <WipModal onClose={() => setShowWip(false)} />}
+        {showWip && <WipModal isOpen={showWip} onClose={() => setShowWip(false)} t={t} />}
       </Suspense>
     </div>
   );
