@@ -60,7 +60,7 @@ const NavBar = ({
                                     <motion.div
                                         className="absolute inset-0 rounded"
                                         style={{
-                                            background: 'linear-gradient(110deg, transparent 25%, rgba(255, 107, 107, 0.6) 35%, rgba(255, 193, 7, 0.6) 45%, rgba(76, 175, 80, 0.6) 55%, rgba(33, 150, 243, 0.6) 65%, rgba(156, 39, 176, 0.6) 75%, transparent 85%)',
+                                            background: 'linear-gradient(90deg, transparent 0%, transparent 40%, rgba(255, 107, 107, 0.8) 45%, rgba(255, 193, 7, 0.8) 50%, rgba(76, 175, 80, 0.8) 53%, rgba(33, 150, 243, 0.8) 56%, rgba(156, 39, 176, 0.8) 60%, transparent 65%, transparent 100%)',
                                             backgroundSize: '200% 100%',
                                             zIndex: 1
                                         }}
@@ -68,7 +68,7 @@ const NavBar = ({
                                             backgroundPosition: ['200% 0', '-200% 0']
                                         }}
                                         transition={{
-                                            duration: 3,
+                                            duration: 5,
                                             repeat: Infinity,
                                             ease: "linear"
                                         }}
@@ -164,7 +164,7 @@ const NavBar = ({
                                         <motion.div
                                             className="absolute inset-0 rounded-lg"
                                             style={{
-                                                background: 'linear-gradient(110deg, transparent 25%, rgba(255, 107, 107, 0.6) 35%, rgba(255, 193, 7, 0.6) 45%, rgba(76, 175, 80, 0.6) 55%, rgba(33, 150, 243, 0.6) 65%, rgba(156, 39, 176, 0.6) 75%, transparent 85%)',
+                                                background: 'linear-gradient(90deg, transparent 0%, transparent 40%, rgba(255, 107, 107, 0.8) 45%, rgba(255, 193, 7, 0.8) 50%, rgba(76, 175, 80, 0.8) 53%, rgba(33, 150, 243, 0.8) 56%, rgba(156, 39, 176, 0.8) 60%, transparent 65%, transparent 100%)',
                                                 backgroundSize: '200% 100%',
                                                 zIndex: 0
                                             }}
@@ -172,7 +172,7 @@ const NavBar = ({
                                                 backgroundPosition: ['200% 0', '-200% 0']
                                             }}
                                             transition={{
-                                                duration: 3,
+                                                duration: 5,
                                                 repeat: Infinity,
                                                 ease: "linear"
                                             }}
