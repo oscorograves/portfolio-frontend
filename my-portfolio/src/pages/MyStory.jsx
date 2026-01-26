@@ -179,15 +179,16 @@ const MyStory = ({ t }) => {
                         return (
                             <motion.div
                                 key={i}
-                                className="bg-white dark:bg-gray-900/50 p-8 rounded-2xl border-2 border-gray-900 dark:border-gray-100 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] hover:translate-y-[-4px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] dark:hover:shadow-[6px_6px_0px_0px_rgba(255,255,255,1)] transition-all duration-300 group"
+                                className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded-xl p-8 hover:border-amber-600 dark:hover:border-yellow-400 transition-all outline outline-2 outline-offset-4 outline-gray-900 group"
+                                whileHover={{ y: -5 }}
                             >
-                                <div className="mb-6 inline-block p-4 rounded-xl bg-gray-50 dark:bg-gray-800 group-hover:bg-primary-50 dark:group-hover:bg-primary-900/20 transition-colors border-2 border-gray-900 dark:border-gray-100">
-                                    <PhilIcon size={32} className="text-gray-900 dark:text-gray-100 group-hover:text-primary-600 dark:group-hover:text-primary-400" weight="duotone" />
+                                <div className="w-14 h-14 bg-amber-600 dark:bg-yellow-400 rounded-lg flex items-center justify-center text-white dark:text-gray-900 mb-6">
+                                    <PhilIcon size={32} weight="duotone" />
                                 </div>
-                                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
+                                <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4">
                                     {card.title}
                                 </h3>
-                                <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                                <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
                                     {card.desc}
                                 </p>
                             </motion.div>

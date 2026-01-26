@@ -44,7 +44,7 @@ const fallbackMetrics = [
 export default function Portfolio() {
   const [currentPage, setCurrentPage] = useState('home');
   const [showWip, setShowWip] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(true);
   const { t, i18n } = useTranslation();
 
   const language = i18n.resolvedLanguage || 'en';
