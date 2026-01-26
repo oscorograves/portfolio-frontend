@@ -75,11 +75,11 @@ const MyStory = ({ t }) => {
                 transition={{ duration: 0.8 }}
             >
                 <motion.h1
-                    className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6"
+                    className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6"
                 >
                     {t('myStory.hero.title')}
                 </motion.h1>
-                <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto font-light leading-relaxed">
+                <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto font-light leading-relaxed">
                     {t('myStory.hero.subtitle')}
                 </p>
 
@@ -117,9 +117,9 @@ const MyStory = ({ t }) => {
                             >
                                 {/* Content Card */}
                                 <div className={`flex-1 w-full md:w-1/2 ${isEven ? 'md:text-right md:pr-12' : 'md:text-left md:pl-12'} text-center md:text-left`}>
-                                    <h3 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">{t(`myStory.timeline.${item.key}.year`)}</h3>
-                                    <h4 className={`text-xl font-semibold mb-3 ${item.color}`}>{t(`myStory.timeline.${item.key}.title`)}</h4>
-                                    <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-lg">
+                                    <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">{t(`myStory.timeline.${item.key}.year`)}</h3>
+                                    <h4 className={`text-lg font-semibold mb-2 ${item.color}`}>{t(`myStory.timeline.${item.key}.title`)}</h4>
+                                    <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
                                         {t(`myStory.timeline.${item.key}.desc`)}
                                     </p>
                                 </div>
