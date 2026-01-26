@@ -37,7 +37,7 @@ const Hero = ({ t, setCurrentPage, fallbackMetrics }) => {
                     <div className="md:col-span-2">
                         <TypewriterText
                             text={t('hero.name')}
-                            className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 via-amber-700 to-gray-900 dark:from-white dark:via-yellow-400 dark:to-gray-200 mb-3"
+                            className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary-600 via-secondary-500 to-primary-600 dark:from-white dark:via-primary-400 dark:to-gray-200 mb-3"
                             Element="h1"
                         />
                         <TypewriterText
@@ -54,7 +54,7 @@ const Hero = ({ t, setCurrentPage, fallbackMetrics }) => {
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                                 onClick={() => setCurrentPage('case-studies')}
-                                className="px-5 py-2.5 bg-amber-600 dark:bg-yellow-400 text-white dark:text-gray-900 text-sm font-medium rounded hover:bg-amber-700 dark:hover:bg-yellow-300 transition-all cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-600 focus-visible:ring-offset-2 font-mono shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+                                className="px-5 py-2.5 bg-primary-600 dark:bg-primary-500 text-white dark:text-gray-900 text-sm font-medium rounded hover:bg-primary-700 dark:hover:bg-primary-400 transition-all cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2 font-mono shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
                             >
                                 {t('hero.viewCaseStudies')}
                             </motion.button>
@@ -63,7 +63,7 @@ const Hero = ({ t, setCurrentPage, fallbackMetrics }) => {
                                 whileTap={{ scale: 0.95 }}
                                 href="/resume.pdf"
                                 download="Kanishk_Singh_Resume.pdf"
-                                className="px-5 py-2.5 border-2 border-amber-600 dark:border-yellow-400 text-amber-600 dark:text-yellow-400 text-sm font-medium rounded hover:bg-amber-50 dark:hover:bg-gray-900 transition-all flex items-center justify-center gap-2 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-600 focus-visible:ring-offset-2 font-mono shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+                                className="px-5 py-2.5 border-2 border-primary-600 dark:border-primary-500 text-primary-600 dark:text-primary-500 text-sm font-medium rounded hover:bg-primary-50 dark:hover:bg-gray-900 transition-all flex items-center justify-center gap-2 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2 font-mono shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
                             >
                                 <DownloadSimple className="w-5 h-5" weight="duotone" />
                                 {t('hero.downloadCV')}

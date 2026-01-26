@@ -11,7 +11,7 @@ const ScrollProgress = ({ isDarkMode }) => {
 
     return (
         <motion.div
-            className={`fixed top-0 left-0 right-0 h-1 origin-left z-[1002] ${isDarkMode ? 'bg-yellow-400' : 'bg-amber-600'}`}
+            className={`fixed top-0 left-0 right-0 h-1 origin-left z-[1002] bg-primary-600 dark:bg-primary-500`}
             style={{ scaleX }}
         />
     );

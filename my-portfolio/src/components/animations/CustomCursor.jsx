@@ -85,7 +85,7 @@ const CustomCursor = ({ isDarkMode }) => {
             width: 32,
             backgroundColor: "transparent",
             borderWidth: "2px",
-            borderColor: isDarkMode ? "#facc15" : "#d97706", // yellow-400 : amber-600
+            borderColor: isDarkMode ? "#f97316" : "#ea580c", // primary-500 : primary-600
             mixBlendMode: "normal"
         },
         pointer: {
@@ -93,9 +93,9 @@ const CustomCursor = ({ isDarkMode }) => {
             y: mousePosition.y - 24,
             height: 48,
             width: 48,
-            backgroundColor: isDarkMode ? "rgba(250, 204, 21, 0.2)" : "rgba(217, 119, 6, 0.2)",
+            backgroundColor: isDarkMode ? "rgba(249, 115, 22, 0.2)" : "rgba(234, 88, 12, 0.2)",
             borderWidth: "1px",
-            borderColor: isDarkMode ? "#facc15" : "#d97706",
+            borderColor: isDarkMode ? "#f97316" : "#ea580c",
             mixBlendMode: "normal"
         },
         text: {
@@ -104,7 +104,7 @@ const CustomCursor = ({ isDarkMode }) => {
             height: 24,
             width: 4,
             borderRadius: 0,
-            backgroundColor: isDarkMode ? "#facc15" : "#d97706",
+            backgroundColor: isDarkMode ? "#f97316" : "#ea580c",
             borderWidth: "0px",
             mixBlendMode: "difference"
         },

@@ -7,6 +7,50 @@ export default {
   darkMode: 'class',
   theme: {
     extend: {
+      colors: {
+        primary: {
+          50: '#fff7ed',
+          100: '#ffedd5',
+          200: '#fed7aa',
+          300: '#fdba74',
+          400: '#fb923c',
+          500: '#f97316',
+          600: '#ea580c',
+          700: '#c2410c',
+          800: '#9a3412',
+          900: '#7c2d12',
+          950: '#431407',
+          DEFAULT: '#ea580c',
+        },
+        secondary: {
+          50: '#eef2ff',
+          100: '#e0e7ff',
+          200: '#c7d2fe',
+          300: '#a5b4fc',
+          400: '#818cf8',
+          500: '#6366f1',
+          600: '#4f46e5',
+          700: '#4338ca',
+          800: '#3730a3',
+          900: '#312e81',
+          950: '#1e1b4b',
+          DEFAULT: '#4f46e5',
+        },
+        accent: {
+          50: '#ecfeff',
+          100: '#cffafe',
+          200: '#a5f3fc',
+          300: '#67e8f9',
+          400: '#22d3ee',
+          500: '#06b6d4',
+          600: '#0891b2',
+          700: '#0e7490',
+          800: '#155e75',
+          900: '#164e63',
+          950: '#083344',
+          DEFAULT: '#06b6d4',
+        }
+      },
       fontFamily: {
         sans: ['"VT323"', 'monospace'], // Headings
         mono: ['"Space Mono"', 'monospace'], // Body/Technical
