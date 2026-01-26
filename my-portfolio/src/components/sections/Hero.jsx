@@ -37,7 +37,7 @@ const Hero = ({ t, setCurrentPage, fallbackMetrics }) => {
                     <div className="lg:col-span-2">
                         <TypewriterText
                             text={t('hero.name')}
-                            className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary-600 via-accent-600 to-gray-900 dark:from-white dark:via-primary-400 dark:to-gray-200 mb-3"
+                            className="text-4xl md:text-5xl font-bold text-gray-900 dark:bg-clip-text dark:text-transparent dark:bg-gradient-to-r dark:from-white dark:via-primary-400 dark:to-gray-200 mb-3"
                             Element="h1"
                         />
                         <TypewriterText
