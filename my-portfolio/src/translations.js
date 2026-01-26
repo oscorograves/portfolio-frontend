@@ -6,8 +6,45 @@ export const translations = {
             caseStudies: "Case Studies",
             creativeLab: "Creative Lab",
             metrics: "Metrics",
+            myStory: "My Story",
             portfolio: "Portfolio",
             chatWithAI: "Chat with AI"
+        },
+        myStory: {
+            hero: {
+                title: "The Logic Behind the Magic",
+                subtitle: "My journey from curious explorer to data-driven growth architect."
+            },
+            timeline: {
+                start: {
+                    year: "2020",
+                    title: "The Foundation",
+                    desc: "Started with a strong technical base in Information Technology at JIIT. Discovered a passion for the intersection of data and human behavior."
+                },
+                early: {
+                    year: "2023",
+                    title: "Organic Growth",
+                    desc: "Dove into SEO and organic content. Learned how to build audiences from scratch at ABP, scaling channels to thousands of followers without ad spend."
+                },
+                mid: {
+                    year: "2024",
+                    title: "The Shift to Paid",
+                    desc: "Realized the power of amplification. Mastered Google and Meta Ads at Tradebuilder and Intertek, optimizing spend for B2B and global markets."
+                },
+                current: {
+                    year: "2025+",
+                    title: "Scale & Innovation",
+                    desc: "Leading growth at Pocket FM. Building automated creative testing engines and managing significant ad spends to drive global user acquisition."
+                }
+            },
+            philosophy: {
+                title: "My Growth Philosophy",
+                cards: [
+                    { title: "Data > Opinion", desc: "Every decision is backed by metrics. If you can't measure it, you can't improve it." },
+                    { title: "Creative is the New Targeting", desc: " In a privacy-first world, compelling creative is the best way to find your audience." },
+                    { title: "Full Funnel Mindset", desc: "Acquisition is just the start. Retention and LTV are where the real profit lies." }
+                ]
+            }
         },
         hero: {
             name: "Kanishk Singh",
@@ -340,6 +377,7 @@ export const translations = {
             caseStudies: "Casestudies",
             creativeLab: "Creatief Lab",
             metrics: "Metrieken",
+            myStory: "Mijn Verhaal",
             portfolio: "Portfolio",
             chatWithAI: "Chat met AI"
         },
@@ -675,6 +713,7 @@ export const translations = {
             caseStudies: "Fallstudien",
             creativeLab: "Kreativlabor",
             metrics: "Kennzahlen",
+            myStory: "Meine Geschichte",
             portfolio: "Portfolio",
             chatWithAI: "Mit KI chatten"
         },

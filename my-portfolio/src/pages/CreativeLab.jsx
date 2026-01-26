@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import RemotionPlayerWrapper from '../components/ui/RemotionPlayerWrapper';
 import { motion } from 'framer-motion';
 import { Play, X } from 'phosphor-react';
 
@@ -131,7 +132,9 @@ const CreativeLab = ({ t }) => {
                         </div>
 
                         <div className="p-6">
-                            <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700 rounded mb-6 border border-gray-300 dark:border-gray-700"></div>
+                            <div className="rounded mb-6 border border-gray-300 dark:border-gray-700 overflow-hidden">
+                                <RemotionPlayerWrapper />
+                            </div>
 
                             <div className="space-y-3 bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded p-4">
                                 <div className="flex justify-between items-center pb-2 border-b border-gray-300 dark:border-gray-700">

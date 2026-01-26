@@ -34,7 +34,7 @@ const NavBar = ({
 
                     {/* Desktop Navigation (Hidden on Mobile) */}
                     <div className="hidden md:flex gap-1">
-                        {['home', 'experience', 'case-studies', 'creative-lab', 'metrics'].map(page => (
+                        {['home', 'experience', 'case-studies', 'my-story', 'creative-lab', 'metrics'].map(page => (
                             <button
                                 key={page}
                                 onClick={() => {
@@ -131,7 +131,7 @@ const NavBar = ({
                             transition={{ duration: 0.3, ease: 'easeInOut' }}
                             className="md:hidden pt-4 pb-2 border-t border-gray-100 dark:border-gray-800 mt-4 space-y-2 overflow-hidden relative z-[1001]"
                         >
-                            {['home', 'experience', 'case-studies', 'creative-lab', 'metrics'].map(page => (
+                            {['home', 'experience', 'case-studies', 'my-story', 'creative-lab', 'metrics'].map(page => (
                                 <button
                                     key={page}
                                     onClick={() => {

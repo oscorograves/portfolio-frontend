@@ -22,6 +22,7 @@ import Home from './pages/Home';
 import Experience from './pages/Experience';
 import CaseStudies from './pages/CaseStudies';
 import CreativeLab from './pages/CreativeLab';
+import MyStory from './pages/MyStory';
 import MetricsPage from './pages/MetricsPage';
 
 // Lazy Load Modal
@@ -116,6 +117,11 @@ export default function Portfolio() {
         {currentPage === 'case-studies' &&
           <PageWrapper>
             <CaseStudies t={t} isDarkMode={isDarkMode} />
+          </PageWrapper>
+        }
+        {currentPage === 'my-story' &&
+          <PageWrapper>
+            <MyStory t={t} />
           </PageWrapper>
         }
         {currentPage === 'creative-lab' &&
