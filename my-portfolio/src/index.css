@@ -29,12 +29,3 @@
     scrollbar-width: none;
     /* Firefox */
 }
-
-/* Circle cursor for featured work */
-.cursor-circle {
-    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><circle cx="16" cy="16" r="14" fill="rgba(234, 88, 12, 0.3)" stroke="%23ea580c" stroke-width="2"/></svg>') 16 16, pointer;
-}
-
-.dark .cursor-circle {
-    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><circle cx="16" cy="16" r="14" fill="rgba(250, 204, 21, 0.3)" stroke="%23facc15" stroke-width="2"/></svg>') 16 16, pointer;
-}

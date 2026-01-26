@@ -40,7 +40,7 @@ const NavBar = ({
                                 onClick={() => {
                                     setCurrentPage(page);
                                 }}
-                                className={`relative px-4 py-2 text-sm transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2 overflow-hidden ${currentPage === page
+                                className={`relative px-4 py-2 text-sm transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2 ${currentPage === page
                                     ? 'text-white dark:text-gray-900'
                                     : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800' // Hover effect only on non-active items
                                     }`}
@@ -54,27 +54,6 @@ const NavBar = ({
                                         style={{ zIndex: 0 }} // Behind the text
                                     />
                                 )}
-
-                                {/* Colorful Shine Animation for My Story */}
-                                {page === 'my-story' && currentPage !== 'my-story' && (
-                                    <motion.div
-                                        className="absolute inset-0 rounded"
-                                        style={{
-                                            background: 'linear-gradient(90deg, transparent 0%, transparent 40%, rgba(255, 107, 107, 0.8) 45%, rgba(255, 193, 7, 0.8) 50%, rgba(76, 175, 80, 0.8) 53%, rgba(33, 150, 243, 0.8) 56%, rgba(156, 39, 176, 0.8) 60%, transparent 65%, transparent 100%)',
-                                            backgroundSize: '200% 100%',
-                                            zIndex: 1
-                                        }}
-                                        animate={{
-                                            backgroundPosition: ['200% 0', '-200% 0']
-                                        }}
-                                        transition={{
-                                            duration: 5,
-                                            repeat: Infinity,
-                                            ease: "linear"
-                                        }}
-                                    />
-                                )}
-
                                 {/* The Text (Must be higher z-index relative to pill) */}
                                 <span className="relative z-10">
                                     {t(`nav.${page.replace(/-./g, x => x[1].toUpperCase())}`)}
@@ -154,33 +133,12 @@ const NavBar = ({
                                         setCurrentPage(page);
                                         setIsMenuOpen(false); // Close menu after clicking
                                     }}
-                                    className={`relative overflow-hidden w-full text-left px-4 py-3 text-sm font-medium rounded-lg transition-all cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 font-mono ${currentPage === page
+                                    className={`w-full text-left px-4 py-3 text-sm font-medium rounded-lg transition-all cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 font-mono ${currentPage === page
                                         ? 'bg-amber-600 dark:bg-yellow-400 text-white dark:text-gray-900'
                                         : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800'
                                         }`}
                                 >
-                                    {/* Colorful Shine Animation for My Story in Mobile */}
-                                    {page === 'my-story' && currentPage !== 'my-story' && (
-                                        <motion.div
-                                            className="absolute inset-0 rounded-lg"
-                                            style={{
-                                                background: 'linear-gradient(90deg, transparent 0%, transparent 40%, rgba(255, 107, 107, 0.8) 45%, rgba(255, 193, 7, 0.8) 50%, rgba(76, 175, 80, 0.8) 53%, rgba(33, 150, 243, 0.8) 56%, rgba(156, 39, 176, 0.8) 60%, transparent 65%, transparent 100%)',
-                                                backgroundSize: '200% 100%',
-                                                zIndex: 0
-                                            }}
-                                            animate={{
-                                                backgroundPosition: ['200% 0', '-200% 0']
-                                            }}
-                                            transition={{
-                                                duration: 5,
-                                                repeat: Infinity,
-                                                ease: "linear"
-                                            }}
-                                        />
-                                    )}
-                                    <span className="relative z-10">
-                                        {t('nav.' + page.replace(/-./g, x => x[1].toUpperCase()))}
-                                    </span>
+                                    {t('nav.' + page.replace(/-./g, x => x[1].toUpperCase()))}
                                 </button>
                             ))}
 
