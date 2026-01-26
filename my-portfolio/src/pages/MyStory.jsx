@@ -145,7 +145,7 @@ const MyStory = ({ t }) => {
 
 
             {/* PHILOSOPHY SECTION */}
-            <section className="border-b border-gray-300 dark:border-gray-800 transition-colors duration-300">
+            <section className="border-t border-b border-gray-300 dark:border-gray-800 transition-colors duration-300">
                 <motion.div
                     className="max-w-6xl mx-auto px-8 py-12"
                     initial={{ opacity: 0, y: 50 }}
