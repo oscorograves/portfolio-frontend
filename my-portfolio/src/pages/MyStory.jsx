@@ -179,11 +179,10 @@ const MyStory = ({ t }) => {
                         return (
                             <motion.div
                                 key={i}
-                                className="bg-white dark:bg-gray-900/50 p-8 rounded-2xl border border-gray-100 dark:border-gray-800 shadow-xl hover:shadow-2xl transition-all duration-300 group"
-                                whileHover={{ y: -10 }}
+                                className="bg-white dark:bg-gray-900/50 p-8 rounded-2xl border-2 border-gray-900 dark:border-gray-100 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] hover:translate-y-[-4px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] dark:hover:shadow-[6px_6px_0px_0px_rgba(255,255,255,1)] transition-all duration-300 group"
                             >
-                                <div className="mb-6 inline-block p-4 rounded-xl bg-gray-50 dark:bg-gray-800 group-hover:bg-amber-100 dark:group-hover:bg-amber-900/30 transition-colors">
-                                    <PhilIcon size={32} className="text-gray-600 dark:text-gray-300 group-hover:text-amber-600 dark:group-hover:text-amber-400" weight="duotone" />
+                                <div className="mb-6 inline-block p-4 rounded-xl bg-gray-50 dark:bg-gray-800 group-hover:bg-primary-50 dark:group-hover:bg-primary-900/20 transition-colors border-2 border-gray-900 dark:border-gray-100">
+                                    <PhilIcon size={32} className="text-gray-900 dark:text-gray-100 group-hover:text-primary-600 dark:group-hover:text-primary-400" weight="duotone" />
                                 </div>
                                 <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
                                     {card.title}
