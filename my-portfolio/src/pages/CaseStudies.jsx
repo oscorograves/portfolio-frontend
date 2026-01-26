@@ -31,7 +31,7 @@ const CaseStudies = ({ t, isDarkMode }) => {
             badgeText: t('caseStudies.packt.badge'),
             category: t('caseStudies.packt.category'),
             problem: t('caseStudies.packt.problem'),
-            actions: t('caseStudies.packt.actions'),
+            actions: t('caseStudies.packt.actions', { returnObjects: true }),
             results: [
                 { metric: t('featuredWork.metrics.attendees'), value: "150" },
                 { metric: t('featuredWork.metrics.netNew'), value: "80%+" },
@@ -49,7 +49,7 @@ const CaseStudies = ({ t, isDarkMode }) => {
             badgeText: t('caseStudies.jrb.badge'),
             category: t('caseStudies.jrb.category'),
             problem: t('caseStudies.jrb.problem'),
-            actions: t('caseStudies.jrb.actions'),
+            actions: t('caseStudies.jrb.actions', { returnObjects: true }),
             results: [
                 { metric: t('caseStudies.jrb.resultsData.testClusters'), value: "5" },
                 { metric: t('caseStudies.jrb.resultsData.funnelZones'), value: "4" },
@@ -67,7 +67,7 @@ const CaseStudies = ({ t, isDarkMode }) => {
             badgeText: t('caseStudies.audio.badge'),
             category: t('caseStudies.audio.category'),
             problem: t('caseStudies.audio.problem'),
-            actions: t('caseStudies.audio.actions'),
+            actions: t('caseStudies.audio.actions', { returnObjects: true }),
             results: [
                 { metric: t("caseStudies.audio.results.ctr"), value: "+16%" },
                 { metric: t("caseStudies.audio.results.cpa"), value: "−14%" },
