@@ -34,16 +34,11 @@ const NavBar = ({
 
                     {/* Desktop Navigation (Hidden on Mobile) */}
                     <div className="hidden md:flex gap-1">
-                        {['home', 'experience', 'case-studies', 'my-story', 'creative-lab', 'metrics'].map(page => (
+                        {['home', 'experience', 'case-studies', 'my-story', 'metrics'].map(page => (
                             <button
                                 key={page}
                                 onClick={() => {
-                                    if (page === 'creative-lab') {
-                                        setShowWip(true);
-                                        setCurrentPage(page);
-                                    } else {
-                                        setCurrentPage(page);
-                                    }
+                                    setCurrentPage(page);
                                 }}
                                 className={`relative px-4 py-2 text-sm transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2 ${currentPage === page
                                     ? 'text-white dark:text-gray-900'
@@ -73,7 +68,7 @@ const NavBar = ({
                             onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
                             className="flex items-center gap-1 p-2 text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800 rounded-full transition-colors text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2"
                         >
-                            <Globe className="w-5 h-5" weight="duotone" />
+                            <Globe className="w-5 h-5 text-blue-500" weight="duotone" />
                             <span>{language.toUpperCase()}</span>
                         </button>
 
@@ -131,18 +126,12 @@ const NavBar = ({
                             transition={{ duration: 0.3, ease: 'easeInOut' }}
                             className="md:hidden pt-4 pb-2 border-t border-gray-100 dark:border-gray-800 mt-4 space-y-2 overflow-hidden relative z-[1001]"
                         >
-                            {['home', 'experience', 'case-studies', 'my-story', 'creative-lab', 'metrics'].map(page => (
+                            {['home', 'experience', 'case-studies', 'my-story', 'metrics'].map(page => (
                                 <button
                                     key={page}
                                     onClick={() => {
-                                        if (page === 'creative-lab') {
-                                            setShowWip(true);
-                                            setCurrentPage(page);
-                                            setIsMenuOpen(false);
-                                        } else {
-                                            setCurrentPage(page);
-                                            setIsMenuOpen(false); // Close menu after clicking
-                                        }
+                                        setCurrentPage(page);
+                                        setIsMenuOpen(false); // Close menu after clicking
                                     }}
                                     className={`w-full text-left px-4 py-3 text-sm font-medium rounded-lg transition-all cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 font-mono ${currentPage === page
                                         ? 'bg-amber-600 dark:bg-yellow-400 text-white dark:text-gray-900'

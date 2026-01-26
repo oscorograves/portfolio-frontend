@@ -4,11 +4,11 @@ import { motion } from 'framer-motion';
 import { Play, X } from 'phosphor-react';
 
 // Remotion Compositions
-import AdCreative from '../remotion/AdCreative';
-import ProductDemo from '../remotion/ProductDemo';
-import BrandStory from '../remotion/BrandStory';
-import FounderInterview from '../remotion/FounderInterview';
-import FeatureHighlight from '../remotion/FeatureHighlight';
+// import AdCreative from '../remotion/AdCreative';
+// import ProductDemo from '../remotion/ProductDemo';
+// import BrandStory from '../remotion/BrandStory';
+// import FounderInterview from '../remotion/FounderInterview';
+// import FeatureHighlight from '../remotion/FeatureHighlight';
 
 const itemVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -33,22 +33,22 @@ const CreativeLab = ({ t }) => {
     const [selectedCreative, setSelectedCreative] = useState(null);
 
     const creatives = [
-        { goal: t('creativeLab.goals.brandAwareness'), ctr: '2.8%', cpl: '$12', composition: AdCreative, themeColor: '#3b82f6' },
-        { goal: t('creativeLab.goals.leadGen'), ctr: '3.2%', cpl: '$18', composition: AdCreative, themeColor: '#ef4444' },
-        { goal: t('creativeLab.goals.appInstall'), ctr: '4.1%', cpl: '$8', composition: AdCreative, themeColor: '#10b981' },
-        { goal: t('creativeLab.goals.retargeting'), ctr: '5.2%', cpl: '$15', composition: AdCreative, themeColor: '#f59e0b' },
-        { goal: t('creativeLab.goals.productLaunch'), ctr: '3.9%', cpl: '$22', composition: AdCreative, themeColor: '#8b5cf6' },
-        { goal: t('creativeLab.goals.eventReg'), ctr: '3.5%', cpl: '$14', composition: AdCreative, themeColor: '#ec4899' },
-        { goal: t('creativeLab.goals.contentDownload'), ctr: '2.9%', cpl: '$10', composition: AdCreative, themeColor: '#06b6d4' },
-        { goal: t('creativeLab.goals.webinarSignup'), ctr: '4.3%', cpl: '$25', composition: AdCreative, themeColor: '#f97316' },
-        { goal: t('creativeLab.goals.trialConv'), ctr: '3.7%', cpl: '$30', composition: AdCreative, themeColor: '#6366f1' }
+        { goal: t('creativeLab.goals.brandAwareness'), ctr: '2.8%', cpl: '$12' },
+        { goal: t('creativeLab.goals.leadGen'), ctr: '3.2%', cpl: '$18' },
+        { goal: t('creativeLab.goals.appInstall'), ctr: '4.1%', cpl: '$8' },
+        { goal: t('creativeLab.goals.retargeting'), ctr: '5.2%', cpl: '$15' },
+        { goal: t('creativeLab.goals.productLaunch'), ctr: '3.9%', cpl: '$22' },
+        { goal: t('creativeLab.goals.eventReg'), ctr: '3.5%', cpl: '$14' },
+        { goal: t('creativeLab.goals.contentDownload'), ctr: '2.9%', cpl: '$10' },
+        { goal: t('creativeLab.goals.webinarSignup'), ctr: '4.3%', cpl: '$25' },
+        { goal: t('creativeLab.goals.trialConv'), ctr: '3.7%', cpl: '$30' }
     ];
 
     const videos = [
-        { title: t('creativeLab.videoTitles.productDemo'), type: t('creativeLab.videoTypes.adEdit'), duration: '0:30', composition: ProductDemo },
-        { title: t('creativeLab.videoTitles.brandStory'), type: t('creativeLab.videoTypes.promo'), duration: '1:15', composition: BrandStory },
-        { title: t('creativeLab.videoTitles.founderInterview'), type: t('creativeLab.videoTypes.podcast'), duration: '2:45', composition: FounderInterview },
-        { title: t('creativeLab.videoTitles.featureHighlight'), type: t('creativeLab.videoTypes.adEdit'), duration: '0:45', composition: FeatureHighlight }
+        { title: t('creativeLab.videoTitles.productDemo'), type: t('creativeLab.videoTypes.adEdit'), duration: '0:30' },
+        { title: t('creativeLab.videoTitles.brandStory'), type: t('creativeLab.videoTypes.promo'), duration: '1:15' },
+        { title: t('creativeLab.videoTitles.founderInterview'), type: t('creativeLab.videoTypes.podcast'), duration: '2:45' },
+        { title: t('creativeLab.videoTitles.featureHighlight'), type: t('creativeLab.videoTypes.adEdit'), duration: '0:45' }
     ];
 
     return (
@@ -71,8 +71,7 @@ const CreativeLab = ({ t }) => {
                             <motion.div
                                 key={i}
                                 variants={itemVariants}
-                                onClick={() => setSelectedCreative(creative)}
-                                className="aspect-square bg-white/40 dark:bg-gray-900/40 border border-gray-300 dark:border-gray-800 rounded cursor-pointer hover:border-amber-600 dark:hover:border-yellow-400 transition-all group outline outline-2 outline-offset-4 outline-gray-900 outline-2"
+                                className="aspect-square bg-white/40 dark:bg-gray-900/40 border border-gray-300 dark:border-gray-800 rounded hover:border-amber-600 dark:hover:border-yellow-400 transition-all group outline outline-2 outline-offset-4 outline-gray-900 outline-2"
                                 whileHover="hover"
                             >
                                 <div className="w-full h-full flex flex-col items-center justify-center p-4 relative bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700">
@@ -104,8 +103,7 @@ const CreativeLab = ({ t }) => {
                                 key={i}
                                 variants={itemVariants}
                                 whileHover="hover"
-                                onClick={() => setSelectedCreative(video)}
-                                className="bg-white/40 dark:bg-gray-900/40 border border-gray-300 dark:border-gray-800 rounded overflow-hidden hover:border-amber-600 dark:hover:border-yellow-400 transition-all group cursor-pointer outline outline-2 outline-offset-4 outline-gray-900 outline-2"
+                                className="bg-white/40 dark:bg-gray-900/40 border border-gray-300 dark:border-gray-800 rounded overflow-hidden hover:border-amber-600 dark:hover:border-yellow-400 transition-all group outline outline-2 outline-offset-4 outline-gray-900 outline-2"
                             >
                                 <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700 flex items-center justify-center relative">
                                     <motion.div
@@ -135,17 +133,13 @@ const CreativeLab = ({ t }) => {
                         <div className="bg-gradient-to-r from-orange-600 to-red-600 dark:bg-gray-800 text-white px-6 py-4 flex items-center justify-between sticky top-0 z-10 border-b border-gray-800 dark:border-gray-700">
                             <h3 className="text-lg font-bold">{t('creativeLab.modal.title')}</h3>
                             <button onClick={() => setSelectedCreative(null)} className="hover:bg-white/20 p-1 rounded transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-600 focus-visible:ring-offset-2">
-                                <X className="w-5 h-5" weight="duotone" />
+                                <X className="w-5 h-5 text-white" weight="duotone" />
                             </button>
                         </div>
 
                         <div className="p-6">
                             <div className="rounded mb-6 border border-gray-300 dark:border-gray-700 overflow-hidden">
-                                <RemotionPlayerWrapper
-                                    composition={selectedCreative.composition}
-                                    inputProps={{ ...selectedCreative, composition: undefined }}
-                                    durationInFrames={300} // Default duration
-                                />
+                                <RemotionPlayerWrapper />
                             </div>
 
                             <div className="space-y-3 bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded p-4">

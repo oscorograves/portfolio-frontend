@@ -1,53 +1,46 @@
-# Color Mapping Strategy
+# Icon Color Mapping Plan
 
-## Light Mode Color Replacements (Blue → Orange/Red)
+## Goal
+Apply vibrant, consistent colors to all icons across the application, matching the style of the "My Story" page.
 
-### Primary Colors
-- `bg-blue-600` → `bg-orange-600` (Main backgrounds, buttons)
-- `bg-blue-700` → `bg-orange-700` (Hover states)
-- `bg-blue-500` → `bg-orange-500` (Medium accent)
-- `bg-blue-400` → `bg-orange-400` (Light accent, particles)
-- `bg-blue-200` → `bg-orange-200` (Very light backgrounds)
-- `bg-blue-100` → `bg-orange-100` (Subtle backgrounds)
-- `bg-blue-50` → `bg-orange-50` (Lightest backgrounds)
+## Color Palette (Tailwind)
+- **Primary**: `text-amber-600` / `dark:text-yellow-400` (Brand)
+- **Secondary/Action**: `text-blue-500` / `text-blue-400`
+- **Success/Growth**: `text-emerald-500` / `text-emerald-400`
+- **Highlight/Creative**: `text-rose-500` / `text-rose-400`
+- **Tech/Code**: `text-violet-500` / `text-violet-400`
 
-### Text Colors
-- `text-blue-600` → `text-orange-600`
-- `text-blue-100` → `text-orange-100`
+## Page-by-Page Mapping
 
-### Border Colors
-- `border-blue-600` → `border-orange-600`
-- `border-blue-500` → `border-orange-500`
-- `border-blue-200` → `border-orange-200`
+### 1. Experience Page (`src/pages/Experience.jsx`)
+- **Roles**:
+    - `Briefcase` (Company): `text-blue-500`
+    - `MapPin` (Location): `text-rose-500`
+    - `CalendarBlank` (Date): `text-amber-500`
+- **Projects**:
+    - `Robot` (AI): `text-violet-500`
+    - `ChatCircle` (Chatbot): `text-emerald-500`
+- **Education**:
+    - `GraduationCap`: `text-amber-600`
+- **Certifications**:
+    - `Medal`: `text-yellow-500`
 
-### Shadows & Effects
-- `shadow-blue-600/50` → `shadow-orange-600/50`
-- `ring-blue-600` → `ring-orange-600`
-- `ring-blue-500` → `ring-orange-500`
+### 2. Metrics Page (`src/pages/MetricsPage.jsx`)
+- **Summary Cards**: Add icons? (Currently text only, maybe add icons to enhance?) -> *Decision: Keep as text for now to avoid clutter, focus on existing icons.*
+- **Insights**:
+    - *No icons currently, just text. Will leave as is unless user asks.*
+- *Note*: `Resources.jsx` is used here, need to check that.
 
-### Hover States
-- `hover:bg-blue-700` → `hover:bg-orange-700`
-- `hover:bg-blue-50` → `hover:bg-orange-50`
-- `hover:text-blue-600` → `hover:text-orange-600`
-- `hover:border-blue-600` → `hover:border-orange-600`
-- `group-hover:bg-blue-600` → `group-hover:bg-orange-600`
-- `group-hover:text-blue-600` → `group-hover:text-orange-600`
-- `group-hover:border-blue-600` → `group-hover:border-orange-600`
+### 3. Case Studies (`src/pages/CaseStudies.jsx`)
+- `ArrowSquareOut` (External Link): `text-blue-400` (already colored by parent generic styles, but will enforce)
+- `Barricade` (Coming Soon): `text-orange-400`
 
-### Focus States
-- `focus-visible:ring-blue-600` → `focus-visible:ring-orange-600`
-- `focus:ring-blue-500` → `focus:ring-orange-500`
+### 4. Creative Lab (`src/pages/CreativeLab.jsx`)
+- `Play` (Play Button): `text-white` (on colored bg) -> *Already colored in amber*.
+- `X` (Close): `text-gray-500` -> `text-rose-500` hover.
 
-### Dynamic Colors (whileHover borderColor)
-- `'#2563eb'` → `'#ea580c'` (orange-600 hex)
-
-## Dark Mode (Unchanged)
-All dark mode colors remain with yellow-400 variants
-
-## Outline Border Additions
-Add `outline outline-2 outline-offset-2 outline-gray-300` to:
-- Service cards
-- Experience cards
-- Case study cards
-- Metrics cards
-- Creative lab items
+### 5. Components
+- **Resources.jsx**: Check for icons.
+- **NavBar.jsx**: Icons `List`, `Globe`, `Sun`, `Moon`.
+    - `Globe`: `text-blue-500`
+    - `Sun/Moon`: `text-amber-500`
