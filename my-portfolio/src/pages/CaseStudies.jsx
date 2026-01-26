@@ -157,7 +157,7 @@ const CaseStudies = ({ t, isDarkMode }) => {
                                         {study.results.map((result, j) => (
                                             <div key={j} className="bg-gray-50 dark:bg-gray-800/50 border border-gray-300 dark:border-gray-700 rounded p-3 text-center">
                                                 <div className="text-xs text-gray-600 dark:text-gray-400 mb-1">{result.metric}</div>
-                                                <div className="text-2xl font-bold text-gray-900 dark:text-white">{result.value}</div>
+                                                <div className="text-lg md:text-2xl font-bold text-gray-900 dark:text-white">{result.value}</div>
                                             </div>
                                         ))}
                                     </div>

@@ -69,13 +69,13 @@ const MyStory = ({ t }) => {
 
             {/* HER0 SECTION */}
             <motion.div
-                className="text-center mb-32 relative"
+                className="text-center mb-32 relative pt-8 md:pt-16"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
             >
                 <motion.h1
-                    className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 dark:from-white dark:via-gray-200 dark:to-gray-400 mb-6"
+                    className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6"
                 >
                     {t('myStory.hero.title')}
                 </motion.h1>

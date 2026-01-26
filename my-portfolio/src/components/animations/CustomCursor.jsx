@@ -155,7 +155,7 @@ const CustomCursor = ({ isDarkMode }) => {
         <>
             {/* Main Ring/Shape */}
             <motion.div
-                className="fixed top-0 left-0 rounded-full pointer-events-none z-[99999] hidden md:flex items-center justify-center text-center overflow-hidden"
+                className="fixed top-0 left-0 rounded-full pointer-events-none z-[99999] hidden xl:flex items-center justify-center text-center overflow-hidden"
                 variants={variants}
                 animate={cursorVariant}
                 transition={{
@@ -174,7 +174,7 @@ const CustomCursor = ({ isDarkMode }) => {
 
             {/* Center Dot (Independent) */}
             <motion.div
-                className="fixed top-0 left-0 w-2 h-2 rounded-full pointer-events-none z-[99999] hidden md:block" // Dot is above
+                className="fixed top-0 left-0 w-2 h-2 rounded-full pointer-events-none z-[99999] hidden xl:block" // Dot is above
                 variants={dotVariants}
                 animate={cursorVariant}
                 transition={{ duration: 0.15 }} // Faster transition for dot
