@@ -1,14 +1,13 @@
 import React, { useState, useEffect, Suspense } from 'react';
 import { useTranslation } from 'react-i18next';
+import './i18n';
 
 // Hooks
 import useMousePosition from './hooks/useMousePosition';
-// ... rest imports remain ...
 
 // Layout
 import NavBar from './components/layout/NavBar';
 import Footer from './components/layout/Footer';
-
 
 // Animations
 import FireflyBackground from './components/animations/FireflyBackground';
@@ -17,6 +16,8 @@ import NetworkBackground from './components/animations/NetworkBackground';
 
 // UI
 import PageWrapper from './components/ui/PageWrapper';
+import NoiseOverlay from './components/ui/NoiseOverlay';
+import ScrollProgress from './components/ui/ScrollProgress';
 
 // Pages
 import Home from './pages/Home';
@@ -29,7 +30,7 @@ import MetricsPage from './pages/MetricsPage';
 // Lazy Load Modal
 const WipModal = React.lazy(() => import('./components/ui/WipModal'));
 
-// FALLBACK DATA (Keep here or move to a constants file)
+// FALLBACK DATA
 const fallbackMetrics = [
   { client: 'Pocket FM', channel: 'Meta', spend: 6000, ctr: 2.6, cpl: 12.80, cvr: 4.2, roi: 250 },
   { client: 'Packt', channel: 'Meta', spend: 3500, ctr: 2.3, cpl: 23.00, cvr: 5.8, roi: 329 },
@@ -64,6 +65,9 @@ export default function Portfolio() {
 
   return (
     <div className="min-h-screen flex flex-col transition-colors duration-300 relative overflow-hidden">
+      <ScrollProgress isDarkMode={isDarkMode} />
+      <NoiseOverlay />
+
       {/* Solid Background Base */}
       <div className="fixed inset-0 -z-20 bg-gray-50 dark:bg-gray-950 transition-colors duration-300" />
 
@@ -131,7 +135,6 @@ export default function Portfolio() {
       </div>
 
       <Footer t={t} />
-
 
       {/* Modals */}
       <Suspense fallback={null}>
