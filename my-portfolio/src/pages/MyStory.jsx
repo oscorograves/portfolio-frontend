@@ -65,11 +65,11 @@ const MyStory = ({ t }) => {
 
 
     return (
-        <div className="min-h-screen py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="min-h-screen py-24">
 
             {/* HER0 SECTION */}
             <motion.div
-                className="text-center mb-32 relative pt-8 md:pt-16"
+                className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-32 relative pt-8 md:pt-16"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
@@ -94,7 +94,7 @@ const MyStory = ({ t }) => {
 
 
             {/* TIMELINE SECTION */}
-            <div className="relative mb-40">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative mb-40">
                 {/* Connecting Line (Desktop) */}
                 <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-gray-300 dark:via-gray-700 to-transparent transform -translate-x-1/2 hidden md:block" />
 
@@ -145,7 +145,7 @@ const MyStory = ({ t }) => {
 
 
             {/* PHILOSOPHY SECTION */}
-            <section className="border-t border-b border-gray-300 dark:border-gray-800 transition-colors duration-300">
+            <section className="border-t border-gray-300 dark:border-gray-800 transition-colors duration-300">
                 <motion.div
                     className="max-w-6xl mx-auto px-8 py-12"
                     initial={{ opacity: 0, y: 50 }}

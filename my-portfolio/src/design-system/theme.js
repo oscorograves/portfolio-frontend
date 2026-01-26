@@ -104,7 +104,7 @@ export const effects = {
 
 export const borders = {
     standard: 'border border-gray-300 dark:border-gray-800',
-    section: 'border-b border-gray-300 dark:border-gray-800',
+    section: 'border-t border-gray-300 dark:border-gray-800',
     accent: 'border-2 border-amber-600 dark:border-yellow-400',
 };
 

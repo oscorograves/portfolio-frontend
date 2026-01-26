@@ -42,7 +42,7 @@ Standard page section with proper spacing and container width.
 ```
 
 **Props:**
-- `divider` (boolean): Show bottom border (default: true)
+- `divider` (boolean): Show top border spanning full width (default: true)
 - `wide` (boolean): Use wider max-width (default: false)
 - `className` (string): Additional classes
 - `variants` (object): Custom motion variants

@@ -8,7 +8,7 @@ import { spacing, borders, animations, cx } from '../theme';
  * 
  * @param {object} props
  * @param {React.ReactNode} props.children - Section content
- * @param {boolean} props.divider - Show bottom border divider (default: true)
+ * @param {boolean} props.divider - Show top border divider (default: true)
  * @param {boolean} props.wide - Use wider max-width (default: false)
  * @param {string} props.className - Additional classes
  * @param {object} props.variants - Motion variants

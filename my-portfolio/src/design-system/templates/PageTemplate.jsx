@@ -17,11 +17,11 @@ import { animations } from '../theme';
 
 const PageTemplate = ({ t }) => {
     return (
-        <div className="min-h-screen py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="min-h-screen py-24">
 
             {/* Hero Section */}
             <motion.div
-                className="text-center mb-32 relative pt-8 md:pt-16"
+                className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-32 relative pt-8 md:pt-16"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
@@ -35,7 +35,7 @@ const PageTemplate = ({ t }) => {
             </motion.div>
 
             {/* Main Content Section */}
-            <DSSection>
+            <DSSection divider={true}>
                 <DSHeading level="h2" accent>
                     Section Title
                 </DSHeading>
@@ -90,7 +90,7 @@ const PageTemplate = ({ t }) => {
             </DSSection>
 
             {/* Additional Section (if needed) */}
-            <DSSection>
+            <DSSection divider={true}>
                 <div className="text-center mb-16">
                     <DSHeading level="h2Section" className="mb-4">
                         Another Section
