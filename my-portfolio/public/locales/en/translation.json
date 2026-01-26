@@ -1,0 +1,421 @@
+{
+  "nav": {
+    "home": "Home",
+    "experience": "Experience",
+    "caseStudies": "Case Studies",
+    "creativeLab": "Creative Lab",
+    "metrics": "Metrics",
+    "myStory": "My Story",
+    "portfolio": "Portfolio",
+    "chatWithAI": "Chat with AI"
+  },
+  "myStory": {
+    "hero": {
+      "title": "The Logic Behind the Magic",
+      "subtitle": "My journey from curious explorer to data-driven growth architect."
+    },
+    "timeline": {
+      "start": {
+        "year": "2020",
+        "title": "The Foundation",
+        "desc": "Started with a strong technical base in Information Technology at JIIT. Discovered a passion for the intersection of data and human behavior."
+      },
+      "early": {
+        "year": "2023",
+        "title": "Organic Growth",
+        "desc": "Dove into SEO and organic content. Learned how to build audiences from scratch at ABP, scaling channels to thousands of followers without ad spend."
+      },
+      "mid": {
+        "year": "2024",
+        "title": "The Shift to Paid",
+        "desc": "Realized the power of amplification. Mastered Google and Meta Ads at Tradebuilder and Intertek, optimizing spend for B2B and global markets."
+      },
+      "current": {
+        "year": "2025+",
+        "title": "Scale & Innovation",
+        "desc": "Leading growth at Pocket FM. Building automated creative testing engines and managing significant ad spends to drive global user acquisition."
+      }
+    },
+    "philosophy": {
+      "title": "My Growth Philosophy",
+      "cards": [
+        {
+          "title": "Data > Opinion",
+          "desc": "Every decision is backed by metrics. If you can't measure it, you can't improve it."
+        },
+        {
+          "title": "Creative is the New Targeting",
+          "desc": " In a privacy-first world, compelling creative is the best way to find your audience."
+        },
+        {
+          "title": "Full Funnel Mindset",
+          "desc": "Acquisition is just the start. Retention and LTV are where the real profit lies."
+        }
+      ]
+    }
+  },
+  "hero": {
+    "name": "Kanishk Singh",
+    "role": "Performance & Growth Marketer",
+    "description": "I design paid media, CRO, and growth systems that scale revenue. Specializing in data-driven campaign optimization, funnel design, and performance analytics across B2B and B2C channels.",
+    "viewCaseStudies": "View Case Studies",
+    "downloadCV": "Download CV",
+    "contactInfo": "Contact Information",
+    "location": "Noida, India",
+    "keyMetrics": "Key Metrics"
+  },
+  "wip": {
+    "title": "Work in Progress",
+    "message": "Creative Lab is currently under construction. Check back soon for updates!",
+    "close": "Close"
+  },
+  "stats": {
+    "yearsExp": "Years Experience",
+    "adSpend": "Ad Spend Managed",
+    "campaigns": "Campaigns Run",
+    "roi": "Highest ROI"
+  },
+  "featuredWork": {
+    "title": "Featured Work",
+    "subtitle": "Growth & GTM",
+    "projectSubtitle": "Paid GTM & Audience Acquisition",
+    "packtTitle": "Packt Events",
+    "projectTitle": "Shipping a Paid GTM Engine for Packt Events",
+    "projectDesc": "Launched a paid events vertical and achieved 150+ attendees with 80%+ net-new audience acquisition",
+    "metrics": {
+      "attendees": "Paid Attendees",
+      "netNew": "Net-New %",
+      "cac": "Blended CAC",
+      "roas": "Projected ROAS"
+    }
+  },
+  "whatIOffer": {
+    "title": "What I Offer",
+    "paidMedia": {
+      "title": "Paid Media Strategy & Execution",
+      "desc": "End-to-end campaign management across Meta, Google, and LinkedIn with focus on creative testing and audience optimization"
+    },
+    "cro": {
+      "title": "CRO Audits & A/B Testing",
+      "desc": "Data-driven conversion optimization using hypothesis testing, user research, and systematic experimentation"
+    },
+    "analytics": {
+      "title": "Performance Dashboards & Analytics",
+      "desc": "Custom GA4 tracking, UTM architecture, and real-time dashboards for actionable growth insights"
+    }
+  },
+  "footer": {
+    "connect": "Connect",
+    "contact": "Contact",
+    "emailMe": "Email Me",
+    "email": "Email Me",
+    "offClock": "Off the Clock",
+    "rights": "Open Source Architecture. UI/UX & Brand Identity © 2026 Kanishk Singh. Proprietary assets; unauthorized reproduction prohibited.",
+    "hobbies": {
+      "film": "Film and Video Editing",
+      "photography": "Photography",
+      "travel": "Solo Travel",
+      "journaling": "Journaling"
+    },
+    "copyright": "© 2026 Kanishk Singh. All rights reserved."
+  },
+  "experience": {
+    "title": "Professional Experience",
+    "present": "Present",
+    "skills": "Core Competencies",
+    "competencies": [
+      {
+        "title": "Performance Marketing",
+        "icon": "Target",
+        "skills": [
+          "Paid Media (Meta, Google, LinkedIn)",
+          "Campaign Strategy & Scaling",
+          "Budget Optimization"
+        ]
+      },
+      {
+        "title": "Growth Marketing",
+        "icon": "TrendingUp",
+        "skills": [
+          "Landing Page Design",
+          "Funnel Optimization",
+          "User Experience Enhancement"
+        ]
+      },
+      {
+        "title": "Analytics & CRO",
+        "icon": "LineChart",
+        "skills": [
+          "GA4 Implementation",
+          "A/B Testing",
+          "Performance Dashboards"
+        ]
+      }
+    ],
+    "digitalSkills": "Digital Skills",
+    "platformsParams": "Platforms & Tools",
+    "languages": "Languages",
+    "languageLevels": {
+      "native": "Native",
+      "c1": "C1 (Advanced)",
+      "a2": "A2 (Elementary)"
+    },
+    "languageList": {
+      "hindi": "Hindi",
+      "english": "English",
+      "dutch": "Dutch"
+    },
+    "educationDetails": {
+      "degree": "Bachelor of Business Administration",
+      "specialization": "Marketing Specialization",
+      "institute": "Jaypee Institute of Information Technology",
+      "locationYear": "Noida, India • 2020 – 2023",
+      "cgpa": "CGPA: 7.7 / 10"
+    },
+    "education": "Education",
+    "certifications": "Certifications",
+    "resumeDownload": "Download Full Resume",
+    "roles": {
+      "pocketfm": {
+        "title": "Ad Operations Specialist",
+        "company": "Pocket FM",
+        "type": "Contract",
+        "location": "Remote",
+        "period": "Jun 2025 – Present",
+        "bullets": [
+          "Own Meta Ads execution across acquisition and engagement campaigns for multiple geographies",
+          "Built creative and audience testing systems that improved CTR by ~16% and reduced cost per result by ~14%",
+          "Designed live performance dashboards to guide budget reallocation and creative scaling",
+          "Worked cross-functionally with content and growth teams to roll out winning creative formats globally"
+        ]
+      },
+      "intertek": {
+        "title": "Digital Marketing Executive",
+        "company": "Intertek India Pvt. Ltd.",
+        "location": "Delhi",
+        "period": "Sep 2024 – Jun 2025",
+        "bullets": [
+          "Ran paid search, paid social, and organic campaigns across South Asia for 37+ offices",
+          "Used GA4 funnel analysis and CRO tests to lift conversion rate by ~18% and MQLs by ~22%",
+          "Built and optimized landing pages, enquiry forms, and lead routing to improve sales handoff"
+        ]
+      },
+      "tradebuilder": {
+        "title": "Digital Marketing Associate",
+        "company": "Tradebuilder Inc.",
+        "location": "Remote",
+        "period": "Sep 2023 – Jul 2024",
+        "bullets": [
+          "Managed Google Ads, Meta Ads, and HubSpot campaigns for B2B lead generation",
+          "Built weekly GA4-based funnel and cohort reports that improved ad ROI by ~20%",
+          "Ran A/B tests on creatives and landing pages to increase CTR by ~12% and lower CPL"
+        ]
+      },
+      "abp": {
+        "title": "SEO Intern",
+        "company": "ABP Learning Technologies",
+        "location": "Noida",
+        "period": "Jan 2023 – Aug 2023",
+        "bullets": [
+          "Scaled Instagram to 3,000+ and YouTube to 10,000+ followers using organic-first growth",
+          "Improved search rankings through keyword research, on-page SEO, and metadata optimization"
+        ]
+      },
+      "projects": {
+        "customGpt": {
+          "title": "Custom GPT for Marketing Intelligence",
+          "bullets": [
+            "Built a custom GPT integrating SEMrush, Ahrefs, and GA4 to automate competitor analysis, keyword research, and reporting.",
+            "Reduced manual research time and standardised insights across campaigns."
+          ]
+        },
+        "chatbot": {
+          "title": "Chatbot Integration for Intertek India Website",
+          "bullets": [
+            "Deployed a custom chatbot on an Optimizely CMS website to capture and qualify leads across multiple business units using conditional logic.",
+            "Ran A/B tests on conversation flows and form fields to increase lead completion rates."
+          ]
+        }
+      }
+    },
+    "certificationsList": [
+      "Google Ads Certification (Skillshop)",
+      "Social Media Marketing (HubSpot)",
+      "Fundamentals of Digital Marketing (Google)",
+      "SEO Certification (HubSpot)"
+    ]
+  },
+  "metricsPage": {
+    "title": "Performance Metrics",
+    "subtitle": "Channel-wise performance across growth, CRO and paid acquisition",
+    "totalSpend": "Total Spend",
+    "avgCtr": "Avg CTR",
+    "avgCvr": "Avg CVR",
+    "avgRoi": "Avg ROI",
+    "filters": {
+      "channel": "Channel",
+      "all": "All"
+    },
+    "table": {
+      "client": "Client",
+      "channel": "Channel",
+      "spend": "Spend",
+      "ctr": "CTR",
+      "cpl": "CPL",
+      "cvr": "CVR",
+      "roi": "ROI"
+    },
+    "insights": {
+      "title": "Key Insights",
+      "topChannel": {
+        "title": "Top Channel",
+        "name": "Meta Ads",
+        "desc": "Best balance of creative testing, audience learning and scale across Pocket FM, Packt and e-commerce."
+      },
+      "bestCvr": {
+        "title": "Best CVR",
+        "name": "LinkedIn (B2B)",
+        "desc": "High intent decision makers with slower volume but stronger pipeline quality."
+      },
+      "highestRoi": {
+        "title": "Highest ROI",
+        "name": "Packt GTM",
+        "desc": "Creator-led distribution plus Meta amplification produced an 4× revenue multiple."
+      }
+    }
+  },
+  "creativeLab": {
+    "title": "Creative Lab",
+    "subtitle": "Ad creative portfolio and video content",
+    "adCreatives": "Ad Creatives",
+    "videoContent": "Video Content",
+    "metrics": {
+      "goal": "Campaign Goal",
+      "ctr": "Click-Through Rate",
+      "cpl": "Cost Per Lead"
+    },
+    "goals": {
+      "brandAwareness": "Brand Awareness",
+      "leadGen": "Lead Generation",
+      "appInstall": "App Install",
+      "retargeting": "Retargeting",
+      "productLaunch": "Product Launch",
+      "eventReg": "Event Registration",
+      "contentDownload": "Content Download",
+      "webinarSignup": "Webinar Sign-up",
+      "trialConv": "Trial Conversion"
+    },
+    "videoTypes": {
+      "adEdit": "Ad Edit",
+      "promo": "Promo Video",
+      "podcast": "Podcast Clip"
+    },
+    "videoTitles": {
+      "productDemo": "Product Demo Ad",
+      "brandStory": "Brand Story",
+      "founderInterview": "Founder Interview",
+      "featureHighlight": "Feature Highlight"
+    },
+    "modal": {
+      "title": "Campaign Performance"
+    }
+  },
+  "caseStudies": {
+    "title": "Case Studies",
+    "subtitle": "Detailed performance marketing projects and results",
+    "packt": {
+      "title": "Scaling Paid GTM for Events",
+      "projectTitle": "Scaling Paid GTM for Events",
+      "clientName": "Packt",
+      "badge": "EdTech",
+      "category": "Growth & GTM",
+      "problem": "Acquiring 150 paying engineers for a $100 LLM workshop with a limited $3,500 budget requires a high-efficiency GTM engine. The challenge is to identify and convert high-intent users without existing audiences, achieving >4.3x ROAS and >80% net new customers.",
+      "actions": [
+        "Implemented a phased Meta Ads strategy: Learning (6 ad sets), Scale (top performers), and Retargeting",
+        "Established Tier 1 (Rev-share) and Tier 2 (Flat-fee) creator partnerships with 5K+ audiences",
+        "Executed community seeding via newsletter sponsorships and placements in GitHub, Reddit, and Discord"
+      ],
+      "experimentsData": [
+        {
+          "name": "Creative Testing",
+          "result": "3 hooks × 2 formats"
+        },
+        {
+          "name": "Kill Switch Protocol",
+          "result": "CPC < $3.00"
+        },
+        {
+          "name": "Community Seeding",
+          "result": ">3m Watch Time"
+        }
+      ]
+    },
+    "jrb": {
+      "title": "30-Day CRO Strategy for JonesRoadBeauty.com",
+      "projectTitle": "30-Day CRO Strategy",
+      "clientName": "Jones Road Beauty",
+      "badge": "E-Commerce",
+      "category": "Conversion Rate Optimization",
+      "problem": "The brand was leaking revenue across product pages, shade selection, checkout, and post-purchase flows with no internal analytics access at the start.",
+      "actions": [
+        "Mapped the full funnel from PDP to post-purchase using outside-in UX and competitive research",
+        "Built hypothesis-driven test clusters for clarity, shade anxiety, first-time buyers, and checkout confidence",
+        "Sequenced tests to prioritize conversion rate before AOV or urgency",
+        "Defined guardrails and decision rules to prevent noisy or conflicting experiments"
+      ],
+      "resultsData": {
+        "testClusters": "Test Clusters",
+        "funnelZones": "Funnel Zones",
+        "month1Focus": "Month-1 Focus",
+        "month1FocusValue": "Revenue efficiency",
+        "outcome": "Outcome",
+        "outcomeValue": "Scalable CRO backlog"
+      },
+      "experimentsData": [
+        {
+          "name": "Sticky ATC (Mobile)",
+          "result": "+8.5% ATC"
+        },
+        {
+          "name": "Hero Video Variant B",
+          "result": "+12% Engagement"
+        },
+        {
+          "name": "Bundle Upsell Modal",
+          "result": "-5% CVR (Kill)"
+        }
+      ]
+    },
+    "audio": {
+      "title": "Scaling User Acquisition for an Audio Platform",
+      "projectTitle": "Scaling User Acquisition",
+      "clientName": "Audio Platform",
+      "badge": "Entertainment",
+      "category": "Performance Marketing",
+      "problem": "The platform needed to scale user acquisition while maintaining cost efficiency across highly competitive digital channels.",
+      "actions": [
+        "Conducted extensive audience testing across demographics and interest segments",
+        "Optimized creative formats specifically for mobile-first consumption patterns",
+        "Ran multiple creative and placement A/B tests to isolate winners",
+        "Used Meta's learning phase and bidding controls to scale efficiently"
+      ],
+      "results": {
+        "ctr": "CTR",
+        "cpa": "CPA",
+        "variants": "Creative Variants Tested",
+        "scale": "Scale Phase",
+        "stable": "Stable"
+      }
+    },
+    "labels": {
+      "problem": "Problem Statement",
+      "actions": "Actions Taken",
+      "results": "Key Results",
+      "client": "Client"
+    },
+    "recentExperiments": "Recent Experiments",
+    "viewProjectLog": "Project Report",
+    "viewExperimentLog": "View full project report",
+    "projectLogComingSoon": "Project report coming soon"
+  }
+}

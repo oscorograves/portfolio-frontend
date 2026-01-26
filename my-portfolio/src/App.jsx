@@ -1,8 +1,9 @@
 import React, { useState, useEffect, Suspense } from 'react';
-import { translations } from './translations.js';
+import { useTranslation } from 'react-i18next';
 
 // Hooks
 import useMousePosition from './hooks/useMousePosition';
+// ... rest imports remain ...
 
 // Layout
 import NavBar from './components/layout/NavBar';
@@ -43,17 +44,10 @@ export default function Portfolio() {
   const [currentPage, setCurrentPage] = useState('home');
   const [showWip, setShowWip] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
-  const [language, setLanguage] = useState('en');
+  const { t, i18n } = useTranslation();
 
-  // Translation Helper
-  const t = (key) => {
-    const keys = key.split('.');
-    let value = translations[language];
-    for (let k of keys) {
-      value = value?.[k];
-    }
-    return value || key;
-  };
+  const language = i18n.resolvedLanguage || 'en';
+  const setLanguage = (lang) => i18n.changeLanguage(lang);
 
   useEffect(() => {
     if (isDarkMode) {

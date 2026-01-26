@@ -173,7 +173,7 @@ const MyStory = ({ t }) => {
                         // Checking translations.js structure: cards is an array of objects.
 
                         // Safe access pattern if t returns object with numeric keys or array
-                        const cards = t('myStory.philosophy.cards');
+                        const cards = t('myStory.philosophy.cards', { returnObjects: true });
                         const card = Array.isArray(cards) ? cards[i] : cards[i];
 
                         return (
