@@ -50,7 +50,7 @@ const HeroAvatar = ({ metrics = [], onNavigate }) => {
 
     return (
         <motion.div
-            className="hidden md:flex relative w-full h-80 items-center justify-center perspective-1000"
+            className="hidden lg:flex relative w-full h-80 items-center justify-center perspective-1000"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}

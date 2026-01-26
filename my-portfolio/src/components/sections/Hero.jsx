@@ -33,8 +33,8 @@ const Hero = ({ t, setCurrentPage, fallbackMetrics }) => {
                 viewport={{ once: true }}
                 variants={containerVariants}
             >
-                <div className="grid md:grid-cols-3 gap-8">
-                    <div className="md:col-span-2">
+                <div className="grid lg:grid-cols-3 gap-8">
+                    <div className="lg:col-span-2">
                         <TypewriterText
                             text={t('hero.name')}
                             className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary-600 via-accent-600 to-gray-900 dark:from-white dark:via-primary-400 dark:to-gray-200 mb-3"
