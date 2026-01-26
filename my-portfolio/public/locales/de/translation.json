@@ -9,6 +9,51 @@
     "portfolio": "Portfolio",
     "chatWithAI": "Mit KI chatten"
   },
+  "myStory": {
+    "hero": {
+      "title": "Die Logik hinter der Magie",
+      "subtitle": "Meine Reise vom neugierigen Entdecker zum datengesteuerten Wachstumsarchitekten."
+    },
+    "timeline": {
+      "start": {
+        "year": "2020",
+        "title": "Die Stiftung",
+        "desc": "Begann mit einer starken technischen Basis in der Informationstechnologie bei JIIT. Entdeckte eine Leidenschaft für die Schnittstelle zwischen Daten und menschlichem Verhalten."
+      },
+      "early": {
+        "year": "2023",
+        "title": "Organisches Wachstum",
+        "desc": "Tauchen Sie ein in SEO und organische Inhalte. Erfahren Sie, wie Sie bei ABP von Grund auf Zielgruppen aufbauen und Kanäle ohne Werbeausgaben auf Tausende von Followern skalieren können."
+      },
+      "mid": {
+        "year": "2024",
+        "title": "Der Wandel zur Bezahlung",
+        "desc": "Erkennte die Kraft der Verstärkung. Beherrschte Google- und Meta-Anzeigen bei Tradebuilder und Intertek und optimierte die Ausgaben für B2B- und globale Märkte."
+      },
+      "current": {
+        "year": "2025+",
+        "title": "Skalierung und Innovation",
+        "desc": "Führendes Wachstum bei Pocket FM. Aufbau automatisierter Kreativtest-Engines und Verwaltung erheblicher Werbeausgaben, um die weltweite Nutzerakquise voranzutreiben."
+      }
+    },
+    "philosophy": {
+      "title": "Meine Wachstumsphilosophie",
+      "cards": [
+        {
+          "title": "Daten > Meinung",
+          "desc": "Jede Entscheidung wird durch Kennzahlen gestützt. Wenn man es nicht messen kann, kann man es nicht verbessern."
+        },
+        {
+          "title": "Kreativ ist das neue Targeting",
+          "desc": "In einer Welt, in der der Datenschutz an erster Stelle steht, ist überzeugende Kreativität der beste Weg, Ihr Publikum zu erreichen."
+        },
+        {
+          "title": "Vollständige Funnel-Denkweise",
+          "desc": "Die Akquisition ist nur der Anfang. Der wahre Gewinn liegt in der Bindung und dem LTV."
+        }
+      ]
+    }
+  },
   "hero": {
     "name": "Kanishk Singh",
     "role": "Performance- & Wachstums-Marketer",
@@ -34,7 +79,7 @@
     "title": "Ausgewählte Arbeiten",
     "subtitle": "Wachstum & GTM",
     "projectSubtitle": "Paid GTM & Publikumsgewinnung",
-    "packtTitle": "Packt Events",
+    "packtTitle": "Packt-Events",
     "projectTitle": "Einführung einer Paid GTM-Engine für Packt Events",
     "projectDesc": "Start einer Paid-Events-Sparte und Erreichung von 150+ Teilnehmern mit 80%+ Neukundengewinnung",
     "metrics": {
@@ -81,9 +126,9 @@
     "competencies": [
       {
         "title": "Performance-Marketing",
-        "icon": "Target",
+        "icon": "Ziel",
         "skills": [
-          "Paid Media (Meta, Google, LinkedIn)",
+          "Bezahlte Medien (Meta, Google, LinkedIn)",
           "Kampagnenstrategie & Skalierung",
           "Budgetoptimierung"
         ]
@@ -99,7 +144,7 @@
       },
       {
         "title": "Analytik & CRO",
-        "icon": "LineChart",
+        "icon": "Liniendiagramm",
         "skills": [
           "GA4-Implementierung",
           "A/B-Tests",
@@ -118,15 +163,14 @@
     "languageList": {
       "hindi": "Hindi",
       "english": "Englisch",
-      "dutch": "Niederländisch",
-      "german": "Deutsch"
+      "dutch": "Niederländisch"
     },
     "educationDetails": {
       "degree": "Bachelor of Business Administration",
       "specialization": "Spezialisierung Marketing",
-      "institute": "Jaypee Institute of Information Technology",
+      "institute": "Jaypee Institut für Informationstechnologie",
       "locationYear": "Noida, Indien • 2020 – 2023",
-      "cgpa": "CGPA: 7.7 / 10"
+      "cgpa": "CGPA: 7,7 / 10"
     },
     "education": "Ausbildung",
     "certifications": "Zertifizierungen",
@@ -134,9 +178,9 @@
     "roles": {
       "pocketfm": {
         "title": "Ad Operations Spezialist",
-        "company": "Pocket FM",
+        "company": "Taschen-FM",
         "type": "Vertrag",
-        "location": "Remote",
+        "location": "Fernbedienung",
         "period": "Jun 2025 – Heute",
         "bullets": [
           "Leitung der Meta Ads-Ausführung für Akquisitions- und Engagement-Kampagnen in mehreren Regionen",
@@ -146,10 +190,10 @@
         ]
       },
       "intertek": {
-        "title": "Digital Marketing Executive",
+        "title": "Führungskraft für digitales Marketing",
         "company": "Intertek India Pvt. Ltd.",
         "location": "Delhi",
-        "period": "Sep 2024 – Jun 2025",
+        "period": "September 2024 – Juni 2025",
         "bullets": [
           "Durchführung von Paid Search-, Paid Social- und organischen Kampagnen in Südasien für 37+ Büros",
           "Nutzung von GA4-Funnel-Analysen und CRO-Tests zur Steigerung der Konversionsrate um ~18% und der MQLs um ~22%",
@@ -157,10 +201,10 @@
         ]
       },
       "tradebuilder": {
-        "title": "Digital Marketing Associate",
+        "title": "Mitarbeiter für digitales Marketing",
         "company": "Tradebuilder Inc.",
-        "location": "Remote",
-        "period": "Sep 2023 – Jul 2024",
+        "location": "Fernbedienung",
+        "period": "September 2023 – Juli 2024",
         "bullets": [
           "Verwaltung von Google Ads-, Meta Ads- und HubSpot-Kampagnen zur B2B-Leadgenerierung",
           "Erstellung wöchentlicher GA4-basierter Funnel- und Kohortenberichte, die den Anzeigen-ROI um ~20% verbesserten",
@@ -169,9 +213,9 @@
       },
       "abp": {
         "title": "SEO-Praktikant",
-        "company": "ABP Learning Technologies",
+        "company": "ABP-Lerntechnologien",
         "location": "Noida",
-        "period": "Jan 2023 – Aug 2023",
+        "period": "Januar 2023 – August 2023",
         "bullets": [
           "Skalierung von Instagram auf 3.000+ und YouTube auf 10.000+ Follower durch organisch-erstes Wachstum",
           "Verbesserung der Suchergebnisse durch Keyword-Recherche, On-Page-SEO und Metadaten-Optimierung"
@@ -196,7 +240,7 @@
     },
     "certificationsList": [
       "Google Ads Zertifizierung (Skillshop)",
-      "Social Media Marketing (HubSpot)",
+      "Social-Media-Marketing (HubSpot)",
       "Grundlagen des digitalen Marketings (Google)",
       "SEO Zertifizierung (HubSpot)"
     ]
@@ -225,7 +269,7 @@
       "title": "Wichtige Erkenntnisse",
       "topChannel": {
         "title": "Top-Kanal",
-        "name": "Meta Ads",
+        "name": "Meta-Anzeigen",
         "desc": "Beste Balance aus Creative-Tests, Zielgruppen-Learning und Skalierung über Pocket FM, Packt und E-Commerce hinweg."
       },
       "bestCvr": {
@@ -282,15 +326,14 @@
     "packt": {
       "title": "Skalierung von Paid GTM für Events",
       "projectTitle": "Skalierung von Paid GTM",
-      "clientName": "Packt",
+      "clientName": "Verpackt",
       "badge": "EdTech",
       "category": "Wachstum & GTM",
       "problem": "Die Gewinnung von 150 zahlenden Ingenieuren für einen 100-Dollar-LLM-Workshop mit einem begrenzten Budget von 3.500 Dollar erfordert eine hocheffiziente GTM-Engine. Die Herausforderung besteht darin, Nutzer mit hoher Absicht ohne bestehende Zielgruppen zu identifizieren und zu konvertieren, wobei ein ROAS von >4,3x und >80 % Netto-Neukunden erreicht werden müssen.",
       "actions": [
         "Entwurf eines 30-Tage GTM-Plans mit Creator-Partnern, technischen Communities und Meta Ads",
         "Aufbau einer UTM-Taxonomie und täglicher Tracking-Dashboards zur Messung der Neukundengewinnung",
-        "Erstellung eines Partner-Rev-Share-Modells und eines Mikro-Affiliate-Testsystems",
-        "Sequenzierung von Pilottests, Kill-Switches und Skalierungsentscheidungen über vier Wachstumssprints hinweg"
+        "Erstellung eines Partner-Rev-Share-Modells und eines Mikro-Affiliate-Testsystems"
       ],
       "experimentsData": [
         {
@@ -302,7 +345,7 @@
           "result": "CPC < 3,00 $"
         },
         {
-          "name": "Community Seeding",
+          "name": "Community-Seed",
           "result": ">3 Min. Wiedergabezeit"
         }
       ]
@@ -310,7 +353,7 @@
     "jrb": {
       "title": "30-Tage CRO-Strategie für JonesRoadBeauty.com",
       "projectTitle": "30-Tage CRO-Strategie",
-      "clientName": "Jones Road Beauty",
+      "clientName": "Jones Road Schönheit",
       "badge": "E-Commerce",
       "category": "Konversionsoptimierung",
       "problem": "Die Marke verlor Umsatz auf Produktseiten, bei der Farbauswahl, im Checkout und in Post-Purchase-Flows ohne internen Analysezugriff zu Beginn.",
@@ -335,11 +378,11 @@
         },
         {
           "name": "Hero Video Variante B",
-          "result": "+12% Engagement"
+          "result": "+12 % Engagement"
         },
         {
-          "name": "Bundle Upsell Modal",
-          "result": "-5% CVR (Kill)"
+          "name": "Bündeln Sie Upsell Modal",
+          "result": "-5 % CVR (Tötung)"
         }
       ]
     },
@@ -374,50 +417,5 @@
     "viewProjectLog": "Projektbericht",
     "viewExperimentLog": "Vollständigen Projektbericht ansehen",
     "projectLogComingSoon": "Projektbericht folgt bald"
-  },
-  "myStory": {
-    "hero": {
-      "title": "Die Logik hinter der Magie",
-      "subtitle": "Meine Reise vom neugierigen Entdecker zum datengesteuerten Wachstumsarchitekten."
-    },
-    "timeline": {
-      "start": {
-        "year": "2020",
-        "title": "Die Stiftung",
-        "desc": "Begann mit einer starken technischen Basis in der Informationstechnologie bei JIIT. Entdeckte eine Leidenschaft für die Schnittstelle zwischen Daten und menschlichem Verhalten."
-      },
-      "early": {
-        "year": "2023",
-        "title": "Organisches Wachstum",
-        "desc": "Tauchen Sie ein in SEO und organische Inhalte. Erfahren Sie, wie Sie bei ABP von Grund auf Zielgruppen aufbauen und Kanäle ohne Werbeausgaben auf Tausende von Followern skalieren können."
-      },
-      "mid": {
-        "year": "2024",
-        "title": "Der Wandel zur Bezahlung",
-        "desc": "Erkennte die Kraft der Verstärkung. Beherrschte Google- und Meta-Anzeigen bei Tradebuilder und Intertek und optimierte die Ausgaben für B2B- und globale Märkte."
-      },
-      "current": {
-        "year": "2025+",
-        "title": "Skalierung und Innovation",
-        "desc": "Führendes Wachstum bei Pocket FM. Aufbau automatisierter Kreativtest-Engines und Verwaltung erheblicher Werbeausgaben, um die weltweite Nutzerakquise voranzutreiben."
-      }
-    },
-    "philosophy": {
-      "title": "Meine Wachstumsphilosophie",
-      "cards": [
-        {
-          "title": "Data > Opinion",
-          "desc": "Every decision is backed by metrics. If you can't measure it, you can't improve it."
-        },
-        {
-          "title": "Creative is the New Targeting",
-          "desc": " In a privacy-first world, compelling creative is the best way to find your audience."
-        },
-        {
-          "title": "Full Funnel Mindset",
-          "desc": "Acquisition is just the start. Retention and LTV are where the real profit lies."
-        }
-      ]
-    }
   }
 }

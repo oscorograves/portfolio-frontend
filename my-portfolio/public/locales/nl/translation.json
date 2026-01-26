@@ -1,20 +1,65 @@
 {
   "nav": {
-    "home": "Home",
+    "home": "Thuis",
     "experience": "Ervaring",
     "caseStudies": "Casestudies",
     "creativeLab": "Creatief Lab",
     "metrics": "Metrieken",
     "myStory": "Mijn Verhaal",
-    "portfolio": "Portfolio",
+    "portfolio": "Portefeuille",
     "chatWithAI": "Chat met AI"
+  },
+  "myStory": {
+    "hero": {
+      "title": "De logica achter de magie",
+      "subtitle": "Mijn reis van nieuwsgierige ontdekkingsreiziger naar datagedreven groeiarchitect."
+    },
+    "timeline": {
+      "start": {
+        "year": "2020",
+        "title": "De Stichting",
+        "desc": "Begonnen met een sterke technische basis in Informatietechnologie bij JIIT. Ontdekte een passie voor het snijvlak van data en menselijk gedrag."
+      },
+      "early": {
+        "year": "2023",
+        "title": "Organische groei",
+        "desc": "Duik in SEO en organische inhoud. Ik heb bij ABP geleerd hoe je een publiek vanaf het begin kunt opbouwen, door kanalen op te schalen naar duizenden volgers zonder advertentie-uitgaven."
+      },
+      "mid": {
+        "year": "2024",
+        "title": "De verschuiving naar betaald",
+        "desc": "Besefte de kracht van versterking. Beheersde Google en Meta Ads bij Tradebuilder en Intertek, waardoor de uitgaven voor B2B en mondiale markten werden geoptimaliseerd."
+      },
+      "current": {
+        "year": "2025+",
+        "title": "Schaal & Innovatie",
+        "desc": "Toonaangevende groei bij Pocket FM. Het bouwen van geautomatiseerde testengines voor advertentiemateriaal en het beheren van aanzienlijke advertentie-uitgaven om de wereldwijde gebruikerswerving te stimuleren."
+      }
+    },
+    "philosophy": {
+      "title": "Mijn groeifilosofie",
+      "cards": [
+        {
+          "title": "Gegevens > Mening",
+          "desc": "Elke beslissing wordt ondersteund door statistieken. Als je het niet kunt meten, kun je het ook niet verbeteren."
+        },
+        {
+          "title": "Creatief is het nieuwe targeten",
+          "desc": "In een wereld waarin privacy voorop staat, is overtuigend advertentiemateriaal de beste manier om uw publiek te vinden."
+        },
+        {
+          "title": "Volledige trechter-mentaliteit",
+          "desc": "Acquisitie is nog maar het begin. Retentie en LTV zijn waar de echte winst ligt."
+        }
+      ]
+    }
   },
   "hero": {
     "name": "Kanishk Singh",
-    "role": "Performance & Growth Marketer",
+    "role": "Prestatie- en groeimarketeer",
     "description": "Ik ontwerp betaalde media-, CRO- en groeisystemen voor schaalbare omzetgroei. Gespecialiseerd in datagedreven campagne-optimalisatie, funnelontwerp en prestatieanalyse voor B2B- en B2C-kanalen.",
     "viewCaseStudies": "Bekijk Casestudies",
-    "downloadCV": "Download CV",
+    "downloadCV": "CV downloaden",
     "contactInfo": "Contactgegevens",
     "location": "Noida, India",
     "keyMetrics": "Kerncijfers"
@@ -34,7 +79,7 @@
     "title": "Uitgelicht Werk",
     "subtitle": "Groei & GTM",
     "projectSubtitle": "Betaalde GTM & Publiekswerving",
-    "packtTitle": "Packt Events",
+    "packtTitle": "Packt-evenementen",
     "projectTitle": "Lancering van een Betaalde GTM-motor voor Packt Events",
     "projectDesc": "Lanceerde een betaalde evenementenvertical en behaalde 150+ bezoekers met 80%+ netto-nieuwe publieksacquisitie",
     "metrics": {
@@ -70,7 +115,7 @@
       "film": "Film- en Videomontage",
       "photography": "Fotografie",
       "travel": "Solo Reizen",
-      "journaling": "Journaling"
+      "journaling": "Journaliseren"
     },
     "copyright": "© 2026 Kanishk Singh. Alle rechten voorbehouden."
   },
@@ -80,16 +125,16 @@
     "skills": "Kerncompetenties",
     "competencies": [
       {
-        "title": "Performance Marketing",
-        "icon": "Target",
+        "title": "Prestatiemarketing",
+        "icon": "Doel",
         "skills": [
-          "Paid Media (Meta, Google, LinkedIn)",
+          "Betaalde media (Meta, Google, LinkedIn)",
           "Campagnestrategie & Scaling",
           "Budgetoptimalisatie"
         ]
       },
       {
-        "title": "Growth Marketing",
+        "title": "Groeimarketing",
         "icon": "TrendingUp",
         "skills": [
           "Landingspagina Design",
@@ -98,12 +143,12 @@
         ]
       },
       {
-        "title": "Analytics & CRO",
-        "icon": "LineChart",
+        "title": "Analyse & CRO",
+        "icon": "Lijndiagram",
         "skills": [
           "GA4 Implementatie",
           "A/B Testen",
-          "Performance Dashboards"
+          "Prestatiedashboards"
         ]
       }
     ],
@@ -125,17 +170,17 @@
       "specialization": "Specialisatie Marketing",
       "institute": "Jaypee Instituut voor Informatietechnologie",
       "locationYear": "Noida, India • 2020 – 2023",
-      "cgpa": "CGPA: 7.7 / 10"
+      "cgpa": "CGPA: 7,7 / 10"
     },
     "education": "Opleiding",
     "certifications": "Certificeringen",
     "resumeDownload": "Download Volledig CV",
     "roles": {
       "pocketfm": {
-        "title": "Ad Operations Specialist",
-        "company": "Pocket FM",
+        "title": "Specialist in advertentiebewerking",
+        "company": "Zak FM",
         "type": "Contract",
-        "location": "Remote",
+        "location": "Op afstand",
         "period": "Jun 2025 – Heden",
         "bullets": [
           "Beheer van Meta Ads-uitvoering voor acquisitie- en engagementcampagnes voor meerdere regio's",
@@ -145,10 +190,10 @@
         ]
       },
       "intertek": {
-        "title": "Digital Marketing Executive",
+        "title": "Directeur digitale marketing",
         "company": "Intertek India Pvt. Ltd.",
         "location": "Delhi",
-        "period": "Sep 2024 – Jun 2025",
+        "period": "september 2024 – juni 2025",
         "bullets": [
           "Voerde betaalde zoek-, sociale- en organische campagnes uit in Zuid-Azië voor 37+ kantoren",
           "Gebruikte GA4-trechteranalyse en CRO-tests om de conversieratio met ~18% en MQLs met ~22% te verhogen",
@@ -156,10 +201,10 @@
         ]
       },
       "tradebuilder": {
-        "title": "Digital Marketing Associate",
-        "company": "Tradebuilder Inc.",
-        "location": "Remote",
-        "period": "Sep 2023 – Jul 2024",
+        "title": "Digitale marketingmedewerker",
+        "company": "Handelsbouwer Inc.",
+        "location": "Op afstand",
+        "period": "september 2023 – juli 2024",
         "bullets": [
           "Beheerde Google Ads, Meta Ads en HubSpot campagnes voor B2B leadgeneratie",
           "Bouwde wekelijkse GA4-gebaseerde trechter- en cohortrapporten die de advertentie-ROI met ~20% verbeterden",
@@ -168,9 +213,9 @@
       },
       "abp": {
         "title": "SEO Stagiair",
-        "company": "ABP Learning Technologies",
+        "company": "ABP-leertechnologieën",
         "location": "Noida",
-        "period": "Jan 2023 – Aug 2023",
+        "period": "januari 2023 – augustus 2023",
         "bullets": [
           "Liet Instagram groeien naar 3.000+ en YouTube naar 10.000+ volgers via organische groei",
           "Verbeterde zoekresultaten door zoekwoordenonderzoek, on-page SEO en metadata-optimalisatie"
@@ -195,13 +240,13 @@
     },
     "certificationsList": [
       "Google Ads Certificering (Skillshop)",
-      "Social Media Marketing (HubSpot)",
+      "Socialemediamarketing (HubSpot)",
       "Basisprincipes van Digitale Marketing (Google)",
       "SEO Certificering (HubSpot)"
     ]
   },
   "metricsPage": {
-    "title": "Performance Metrics",
+    "title": "Prestatiestatistieken",
     "subtitle": "Kanaalspecifieke prestaties voor groei, CRO en betaalde acquisitie",
     "totalSpend": "Totaal Uitgaven",
     "avgCtr": "Gem. CTR",
@@ -224,7 +269,7 @@
       "title": "Belangrijkste Inzichten",
       "topChannel": {
         "title": "Top Kanaal",
-        "name": "Meta Ads",
+        "name": "Meta-advertenties",
         "desc": "Beste balans tussen creatieve tests, doelgroepinzichten en schaalbaarheid voor Pocket FM, Packt en e-commerce."
       },
       "bestCvr": {
@@ -234,7 +279,7 @@
       },
       "highestRoi": {
         "title": "Hoogste ROI",
-        "name": "Packt GTM",
+        "name": "Pak GTM",
         "desc": "Creator-geleide distributie plus Meta-versterking produceerde een 4× omzetveelvoud."
       }
     }
@@ -246,7 +291,7 @@
     "videoContent": "Video Inhoud",
     "metrics": {
       "goal": "Campagnedoel",
-      "ctr": "Click-Through Rate",
+      "ctr": "Klikfrequentie",
       "cpl": "Kosten Per Lead"
     },
     "goals": {
@@ -256,7 +301,7 @@
       "retargeting": "Retargeting",
       "productLaunch": "Productlancering",
       "eventReg": "Evenementregistratie",
-      "contentDownload": "Content Download",
+      "contentDownload": "Inhoud downloaden",
       "webinarSignup": "Webinar Aanmelding",
       "trialConv": "Proefconversie"
     },
@@ -281,15 +326,14 @@
     "packt": {
       "title": "Schalen van Betaalde GTM voor Evenementen",
       "projectTitle": "Schalen van Betaalde GTM",
-      "clientName": "Packt",
+      "clientName": "Verpakt",
       "badge": "EdTech",
       "category": "Groei & GTM",
       "problem": "Het werven van 150 betalende engineers voor een LLM-workshop van $100 met een beperkt budget van $3.500 vereist een zeer efficiënte GTM-machine. De uitdaging is om gebruikers met een hoge intentie te identificeren en converteren zonder bestaand publiek, waarbij >4,3x ROAS en >80% netto nieuwe klanten worden behaald.",
       "actions": [
         "Ontwierp een 30-daags GTM-plan met creator-partners, technische gemeenschappen en Meta Ads",
         "Bouwde UTM-taxonomie en dagelijkse trackingdashboards om netto-nieuwe acquisitie te meten",
-        "Creëerde een partner inkomsten-deelmodel en micro-affiliate testsysteem",
-        "Sequentieerde piloottesten, kill-switches en schaalbeslissingen over vier groeisprints"
+        "Creëerde een partner inkomsten-deelmodel en micro-affiliate testsysteem"
       ],
       "experimentsData": [
         {
@@ -297,11 +341,11 @@
           "result": "3 hooks × 2 formaten"
         },
         {
-          "name": "Kill Switch Protocol",
-          "result": "CPC < $3.00"
+          "name": "Kill Switch-protocol",
+          "result": "CPC < € 3,00"
         },
         {
-          "name": "Community Seeding",
+          "name": "Gemeenschapszaaien",
           "result": ">3m Kijktijd"
         }
       ]
@@ -309,8 +353,8 @@
     "jrb": {
       "title": "30-Daagse CRO Strategie voor JonesRoadBeauty.com",
       "projectTitle": "30-Daagse CRO Strategie",
-      "clientName": "Jones Road Beauty",
-      "badge": "E-Commerce",
+      "clientName": "Jones Road schoonheid",
+      "badge": "E-commerce",
       "category": "Conversie-optimalisatie",
       "problem": "Het merk verloor omzet over productpagina's, tintselectie, checkout en post-aankoopstromen zonder interne analysetoegang bij de start.",
       "actions": [
@@ -330,15 +374,15 @@
       "experimentsData": [
         {
           "name": "Sticky ATC (Mobiel)",
-          "result": "+8.5% ATC"
+          "result": "+8,5% ATC"
         },
         {
-          "name": "Hero Video Variant B",
+          "name": "Hero-videovariant B",
           "result": "+12% Betrokkenheid"
         },
         {
-          "name": "Bundle Upsell Modal",
-          "result": "-5% CVR (Kill)"
+          "name": "Bundel upsell modaal",
+          "result": "-5% CVR (doden)"
         }
       ]
     },
@@ -346,7 +390,7 @@
       "title": "Schalen van Gebruikersacquisitie voor een Audioplatform",
       "projectTitle": "Schalen van Gebruikersacquisitie",
       "clientName": "Audioplatform",
-      "badge": "Entertainment",
+      "badge": "Amusement",
       "category": "Prestatiemarketing",
       "problem": "Het platform moest gebruikersacquisitie schalen en tegelijkertijd de kostenefficiëntie behouden via zeer concurrerende digitale kanalen.",
       "actions": [
@@ -373,50 +417,5 @@
     "viewProjectLog": "Projectrapport",
     "viewExperimentLog": "Bekijk volledig projectrapport",
     "projectLogComingSoon": "Projectrapport binnenkort beschikbaar"
-  },
-  "myStory": {
-    "hero": {
-      "title": "De logica achter de magie",
-      "subtitle": "Mijn reis van nieuwsgierige ontdekkingsreiziger naar datagedreven groeiarchitect."
-    },
-    "timeline": {
-      "start": {
-        "year": "2020",
-        "title": "De Stichting",
-        "desc": "Begonnen met een sterke technische basis in Informatietechnologie bij JIIT. Ontdekte een passie voor het snijvlak van data en menselijk gedrag."
-      },
-      "early": {
-        "year": "2023",
-        "title": "Organische groei",
-        "desc": "Duik in SEO en organische inhoud. Ik heb bij ABP geleerd hoe je een publiek vanaf het begin kunt opbouwen, door kanalen op te schalen naar duizenden volgers zonder advertentie-uitgaven."
-      },
-      "mid": {
-        "year": "2024",
-        "title": "De verschuiving naar betaald",
-        "desc": "Besefte de kracht van versterking. Beheersde Google en Meta Ads bij Tradebuilder en Intertek, waardoor de uitgaven voor B2B en mondiale markten werden geoptimaliseerd."
-      },
-      "current": {
-        "year": "2025+",
-        "title": "Schaal & Innovatie",
-        "desc": "Toonaangevende groei bij Pocket FM. Het bouwen van geautomatiseerde testengines voor advertentiemateriaal en het beheren van aanzienlijke advertentie-uitgaven om de wereldwijde gebruikerswerving te stimuleren."
-      }
-    },
-    "philosophy": {
-      "title": "Mijn groeifilosofie",
-      "cards": [
-        {
-          "title": "Data > Opinion",
-          "desc": "Every decision is backed by metrics. If you can't measure it, you can't improve it."
-        },
-        {
-          "title": "Creative is the New Targeting",
-          "desc": " In a privacy-first world, compelling creative is the best way to find your audience."
-        },
-        {
-          "title": "Full Funnel Mindset",
-          "desc": "Acquisition is just the start. Retention and LTV are where the real profit lies."
-        }
-      ]
-    }
   }
 }
