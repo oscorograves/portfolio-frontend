@@ -145,57 +145,56 @@ const MyStory = ({ t }) => {
 
 
             {/* PHILOSOPHY SECTION */}
-            <motion.div
-                className="max-w-6xl mx-auto"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-            >
-                <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+            <section className="border-b border-gray-300 dark:border-gray-800 transition-colors duration-300">
+                <motion.div
+                    className="max-w-6xl mx-auto px-8 py-12"
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8 }}
+                >
+                    <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-amber-600 dark:border-yellow-400">
                         {t('myStory.philosophy.title')}
                     </h2>
-                    <div className="w-24 h-1 bg-amber-500 mx-auto rounded-full" />
-                </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {t('myStory.philosophy.cards').length > 0 && [0, 1, 2].map((i) => {
-                        const PhilIcon = philosophyIcons[i];
-                        // Accessing array content from translation helper if it returns array, 
-                        // but currently t() might strictly return string or object. 
-                        // Assuming t returns array for 'cards' key or we access by index.
-                        // My translation helper t() usually returns a value. 
-                        // Let's assume t('myStory.philosophy.cards') returns the array directly 
-                        // OR we map manually if the helper doesn't support array return well, 
-                        // but standard i18n simple implementations might.
-                        // Let's rely on the passed prop t to handle array or use object keys if needed.
-                        // Checking translations.js structure: cards is an array of objects.
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        {t('myStory.philosophy.cards').length > 0 && [0, 1, 2].map((i) => {
+                            const PhilIcon = philosophyIcons[i];
+                            // Accessing array content from translation helper if it returns array, 
+                            // but currently t() might strictly return string or object. 
+                            // Assuming t returns array for 'cards' key or we access by index.
+                            // My translation helper t() usually returns a value. 
+                            // Let's assume t('myStory.philosophy.cards') returns the array directly 
+                            // OR we map manually if the helper doesn't support array return well, 
+                            // but standard i18n simple implementations might.
+                            // Let's rely on the passed prop t to handle array or use object keys if needed.
+                            // Checking translations.js structure: cards is an array of objects.
 
-                        // Safe access pattern if t returns object with numeric keys or array
-                        const cards = t('myStory.philosophy.cards', { returnObjects: true });
-                        const card = Array.isArray(cards) ? cards[i] : cards[i];
+                            // Safe access pattern if t returns object with numeric keys or array
+                            const cards = t('myStory.philosophy.cards', { returnObjects: true });
+                            const card = Array.isArray(cards) ? cards[i] : cards[i];
 
-                        return (
-                            <motion.div
-                                key={i}
-                                className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded-xl p-8 hover:border-amber-600 dark:hover:border-yellow-400 transition-all outline outline-2 outline-offset-4 outline-gray-900 group"
-                                whileHover={{ y: -5 }}
-                            >
-                                <div className="w-14 h-14 bg-amber-600 dark:bg-yellow-400 rounded-lg flex items-center justify-center text-white dark:text-gray-900 mb-6">
-                                    <PhilIcon size={32} weight="duotone" />
-                                </div>
-                                <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4">
-                                    {card.title}
-                                </h3>
-                                <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-                                    {card.desc}
-                                </p>
-                            </motion.div>
-                        )
-                    })}
-                </div>
-            </motion.div>
+                            return (
+                                <motion.div
+                                    key={i}
+                                    className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded-xl p-6 hover:border-amber-600 dark:hover:border-yellow-400 transition-all outline outline-2 outline-offset-4 outline-gray-900 group"
+                                    whileHover={{ y: -5 }}
+                                >
+                                    <div className="w-14 h-14 bg-amber-600 dark:bg-yellow-400 rounded-lg flex items-center justify-center text-white dark:text-gray-900 mb-4">
+                                        <PhilIcon size={32} weight="duotone" />
+                                    </div>
+                                    <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
+                                        {card.title}
+                                    </h3>
+                                    <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                                        {card.desc}
+                                    </p>
+                                </motion.div>
+                            )
+                        })}
+                    </div>
+                </motion.div>
+            </section>
 
         </div>
     );
