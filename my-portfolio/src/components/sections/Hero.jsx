@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { DownloadSimple, Envelope, LinkedinLogo, Phone } from 'phosphor-react';
 import TypewriterText from '../ui/TypewriterText';
 import HeroAvatar from '../hero/HeroAvatar';
+import { DSButton } from '../../design-system/components';
 
 const itemVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -50,24 +51,18 @@ const Hero = ({ t, setCurrentPage, fallbackMetrics }) => {
                             {t('hero.description')}
                         </motion.p>
                         <motion.div variants={itemVariants} className="flex gap-3 mb-8">
-                            <motion.button
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                onClick={() => setCurrentPage('case-studies')}
-                                className="px-5 py-2.5 bg-primary-600 dark:bg-primary-500 text-white dark:text-gray-900 text-sm font-medium rounded hover:bg-primary-700 dark:hover:bg-primary-400 transition-all cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2 font-mono shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
-                            >
+                            <DSButton onClick={() => setCurrentPage('case-studies')}>
                                 {t('hero.viewCaseStudies')}
-                            </motion.button>
-                            <motion.a
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
+                            </DSButton>
+                            <DSButton
+                                variant="secondary"
                                 href="/resume.pdf"
                                 download="Kanishk_Singh_Resume.pdf"
-                                className="px-5 py-2.5 border-2 border-primary-600 dark:border-primary-500 text-primary-600 dark:text-primary-500 text-sm font-medium rounded hover:bg-primary-50 dark:hover:bg-gray-900 transition-all flex items-center justify-center gap-2 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2 font-mono shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+                                className="flex items-center justify-center gap-2"
                             >
                                 <DownloadSimple className="w-5 h-5" weight="duotone" />
                                 {t('hero.downloadCV')}
-                            </motion.a>
+                            </DSButton>
                         </motion.div>
 
                         <motion.div

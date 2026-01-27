@@ -44,6 +44,15 @@ const DSCard = ({
             variants={variants}
             whileHover={hoverAnimation}
             onClick={onClick}
+            data-cursor={clickable ? "pointer" : undefined}
+            role={clickable ? "button" : undefined}
+            tabIndex={clickable ? 0 : undefined}
+            onKeyDown={clickable ? (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    onClick?.(e);
+                }
+            } : undefined}
             {...props}
         >
             {children}

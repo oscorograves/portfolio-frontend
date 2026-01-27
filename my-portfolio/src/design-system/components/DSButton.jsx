@@ -42,8 +42,10 @@ const DSButton = ({
         )
     };
 
+    const Component = props.href ? motion.a : motion.button;
+
     return (
-        <motion.button
+        <Component
             className={cx(baseClasses, variantClasses[variant], className)}
             onClick={onClick}
             whileHover={animations.hover.scale}
@@ -51,7 +53,7 @@ const DSButton = ({
             {...props}
         >
             {children}
-        </motion.button>
+        </Component>
     );
 };
 

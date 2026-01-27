@@ -47,6 +47,7 @@ const Footer = ({ t }) => {
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}
                         aria-label="Email"
+                        data-cursor-text="Email"
                     >
                         <Envelope className="w-6 h-6" weight="duotone" />
                     </motion.a>
@@ -58,6 +59,7 @@ const Footer = ({ t }) => {
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}
                         aria-label="LinkedIn"
+                        data-cursor-text="LinkedIn"
                     >
                         <LinkedinLogo className="w-6 h-6" weight="duotone" />
                     </motion.a>
@@ -69,6 +71,7 @@ const Footer = ({ t }) => {
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}
                         aria-label="Instagram"
+                        data-cursor-text="Instagram"
                     >
                         <InstagramLogo className="w-6 h-6" weight="duotone" />
                     </motion.a>
@@ -80,6 +83,7 @@ const Footer = ({ t }) => {
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}
                         aria-label="GitHub"
+                        data-cursor-text="GitHub"
                     >
                         <GithubLogo className="w-6 h-6" weight="duotone" />
                     </motion.a>

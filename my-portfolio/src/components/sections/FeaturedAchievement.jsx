@@ -10,6 +10,8 @@ const FeaturedAchievement = ({ t, setCurrentPage, isDarkMode }) => {
                 <motion.div
 
                     className="bg-gradient-to-br from-gray-50/50 to-gray-100/50 dark:from-gray-800/60 dark:to-gray-900/60 backdrop-blur-md border border-gray-200 dark:border-gray-700 rounded-xl p-8 hover:border-amber-600 dark:hover:border-yellow-400 transition-all group cursor-pointer outline outline-2 outline-offset-4 outline-gray-900 outline-2"
+                    data-cursor="pointer"
+                    role="button"
                     onClick={() => {
                         setCurrentPage('case-studies');
                         setTimeout(() => {
