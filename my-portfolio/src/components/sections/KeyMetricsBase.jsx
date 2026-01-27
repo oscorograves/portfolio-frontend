@@ -12,6 +12,7 @@ const KeyMetricsBase = ({ t, setCurrentPage, fallbackMetrics }) => {
                     <div className="p-2">
                         <motion.div
                             className="text-3xl md:text-4xl font-bold mb-1 inline-block cursor-pointer font-mono"
+                            data-cursor="icon"
                             whileHover={{ scale: 1.2 }}
                             transition={{ type: "spring", stiffness: 300 }}
                             onClick={() => {
@@ -27,6 +28,7 @@ const KeyMetricsBase = ({ t, setCurrentPage, fallbackMetrics }) => {
                     <div className="p-2">
                         <motion.div
                             className="text-3xl md:text-4xl font-bold mb-1 inline-block cursor-pointer font-mono"
+                            data-cursor="icon"
                             whileHover={{ scale: 1.2 }}
                             transition={{ type: "spring", stiffness: 300 }}
                             onClick={() => {
@@ -42,6 +44,7 @@ const KeyMetricsBase = ({ t, setCurrentPage, fallbackMetrics }) => {
                     <div className="p-2">
                         <motion.div
                             className="text-3xl md:text-4xl font-bold mb-1 inline-block cursor-pointer font-mono"
+                            data-cursor="icon"
                             whileHover={{ scale: 1.2 }}
                             transition={{ type: "spring", stiffness: 300 }}
                             onClick={() => {
@@ -57,6 +60,7 @@ const KeyMetricsBase = ({ t, setCurrentPage, fallbackMetrics }) => {
                     <div className="p-2">
                         <motion.div
                             className="text-3xl md:text-4xl font-bold mb-1 inline-block cursor-pointer font-mono"
+                            data-cursor="icon"
                             whileHover={{ scale: 1.2 }}
                             transition={{ type: "spring", stiffness: 300 }}
                             onClick={() => {
