@@ -95,8 +95,8 @@ const NetworkBackground = ({ isDarkMode }) => {
 
                         ctx.beginPath();
                         ctx.strokeStyle = isDarkMode
-                            ? `rgba(148, 163, 184, ${opacity})` // slate-400
-                            : `rgba(59, 130, 246, ${opacity})`; // blue-500
+                            ? `rgba(59, 130, 246, ${opacity})` // blue-500
+                            : `rgba(239, 68, 68, ${opacity})`; // red-500
                         ctx.lineWidth = lineWidth;
                         ctx.moveTo(nodeA.x, nodeA.y);
                         ctx.lineTo(nodeB.x, nodeB.y);
@@ -123,8 +123,8 @@ const NetworkBackground = ({ isDarkMode }) => {
 
                 ctx.beginPath();
                 ctx.fillStyle = isDarkMode
-                    ? `rgba(148, 163, 184, ${nodeOpacity})` // slate-400
-                    : `rgba(59, 130, 246, ${nodeOpacity})`; // blue-500
+                    ? `rgba(59, 130, 246, ${nodeOpacity})` // blue-500
+                    : `rgba(239, 68, 68, ${nodeOpacity})`; // red-500
                 ctx.arc(node.x, node.y, nodeRadius, 0, Math.PI * 2);
                 ctx.fill();
             });
