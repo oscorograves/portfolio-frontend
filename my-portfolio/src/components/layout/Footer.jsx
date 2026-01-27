@@ -49,7 +49,7 @@ const Footer = ({ t }) => {
                         aria-label="Email"
                     >
                         <Envelope className="w-6 h-6" weight="duotone" />
-                        <span className="text-[10px] font-mono text-gray-500 dark:text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap pointer-events-none">Email</span>
+                        <span className="text-[10px] font-mono text-gray-500 dark:text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity absolute -bottom-5 left-1/2 -translate-x-1/2 whitespace-nowrap pointer-events-none">Email</span>
                     </motion.a>
                     <motion.a
                         href="https://www.linkedin.com/in/kanishk-singh-ab90b2203/"
@@ -61,7 +61,7 @@ const Footer = ({ t }) => {
                         aria-label="LinkedIn"
                     >
                         <LinkedinLogo className="w-6 h-6" weight="duotone" />
-                        <span className="text-[10px] font-mono text-gray-500 dark:text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap pointer-events-none">LinkedIn</span>
+                        <span className="text-[10px] font-mono text-gray-500 dark:text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity absolute -bottom-5 left-1/2 -translate-x-1/2 whitespace-nowrap pointer-events-none">LinkedIn</span>
                     </motion.a>
                     <motion.a
                         href="https://www.instagram.com/oscorograves/"
@@ -73,7 +73,7 @@ const Footer = ({ t }) => {
                         aria-label="Instagram"
                     >
                         <InstagramLogo className="w-6 h-6" weight="duotone" />
-                        <span className="text-[10px] font-mono text-gray-500 dark:text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap pointer-events-none">Instagram</span>
+                        <span className="text-[10px] font-mono text-gray-500 dark:text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity absolute -bottom-5 left-1/2 -translate-x-1/2 whitespace-nowrap pointer-events-none">Instagram</span>
                     </motion.a>
                     <motion.a
                         href="https://github.com/oscorograves"
@@ -85,7 +85,7 @@ const Footer = ({ t }) => {
                         aria-label="GitHub"
                     >
                         <GithubLogo className="w-6 h-6" weight="duotone" />
-                        <span className="text-[10px] font-mono text-gray-500 dark:text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap pointer-events-none">GitHub</span>
+                        <span className="text-[10px] font-mono text-gray-500 dark:text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity absolute -bottom-5 left-1/2 -translate-x-1/2 whitespace-nowrap pointer-events-none">GitHub</span>
                     </motion.a>
                 </div>
             </div>
