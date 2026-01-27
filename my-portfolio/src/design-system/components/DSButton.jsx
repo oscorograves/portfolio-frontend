@@ -31,14 +31,14 @@ const DSButton = ({
 
     const variantClasses = {
         primary: cx(
-            'bg-primary-600 dark:bg-primary-500',
+            'bg-primary-600 dark:bg-yellow-400',
             'text-white dark:text-gray-900',
-            'hover:bg-primary-700 dark:hover:bg-primary-400'
+            'hover:bg-primary-700 dark:hover:bg-yellow-300'
         ),
         secondary: cx(
-            'border-2 border-primary-600 dark:border-primary-500',
-            'text-primary-600 dark:text-primary-500',
-            'hover:bg-primary-50 dark:hover:bg-gray-900'
+            'border-2 border-primary-600 dark:border-yellow-400',
+            'text-primary-600 dark:text-yellow-400',
+            'hover:bg-primary-50 dark:hover:bg-gray-800'
         )
     };
 
