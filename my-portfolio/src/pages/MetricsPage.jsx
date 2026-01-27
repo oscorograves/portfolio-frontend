@@ -152,6 +152,53 @@ const MetricsPage = ({ t, fallbackMetrics, isDarkMode }) => {
                             </motion.div>
                         </div>
                     </div>
+
+                    {/* B2B Advertising Summary Section */}
+                    <div className="mt-8">
+                        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">B2B Advertising Summary</h2>
+                        <motion.div
+                            variants={itemVariants}
+                            className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded overflow-hidden shadow-lg"
+                        >
+                            <div className="overflow-x-auto">
+                                <table className="w-full text-sm text-left">
+                                    <thead className="text-xs text-gray-600 dark:text-gray-400 uppercase bg-gray-50 dark:bg-gray-800/50">
+                                        <tr>
+                                            <th scope="col" className="px-6 py-3 whitespace-nowrap">Platform</th>
+                                            <th scope="col" className="px-6 py-3 whitespace-nowrap">Average CVR</th>
+                                            <th scope="col" className="px-6 py-3 whitespace-nowrap">Lead Gen CVR</th>
+                                            <th scope="col" className="px-6 py-3 whitespace-nowrap">Average CPC</th>
+                                            <th scope="col" className="px-6 py-3 whitespace-nowrap">Average CPM</th>
+                                            <th scope="col" className="px-6 py-3 whitespace-nowrap">Cost Per Lead</th>
+                                            <th scope="col" className="px-6 py-3 whitespace-nowrap">ROAS</th>
+                                            <th scope="col" className="px-6 py-3 whitespace-nowrap">Best For</th>
+                                            <th scope="col" className="px-6 py-3 whitespace-nowrap">Key Strength</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {[
+                                            { platform: "Meta/Facebook", avgCvr: "10.63%", leadGenCvr: "8.95%", avgCpc: "$1.54", avgCpm: "$5-15", costPerLead: "$25-60", roas: "104%", bestFor: "Top-of-funnel, awareness at scale", keyStrength: "High volume, low cost" },
+                                            { platform: "Google Search", avgCvr: "3.75%", leadGenCvr: "N/A", avgCpc: "$2.52", avgCpm: "Variable", costPerLead: "$40-100", roas: "98%", bestFor: "High-intent search", keyStrength: "High intent leads" },
+                                            { platform: "Google Display", avgCvr: "0.77-0.80%", leadGenCvr: "N/A", avgCpc: "N/A", avgCpm: "$2-5", costPerLead: "$50+", roas: "~90%", bestFor: "Retargeting", keyStrength: "Cost-effective reach" },
+                                            { platform: "LinkedIn", avgCvr: "2-4%", leadGenCvr: "6.1%", avgCpc: "$5.26", avgCpm: "$30-65", costPerLead: "$60-150+", roas: "113%", bestFor: "Bottom-of-funnel, decision-makers", keyStrength: "Best quality leads & ROAS" }
+                                        ].map((row, index) => (
+                                            <tr key={index} className="border-b border-gray-200 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+                                                <td className="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">{row.platform}</td>
+                                                <td className="px-6 py-4 text-gray-600 dark:text-gray-400 font-mono whitespace-nowrap">{row.avgCvr}</td>
+                                                <td className="px-6 py-4 text-gray-600 dark:text-gray-400 font-mono whitespace-nowrap">{row.leadGenCvr}</td>
+                                                <td className="px-6 py-4 text-gray-600 dark:text-gray-400 font-mono whitespace-nowrap">{row.avgCpc}</td>
+                                                <td className="px-6 py-4 text-gray-600 dark:text-gray-400 font-mono whitespace-nowrap">{row.avgCpm}</td>
+                                                <td className="px-6 py-4 text-gray-600 dark:text-gray-400 font-mono whitespace-nowrap">{row.costPerLead}</td>
+                                                <td className="px-6 py-4 text-green-600 dark:text-green-400 font-bold font-mono whitespace-nowrap">{row.roas}</td>
+                                                <td className="px-6 py-4 text-gray-600 dark:text-gray-400 whitespace-nowrap">{row.bestFor}</td>
+                                                <td className="px-6 py-4 text-gray-600 dark:text-gray-400 whitespace-nowrap">{row.keyStrength}</td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </motion.div>
+                    </div>
                 </motion.div>
             </div>
 
