@@ -66,10 +66,11 @@ const NavBar = ({
                     <div className="relative mr-2">
                         <button
                             onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
-                            className="flex items-center gap-1 p-2 text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800 rounded-full transition-colors text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2"
+                            className="flex items-center gap-1 p-2 text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800 rounded-full transition-colors text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2 group relative"
                         >
                             <Globe className="w-5 h-5 text-blue-500" weight="duotone" />
                             <span>{language.toUpperCase()}</span>
+                            <span className="text-[10px] font-mono text-gray-500 dark:text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap pointer-events-none bg-white dark:bg-gray-900 px-2 py-1 rounded shadow-sm border border-gray-200 dark:border-gray-700">Change Language</span>
                         </button>
 
                         <AnimatePresence>
