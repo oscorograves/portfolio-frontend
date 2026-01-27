@@ -143,6 +143,7 @@ const HeroAvatar = ({ metrics = [], onNavigate }) => {
                     <motion.div
                         key={index}
                         className="absolute p-2 cursor-pointer z-30 group" // z-30 to be above everything
+                        data-cursor="pointer"
                         style={{
                             ...pointerPositions[index],
                             // transform is handled in pointerPositions now
