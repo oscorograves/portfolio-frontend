@@ -40,7 +40,6 @@ const NavBar = ({
                                 onClick={() => {
                                     setCurrentPage(page);
                                 }}
-                                data-cursor={page === 'my-story' ? 'rocket' : undefined}
                                 className={`relative px-4 py-2 text-sm transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2 ${currentPage === page
                                     ? 'text-white dark:text-gray-900'
                                     : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800' // Hover effect only on non-active items

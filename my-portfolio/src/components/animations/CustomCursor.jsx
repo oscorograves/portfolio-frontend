@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { RocketLaunch } from 'phosphor-react';
 
 const CustomCursor = ({ isDarkMode }) => {
     const [mousePosition, setMousePosition] = useState({ x: -100, y: -100 });
@@ -126,15 +125,6 @@ const CustomCursor = ({ isDarkMode }) => {
             backgroundColor: isDarkMode ? "#facc15" : "#d97706",
             borderWidth: "0px",
             mixBlendMode: "difference" // Inverts color over icon
-        },
-        rocket: {
-            x: mousePosition.x - 24,
-            y: mousePosition.y - 24,
-            height: 48,
-            width: 48,
-            backgroundColor: isDarkMode ? "#f97316" : "#ea580c",
-            borderWidth: "0px",
-            mixBlendMode: "difference"
         }
     };
 
@@ -158,9 +148,6 @@ const CustomCursor = ({ isDarkMode }) => {
         },
         icon: {
             opacity: 0
-        },
-        rocket: {
-            opacity: 0
         }
     }
 
@@ -182,9 +169,6 @@ const CustomCursor = ({ isDarkMode }) => {
                     <span className={`text-[10px] font-bold uppercase tracking-wider ${isDarkMode ? 'text-black' : 'text-white'}`}>
                         {cursorText}
                     </span>
-                )}
-                {cursorVariant === 'rocket' && (
-                    <RocketLaunch className={`w-6 h-6 ${isDarkMode ? 'text-black' : 'text-white'}`} weight="duotone" />
                 )}
             </motion.div>
 
