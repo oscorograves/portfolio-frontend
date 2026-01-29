@@ -20,30 +20,37 @@ const CustomCursor = ({ isDarkMode }) => {
 
             // Check for interactive elements
             const tagName = target.tagName.toLowerCase();
-            const parentTagName = target.parentElement?.tagName.toLowerCase();
 
-            // Buttons and Links
-            if (tagName === 'button' || tagName === 'a' ||
-                parentTagName === 'button' || parentTagName === 'a' ||
-                target.closest('button') || target.closest('a') ||
-                target.getAttribute('role') === 'button') {
+            // Check computed style for cursor (if explicitly set to text)
+            // Note: getComputedStyle might return 'auto', so we still need tag checks
+            const computedStyle = window.getComputedStyle(target);
+
+            // 1. Links & Buttons (Highest Priority)
+            // Use closest to catch icons/spans inside buttons/links
+            if (target.closest('a') || target.closest('button') || target.closest('[role="button"]')) {
                 newVariant = "pointer";
             }
-            // Inputs
+            // 2. Inputs & Textareas
             else if (tagName === 'input' || tagName === 'textarea') {
                 newVariant = "text";
             }
-            // Text selection - rough heuristic
-            else if (['p', 'h1', 'h2', 'h3', 'h4', 'span', 'li'].includes(tagName)) {
-                // Only if it's not a container-like span
-                if (window.getSelection().toString().length > 0) {
-                    newVariant = "text";
-                } else if (target.style.cursor === 'text') {
-                    newVariant = "text";
+            // 3. Text Elements
+            // We check for specific tags and ensure they have text content
+            else if (['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'span', 'li', 'blockquote', 'cite', 'strong', 'em', 'b', 'i', 'small', 'td', 'th'].includes(tagName)) {
+                // Check if it's not just an empty container
+                // We also avoid changing if the cursor is explicitly set to something else (like pointer via CSS not on an A tag)
+                if (computedStyle.cursor === 'auto' || computedStyle.cursor === 'text') {
+                    if (target.innerText && target.innerText.trim().length > 0) {
+                        newVariant = "text";
+                    }
                 }
             }
+            // 4. Explicit cursor: text style
+            else if (computedStyle.cursor === 'text') {
+                newVariant = "text";
+            }
 
-            // Custom data attributes for specific behaviors
+            // Custom data attributes for specific behaviors (Override previous logic if present)
             // data-cursor="icon" -> icon variant
             // data-cursor-text="View" -> text cursor with "View"
             if (target.dataset.cursor) {
@@ -86,7 +93,8 @@ const CustomCursor = ({ isDarkMode }) => {
             backgroundColor: "transparent",
             borderWidth: "2px",
             borderColor: isDarkMode ? "#f97316" : "#ea580c", // primary-500 : primary-600
-            mixBlendMode: "normal"
+            mixBlendMode: "normal",
+            borderRadius: "50%"
         },
         pointer: {
             x: mousePosition.x - 24,
@@ -96,7 +104,8 @@ const CustomCursor = ({ isDarkMode }) => {
             backgroundColor: isDarkMode ? "rgba(249, 115, 22, 0.2)" : "rgba(234, 88, 12, 0.2)",
             borderWidth: "1px",
             borderColor: isDarkMode ? "#f97316" : "#ea580c",
-            mixBlendMode: "normal"
+            mixBlendMode: "normal",
+            borderRadius: "50%"
         },
         text: {
             x: mousePosition.x - 2,
@@ -116,6 +125,7 @@ const CustomCursor = ({ isDarkMode }) => {
             backgroundColor: isDarkMode ? "rgba(255, 255, 255, 0.9)" : "rgba(0, 0, 0, 0.9)",
             borderWidth: "0px",
             mixBlendMode: "normal",
+            borderRadius: "50%"
         },
         icon: {
             x: mousePosition.x - 20,
@@ -124,7 +134,8 @@ const CustomCursor = ({ isDarkMode }) => {
             width: 40,
             backgroundColor: isDarkMode ? "#facc15" : "#d97706",
             borderWidth: "0px",
-            mixBlendMode: "difference" // Inverts color over icon
+            mixBlendMode: "difference", // Inverts color over icon
+            borderRadius: "50%"
         }
     };
 
@@ -155,7 +166,7 @@ const CustomCursor = ({ isDarkMode }) => {
         <>
             {/* Main Ring/Shape */}
             <motion.div
-                className="fixed top-0 left-0 rounded-full pointer-events-none z-[99999] hidden xl:flex items-center justify-center text-center overflow-hidden"
+                className="fixed top-0 left-0 rounded-full pointer-events-none z-[99999] hidden md:flex items-center justify-center text-center overflow-hidden"
                 variants={variants}
                 animate={cursorVariant}
                 transition={{
@@ -174,7 +185,7 @@ const CustomCursor = ({ isDarkMode }) => {
 
             {/* Center Dot (Independent) */}
             <motion.div
-                className="fixed top-0 left-0 w-2 h-2 rounded-full pointer-events-none z-[99999] hidden xl:block" // Dot is above
+                className="fixed top-0 left-0 w-2 h-2 rounded-full pointer-events-none z-[99999] hidden md:block" // Dot is above
                 variants={dotVariants}
                 animate={cursorVariant}
                 transition={{ duration: 0.15 }} // Faster transition for dot
