@@ -5,6 +5,11 @@ import './index.css'
 import './i18n';
 import App from './App.jsx'
 
+// Redirect from Render subdomain to custom domain
+if (window.location.hostname === 'portfolio-frontend-3mxv.onrender.com') {
+  window.location.replace('https://scalewithkanishk.in' + window.location.pathname + window.location.search);
+}
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
