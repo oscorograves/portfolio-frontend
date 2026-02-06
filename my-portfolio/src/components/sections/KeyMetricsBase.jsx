@@ -2,11 +2,10 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import CountUp from 'react-countup';
 
-const KeyMetricsBase = ({ t, setCurrentPage, fallbackMetrics }) => {
+const KeyMetricsBase = ({ t, navigate, fallbackMetrics }) => {
     return (
         <div className="bg-gradient-to-r from-orange-600 via-red-500 to-orange-600 dark:bg-none dark:bg-gray-900 text-white py-12 transition-colors duration-300">
             <div className="max-w-6xl mx-auto px-4 md:px-8">
-                {/* CHANGED: grid-cols-2 for mobile, md:grid-cols-4 for desktop */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center">
 
                     <div className="p-2">
@@ -15,7 +14,7 @@ const KeyMetricsBase = ({ t, setCurrentPage, fallbackMetrics }) => {
                             whileHover={{ scale: 1.2 }}
                             transition={{ type: "spring", stiffness: 300 }}
                             onClick={() => {
-                                setCurrentPage('experience');
+                                navigate('/experience');
                                 window.scrollTo({ top: 0, behavior: 'smooth' });
                             }}
                         >
@@ -30,7 +29,7 @@ const KeyMetricsBase = ({ t, setCurrentPage, fallbackMetrics }) => {
                             whileHover={{ scale: 1.2 }}
                             transition={{ type: "spring", stiffness: 300 }}
                             onClick={() => {
-                                setCurrentPage('metrics');
+                                navigate('/metrics');
                                 window.scrollTo({ top: 0, behavior: 'smooth' });
                             }}
                         >
@@ -45,7 +44,7 @@ const KeyMetricsBase = ({ t, setCurrentPage, fallbackMetrics }) => {
                             whileHover={{ scale: 1.2 }}
                             transition={{ type: "spring", stiffness: 300 }}
                             onClick={() => {
-                                setCurrentPage('metrics');
+                                navigate('/metrics');
                                 window.scrollTo({ top: 0, behavior: 'smooth' });
                             }}
                         >
@@ -60,7 +59,7 @@ const KeyMetricsBase = ({ t, setCurrentPage, fallbackMetrics }) => {
                             whileHover={{ scale: 1.2 }}
                             transition={{ type: "spring", stiffness: 300 }}
                             onClick={() => {
-                                setCurrentPage('metrics');
+                                navigate('/metrics');
                                 window.scrollTo({ top: 0, behavior: 'smooth' });
                             }}
                         >

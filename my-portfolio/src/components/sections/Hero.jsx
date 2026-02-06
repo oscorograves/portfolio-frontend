@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { DownloadSimple, Envelope, LinkedinLogo, Phone } from 'phosphor-react';
 import TypewriterText from '../ui/TypewriterText';
@@ -24,7 +25,7 @@ const containerVariants = {
     }
 };
 
-const Hero = ({ t, setCurrentPage, fallbackMetrics }) => {
+const Hero = ({ t, navigate, fallbackMetrics }) => {
     return (
         <section className="border-b border-gray-300 dark:border-gray-800 transition-colors duration-300">
             <motion.div
@@ -45,13 +46,13 @@ const Hero = ({ t, setCurrentPage, fallbackMetrics }) => {
                             text={t('hero.role')}
                             className="text-xl text-gray-700 dark:text-gray-300 mb-6 font-medium"
                             Element="p"
-                            delay={1.5} // Start after the name finishes (approx)
+                            delay={1.5}
                         />
                         <motion.p variants={itemVariants} className="text-base text-gray-600 dark:text-gray-400 leading-relaxed mb-8">
                             {t('hero.description')}
                         </motion.p>
                         <motion.div variants={itemVariants} className="flex gap-3 mb-8">
-                            <DSButton onClick={() => setCurrentPage('case-studies')}>
+                            <DSButton onClick={() => navigate('/case-studies')}>
                                 {t('hero.viewCaseStudies')}
                             </DSButton>
                             <DSButton
@@ -92,7 +93,7 @@ const Hero = ({ t, setCurrentPage, fallbackMetrics }) => {
 
                     <motion.div variants={itemVariants} className="space-y-4">
                         <HeroAvatar
-                            onNavigate={setCurrentPage}
+                            onNavigate={(page) => navigate(`/${page === 'home' ? '' : page}`)}
                             metrics={[
                                 { value: "2+", label: t('stats.yearsExp'), page: 'experience' },
                                 { value: "$41K", label: t('stats.adSpend'), page: 'metrics' },

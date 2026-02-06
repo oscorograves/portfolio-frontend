@@ -1,9 +1,7 @@
 import React, { useState, useEffect, Suspense } from 'react';
+import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import './i18n';
-
-// Hooks
-import useMousePosition from './hooks/useMousePosition';
 
 // Layout
 import NavBar from './components/layout/NavBar';
@@ -41,14 +39,32 @@ const fallbackMetrics = [
   { client: 'B2B SaaS', channel: 'Meta', spend: 5500, ctr: 2.5, cpl: 7.50, cvr: 7.5, roi: 340 }
 ];
 
+// Route configuration
+const routes = [
+  { path: '/', key: 'home' },
+  { path: '/experience', key: 'experience' },
+  { path: '/case-studies', key: 'caseStudies' },
+  { path: '/my-story', key: 'myStory' },
+  { path: '/metrics', key: 'metrics' },
+  { path: '/creative-lab', key: 'creativeLab' }
+];
+
 export default function Portfolio() {
-  const [currentPage, setCurrentPage] = useState('home');
   const [showWip, setShowWip] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(true);
   const { t, i18n } = useTranslation();
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const language = i18n.resolvedLanguage || 'en';
   const setLanguage = (lang) => i18n.changeLanguage(lang);
+
+  // Derive current page from pathname
+  const getCurrentPage = () => {
+    const path = location.pathname;
+    if (path === '/') return 'home';
+    return path.slice(1); // Remove leading slash
+  };
 
   useEffect(() => {
     if (isDarkMode) {
@@ -58,10 +74,10 @@ export default function Portfolio() {
     }
   }, [isDarkMode]);
 
-  // Scroll to top on page change
+  // Scroll to top on route change
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' });
-  }, [currentPage]);
+  }, [location.pathname]);
 
   return (
     <div className="min-h-screen flex flex-col transition-colors duration-300 relative overflow-hidden">
@@ -84,8 +100,8 @@ export default function Portfolio() {
       <CustomCursor isDarkMode={isDarkMode} />
 
       <NavBar
-        currentPage={currentPage}
-        setCurrentPage={setCurrentPage}
+        currentPage={getCurrentPage()}
+        navigate={navigate}
         showWip={showWip}
         setShowWip={setShowWip}
         isDarkMode={isDarkMode}
@@ -97,41 +113,43 @@ export default function Portfolio() {
 
       {/* Main Content Grows to fill space */}
       <div className="flex-grow z-10 relative">
-        {currentPage === 'home' &&
-          <PageWrapper>
-            <Home
-              t={t}
-              setCurrentPage={setCurrentPage}
-              fallbackMetrics={fallbackMetrics}
-              isDarkMode={isDarkMode}
-            />
-          </PageWrapper>
-        }
-        {currentPage === 'experience' &&
-          <PageWrapper>
-            <Experience t={t} isDarkMode={isDarkMode} />
-          </PageWrapper>
-        }
-        {currentPage === 'case-studies' &&
-          <PageWrapper>
-            <CaseStudies t={t} isDarkMode={isDarkMode} />
-          </PageWrapper>
-        }
-        {currentPage === 'my-story' &&
-          <PageWrapper>
-            <MyStory t={t} />
-          </PageWrapper>
-        }
-        {currentPage === 'creative-lab' &&
-          <PageWrapper>
-            <CreativeLab t={t} />
-          </PageWrapper>
-        }
-        {currentPage === 'metrics' &&
-          <PageWrapper>
-            <MetricsPage t={t} fallbackMetrics={fallbackMetrics} isDarkMode={isDarkMode} />
-          </PageWrapper>
-        }
+        <Routes>
+          <Route path="/" element={
+            <PageWrapper>
+              <Home
+                t={t}
+                navigate={navigate}
+                fallbackMetrics={fallbackMetrics}
+                isDarkMode={isDarkMode}
+              />
+            </PageWrapper>
+          } />
+          <Route path="/experience" element={
+            <PageWrapper>
+              <Experience t={t} isDarkMode={isDarkMode} />
+            </PageWrapper>
+          } />
+          <Route path="/case-studies" element={
+            <PageWrapper>
+              <CaseStudies t={t} isDarkMode={isDarkMode} />
+            </PageWrapper>
+          } />
+          <Route path="/my-story" element={
+            <PageWrapper>
+              <MyStory t={t} />
+            </PageWrapper>
+          } />
+          <Route path="/metrics" element={
+            <PageWrapper>
+              <MetricsPage t={t} fallbackMetrics={fallbackMetrics} isDarkMode={isDarkMode} />
+            </PageWrapper>
+          } />
+          <Route path="/creative-lab" element={
+            <PageWrapper>
+              <CreativeLab t={t} />
+            </PageWrapper>
+          } />
+        </Routes>
       </div>
 
       <Footer t={t} />

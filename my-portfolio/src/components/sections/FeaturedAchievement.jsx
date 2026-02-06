@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { CaretRight } from 'phosphor-react';
 
-const FeaturedAchievement = ({ t, setCurrentPage, isDarkMode }) => {
+const FeaturedAchievement = ({ t, navigate, isDarkMode }) => {
     return (
         <section className="border-b border-gray-300 dark:border-gray-800 transition-colors duration-300">
             <div className="max-w-6xl mx-auto px-8 py-12">
@@ -13,7 +13,7 @@ const FeaturedAchievement = ({ t, setCurrentPage, isDarkMode }) => {
                     data-cursor="pointer"
                     role="button"
                     onClick={() => {
-                        setCurrentPage('case-studies');
+                        navigate('/case-studies');
                         setTimeout(() => {
                             const element = document.getElementById('packt');
                             if (element) {

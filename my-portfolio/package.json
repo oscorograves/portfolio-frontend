@@ -23,6 +23,7 @@
     "react-countup": "^6.5.3",
     "react-dom": "^18.2.0",
     "react-i18next": "^16.5.3",
+    "react-router-dom": "^7.13.0",
     "remotion": "^4.0.409",
     "xlsx": "^0.18.5"
   },
