@@ -9,7 +9,7 @@ i18n
     .use(initReactI18next)
     .init({
         fallbackLng: 'en',
-        debug: true, // TODO: Turn off in production
+        debug: false, // Disabled for production
         interpolation: {
             escapeValue: false, // not needed for react as it escapes by default
         },
