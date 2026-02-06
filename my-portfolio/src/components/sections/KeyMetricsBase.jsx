@@ -4,7 +4,7 @@ import CountUp from 'react-countup';
 
 const KeyMetricsBase = ({ t, navigate, fallbackMetrics }) => {
     return (
-        <div className="bg-gradient-to-r from-orange-600 via-red-500 to-orange-600 dark:bg-none dark:bg-gray-900 text-white py-12 transition-colors duration-300">
+        <div className="bg-gradient-to-r from-orange-600 via-red-500 to-orange-600 dark:bg-none dark:bg-gray-900 dark:border-y dark:border-gray-800 text-white py-12 transition-colors duration-300">
             <div className="max-w-6xl mx-auto px-4 md:px-8">
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center">
 

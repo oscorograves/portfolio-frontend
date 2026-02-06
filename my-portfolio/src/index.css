@@ -29,3 +29,10 @@
     scrollbar-width: none;
     /* Firefox */
 }
+
+/* ===== Dark Mode Polish ===== */
+
+/* Dark mode text glow for headings */
+.dark .heading-glow {
+    text-shadow: 0 0 30px rgba(250, 204, 21, 0.15);
+}
