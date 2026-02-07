@@ -11,10 +11,10 @@ import PageWrapper from './components/ui/PageWrapper';
 import NoiseOverlay from './components/ui/NoiseOverlay';
 import ScrollProgress from './components/ui/ScrollProgress';
 
-// Lazy load animations (non-critical, can load after first paint)
-const FireflyBackground = lazy(() => import('./components/animations/FireflyBackground'));
-const CustomCursor = lazy(() => import('./components/animations/CustomCursor'));
-const NetworkBackground = lazy(() => import('./components/animations/NetworkBackground'));
+// Animations (keep as direct imports - small and needed for visual experience)
+import FireflyBackground from './components/animations/FireflyBackground';
+import CustomCursor from './components/animations/CustomCursor';
+import NetworkBackground from './components/animations/NetworkBackground';
 
 // Lazy load pages (route-based code splitting)
 const Home = lazy(() => import('./pages/Home'));
@@ -100,12 +100,10 @@ export default function Portfolio() {
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gray-400/10 dark:bg-gray-800/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '10s', animationDelay: '1s' }} />
       </div>
 
-      {/* Lazy-loaded animations */}
-      <Suspense fallback={null}>
-        <NetworkBackground isDarkMode={isDarkMode} />
-        <FireflyBackground />
-        <CustomCursor isDarkMode={isDarkMode} />
-      </Suspense>
+      {/* Background Effects */}
+      <NetworkBackground isDarkMode={isDarkMode} />
+      <FireflyBackground />
+      <CustomCursor isDarkMode={isDarkMode} />
 
       <NavBar
         currentPage={getCurrentPage()}
