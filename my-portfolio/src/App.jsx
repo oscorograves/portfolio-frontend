@@ -16,8 +16,10 @@ import FireflyBackground from './components/animations/FireflyBackground';
 import CustomCursor from './components/animations/CustomCursor';
 import NetworkBackground from './components/animations/NetworkBackground';
 
-// Lazy load pages (route-based code splitting)
-const Home = lazy(() => import('./pages/Home'));
+// Eager load Home for faster LCP (Critical Path)
+import Home from './pages/Home';
+
+// Lazy load other pages (route-based code splitting)
 const Experience = lazy(() => import('./pages/Experience'));
 const CaseStudies = lazy(() => import('./pages/CaseStudies'));
 const CreativeLab = lazy(() => import('./pages/CreativeLab'));
