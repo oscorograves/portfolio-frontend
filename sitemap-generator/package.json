@@ -1,0 +1,13 @@
+{
+    "name": "sitemap-generator",
+    "version": "1.0.0",
+    "description": "Automatic sitemap generator for scalewithkanishk.in",
+    "type": "module",
+    "main": "generate.js",
+    "scripts": {
+        "generate": "node generate.js"
+    },
+    "dependencies": {
+        "sitemap": "^8.0.0"
+    }
+}

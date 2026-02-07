@@ -1,0 +1,52 @@
+name: Update Sitemap
+
+on:
+  # Run daily at midnight UTC
+  schedule:
+    - cron: '0 0 * * *'
+  
+  # Allow manual trigger
+  workflow_dispatch:
+  
+  # Run on push to main when routes.json changes
+  push:
+    branches: [main]
+    paths:
+      - 'sitemap-generator/routes.json'
+
+jobs:
+  update-sitemap:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      - name: Install dependencies
+        working-directory: ./sitemap-generator
+        run: npm install
+      
+      - name: Generate sitemap
+        working-directory: ./sitemap-generator
+        run: npm run generate
+      
+      - name: Check for changes
+        id: git-check
+        run: |
+          git diff --quiet my-portfolio/public/sitemap.xml || echo "changed=true" >> $GITHUB_OUTPUT
+      
+      - name: Commit and push if changed
+        if: steps.git-check.outputs.changed == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add my-portfolio/public/sitemap.xml
+          git commit -m "chore: auto-update sitemap [skip ci]"
+          git push

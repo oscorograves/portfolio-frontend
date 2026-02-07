@@ -1,0 +1,36 @@
+{
+    "baseUrl": "https://scalewithkanishk.in",
+    "routes": [
+        {
+            "path": "/",
+            "changefreq": "weekly",
+            "priority": 1.0
+        },
+        {
+            "path": "/experience",
+            "changefreq": "monthly",
+            "priority": 0.9
+        },
+        {
+            "path": "/case-studies",
+            "changefreq": "monthly",
+            "priority": 0.9
+        },
+        {
+            "path": "/my-story",
+            "changefreq": "monthly",
+            "priority": 0.8
+        },
+        {
+            "path": "/metrics",
+            "changefreq": "monthly",
+            "priority": 0.8
+        },
+        {
+            "path": "/creative-lab",
+            "changefreq": "monthly",
+            "priority": 0.7,
+            "hidden": true
+        }
+    ]
+}
