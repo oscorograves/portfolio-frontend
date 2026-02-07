@@ -29,7 +29,7 @@ const NavBar = ({
     const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
 
     return (
-        <nav className="fixed top-0 left-0 right-0 bg-white/50 dark:bg-dark-bg/50 backdrop-blur-lg border-b border-gray-900 dark:border-gray-800 z-[1000] transition-colors duration-300">
+        <nav className="fixed top-0 left-0 right-0 bg-white/50 dark:bg-gray-900/50 backdrop-blur-lg border-b border-gray-900 dark:border-gray-800 z-[1000] transition-colors duration-300">
             <div className="max-w-6xl mx-auto px-4 md:px-8 py-4">
                 <div className="flex items-center justify-between">
 
@@ -78,7 +78,7 @@ const NavBar = ({
                         >
                             <Globe className="w-5 h-5 text-blue-500" weight="duotone" />
                             <span>{language.toUpperCase()}</span>
-                            <span className="text-[10px] font-mono text-gray-500 dark:text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap pointer-events-none bg-white dark:bg-dark-surface px-2 py-1 rounded shadow-sm border border-gray-200 dark:border-gray-700">Change Language</span>
+                            <span className="text-[10px] font-mono text-gray-500 dark:text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap pointer-events-none bg-white dark:bg-gray-900 px-2 py-1 rounded shadow-sm border border-gray-200 dark:border-gray-700">Change Language</span>
                         </button>
 
                         <AnimatePresence>
@@ -87,7 +87,7 @@ const NavBar = ({
                                     initial={{ opacity: 0, y: 10 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     exit={{ opacity: 0, y: 10 }}
-                                    className="absolute right-0 mt-2 w-32 bg-white dark:bg-dark-surface border border-gray-200 dark:border-gray-700 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] overflow-hidden z-50"
+                                    className="absolute right-0 mt-2 w-32 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] overflow-hidden z-50"
                                 >
                                     {[
                                         { code: 'en', label: 'English' },

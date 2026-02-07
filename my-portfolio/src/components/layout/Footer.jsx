@@ -4,7 +4,7 @@ import { Envelope, LinkedinLogo, InstagramLogo, GithubLogo, FilmStrip, Camera, A
 
 const Footer = ({ t }) => {
     return (
-        <footer className="border-t border-gray-300 dark:border-gray-800 pt-8 pb-28 bg-white/50 dark:bg-dark-bg/50 backdrop-blur-sm transition-colors duration-300">
+        <footer className="border-t border-gray-300 dark:border-gray-800 pt-8 pb-28 bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm transition-colors duration-300">
             <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8">
 
                 {/* Left: Legal Text */}

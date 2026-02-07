@@ -39,7 +39,7 @@ const Experience = ({ t, isDarkMode }) => {
                     {/* Pocket FM */}
                     <motion.div
                         variants={itemVariants}
-                        className="bg-white/40 dark:bg-dark-surface/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-6 outline outline-2 outline-offset-4 outline-dark-bg outline-2"
+                        className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-6 outline outline-2 outline-offset-4 outline-gray-900 outline-2"
                         whileHover={{ y: -5, borderColor: isDarkMode ? '#facc15' : '#ea580c', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }}
                         transition={{ type: "spring", stiffness: 300, damping: 20 }}
                     >
@@ -80,7 +80,7 @@ const Experience = ({ t, isDarkMode }) => {
                     {/* Intertek */}
                     <motion.div
                         variants={itemVariants}
-                        className="bg-white/40 dark:bg-dark-surface/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-6 outline outline-2 outline-offset-4 outline-dark-bg outline-2"
+                        className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-6 outline outline-2 outline-offset-4 outline-gray-900 outline-2"
                         whileHover={{ y: -5, borderColor: isDarkMode ? '#facc15' : '#ea580c', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }}
                         transition={{ type: "spring", stiffness: 300, damping: 20 }}
                     >
@@ -118,7 +118,7 @@ const Experience = ({ t, isDarkMode }) => {
                     {/* Tradebuilder */}
                     <motion.div
                         variants={itemVariants}
-                        className="bg-white/40 dark:bg-dark-surface/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-6 outline outline-2 outline-offset-4 outline-dark-bg outline-2"
+                        className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-6 outline outline-2 outline-offset-4 outline-gray-900 outline-2"
                         whileHover={{ y: -5, borderColor: isDarkMode ? '#facc15' : '#ea580c', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }}
                         transition={{ type: "spring", stiffness: 300, damping: 20 }}
                     >
@@ -156,7 +156,7 @@ const Experience = ({ t, isDarkMode }) => {
                     {/* ABP */}
                     <motion.div
                         variants={itemVariants}
-                        className="bg-white/40 dark:bg-dark-surface/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-6 outline outline-2 outline-offset-4 outline-dark-bg outline-2"
+                        className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-6 outline outline-2 outline-offset-4 outline-gray-900 outline-2"
                         whileHover={{ y: -5, borderColor: isDarkMode ? '#facc15' : '#ea580c', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }}
                         transition={{ type: "spring", stiffness: 300, damping: 20 }}
                     >
@@ -207,7 +207,7 @@ const Experience = ({ t, isDarkMode }) => {
                     >
                         <motion.div
                             variants={itemVariants}
-                            className="bg-white/40 dark:bg-dark-surface/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 outline outline-2 outline-offset-4 outline-dark-bg outline-2"
+                            className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 outline outline-2 outline-offset-4 outline-gray-900 outline-2"
                             whileHover={{ y: -5, borderColor: isDarkMode ? '#facc15' : '#ea580c', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }}
                         >
                             <div className="flex items-center gap-2 mb-3">
@@ -230,7 +230,7 @@ const Experience = ({ t, isDarkMode }) => {
 
                         <motion.div
                             variants={itemVariants}
-                            className="bg-white/40 dark:bg-dark-surface/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 outline outline-2 outline-offset-4 outline-dark-bg outline-2"
+                            className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 outline outline-2 outline-offset-4 outline-gray-900 outline-2"
                             whileHover={{ y: -5, borderColor: isDarkMode ? '#facc15' : '#ea580c', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }}
                         >
                             <div className="flex items-center gap-2 mb-3">
@@ -258,7 +258,7 @@ const Experience = ({ t, isDarkMode }) => {
                     <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-amber-600 dark:border-yellow-400">{t('experience.education')}</h2>
                     <motion.div
                         variants={itemVariants}
-                        className="bg-white/40 dark:bg-dark-surface/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-6 outline outline-2 outline-offset-4 outline-dark-bg outline-2"
+                        className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-6 outline outline-2 outline-offset-4 outline-gray-900 outline-2"
                         whileHover={{ y: -5, borderColor: isDarkMode ? '#facc15' : '#ea580c', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }}
                     >
                         <div className="flex items-start gap-3 mb-3">
@@ -279,7 +279,7 @@ const Experience = ({ t, isDarkMode }) => {
                     <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-amber-600 dark:border-yellow-400">{t('experience.certifications')}</h2>
                     <motion.div
                         variants={itemVariants}
-                        className="bg-white/40 dark:bg-dark-surface/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-6 outline outline-2 outline-offset-4 outline-dark-bg outline-2"
+                        className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-6 outline outline-2 outline-offset-4 outline-gray-900 outline-2"
                         whileHover={{ y: -5, borderColor: isDarkMode ? '#facc15' : '#ea580c', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }}
                     >
                         <ul className="space-y-3">

@@ -71,7 +71,7 @@ const HeroAvatar = ({ metrics = [], onNavigate }) => {
 
                 {/* --- 5. Interactive Reactor Ring (Replaces old ring) --- */}
                 <motion.div
-                    className="absolute -inset-8 rounded-full border border-primary-500/20 dark:border-primary-400/20 border-dashed"
+                    className="absolute -inset-8 rounded-full border border-amber-500/20 dark:border-yellow-400/20 border-dashed"
                     animate={{ rotate: 360 }}
                     transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                     style={{ transformStyle: "preserve-3d", transform: "translateZ(-20px)" }}
@@ -86,7 +86,7 @@ const HeroAvatar = ({ metrics = [], onNavigate }) => {
                 {[...Array(6)].map((_, i) => (
                     <motion.div
                         key={i}
-                        className="absolute w-1 h-1 bg-primary-400 dark:bg-primary-400 rounded-full"
+                        className="absolute w-1 h-1 bg-amber-400 dark:bg-yellow-400 rounded-full"
                         initial={{
                             x: Math.random() * 200 - 100,
                             y: Math.random() * 200 - 100,
@@ -112,14 +112,14 @@ const HeroAvatar = ({ metrics = [], onNavigate }) => {
                 ))}
 
                 {/* The Glowing Atmosphere */}
-                <div className="absolute inset-0 bg-gradient-to-b from-blue-600/20 to-purple-600/20 dark:from-primary-400/10 dark:to-primary-500/10 rounded-full blur-[40px]" style={{ transform: "translateZ(-10px)" }} />
+                <div className="absolute inset-0 bg-gradient-to-b from-blue-600/20 to-purple-600/20 dark:from-yellow-400/10 dark:to-orange-500/10 rounded-full blur-[40px]" style={{ transform: "translateZ(-10px)" }} />
 
                 {/* The Image Link */}
                 <a
                     href="https://www.instagram.com/oscorograves/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="relative w-48 h-48 rounded-full overflow-hidden border-2 border-transparent dark:border-gray-800 bg-dark-surface shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] z-10 group flex-shrink-0 cursor-pointer block hover:border-primary-600 dark:hover:border-primary-400 transition-all outline-none"
+                    className="relative w-48 h-48 rounded-full overflow-hidden border-2 border-transparent dark:border-gray-800 bg-gray-900 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] z-10 group flex-shrink-0 cursor-pointer block hover:border-amber-600 dark:hover:border-yellow-400 transition-all outline-none"
                     style={{
                         WebkitTapHighlightColor: 'transparent',
                         transform: "translateZ(20px)" // Pop out effect
@@ -156,7 +156,7 @@ const HeroAvatar = ({ metrics = [], onNavigate }) => {
                     >
                         {/* The Dot */}
                         <motion.div
-                            className="w-3 h-3 bg-primary-600 dark:bg-primary-400 rounded-full shadow-lg shadow-primary-600/50 dark:shadow-primary-400/50 ring-2 ring-white dark:ring-gray-900" // Added ring for contrast
+                            className="w-3 h-3 bg-amber-600 dark:bg-yellow-400 rounded-full shadow-lg shadow-amber-600/50 dark:shadow-yellow-400/50 ring-2 ring-white dark:ring-gray-900" // Added ring for contrast
                             animate={{ scale: [1, 1.2, 1] }}
                             transition={{ duration: 2, repeat: Infinity, delay: index * 0.5 }}
                         />
@@ -170,7 +170,7 @@ const HeroAvatar = ({ metrics = [], onNavigate }) => {
                                     initial={{ opacity: 0, y: 10, scale: 0.8 }}
                                     animate={{ opacity: 1, y: 0, scale: 1 }}
                                     exit={{ opacity: 0, y: 5, scale: 0.8 }}
-                                    className="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 bg-white dark:bg-dark-surface px-4 py-3 rounded-xl shadow-xl border border-gray-200 dark:border-gray-700 whitespace-nowrap min-w-[120px] text-center z-40"
+                                    className="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 bg-white dark:bg-gray-900 px-4 py-3 rounded-xl shadow-xl border border-gray-200 dark:border-gray-700 whitespace-nowrap min-w-[120px] text-center z-40"
                                 >
                                     <div className="text-xl font-bold text-gray-900 dark:text-white leading-none font-sans">{metric.value}</div>
                                     <div className="text-xs text-gray-500 dark:text-gray-400 mt-1 font-medium font-sans">{metric.label}</div>

@@ -9,7 +9,7 @@ const ThemeToggle = ({ isDarkMode, setIsDarkMode }) => {
             aria-label="Toggle Dark Mode"
         >
             {isDarkMode ? <Sun className="w-6 h-6" weight="duotone" /> : <Moon className="w-6 h-6" weight="duotone" />}
-            <span className="text-[10px] font-mono text-gray-500 dark:text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap pointer-events-none bg-white dark:bg-dark-surface px-2 py-1 rounded shadow-sm border border-gray-200 dark:border-gray-700">Switch Theme</span>
+            <span className="text-[10px] font-mono text-gray-500 dark:text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap pointer-events-none bg-white dark:bg-gray-900 px-2 py-1 rounded shadow-sm border border-gray-200 dark:border-gray-700">Switch Theme</span>
         </button>
     );
 };

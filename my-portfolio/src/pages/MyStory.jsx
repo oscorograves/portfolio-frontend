@@ -166,7 +166,7 @@ const MyStory = ({ t }) => {
                                 return (
                                     <motion.div
                                         key={i}
-                                        className="bg-white/40 dark:bg-dark-surface/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded-xl p-6 hover:border-primary-500 dark:hover:border-primary-400 transition-all outline outline-2 outline-offset-4 outline-dark-bg group"
+                                        className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded-xl p-6 hover:border-amber-600 dark:hover:border-yellow-400 transition-all outline outline-2 outline-offset-4 outline-gray-900 group"
                                         whileHover={{ y: -5 }}
                                     >
                                         <div className="w-14 h-14 bg-amber-600 dark:bg-yellow-400 rounded-lg flex items-center justify-center text-white dark:text-gray-900 mb-4">
