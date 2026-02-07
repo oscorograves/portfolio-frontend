@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { motion } from 'framer-motion';
 
 const TypewriterText = ({ text, className, Element = "h1", delay = 0.3 }) => {
-    // Split text into array of letters
-    const letters = Array.from(text);
+    // Ensure text is a string and memoize letters based on text changes
+    const safeText = typeof text === 'string' ? text : '';
+    const letters = useMemo(() => Array.from(safeText), [safeText]);
     const MotionComponent = motion[Element] || motion.div;
 
     const container = {
@@ -30,13 +31,18 @@ const TypewriterText = ({ text, className, Element = "h1", delay = 0.3 }) => {
         }
     };
 
+    // Don't render until we have text (prevents partial animations)
+    if (!safeText) {
+        return null;
+    }
+
     return (
         <MotionComponent
             className={className}
             variants={container}
             initial="hidden"
-            whileInView="visible" // Animate when in view
-            viewport={{ once: true }} // Only once
+            animate="visible" // Use animate instead of whileInView to trigger on text change
+            key={safeText} // Re-animate when text changes
         >
             {letters.map((letter, index) => (
                 <motion.span variants={child} key={index}>
@@ -48,3 +54,4 @@ const TypewriterText = ({ text, className, Element = "h1", delay = 0.3 }) => {
 };
 
 export default TypewriterText;
+
