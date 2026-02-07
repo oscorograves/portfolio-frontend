@@ -128,6 +128,8 @@ const HeroAvatar = ({ metrics = [], onNavigate }) => {
                     <img
                         src="/profile2.jpeg"
                         alt="Kanishk Singh"
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full rounded-full object-cover object-top scale-125 transition-all duration-500 filter grayscale group-hover:grayscale-0 group-hover:scale-150"
                     />
 

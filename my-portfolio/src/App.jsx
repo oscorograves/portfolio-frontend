@@ -1,31 +1,38 @@
-import React, { useState, useEffect, Suspense } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-// Layout
+// Layout (always needed)
 import NavBar from './components/layout/NavBar';
 import Footer from './components/layout/Footer';
 
-// Animations
-import FireflyBackground from './components/animations/FireflyBackground';
-import CustomCursor from './components/animations/CustomCursor';
-import NetworkBackground from './components/animations/NetworkBackground';
-
-// UI
+// UI (critical for layout)
 import PageWrapper from './components/ui/PageWrapper';
 import NoiseOverlay from './components/ui/NoiseOverlay';
 import ScrollProgress from './components/ui/ScrollProgress';
 
-// Pages
-import Home from './pages/Home';
-import Experience from './pages/Experience';
-import CaseStudies from './pages/CaseStudies';
-import CreativeLab from './pages/CreativeLab';
-import MyStory from './pages/MyStory';
-import MetricsPage from './pages/MetricsPage';
+// Lazy load animations (non-critical, can load after first paint)
+const FireflyBackground = lazy(() => import('./components/animations/FireflyBackground'));
+const CustomCursor = lazy(() => import('./components/animations/CustomCursor'));
+const NetworkBackground = lazy(() => import('./components/animations/NetworkBackground'));
+
+// Lazy load pages (route-based code splitting)
+const Home = lazy(() => import('./pages/Home'));
+const Experience = lazy(() => import('./pages/Experience'));
+const CaseStudies = lazy(() => import('./pages/CaseStudies'));
+const CreativeLab = lazy(() => import('./pages/CreativeLab'));
+const MyStory = lazy(() => import('./pages/MyStory'));
+const MetricsPage = lazy(() => import('./pages/MetricsPage'));
 
 // Lazy Load Modal
-const WipModal = React.lazy(() => import('./components/ui/WipModal'));
+const WipModal = lazy(() => import('./components/ui/WipModal'));
+
+// Loading spinner component
+const PageLoader = () => (
+  <div className="min-h-[60vh] flex items-center justify-center">
+    <div className="w-12 h-12 border-4 border-primary-500 border-t-transparent rounded-full animate-spin" />
+  </div>
+);
 
 // FALLBACK DATA
 const fallbackMetrics = [
@@ -93,10 +100,12 @@ export default function Portfolio() {
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gray-400/10 dark:bg-gray-800/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '10s', animationDelay: '1s' }} />
       </div>
 
-      {/* Network Background */}
-      <NetworkBackground isDarkMode={isDarkMode} />
-      <FireflyBackground />
-      <CustomCursor isDarkMode={isDarkMode} />
+      {/* Lazy-loaded animations */}
+      <Suspense fallback={null}>
+        <NetworkBackground isDarkMode={isDarkMode} />
+        <FireflyBackground />
+        <CustomCursor isDarkMode={isDarkMode} />
+      </Suspense>
 
       <NavBar
         currentPage={getCurrentPage()}
@@ -111,44 +120,47 @@ export default function Portfolio() {
       />
 
       {/* Main Content Grows to fill space */}
+      {/* Main Content with lazy-loaded pages */}
       <div className="flex-grow z-10 relative">
-        <Routes>
-          <Route path="/" element={
-            <PageWrapper>
-              <Home
-                t={t}
-                navigate={navigate}
-                fallbackMetrics={fallbackMetrics}
-                isDarkMode={isDarkMode}
-              />
-            </PageWrapper>
-          } />
-          <Route path="/experience" element={
-            <PageWrapper>
-              <Experience t={t} isDarkMode={isDarkMode} />
-            </PageWrapper>
-          } />
-          <Route path="/case-studies" element={
-            <PageWrapper>
-              <CaseStudies t={t} isDarkMode={isDarkMode} />
-            </PageWrapper>
-          } />
-          <Route path="/my-story" element={
-            <PageWrapper>
-              <MyStory t={t} />
-            </PageWrapper>
-          } />
-          <Route path="/metrics" element={
-            <PageWrapper>
-              <MetricsPage t={t} fallbackMetrics={fallbackMetrics} isDarkMode={isDarkMode} />
-            </PageWrapper>
-          } />
-          <Route path="/creative-lab" element={
-            <PageWrapper>
-              <CreativeLab t={t} />
-            </PageWrapper>
-          } />
-        </Routes>
+        <Suspense fallback={<PageLoader />}>
+          <Routes>
+            <Route path="/" element={
+              <PageWrapper>
+                <Home
+                  t={t}
+                  navigate={navigate}
+                  fallbackMetrics={fallbackMetrics}
+                  isDarkMode={isDarkMode}
+                />
+              </PageWrapper>
+            } />
+            <Route path="/experience" element={
+              <PageWrapper>
+                <Experience t={t} isDarkMode={isDarkMode} />
+              </PageWrapper>
+            } />
+            <Route path="/case-studies" element={
+              <PageWrapper>
+                <CaseStudies t={t} isDarkMode={isDarkMode} />
+              </PageWrapper>
+            } />
+            <Route path="/my-story" element={
+              <PageWrapper>
+                <MyStory t={t} />
+              </PageWrapper>
+            } />
+            <Route path="/metrics" element={
+              <PageWrapper>
+                <MetricsPage t={t} fallbackMetrics={fallbackMetrics} isDarkMode={isDarkMode} />
+              </PageWrapper>
+            } />
+            <Route path="/creative-lab" element={
+              <PageWrapper>
+                <CreativeLab t={t} />
+              </PageWrapper>
+            } />
+          </Routes>
+        </Suspense>
       </div>
 
       <Footer t={t} />
