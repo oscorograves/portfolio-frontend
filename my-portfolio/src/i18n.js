@@ -9,13 +9,35 @@ i18n
     .use(initReactI18next)
     .init({
         fallbackLng: 'en',
-        debug: false, // Disabled for production
+        debug: false,
         interpolation: {
-            escapeValue: false, // not needed for react as it escapes by default
+            escapeValue: false,
+        },
+        // Prevent multiple re-renders during language detection
+        detection: {
+            // Simplified detection order - check localStorage first, then navigator
+            order: ['localStorage', 'navigator'],
+            // Cache the detected language
+            caches: ['localStorage'],
+            // Don't look at HTML lang attribute (can cause extra detection)
+            lookupLocalStorage: 'i18nextLng',
         },
         backend: {
             loadPath: '/locales/{{lng}}/translation.json',
-        }
+            // Cache translations in browser
+            requestOptions: {
+                cache: 'default',
+            },
+        },
+        // Tell React to use Suspense - prevents flash of untranslated content
+        react: {
+            useSuspense: true,
+        },
+        // Load only the detected language, not all
+        load: 'languageOnly',
+        // Don't reload on route change
+        partialBundledLanguages: true,
     });
 
 export default i18n;
+
