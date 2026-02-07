@@ -1,7 +1,6 @@
 import React, { useState, useEffect, Suspense } from 'react';
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import './i18n';
 
 // Layout
 import NavBar from './components/layout/NavBar';

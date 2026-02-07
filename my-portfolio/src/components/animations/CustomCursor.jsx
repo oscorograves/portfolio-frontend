@@ -7,13 +7,30 @@ const CustomCursor = ({ isDarkMode }) => {
     const [cursorText, setCursorText] = useState("");
 
     useEffect(() => {
+        // Use Pointer Events API for better stylus/Apple Pencil support
+        const updatePointerPosition = (e) => {
+            // Only track mouse and pen (stylus) pointers, not touch
+            if (e.pointerType === 'touch') return;
+            setMousePosition({ x: e.clientX, y: e.clientY });
+        };
+
+        // Fallback for older browsers
         const updateMousePosition = (e) => {
             setMousePosition({ x: e.clientX, y: e.clientY });
         };
 
-        const handleMouseOver = (e) => {
-            const target = e.target;
+        const handlePointerOver = (e) => {
+            // Only respond to mouse and pen, not touch
+            if (e.pointerType === 'touch') return;
+            handleElementHover(e.target);
+        };
 
+        // Fallback for mouseover
+        const handleMouseOver = (e) => {
+            handleElementHover(e.target);
+        };
+
+        const handleElementHover = (target) => {
             // Default reset
             let newVariant = "default";
             let newText = "";
@@ -75,12 +92,27 @@ const CustomCursor = ({ isDarkMode }) => {
             setCursorText(newText);
         };
 
-        window.addEventListener("mousemove", updateMousePosition);
-        window.addEventListener("mouseover", handleMouseOver); // Use capture?
+        // Check if Pointer Events are supported
+        const hasPointerEvents = window.PointerEvent !== undefined;
+
+        if (hasPointerEvents) {
+            // Use Pointer Events (better for stylus/Apple Pencil)
+            window.addEventListener("pointermove", updatePointerPosition);
+            window.addEventListener("pointerover", handlePointerOver);
+        } else {
+            // Fallback to mouse events
+            window.addEventListener("mousemove", updateMousePosition);
+            window.addEventListener("mouseover", handleMouseOver);
+        }
 
         return () => {
-            window.removeEventListener("mousemove", updateMousePosition);
-            window.removeEventListener("mouseover", handleMouseOver);
+            if (hasPointerEvents) {
+                window.removeEventListener("pointermove", updatePointerPosition);
+                window.removeEventListener("pointerover", handlePointerOver);
+            } else {
+                window.removeEventListener("mousemove", updateMousePosition);
+                window.removeEventListener("mouseover", handleMouseOver);
+            }
         };
     }, []);
 
