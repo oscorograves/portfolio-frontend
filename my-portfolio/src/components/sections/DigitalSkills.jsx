@@ -24,7 +24,7 @@ const DigitalSkills = ({ t }) => {
     return (
         <section className="transition-colors duration-300">
             <div className="max-w-6xl mx-auto px-8 py-12">
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-amber-600 dark:border-yellow-400">{t('experience.digitalSkills')}</h2>
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-primary-500 dark:border-primary-400">{t('experience.digitalSkills')}</h2>
                 <motion.div
                     className="grid md:grid-cols-2 gap-8"
                     initial="hidden"
@@ -43,7 +43,7 @@ const DigitalSkills = ({ t }) => {
                                     key={skill}
                                     variants={itemVariants}
                                     whileHover={{ scale: 1.1 }}
-                                    className="px-3 py-1.5 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded text-sm text-gray-700 dark:text-gray-300 cursor-default hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white transition-colors"
+                                    className="px-3 py-1.5 bg-white dark:bg-dark-surface border border-gray-300 dark:border-gray-700 rounded text-sm text-gray-700 dark:text-gray-300 cursor-default hover:bg-gray-100 dark:hover:bg-dark-bg hover:text-gray-900 dark:hover:text-white transition-colors"
                                 >
                                     {skill}
                                 </motion.span>
@@ -57,7 +57,7 @@ const DigitalSkills = ({ t }) => {
                                 <span className="text-sm text-gray-700 dark:text-gray-300">{t('experience.languageList.hindi')}</span>
                                 <motion.span
                                     whileHover={{ scale: 1.1 }}
-                                    className="text-xs text-gray-600 dark:text-gray-400 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 px-2 py-1 rounded cursor-default hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white transition-colors"
+                                    className="text-xs text-gray-600 dark:text-gray-400 bg-white dark:bg-dark-surface border border-gray-300 dark:border-gray-700 px-2 py-1 rounded cursor-default hover:bg-gray-100 dark:hover:bg-dark-bg hover:text-gray-900 dark:hover:text-white transition-colors"
                                 >
                                     {t('experience.languageLevels.native')}
                                 </motion.span>
@@ -66,7 +66,7 @@ const DigitalSkills = ({ t }) => {
                                 <span className="text-sm text-gray-700 dark:text-gray-300">{t('experience.languageList.english')}</span>
                                 <motion.span
                                     whileHover={{ scale: 1.1 }}
-                                    className="text-xs text-gray-600 dark:text-gray-400 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 px-2 py-1 rounded cursor-default hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white transition-colors"
+                                    className="text-xs text-gray-600 dark:text-gray-400 bg-white dark:bg-dark-surface border border-gray-300 dark:border-gray-700 px-2 py-1 rounded cursor-default hover:bg-gray-100 dark:hover:bg-dark-bg hover:text-gray-900 dark:hover:text-white transition-colors"
                                 >
                                     {t('experience.languageLevels.c1')}
                                 </motion.span>
@@ -76,7 +76,7 @@ const DigitalSkills = ({ t }) => {
                                 <span className="text-sm text-gray-700 dark:text-gray-300">{t('experience.languageList.dutch')}</span>
                                 <motion.span
                                     whileHover={{ scale: 1.1 }}
-                                    className="text-xs text-gray-600 dark:text-gray-400 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 px-2 py-1 rounded cursor-default hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white transition-colors"
+                                    className="text-xs text-gray-600 dark:text-gray-400 bg-white dark:bg-dark-surface border border-gray-300 dark:border-gray-700 px-2 py-1 rounded cursor-default hover:bg-gray-100 dark:hover:bg-dark-bg hover:text-gray-900 dark:hover:text-white transition-colors"
                                 >
                                     {t('experience.languageLevels.a2')}
                                 </motion.span>

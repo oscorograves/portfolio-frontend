@@ -55,7 +55,7 @@ const CreativeLab = ({ t }) => {
         <div className="pt-20 min-h-screen transition-colors duration-300">
             <div className="max-w-6xl mx-auto px-8 py-12">
                 <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-3">{t('creativeLab.title')}</h1>
-                <p className="text-gray-600 dark:text-gray-400 mb-8 pb-4 border-b-2 border-amber-600 dark:border-yellow-400">{t('creativeLab.subtitle')}</p>
+                <p className="text-gray-600 dark:text-gray-400 mb-8 pb-4 border-b-2 border-primary-500 dark:border-primary-400">{t('creativeLab.subtitle')}</p>
 
                 {/* Ad Creatives */}
                 <div className="mb-12">
@@ -71,13 +71,13 @@ const CreativeLab = ({ t }) => {
                             <motion.div
                                 key={i}
                                 variants={itemVariants}
-                                className="aspect-square bg-white/40 dark:bg-gray-900/40 border border-gray-300 dark:border-gray-800 rounded hover:border-amber-600 dark:hover:border-yellow-400 transition-all group outline outline-2 outline-offset-4 outline-gray-900 outline-2"
+                                className="aspect-square bg-white/40 dark:bg-dark-surface/40 border border-gray-300 dark:border-gray-800 rounded hover:border-primary-500 dark:hover:border-primary-400 transition-all group outline outline-2 outline-offset-4 outline-dark-bg outline-2"
                                 whileHover="hover"
                             >
                                 <div className="w-full h-full flex flex-col items-center justify-center p-4 relative bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700">
                                     <motion.div
                                         variants={{ hover: { scale: 1.2 } }}
-                                        className="w-12 h-12 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-full flex items-center justify-center mb-3 group-hover:bg-amber-600 dark:group-hover:bg-yellow-400 group-hover:border-amber-600 dark:group-hover:border-yellow-400 transition-all"
+                                        className="w-12 h-12 bg-white dark:bg-dark-surface border border-gray-300 dark:border-gray-700 rounded-full flex items-center justify-center mb-3 group-hover:bg-primary-500 dark:group-hover:bg-primary-400 group-hover:border-primary-500 dark:group-hover:border-primary-400 transition-all"
                                     >
                                         <Play className="w-6 h-6 text-gray-700 dark:text-white group-hover:text-white dark:group-hover:text-gray-900 transition-all" weight="duotone" />
                                     </motion.div>
@@ -103,12 +103,12 @@ const CreativeLab = ({ t }) => {
                                 key={i}
                                 variants={itemVariants}
                                 whileHover="hover"
-                                className="bg-white/40 dark:bg-gray-900/40 border border-gray-300 dark:border-gray-800 rounded overflow-hidden hover:border-amber-600 dark:hover:border-yellow-400 transition-all group outline outline-2 outline-offset-4 outline-gray-900 outline-2"
+                                className="bg-white/40 dark:bg-dark-surface/40 border border-gray-300 dark:border-gray-800 rounded overflow-hidden hover:border-primary-500 dark:hover:border-primary-400 transition-all group outline outline-2 outline-offset-4 outline-dark-bg outline-2"
                             >
                                 <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700 flex items-center justify-center relative">
                                     <motion.div
                                         variants={{ hover: { scale: 1.2 } }}
-                                        className="w-14 h-14 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-full flex items-center justify-center group-hover:bg-amber-600 dark:group-hover:bg-yellow-400 group-hover:border-amber-600 dark:group-hover:border-yellow-400 transition-all"
+                                        className="w-14 h-14 bg-white dark:bg-dark-surface border border-gray-300 dark:border-gray-700 rounded-full flex items-center justify-center group-hover:bg-primary-500 dark:group-hover:bg-primary-400 group-hover:border-primary-500 dark:group-hover:border-primary-400 transition-all"
                                     >
                                         <Play className="w-8 h-8 text-gray-700 dark:text-white group-hover:text-white dark:group-hover:text-gray-900 transition-all" weight="duotone" />
                                     </motion.div>
@@ -128,8 +128,8 @@ const CreativeLab = ({ t }) => {
 
             {/* Creative Modal */}
             {selectedCreative && (
-                <div className="fixed inset-0 bg-gray-900/60 flex items-center justify-center z-50 p-6">
-                    <div className="bg-white dark:bg-gray-900 border-2 border-amber-600 dark:border-yellow-400 rounded max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+                <div className="fixed inset-0 bg-dark-bg/60 flex items-center justify-center z-50 p-6">
+                    <div className="bg-white dark:bg-dark-surface border-2 border-primary-500 dark:border-primary-400 rounded max-w-2xl w-full max-h-[90vh] overflow-y-auto">
                         <div className="bg-gradient-to-r from-orange-600 to-red-600 dark:bg-gray-800 text-white px-6 py-4 flex items-center justify-between sticky top-0 z-10 border-b border-gray-800 dark:border-gray-700">
                             <h3 className="text-lg font-bold">{t('creativeLab.modal.title')}</h3>
                             <button onClick={() => setSelectedCreative(null)} className="hover:bg-white/20 p-1 rounded transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-600 focus-visible:ring-offset-2">

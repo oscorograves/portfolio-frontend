@@ -4,7 +4,7 @@ import CountUp from 'react-countup';
 
 const KeyMetricsBase = ({ t, navigate, fallbackMetrics }) => {
     return (
-        <div className="bg-gradient-to-r from-orange-600 via-red-500 to-orange-600 dark:bg-none dark:bg-gray-900 dark:border-y dark:border-gray-800 text-white py-12 transition-colors duration-300">
+        <div className="bg-gradient-to-r from-primary-600 via-primary-500 to-primary-600 dark:bg-none dark:bg-dark-bg dark:border-y dark:border-gray-800 text-white py-12 transition-colors duration-300">
             <div className="max-w-6xl mx-auto px-4 md:px-8">
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center">
 
@@ -20,7 +20,7 @@ const KeyMetricsBase = ({ t, navigate, fallbackMetrics }) => {
                         >
                             <CountUp end={2} duration={2.5} suffix="+" enableScrollSpy scrollSpyOnce />
                         </motion.div>
-                        <div className="text-sm md:text-base text-orange-100 dark:text-gray-400">{t('stats.yearsExp')}</div>
+                        <div className="text-sm md:text-base text-primary-100 dark:text-gray-400">{t('stats.roi')}</div>
                     </div>
 
                     <div className="p-2">

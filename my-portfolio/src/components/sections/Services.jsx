@@ -25,7 +25,7 @@ const Services = ({ t }) => {
     return (
         <section className="border-b border-gray-300 dark:border-gray-800 transition-colors duration-300">
             <div className="max-w-6xl mx-auto px-8 py-12">
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-amber-600 dark:border-yellow-400 heading-glow">{t('whatIOffer.title')}</h2>
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-primary-500 dark:border-primary-400 heading-glow">{t('whatIOffer.title')}</h2>
                 <motion.div
                     className="grid md:grid-cols-3 gap-6"
                     initial="hidden"
@@ -53,10 +53,10 @@ const Services = ({ t }) => {
                         <motion.div
                             key={i}
                             variants={itemVariants}
-                            className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded-xl p-6 hover:border-amber-600 dark:hover:border-yellow-400 transition-all outline outline-2 outline-offset-4 outline-gray-900"
+                            className="bg-white/40 dark:bg-dark-surface/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded-xl p-6 hover:border-primary-500 dark:hover:border-primary-400 transition-all outline outline-2 outline-offset-4 outline-dark-bg"
                             whileHover={{ y: -5 }}
                         >
-                            <div className="w-14 h-14 bg-amber-600 dark:bg-yellow-400 rounded-lg flex items-center justify-center text-white dark:text-gray-900 mb-4">
+                            <div className="w-14 h-14 bg-primary-500 dark:bg-primary-500 rounded-lg flex items-center justify-center text-white dark:text-gray-900 mb-4">
                                 {service.icon}
                             </div>
                             <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 heading-glow">{service.title}</h3>
