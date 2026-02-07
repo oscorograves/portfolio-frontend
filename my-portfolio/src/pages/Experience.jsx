@@ -68,7 +68,7 @@ const Experience = ({ t, isDarkMode }) => {
                             </div>
                         </div>
                         <ul className="space-y-2">
-                            {t('experience.roles.pocketfm.bullets', { returnObjects: true }).map((bullet, k) => (
+                            {(Array.isArray(t('experience.roles.pocketfm.bullets', { returnObjects: true })) ? t('experience.roles.pocketfm.bullets', { returnObjects: true }) : []).map((bullet, k) => (
                                 <li key={k} className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2">
                                     <span className="text-gray-400 mt-1.5">•</span>
                                     <span>{bullet}</span>
@@ -106,7 +106,7 @@ const Experience = ({ t, isDarkMode }) => {
                             </div>
                         </div>
                         <ul className="space-y-2">
-                            {t('experience.roles.intertek.bullets', { returnObjects: true }).map((bullet, k) => (
+                            {(Array.isArray(t('experience.roles.intertek.bullets', { returnObjects: true })) ? t('experience.roles.intertek.bullets', { returnObjects: true }) : []).map((bullet, k) => (
                                 <li key={k} className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2">
                                     <span className="text-gray-400 mt-1.5">•</span>
                                     <span>{bullet}</span>
@@ -144,7 +144,7 @@ const Experience = ({ t, isDarkMode }) => {
                             </div>
                         </div>
                         <ul className="space-y-2">
-                            {t('experience.roles.tradebuilder.bullets', { returnObjects: true }).map((bullet, k) => (
+                            {(Array.isArray(t('experience.roles.tradebuilder.bullets', { returnObjects: true })) ? t('experience.roles.tradebuilder.bullets', { returnObjects: true }) : []).map((bullet, k) => (
                                 <li key={k} className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2">
                                     <span className="text-gray-400 mt-1.5">•</span>
                                     <span>{bullet}</span>
@@ -182,7 +182,7 @@ const Experience = ({ t, isDarkMode }) => {
                             </div>
                         </div>
                         <ul className="space-y-2">
-                            {t('experience.roles.abp.bullets', { returnObjects: true }).map((bullet, k) => (
+                            {(Array.isArray(t('experience.roles.abp.bullets', { returnObjects: true })) ? t('experience.roles.abp.bullets', { returnObjects: true }) : []).map((bullet, k) => (
                                 <li key={k} className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2">
                                     <span className="text-gray-400 mt-1.5">•</span>
                                     <span>{bullet}</span>
@@ -219,7 +219,7 @@ const Experience = ({ t, isDarkMode }) => {
                                 </div>
                             </div>
                             <ul className="space-y-2">
-                                {t('experience.roles.projects.customGpt.bullets', { returnObjects: true }).map((bullet, i) => (
+                                {(Array.isArray(t('experience.roles.projects.customGpt.bullets', { returnObjects: true })) ? t('experience.roles.projects.customGpt.bullets', { returnObjects: true }) : []).map((bullet, i) => (
                                     <li key={i} className="text-sm text-gray-600 dark:text-gray-400 flex items-start gap-2">
                                         <span className="text-gray-400 mt-1.5">•</span>
                                         <span>{bullet}</span>
@@ -242,7 +242,7 @@ const Experience = ({ t, isDarkMode }) => {
                                 </div>
                             </div>
                             <ul className="space-y-2">
-                                {t('experience.roles.projects.chatbot.bullets', { returnObjects: true }).map((bullet, i) => (
+                                {(Array.isArray(t('experience.roles.projects.chatbot.bullets', { returnObjects: true })) ? t('experience.roles.projects.chatbot.bullets', { returnObjects: true }) : []).map((bullet, i) => (
                                     <li key={i} className="text-sm text-gray-600 dark:text-gray-400 flex items-start gap-2">
                                         <span className="text-gray-400 mt-1.5">•</span>
                                         <span>{bullet}</span>

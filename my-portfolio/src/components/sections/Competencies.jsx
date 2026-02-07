@@ -39,14 +39,17 @@ const Competencies = ({ t }) => {
                             TrendingUp: <RocketLaunch className="w-8 h-8" weight="duotone" />,
                             LineChart: <ChartPieSlice className="w-8 h-8" weight="duotone" />
                         };
-                        return t('experience.competencies', { returnObjects: true })?.map((competency, i) => (
+                        const competencies = t('experience.competencies', { returnObjects: true });
+                        // Guard against non-array values during translation loading
+                        if (!Array.isArray(competencies)) return null;
+                        return competencies.map((competency, i) => (
                             <motion.div key={i} variants={itemVariants} className="bg-white/40 dark:bg-gray-800/40 backdrop-blur-md border border-gray-300 dark:border-gray-700 rounded p-5 hover:border-amber-600 dark:hover:border-yellow-400 transition-all outline outline-2 outline-offset-4 outline-gray-900" whileHover={{ y: -5 }}>
                                 <div className="flex items-center gap-3 mb-4">
                                     <div className="w-14 h-14 bg-amber-600 dark:bg-yellow-400 rounded flex items-center justify-center text-white dark:text-gray-900">{icons[competency.icon]}</div>
                                     <h3 className="font-semibold text-gray-900 dark:text-white text-base heading-glow">{competency.title}</h3>
                                 </div>
                                 <ul className="space-y-1.5">
-                                    {competency.skills.map((skill, j) => (
+                                    {Array.isArray(competency.skills) && competency.skills.map((skill, j) => (
                                         <motion.li
                                             key={j}
                                             initial={{ opacity: 0, x: -10 }}
