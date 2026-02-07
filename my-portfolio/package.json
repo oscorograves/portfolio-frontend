@@ -8,7 +8,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "translate": "node scripts/translate.js"
+    "translate": "node scripts/update-translations.js"
   },
   "dependencies": {
     "@remotion/cli": "^4.0.409",
