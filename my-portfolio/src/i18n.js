@@ -29,9 +29,9 @@ i18n
                 cache: 'default',
             },
         },
-        // Tell React to use Suspense - prevents flash of untranslated content
+        // Don't use Suspense for translations - prevents white screen
         react: {
-            useSuspense: true,
+            useSuspense: false,
         },
         // Load only the detected language, not all
         load: 'languageOnly',
