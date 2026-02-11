@@ -142,12 +142,14 @@ const CaseStudies = ({ t, isDarkMode }) => {
                                 <div>
                                     <h3 className="text-xs font-bold text-gray-600 dark:text-gray-400 uppercase mb-2 tracking-wide">{t('caseStudies.labels.actions')}</h3>
                                     <ul className="space-y-1.5">
-                                        {study.actions.map((action, j) => (
+                                        {Array.isArray(study.actions) ? study.actions.map((action, j) => (
                                             <li key={j} className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2">
                                                 <span className="text-gray-400 mt-1">•</span>
                                                 <span>{action}</span>
                                             </li>
-                                        ))}
+                                        )) : (
+                                            <li className="text-sm text-gray-500 italic">No actions available</li>
+                                        )}
                                     </ul>
                                 </div>
 
