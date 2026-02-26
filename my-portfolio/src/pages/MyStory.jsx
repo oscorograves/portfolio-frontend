@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { CaretDown, Student, Rocket, Target, ChartLineUp, Brain, PaintBrush, Funnel } from 'phosphor-react';
+import { CaretDown, Student, Rocket, Target, ChartLineUp, Brain, PaintBrush, Funnel, Compass } from 'phosphor-react';
 
 const MyStory = ({ t }) => {
     // Animation Variants
@@ -58,6 +58,13 @@ const MyStory = ({ t }) => {
             color: 'text-rose-500',
             bgColor: 'bg-rose-500/10 dark:bg-rose-500/20',
             borderColor: 'border-rose-200 dark:border-rose-800'
+        },
+        {
+            key: 'future',
+            icon: Compass,
+            color: 'text-purple-500',
+            bgColor: 'bg-purple-500/10 dark:bg-purple-500/20',
+            borderColor: 'border-purple-200 dark:border-purple-800'
         }
     ];
 
