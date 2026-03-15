@@ -42,7 +42,7 @@ const Footer = ({ t }) => {
                 {/* Right: Social Icons */}
                 <div className="flex items-center justify-center md:justify-end gap-3 md:w-1/3 order-2 md:order-3">
                     <motion.a
-                        href="mailto:oscoro.graves@gmail.com"
+                        href="mailto:hi@scalewithkanishk.in"
                         className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-400 hover:text-amber-600 dark:hover:text-yellow-400 transition-colors group relative"
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}

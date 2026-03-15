@@ -72,8 +72,8 @@ const Hero = ({ t, navigate, fallbackMetrics }) => {
                         >
                             <div className="flex items-center gap-2">
                                 <Envelope className="w-5 h-5 text-amber-600 dark:text-yellow-400" weight="duotone" />
-                                <a href="mailto:oscoro.graves@gmail.com" className="hover:text-black dark:hover:text-white transition-colors">
-                                    oscoro.graves@gmail.com
+                                <a href="mailto:hi@scalewithkanishk.in" className="hover:text-black dark:hover:text-white transition-colors">
+                                    hi@scalewithkanishk.in
                                 </a>
                             </div>
                             <div className="flex items-center gap-2">
