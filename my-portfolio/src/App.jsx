@@ -38,13 +38,13 @@ const PageLoader = () => (
 
 // FALLBACK DATA
 const fallbackMetrics = [
-  { client: 'Pocket FM', channel: 'Meta', spend: 6000, ctr: 2.6, cpl: 12.80, cvr: 4.2, roi: 250 },
-  { client: 'Packt', channel: 'Meta', spend: 3500, ctr: 2.3, cpl: 23.33, cvr: 5.8, roi: 450 },
-  { client: 'Intertek', channel: 'Google Ads', spend: 8500, ctr: 2.2, cpl: 15.30, cvr: 6.5, roi: 320 },
-  { client: 'Pocket FM', channel: 'Google Ads', spend: 5200, ctr: 2.7, cpl: 16.90, cvr: 4.8, roi: 240 },
-  { client: 'B2B SaaS', channel: 'LinkedIn', spend: 4800, ctr: 1.4, cpl: 58.20, cvr: 9.2, roi: 380 },
-  { client: 'E-commerce', channel: 'Meta', spend: 7200, ctr: 3.1, cpl: 11.90, cvr: 3.8, roi: 220 },
-  { client: 'B2B SaaS', channel: 'Meta', spend: 5500, ctr: 2.5, cpl: 7.50, cvr: 7.5, roi: 340 }
+  { client: 'Pocket FM', channel: 'Meta', spend: 6000, ctr: 2.6, cpr: 12.80, cvr: 4.2, roi: 250 },
+  { client: 'Packt', channel: 'Meta', spend: 3500, ctr: 2.3, cpr: 23.33, cvr: 5.8, roi: 450 },
+  { client: 'Intertek', channel: 'Google Ads', spend: 8500, ctr: 2.2, cpr: 15.30, cvr: 6.5, roi: 320 },
+  { client: 'Pocket FM', channel: 'Google Ads', spend: 5200, ctr: 2.7, cpr: 16.90, cvr: 4.8, roi: 240 },
+  { client: 'B2B SaaS', channel: 'LinkedIn', spend: 4800, ctr: 1.4, cpr: 58.20, cvr: 9.2, roi: 380 },
+  { client: 'E-commerce', channel: 'Meta', spend: 7200, ctr: 3.1, cpr: 11.90, cvr: 3.8, roi: 220 },
+  { client: 'B2B SaaS', channel: 'Meta', spend: 5500, ctr: 2.5, cpr: 7.50, cvr: 7.5, roi: 340 }
 ];
 
 // Route configuration

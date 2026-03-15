@@ -103,7 +103,7 @@ const MetricsPage = ({ t, fallbackMetrics, isDarkMode }) => {
                                         <th scope="col" className="px-6 py-3">{t('metricsPage.table.channel')}</th>
                                         <th scope="col" className="px-6 py-3 text-right">{t('metricsPage.table.spend')}</th>
                                         <th scope="col" className="px-6 py-3 text-right">{t('metricsPage.table.ctr')}</th>
-                                        <th scope="col" className="px-6 py-3 text-right">{t('metricsPage.table.cpl')}</th>
+                                        <th scope="col" className="px-6 py-3 text-right">{t('metricsPage.table.cpr')}</th>
                                         <th scope="col" className="px-6 py-3 text-right">{t('metricsPage.table.cvr')}</th>
                                         <th scope="col" className="px-6 py-3 text-right">{t('metricsPage.table.roi')}</th>
                                     </tr>
@@ -115,7 +115,7 @@ const MetricsPage = ({ t, fallbackMetrics, isDarkMode }) => {
                                             <td className="px-6 py-4 text-gray-600 dark:text-gray-400">{row.channel}</td>
                                             <td className="px-6 py-4 text-right text-gray-900 dark:text-white font-mono">${row.spend}</td>
                                             <td className="px-6 py-4 text-right text-gray-900 dark:text-white font-mono">{row.ctr}%</td>
-                                            <td className="px-6 py-4 text-right text-gray-900 dark:text-white font-mono">${row.cpl}</td>
+                                            <td className="px-6 py-4 text-right text-gray-900 dark:text-white font-mono">${row.cpr}</td>
                                             <td className="px-6 py-4 text-right text-gray-900 dark:text-white font-mono">{row.cvr}%</td>
                                             <td className="px-6 py-4 text-right text-green-600 dark:text-green-400 font-bold font-mono">{row.roi}%</td>
                                         </tr>

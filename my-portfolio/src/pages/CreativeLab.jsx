@@ -33,15 +33,15 @@ const CreativeLab = ({ t }) => {
     const [selectedCreative, setSelectedCreative] = useState(null);
 
     const creatives = [
-        { goal: t('creativeLab.goals.brandAwareness'), ctr: '2.8%', cpl: '$12' },
-        { goal: t('creativeLab.goals.leadGen'), ctr: '3.2%', cpl: '$18' },
-        { goal: t('creativeLab.goals.appInstall'), ctr: '4.1%', cpl: '$8' },
-        { goal: t('creativeLab.goals.retargeting'), ctr: '5.2%', cpl: '$15' },
-        { goal: t('creativeLab.goals.productLaunch'), ctr: '3.9%', cpl: '$22' },
-        { goal: t('creativeLab.goals.eventReg'), ctr: '3.5%', cpl: '$14' },
-        { goal: t('creativeLab.goals.contentDownload'), ctr: '2.9%', cpl: '$10' },
-        { goal: t('creativeLab.goals.webinarSignup'), ctr: '4.3%', cpl: '$25' },
-        { goal: t('creativeLab.goals.trialConv'), ctr: '3.7%', cpl: '$30' }
+        { goal: t('creativeLab.goals.brandAwareness'), ctr: '2.8%', cpr: '$12' },
+        { goal: t('creativeLab.goals.leadGen'), ctr: '3.2%', cpr: '$18' },
+        { goal: t('creativeLab.goals.appInstall'), ctr: '4.1%', cpr: '$8' },
+        { goal: t('creativeLab.goals.retargeting'), ctr: '5.2%', cpr: '$15' },
+        { goal: t('creativeLab.goals.productLaunch'), ctr: '3.9%', cpr: '$22' },
+        { goal: t('creativeLab.goals.eventReg'), ctr: '3.5%', cpr: '$14' },
+        { goal: t('creativeLab.goals.contentDownload'), ctr: '2.9%', cpr: '$10' },
+        { goal: t('creativeLab.goals.webinarSignup'), ctr: '4.3%', cpr: '$25' },
+        { goal: t('creativeLab.goals.trialConv'), ctr: '3.7%', cpr: '$30' }
     ];
 
     const videos = [
@@ -152,8 +152,8 @@ const CreativeLab = ({ t }) => {
                                     <span className="font-semibold text-gray-900 dark:text-white">{selectedCreative.ctr}</span>
                                 </div>
                                 <div className="flex justify-between items-center">
-                                    <span className="text-sm text-gray-600 dark:text-gray-400">{t('creativeLab.metrics.cpl')}</span>
-                                    <span className="font-semibold text-gray-900 dark:text-white">{selectedCreative.cpl}</span>
+                                    <span className="text-sm text-gray-600 dark:text-gray-400">{t('creativeLab.metrics.cpr')}</span>
+                                    <span className="font-semibold text-gray-900 dark:text-white">{selectedCreative.cpr}</span>
                                 </div>
                             </div>
                         </div>

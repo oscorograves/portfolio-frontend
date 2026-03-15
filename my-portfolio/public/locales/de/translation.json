@@ -268,7 +268,8 @@
       "ctr": "CTR",
       "cpl": "CPL",
       "cvr": "CVR",
-      "roi": "ROI"
+      "roi": "ROI",
+      "cpr": "HLW"
     },
     "insights": {
       "title": "Wichtige Erkenntnisse",
@@ -297,7 +298,8 @@
     "metrics": {
       "goal": "Kampagnenziel",
       "ctr": "Klickrate (CTR)",
-      "cpl": "Kosten pro Lead"
+      "cpl": "Kosten pro Lead",
+      "cpr": "Kosten pro Ergebnis"
     },
     "goals": {
       "brandAwareness": "Markenbekanntheit",

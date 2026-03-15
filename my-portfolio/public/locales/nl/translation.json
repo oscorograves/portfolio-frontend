@@ -268,7 +268,8 @@
       "ctr": "CTR",
       "cpl": "CPL",
       "cvr": "CVR",
-      "roi": "ROI"
+      "roi": "ROI",
+      "cpr": "Reanimatie"
     },
     "insights": {
       "title": "Belangrijkste Inzichten",
@@ -297,7 +298,8 @@
     "metrics": {
       "goal": "Campagnedoel",
       "ctr": "Klikfrequentie",
-      "cpl": "Kosten Per Lead"
+      "cpl": "Kosten Per Lead",
+      "cpr": "Kosten per resultaat"
     },
     "goals": {
       "brandAwareness": "Merkbekendheid",

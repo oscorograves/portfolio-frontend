@@ -266,7 +266,7 @@
       "channel": "Channel",
       "spend": "Spend",
       "ctr": "CTR",
-      "cpl": "CPL",
+      "cpr": "CPR",
       "cvr": "CVR",
       "roi": "ROI"
     },
@@ -297,7 +297,7 @@
     "metrics": {
       "goal": "Campaign Goal",
       "ctr": "Click-Through Rate",
-      "cpl": "Cost Per Lead"
+      "cpr": "Cost Per Result"
     },
     "goals": {
       "brandAwareness": "Brand Awareness",
