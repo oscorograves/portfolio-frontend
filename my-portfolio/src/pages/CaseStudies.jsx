@@ -35,8 +35,8 @@ const CaseStudies = ({ t, isDarkMode }) => {
             results: [
                 { metric: t('featuredWork.metrics.attendees'), value: "150" },
                 { metric: t('featuredWork.metrics.netNew'), value: "80%+" },
-                { metric: t('featuredWork.metrics.cac'), value: "$23" },
-                { metric: t('featuredWork.metrics.roas'), value: "4.3×" }
+                { metric: t('featuredWork.metrics.cac'), value: "<$24" },
+                { metric: t('featuredWork.metrics.roas'), value: "4.5×" }
             ],
             notionLink: "https://www.notion.so/Scaling-Paid-GTM-for-Events-2e75649dae6380c49e61c8425a4fb4e7?source=copy_link",
             experiments: t('caseStudies.packt.experimentsData', { returnObjects: true }) || []
