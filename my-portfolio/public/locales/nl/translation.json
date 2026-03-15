@@ -409,8 +409,24 @@
         "cpa": "CPA",
         "variants": "Geteste Creatieve Varianten",
         "scale": "Schaalfase",
-        "stable": "Stabiel"
-      }
+        "stable": "Stabiel",
+        "volume": "Volume installeren",
+        "retention": "D7 Bewaring"
+      },
+      "experimentsData": [
+        {
+          "name": "Vertical Video vs Static",
+          "result": "+89% CTR"
+        },
+        {
+          "name": "\"Free\" Value Prop",
+          "result": "+18% Installs"
+        },
+        {
+          "name": "Subtitles (Sound-On)",
+          "result": "+34% Engagement"
+        }
+      ]
     },
     "labels": {
       "problem": "Probleemstelling",

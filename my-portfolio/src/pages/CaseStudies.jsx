@@ -69,12 +69,13 @@ const CaseStudies = ({ t, isDarkMode }) => {
             problem: t('caseStudies.audio.problem'),
             actions: t('caseStudies.audio.actions', { returnObjects: true }),
             results: [
-                { metric: t("caseStudies.audio.results.ctr"), value: "+16%" },
-                { metric: t("caseStudies.audio.results.cpa"), value: "−14%" },
-                { metric: t("caseStudies.audio.results.variants"), value: "12+" },
-                { metric: t("caseStudies.audio.results.scale"), value: t("caseStudies.audio.results.stable") }
+                { metric: t("caseStudies.audio.results.volume"), value: "+245%" },
+                { metric: t("caseStudies.audio.results.cpa"), value: "-14%" },
+                { metric: t("caseStudies.audio.results.ctr"), value: "2.8%" },
+                { metric: t("caseStudies.audio.results.retention"), value: ">24%" }
             ],
-            notionLink: "https://www.notion.so/Scaling-User-Acquisition-2eb5649dae6380b98236eeafece26268?source=copy_link"
+            notionLink: "https://www.notion.so/Scaling-User-Acquisition-2eb5649dae6380b98236eeafece26268?source=copy_link",
+            experiments: t('caseStudies.audio.experimentsData', { returnObjects: true }) || []
         }
     ];
 

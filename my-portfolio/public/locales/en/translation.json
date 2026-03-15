@@ -397,20 +397,33 @@
       "clientName": "Audio Platform",
       "badge": "Entertainment",
       "category": "Performance Marketing",
-      "problem": "The platform needed to scale user acquisition while maintaining cost efficiency across highly competitive digital channels.",
+      "problem": "The baseline CPA of $12.50 was eroding unit economics. The challenge was to identify high-intent consumers and optimize creatives for a mobile-first, sound-on audience to scale volume while decreasing costs.",
       "actions": [
-        "Conducted extensive audience testing across demographics and interest segments",
-        "Optimized creative formats specifically for mobile-first consumption patterns",
-        "Ran multiple creative and placement A/B tests to isolate winners",
-        "Used Meta's learning phase and bidding controls to scale efficiently"
+        "Transitioned to 15-second mobile-first vertical video creatives tailored for 'sound-on' engagement",
+        "Deployed regional language variations and 'Free' messaging hooks to unlock new audience pools",
+        "Targeted high-LTV 'Commuter' demographics through granular audience segmentation",
+        "Leveraged CBO and Cost Caps to maintain efficiency during the accelerated scaling phase"
       ],
       "results": {
-        "ctr": "CTR",
-        "cpa": "CPA",
-        "variants": "Creative Variants Tested",
-        "scale": "Scale Phase",
-        "stable": "Stable"
-      }
+        "volume": "Install Volume",
+        "cpa": "CPA Reduction",
+        "ctr": "Top CTR",
+        "retention": "D7 Retention"
+      },
+      "experimentsData": [
+        {
+          "name": "Vertical Video vs Static",
+          "result": "+89% CTR"
+        },
+        {
+          "name": "\"Free\" Value Prop",
+          "result": "+18% Installs"
+        },
+        {
+          "name": "Subtitles (Sound-On)",
+          "result": "+34% Engagement"
+        }
+      ]
     },
     "labels": {
       "problem": "Problem Statement",
