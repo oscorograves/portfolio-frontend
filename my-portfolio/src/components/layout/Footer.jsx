@@ -4,7 +4,7 @@ import { Envelope, LinkedinLogo, InstagramLogo, GithubLogo, FilmStrip, Camera, A
 
 const Footer = ({ t }) => {
     return (
-        <footer className="relative border-t border-gray-100/10 dark:border-white/5 pt-20 pb-12 bg-white/5 dark:bg-black/20 backdrop-blur-xl transition-all duration-500 overflow-hidden">
+        <footer className="relative border-t border-gray-100/10 dark:border-white/5 pt-12 pb-12 bg-white/5 dark:bg-black/20 backdrop-blur-xl transition-all duration-500 overflow-hidden">
             <div className="max-w-6xl mx-auto px-4 md:px-8 relative z-10">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-12">
                     
@@ -54,7 +54,7 @@ const Footer = ({ t }) => {
                             ].map(({ Icon, key }) => (
                                 <motion.div key={key} whileHover={{ y: -3, scale: 1.1 }} className="group relative cursor-help">
                                     <Icon className="w-6 h-6 text-gray-400 dark:text-gray-600 group-hover:text-amber-500 transition-all" weight="duotone" />
-                                    <span className="text-[8px] font-mono text-amber-600 dark:text-amber-500/80 opacity-0 group-hover:opacity-100 transition-all absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap tracking-widest uppercase">
+                                    <span className="text-[8px] font-mono text-amber-600 dark:text-amber-500/80 opacity-0 group-hover:opacity-100 transition-all absolute -bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap tracking-widest uppercase">
                                         {t(`footer.hobbies.${key}`)}
                                     </span>
                                 </motion.div>
@@ -83,7 +83,7 @@ const Footer = ({ t }) => {
                                     className="p-3 rounded-full bg-gray-100/5 dark:bg-white/5 text-gray-400 dark:text-gray-600 hover:text-amber-500 hover:bg-amber-500/10 transition-all group relative border border-white/5"
                                 >
                                     <Icon className="w-5 h-5" weight="duotone" />
-                                    <span className="text-[8px] font-mono text-amber-500/80 opacity-0 group-hover:opacity-100 transition-all absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap tracking-widest">
+                                    <span className="text-[8px] font-mono text-amber-500/80 opacity-0 group-hover:opacity-100 transition-all absolute -bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap tracking-widest">
                                         {label}
                                     </span>
                                 </motion.a>

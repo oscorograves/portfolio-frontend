@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { LockKey, ArrowRight, Flask, CheckCircle, TrendUp, ArrowsClockwise, Crosshair } from 'phosphor-react';
+import { LockKey, ArrowRight, Flask } from 'phosphor-react';
 
 const Experiments = ({ isDarkMode }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -31,7 +31,7 @@ const Experiments = ({ isDarkMode }) => {
           transition={{ duration: 0.5 }}
           className="w-full max-w-md"
         >
-          <div className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded-xl p-8 shadow-2xl relative overflow-hidden outline outline-2 outline-offset-4 outline-gray-900">
+          <div className="bg-white/5 dark:bg-gray-900/50 backdrop-blur-xl border border-gray-200 dark:border-gray-800 rounded-2xl p-8 shadow-2xl relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary-500 to-accent-500" />
 
             <div className="flex flex-col items-center mb-8">
@@ -85,17 +85,17 @@ const Experiments = ({ isDarkMode }) => {
     );
   }
 
-  // Reusable style constants (aligned with design system)
+  // Reusable style constants
   const sectionLabel = "text-xs font-medium tracking-widest text-gray-500 dark:text-gray-500 uppercase mt-10 mb-4";
-  const card = "bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded-xl p-5 mb-3 outline outline-2 outline-offset-4 outline-gray-900";
+  const card = "bg-white/5 dark:bg-gray-900/50 backdrop-blur-xl border border-gray-200 dark:border-gray-800 rounded-2xl p-5 mb-3";
   const cardTitle = "text-sm font-semibold text-gray-900 dark:text-white";
   const cardSub = "text-sm text-gray-600 dark:text-gray-400 leading-relaxed";
-  const tag = "inline-block text-xs px-2 py-0.5 rounded border border-gray-300 dark:border-gray-800 text-gray-500 dark:text-gray-500 mr-1 mt-1.5 font-mono";
-  const metricCard = "bg-white/40 dark:bg-gray-800/60 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded-xl p-4";
+  const tag = "inline-block text-xs px-2 py-0.5 rounded border border-gray-200 dark:border-gray-800 text-gray-500 dark:text-gray-500 mr-1 mt-1.5";
+  const metricCard = "bg-gray-100 dark:bg-gray-800/60 rounded-xl p-4";
   const metricVal = "text-2xl font-semibold text-gray-900 dark:text-white leading-tight";
   const metricLabel = "text-xs text-gray-500 dark:text-gray-400 mt-1";
-  const divider = "border-t border-gray-300 dark:border-gray-800 my-8";
-  const pill = "inline-block text-xs font-medium px-3 py-0.5 rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-400 mb-4 font-mono";
+  const divider = "h-px bg-gray-200 dark:bg-gray-800 my-8";
+  const pill = "inline-block text-xs font-medium px-3 py-0.5 rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-400 mb-4";
 
   return (
     <div className="min-h-screen py-24 px-6 md:px-12 lg:px-24 max-w-4xl mx-auto">
@@ -148,9 +148,7 @@ const Experiments = ({ isDarkMode }) => {
         {/* Layer 1 */}
         <div className={card}>
           <div className="flex items-center gap-3 mb-2">
-            <div className="w-7 h-7 rounded-md bg-blue-100 dark:bg-blue-900/40 flex items-center justify-center shrink-0 text-blue-600 dark:text-blue-400">
-              <Flask size={16} weight="duotone" />
-            </div>
+            <div className="w-7 h-7 rounded-md bg-blue-100 dark:bg-blue-900/40 flex items-center justify-center text-sm shrink-0">🧪</div>
             <div className={cardTitle}>Layer 1 — Signal (Days 1–21)</div>
           </div>
           <p className={cardSub}>Goal: find what converts. Not volume — data.</p>
@@ -171,9 +169,7 @@ const Experiments = ({ isDarkMode }) => {
         {/* Layer 2 */}
         <div className={card}>
           <div className="flex items-center gap-3 mb-2">
-            <div className="w-7 h-7 rounded-md bg-green-100 dark:bg-green-900/40 flex items-center justify-center shrink-0 text-green-600 dark:text-green-400">
-              <CheckCircle size={16} weight="duotone" />
-            </div>
+            <div className="w-7 h-7 rounded-md bg-green-100 dark:bg-green-900/40 flex items-center justify-center text-sm shrink-0">✅</div>
             <div className={cardTitle}>Layer 2 — Validation (Days 15–35)</div>
           </div>
           <p className={cardSub}>Switch to CBO. Keep only winning audiences + creatives.</p>
@@ -193,9 +189,7 @@ const Experiments = ({ isDarkMode }) => {
         {/* Layer 3 */}
         <div className={card}>
           <div className="flex items-center gap-3 mb-2">
-            <div className="w-7 h-7 rounded-md bg-purple-100 dark:bg-purple-900/40 flex items-center justify-center shrink-0 text-purple-600 dark:text-purple-400">
-              <TrendUp size={16} weight="duotone" />
-            </div>
+            <div className="w-7 h-7 rounded-md bg-purple-100 dark:bg-purple-900/40 flex items-center justify-center text-sm shrink-0">📈</div>
             <div className={cardTitle}>Layer 3 — Scale + Protection (Days 30–90)</div>
           </div>
           <p className={cardSub}>Core scaling campaign + separate retargeting campaign.</p>
@@ -225,7 +219,7 @@ const Experiments = ({ isDarkMode }) => {
               { label: 'HOOK B — CONNECTION', text: '"Anjaan se baat karo, live"' },
               { label: 'HOOK C — PRICE', text: '"₹2 se shuru, ₹6/min live baat"' },
             ].map((h, i) => (
-              <div key={i} className="bg-white/40 dark:bg-gray-800/60 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded-lg p-3">
+              <div key={i} className="bg-gray-100 dark:bg-gray-800/60 rounded-lg p-3">
                 <div className="text-[11px] font-medium text-gray-500 dark:text-gray-500 mb-1">{h.label}</div>
                 <div className="text-sm text-gray-900 dark:text-white">{h.text}</div>
               </div>
@@ -236,7 +230,7 @@ const Experiments = ({ isDarkMode }) => {
               { label: 'FORMAT 1', text: 'Short video 15–30s (Reel/Short)' },
               { label: 'FORMAT 2', text: 'Static + bold CTA card' },
             ].map((f, i) => (
-              <div key={i} className="bg-white/40 dark:bg-gray-800/60 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded-lg p-3">
+              <div key={i} className="bg-gray-100 dark:bg-gray-800/60 rounded-lg p-3">
                 <div className="text-[11px] font-medium text-gray-500 dark:text-gray-500 mb-1">{f.label}</div>
                 <div className="text-sm text-gray-900 dark:text-white">{f.text}</div>
               </div>
@@ -253,9 +247,7 @@ const Experiments = ({ isDarkMode }) => {
         <p className={sectionLabel}>Warm traffic + retargeting</p>
         <div className={card}>
           <div className="flex items-center gap-3 mb-2">
-            <div className="w-7 h-7 rounded-md bg-blue-100 dark:bg-blue-900/40 flex items-center justify-center shrink-0 text-blue-600 dark:text-blue-400">
-              <ArrowsClockwise size={16} weight="duotone" />
-            </div>
+            <div className="w-7 h-7 rounded-md bg-blue-100 dark:bg-blue-900/40 flex items-center justify-center text-sm shrink-0">🔁</div>
             <div className={cardTitle}>Warm traffic (Days 10–30)</div>
           </div>
           <ul className="mt-1 pl-4 list-disc space-y-1">
@@ -267,9 +259,7 @@ const Experiments = ({ isDarkMode }) => {
         </div>
         <div className={card}>
           <div className="flex items-center gap-3 mb-2">
-            <div className="w-7 h-7 rounded-md bg-red-100 dark:bg-red-900/40 flex items-center justify-center shrink-0 text-red-600 dark:text-red-400">
-              <Crosshair size={16} weight="duotone" />
-            </div>
+            <div className="w-7 h-7 rounded-md bg-red-100 dark:bg-red-900/40 flex items-center justify-center text-sm shrink-0">🎯</div>
             <div className={cardTitle}>Retargeting segments</div>
           </div>
           <ul className="mt-1 pl-4 list-disc space-y-1">
@@ -296,7 +286,7 @@ const Experiments = ({ isDarkMode }) => {
             { name: 'Affiliate seeding', pct: 10, amt: '₹1L (10%)' },
             { name: 'Creative production', pct: 5, amt: '₹0.5L (5%)' },
           ].map((row, i, arr) => (
-            <div key={i} className={`flex items-center gap-3 py-2 ${i < arr.length - 1 ? 'border-b border-gray-300 dark:border-gray-800' : ''}`}>
+            <div key={i} className={`flex items-center gap-3 py-2 ${i < arr.length - 1 ? 'border-b border-gray-200 dark:border-gray-800' : ''}`}>
               <span className="text-sm text-gray-900 dark:text-white flex-1 min-w-[120px]">{row.name}</span>
               <div className="flex-[2] h-1.5 bg-gray-200 dark:bg-gray-800 rounded-full overflow-hidden">
                 <div className="h-full rounded-full bg-primary-500" style={{ width: `${row.pct}%` }} />
@@ -316,11 +306,11 @@ const Experiments = ({ isDarkMode }) => {
         {/* ── 90-day growth targets ── */}
         <p className={sectionLabel}>90-day growth targets</p>
         <div className={`${card} overflow-x-auto`}>
-            <table className="w-full text-sm border-collapse">
+          <table className="w-full text-sm border-collapse">
             <thead>
               <tr>
                 {['KPI', 'Month 1', 'Month 2', 'Month 3'].map((h) => (
-                  <th key={h} className="text-xs font-medium text-gray-500 dark:text-gray-500 uppercase tracking-wide text-left py-2 px-3 border-b border-gray-300 dark:border-gray-800 font-mono">{h}</th>
+                  <th key={h} className="text-xs font-medium text-gray-500 dark:text-gray-500 uppercase tracking-wide text-left py-2 px-3 border-b border-gray-200 dark:border-gray-800">{h}</th>
                 ))}
               </tr>
             </thead>
@@ -336,7 +326,7 @@ const Experiments = ({ isDarkMode }) => {
               ].map((row, i, arr) => (
                 <tr key={i}>
                   {row.map((cell, j) => (
-                    <td key={j} className={`py-2 px-3 ${i < arr.length - 1 ? 'border-b border-gray-300 dark:border-gray-800' : ''} ${j === 0 ? 'font-medium text-gray-900 dark:text-white' : 'text-gray-600 dark:text-gray-400 text-center'}`}>{cell}</td>
+                    <td key={j} className={`py-2 px-3 ${i < arr.length - 1 ? 'border-b border-gray-200 dark:border-gray-800' : ''} ${j === 0 ? 'font-medium text-gray-900 dark:text-white' : 'text-gray-600 dark:text-gray-400 text-center'}`}>{cell}</td>
                   ))}
                 </tr>
               ))}
