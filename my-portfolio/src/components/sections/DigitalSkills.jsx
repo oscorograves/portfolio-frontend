@@ -24,7 +24,7 @@ const DigitalSkills = ({ t }) => {
     return (
         <section className="transition-colors duration-300">
             <div className="max-w-6xl mx-auto px-8 py-12">
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-amber-600 dark:border-yellow-400">{t('experience.digitalSkills')}</h2>
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-accent-300 mb-6 pb-3 border-b-2 border-amber-600 dark:border-yellow-400">{t('experience.digitalSkills')}</h2>
                 <motion.div
                     className="grid md:grid-cols-2 gap-8"
                     initial="hidden"

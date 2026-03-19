@@ -194,7 +194,7 @@ const Experience = ({ t, isDarkMode }) => {
 
                 {/* Projects */}
                 <div className="mt-12">
-                    <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-amber-600 dark:border-yellow-400">
+                    <h2 className="text-2xl font-bold text-gray-900 dark:text-accent-300 mb-6 pb-3 border-b-2 border-amber-600 dark:border-yellow-400">
                         Key Projects
                     </h2>
 
@@ -255,7 +255,7 @@ const Experience = ({ t, isDarkMode }) => {
 
                 {/* Education - Added mt-12 for spacing */}
                 <div className="mt-12">
-                    <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-amber-600 dark:border-yellow-400">{t('experience.education')}</h2>
+                    <h2 className="text-2xl font-bold text-gray-900 dark:text-accent-300 mb-6 pb-3 border-b-2 border-amber-600 dark:border-yellow-400">{t('experience.education')}</h2>
                     <motion.div
                         variants={itemVariants}
                         className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-6 outline outline-2 outline-offset-4 outline-gray-900 outline-2"
@@ -276,7 +276,7 @@ const Experience = ({ t, isDarkMode }) => {
 
                 {/* Certifications - Added mt-12 for spacing */}
                 <div className="mt-12">
-                    <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-amber-600 dark:border-yellow-400">{t('experience.certifications')}</h2>
+                    <h2 className="text-2xl font-bold text-gray-900 dark:text-accent-300 mb-6 pb-3 border-b-2 border-amber-600 dark:border-yellow-400">{t('experience.certifications')}</h2>
                     <motion.div
                         variants={itemVariants}
                         className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-6 outline outline-2 outline-offset-4 outline-gray-900 outline-2"

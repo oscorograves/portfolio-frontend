@@ -160,7 +160,7 @@ const MyStory = ({ t }) => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
                 >
-                    <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-amber-600 dark:border-yellow-400">
+                    <h2 className="text-2xl font-bold text-gray-900 dark:text-accent-300 mb-6 pb-3 border-b-2 border-amber-600 dark:border-yellow-400">
                         {t('myStory.philosophy.title')}
                     </h2>
 

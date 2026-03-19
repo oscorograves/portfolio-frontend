@@ -22,7 +22,6 @@ import Home from './pages/Home';
 // Lazy load other pages (route-based code splitting)
 const Experience = lazy(() => import('./pages/Experience'));
 const CaseStudies = lazy(() => import('./pages/CaseStudies'));
-const CreativeLab = lazy(() => import('./pages/CreativeLab'));
 const MyStory = lazy(() => import('./pages/MyStory'));
 const MetricsPage = lazy(() => import('./pages/MetricsPage'));
 const Experiments = lazy(() => import('./pages/Experiments'));
@@ -54,8 +53,7 @@ const routes = [
   { path: '/experience', key: 'experience' },
   { path: '/case-studies', key: 'caseStudies' },
   { path: '/my-story', key: 'myStory' },
-  { path: '/metrics', key: 'metrics' },
-  { path: '/creative-lab', key: 'creativeLab' }
+  { path: '/metrics', key: 'metrics' }
 ];
 
 export default function Portfolio() {
@@ -153,11 +151,6 @@ export default function Portfolio() {
             <Route path="/metrics" element={
               <PageWrapper>
                 <MetricsPage t={t} fallbackMetrics={fallbackMetrics} isDarkMode={isDarkMode} />
-              </PageWrapper>
-            } />
-            <Route path="/creative-lab" element={
-              <PageWrapper>
-                <CreativeLab t={t} />
               </PageWrapper>
             } />
             <Route path="/experiments" element={

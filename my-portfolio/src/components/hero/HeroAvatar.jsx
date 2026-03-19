@@ -172,7 +172,7 @@ const HeroAvatar = ({ metrics = [], onNavigate }) => {
                                     exit={{ opacity: 0, y: 5, scale: 0.8 }}
                                     className="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 bg-white dark:bg-gray-900 px-4 py-3 rounded-xl shadow-xl border border-gray-200 dark:border-gray-700 whitespace-nowrap min-w-[120px] text-center z-40"
                                 >
-                                    <div className="text-xl font-bold text-gray-900 dark:text-white leading-none font-sans">{metric.value}</div>
+                                    <div className="text-xl font-bold text-gray-900 dark:text-accent-400 leading-none font-sans">{metric.value}</div>
                                     <div className="text-xs text-gray-500 dark:text-gray-400 mt-1 font-medium font-sans">{metric.label}</div>
                                     {/* Little Arrow */}
                                     <div className="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-white dark:border-t-gray-900" />

@@ -25,7 +25,7 @@ const Services = ({ t }) => {
     return (
         <section className="border-b border-gray-300 dark:border-gray-800 transition-colors duration-300">
             <div className="max-w-6xl mx-auto px-8 py-12">
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-amber-600 dark:border-yellow-400 heading-glow">{t('whatIOffer.title')}</h2>
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-accent-300 mb-6 pb-3 border-b-2 border-amber-600 dark:border-yellow-400 heading-glow">{t('whatIOffer.title')}</h2>
                 <motion.div
                     className="grid md:grid-cols-3 gap-6"
                     initial="hidden"

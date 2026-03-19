@@ -7,7 +7,7 @@ const Resources = ({ t }) => {
         <section className="py-12 mt-8 border-t border-gray-300 dark:border-gray-800 transition-colors duration-300">
             <div className="max-w-6xl mx-auto px-8">
                 {/* Section Title (Matched to DigitalSkills/Services) */}
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-amber-600 dark:border-yellow-400 font-mono">
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-accent-300 mb-6 pb-3 border-b-2 border-amber-600 dark:border-yellow-400 font-mono">
                     Resources
                 </h2>
 

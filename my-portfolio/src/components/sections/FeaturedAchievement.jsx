@@ -6,7 +6,7 @@ const FeaturedAchievement = ({ t, navigate, isDarkMode }) => {
     return (
         <section className="border-b border-gray-300 dark:border-gray-800 transition-colors duration-300">
             <div className="max-w-6xl mx-auto px-8 py-12">
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-amber-600 dark:border-yellow-400">{t('featuredWork.title')}</h2>
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-accent-300 mb-6 pb-3 border-b-2 border-amber-600 dark:border-yellow-400">{t('featuredWork.title')}</h2>
                 <motion.div
 
                     className="bg-gradient-to-br from-gray-50/50 to-gray-100/50 dark:from-gray-800/60 dark:to-gray-900/60 backdrop-blur-md border border-gray-200 dark:border-gray-700 rounded-xl p-8 hover:border-amber-600 dark:hover:border-yellow-400 transition-all group cursor-pointer outline outline-2 outline-offset-4 outline-gray-900 outline-2"
@@ -47,7 +47,7 @@ const FeaturedAchievement = ({ t, navigate, isDarkMode }) => {
                         ].map((metric, i) => (
                             <div key={i} className="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded p-3 text-center">
                                 <div className="text-xs text-gray-600 dark:text-gray-400 mb-1">{metric.label}</div>
-                                <div className="text-xl font-bold text-gray-900 dark:text-white">{metric.value}</div>
+                                <div className="text-xl font-bold text-gray-900 dark:text-accent-400">{metric.value}</div>
                             </div>
                         ))}
                     </div>
