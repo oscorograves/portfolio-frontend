@@ -112,10 +112,10 @@ const Experiments = ({ isDarkMode }) => {
         </div>
 
         <h1 className="text-4xl md:text-5xl font-bold font-display text-gray-900 dark:text-white mb-2 leading-tight">
-          ChatSpark — 90-day performance marketing plan
+          ChatSpark: 90-day performance marketing plan
         </h1>
         <p className="text-lg text-gray-600 dark:text-gray-400 mb-10">
-          Kanishk Singh · Senior Marketing Executive, User Acquisition
+          Kanishk Singh · Growth Marketer, User Acquisition
         </p>
 
         {/* ── Revenue Math ── */}
