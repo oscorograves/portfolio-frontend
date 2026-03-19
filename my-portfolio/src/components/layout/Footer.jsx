@@ -8,9 +8,13 @@ const Footer = ({ t }) => {
             <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8">
 
                 {/* Left: Legal Text */}
-                <div className="text-center md:text-left md:w-1/3 order-3 md:order-1">
+                <div className="text-center md:text-left md:w-1/3 order-3 md:order-1 group">
                     <p className="text-[10px] text-gray-500 dark:text-gray-500 font-mono tracking-tight leading-relaxed">
                         {t('footer.rights')}
+                        <span className="inline-flex ml-1 opacity-0 group-hover:opacity-10 transition-opacity">
+                            <a href="/color-rules.html" className="hover:opacity-100 transition-opacity">.</a>
+                            <a href="/design-system.html" className="ml-1 hover:opacity-100 transition-opacity">.</a>
+                        </span>
                     </p>
                 </div>
 

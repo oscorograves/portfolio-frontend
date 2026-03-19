@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design System Reference — Scale With Kanishk</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=VT323&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        accent: {
+                            300: '#fca5a5',
+                            400: '#f87171',
+                            500: '#ef4444',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['VT323', 'monospace'],
+                        mono: ['Space Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Space Mono', monospace; }
+        .font-retro { font-family: 'VT323', monospace; }
+        .ds-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        .dark .ds-card {
+            background: rgba(0, 0, 0, 0.2);
+            border-color: rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 dark:bg-gray-950 dark:text-gray-100 p-8 transition-colors duration-300">
+    <!-- Controls -->
+    <div class="fixed top-4 right-4 z-50">
+        <button onclick="document.documentElement.classList.toggle('dark')" class="bg-black text-white dark:bg-white dark:text-black px-4 py-2 rounded-lg font-bold shadow-lg hover:scale-105 transition-transform">
+            Toggle Theme
+        </button>
+    </div>
+
+    <div class="max-w-4xl mx-auto">
+        <header class="mb-12 border-b-4 border-black dark:border-white pb-6">
+            <h1 class="text-6xl font-retro mb-2 tracking-tight">Design System</h1>
+            <p class="text-lg opacity-70 italic font-mono uppercase tracking-widest text-accent-500">Enforcing Consistency Across Performance & Growth Assets</p>
+        </header>
+
+        <!-- Components -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-retro mb-8 border-l-8 border-accent-400 pl-4 uppercase">Core Components</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- DSSection -->
+                <div class="ds-card">
+                    <h3 class="text-lg font-bold mb-2">DSSection</h3>
+                    <p class="text-sm opacity-60 mb-4">The fundamental wrapper for all page content. Enforces horizontal centering and vertical rhythm.</p>
+                    <pre class="bg-black/5 dark:bg-black/40 p-3 rounded text-[10px]">&lt;DSSection divider={true} wide={false}&gt;
+  {/* Content */}
+&lt;/DSSection&gt;</pre>
+                </div>
+                <!-- DSCard -->
+                <div class="ds-card shadow-xl border-accent-300/20">
+                    <h3 class="text-lg font-bold mb-2">DSCard</h3>
+                    <p class="text-sm opacity-60 mb-4">Glassmorphism base with subtle hover "lift" and standard padding.</p>
+                    <div class="flex gap-2">
+                        <span class="px-2 py-1 bg-accent-400/10 text-accent-400 text-[10px] font-bold rounded">HOVER LIFT</span>
+                        <span class="px-2 py-1 bg-accent-400/10 text-accent-400 text-[10px] font-bold rounded">GLASS FX</span>
+                    </div>
+                </div>
+                <!-- DSHeading -->
+                <div class="ds-card">
+                    <h3 class="text-lg font-bold mb-2">DSHeading</h3>
+                    <p class="text-sm opacity-60 mb-4">Standardizes heading levels (H1-H4) and applies the VT323 typography scale.</p>
+                    <p class="text-3xl font-retro mt-4">Heading Example</p>
+                </div>
+                <!-- DSButton -->
+                <div class="ds-card border-accent-500/20">
+                    <h3 class="text-lg font-bold mb-2">DSButton</h3>
+                    <p class="text-sm opacity-60 mb-4">Neobrutalist buttons with vivid amber/red triggers and bouncy tap effects.</p>
+                    <button class="bg-accent-500 text-white font-mono px-4 py-1 text-xs uppercase font-bold shadow-[4px_4px_0px_#000]">Primary Trigger</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Development Rules -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-retro mb-8 border-l-8 border-accent-400 pl-4 uppercase">Best Practices</h2>
+            <div class="space-y-4">
+                <div class="flex items-start gap-4 p-4 bg-white/50 dark:bg-gray-900/50 rounded-lg">
+                    <span class="text-accent-500 font-bold">01.</span>
+                    <p class="text-sm font-mono leading-relaxed">Always use <code class="text-accent-400">phosphor-react</code> with <code class="text-accent-400">weight="duotone"</code>.</p>
+                </div>
+                <div class="flex items-start gap-4 p-4 bg-white/50 dark:bg-gray-900/50 rounded-lg">
+                    <span class="text-accent-500 font-bold">02.</span>
+                    <p class="text-sm font-mono leading-relaxed">Apply <code class="text-accent-400">font-weight: 400 !important</code> to all VT323 headings.</p>
+                </div>
+                <div class="flex items-start gap-4 p-4 bg-white/50 dark:bg-gray-900/50 rounded-lg">
+                    <span class="text-accent-500 font-bold">03.</span>
+                    <p class="text-sm font-mono leading-relaxed">In dark mode, prioritize <code class="text-accent-300">accent-300</code> for text and <code class="text-accent-400">accent-400</code> for numbers.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="mt-12 pt-8 border-t border-slate-200 dark:border-gray-800 text-center opacity-40 text-[10px] font-mono">
+            <p>DESIGN SYSTEM RESOURCE - SCALE WITH KANISHK © 2026</p>
+        </footer>
+    </div>
+</body>
+</html>
