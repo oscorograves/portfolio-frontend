@@ -111,11 +111,17 @@
   },
   "footer": {
     "connect": "Connect",
+    "socials": "SOCIALS",
     "contact": "Contact",
     "emailMe": "Email Me",
     "email": "Email Me",
-    "offClock": "Off the Clock",
-    "rights": "Open Source Architecture. Engineered for Performance & Growth. UI/UX & Brand Identity © 2026 Kanishk Singh. Original assets protected under copyright.",
+    "offClock": "OFF THE CLOCK",
+    "rights": "OPEN SOURCE ARCHITECTURE. ENGINEERED FOR PERFORMANCE & GROWTH. UI/UX & BRAND IDENTITY © 2026 KANISHK SINGH. ORIGINAL ASSETS PROTECTED UNDER COPYRIGHT. DESIGN RULES · DESIGN SYSTEM · SITEMAP",
+    "links": {
+      "rules": "DESIGN RULES",
+      "system": "DESIGN SYSTEM",
+      "sitemap": "SITEMAP"
+    },
     "hobbies": {
       "film": "Film and Video Editing",
       "photography": "Photography",
