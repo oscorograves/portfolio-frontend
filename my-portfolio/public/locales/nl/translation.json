@@ -122,7 +122,13 @@
       "travel": "Solo Reizen",
       "journaling": "Journaliseren"
     },
-    "copyright": "© 2026 Kanishk Singh. Alle rechten voorbehouden."
+    "copyright": "© 2026 Kanishk Singh. Alle rechten voorbehouden.",
+    "socials": "SOCIAAL",
+    "links": {
+      "rules": "ONTWERPREGELS",
+      "system": "ONTWERP SYSTEEM",
+      "sitemap": "SITEMAP"
+    }
   },
   "experience": {
     "title": "Professionele Ervaring",

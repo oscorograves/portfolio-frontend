@@ -7,8 +7,8 @@ export default defineConfig({
   build: {
     // Use esbuild for faster builds
     minify: 'esbuild',
-    // Target modern browsers
-    target: 'es2020',
+    // Target browsers that support older syntaxes for react-snap
+    target: 'es2015',
     // Optimize CSS
     cssMinify: true,
     cssCodeSplit: true,

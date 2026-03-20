@@ -1,6 +1,3 @@
-import React from 'react';
-import { DSSection, DSHeading, DSCard, DSText, DSIconContainer } from '../components';
-import { motion } from 'framer-motion';
 import { animations } from '../theme';
 
 /**

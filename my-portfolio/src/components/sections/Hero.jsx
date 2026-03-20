@@ -1,10 +1,3 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { DownloadSimple, Envelope, LinkedinLogo, Phone } from 'phosphor-react';
-import TypewriterText from '../ui/TypewriterText';
-import HeroAvatar from '../hero/HeroAvatar';
-import { DSButton } from '../../design-system/components';
 
 const itemVariants = {
     hidden: { opacity: 0, y: 20 },

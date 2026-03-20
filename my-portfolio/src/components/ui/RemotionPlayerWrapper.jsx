@@ -1,5 +1,3 @@
-import React from 'react';
-import { Player } from '@remotion/player';
 import { HeroAnimation } from '../../remotion/HeroAnimation';
 
 const RemotionPlayerWrapper = ({ composition = HeroAnimation, durationInFrames = 150, fps = 30, width = 1280, height = 720, inputProps = {} }) => {

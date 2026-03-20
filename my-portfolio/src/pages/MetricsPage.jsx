@@ -1,6 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import Resources from '../components/sections/Resources';
 
 const itemVariants = {
     hidden: { opacity: 0, y: 20 },

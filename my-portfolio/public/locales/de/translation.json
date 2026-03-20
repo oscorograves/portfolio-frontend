@@ -122,7 +122,13 @@
       "travel": "Alleinreisen",
       "journaling": "Tagebuchschreiben"
     },
-    "copyright": "© 2026 Kanishk Singh. Alle Rechte vorbehalten."
+    "copyright": "© 2026 Kanishk Singh. Alle Rechte vorbehalten.",
+    "socials": "SOZIALE",
+    "links": {
+      "rules": "Designregeln",
+      "system": "DESIGN-SYSTEM",
+      "sitemap": "SITEMAP"
+    }
   },
   "experience": {
     "title": "Berufserfahrung",

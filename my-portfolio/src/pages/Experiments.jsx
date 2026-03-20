@@ -1,6 +1,4 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { LockKey, ArrowRight, Flask } from 'phosphor-react';
+import { useState } from 'react';
 
 const Experiments = ({ isDarkMode }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -24,18 +22,18 @@ const Experiments = ({ isDarkMode }) => {
 
   if (!isAuthenticated) {
     return (
-      <div className="min-h-[80vh] flex flex-col items-center justify-center p-6 relative">
-        <motion.div
+      <div className="pt-20 pb-20 min-h-screen transition-colors duration-300 flex flex-col items-center justify-center">
+        <div className="w-full px-8 flex flex-col items-center justify-center relative">
+          <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           className="w-full max-w-md"
         >
           <div className="bg-white/5 dark:bg-gray-900/50 backdrop-blur-xl border border-gray-200 dark:border-gray-800 rounded-2xl p-8 shadow-2xl relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary-500 to-accent-500" />
 
             <div className="flex flex-col items-center mb-8">
-              <div className="w-16 h-16 rounded-full bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center mb-4 text-primary-600 dark:text-primary-400">
+              <div className="w-16 h-16 rounded-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center mb-4 text-amber-600 dark:text-yellow-400">
                 <LockKey size={32} weight="duotone" />
               </div>
               <h1 className="text-2xl font-bold font-display text-gray-900 dark:text-white mb-2 text-center">
@@ -81,6 +79,7 @@ const Experiments = ({ isDarkMode }) => {
             </form>
           </div>
         </motion.div>
+        </div>
       </div>
     );
   }
@@ -98,7 +97,8 @@ const Experiments = ({ isDarkMode }) => {
   const pill = "inline-block text-xs font-medium px-3 py-0.5 rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-400 mb-4";
 
   return (
-    <div className="min-h-screen py-24 px-6 md:px-12 lg:px-24 max-w-4xl mx-auto">
+    <div className="pt-20 min-h-screen transition-colors duration-300">
+      <div className="max-w-6xl mx-auto px-8 py-12">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -148,7 +148,9 @@ const Experiments = ({ isDarkMode }) => {
         {/* Layer 1 */}
         <div className={card}>
           <div className="flex items-center gap-3 mb-2">
-            <div className="w-7 h-7 rounded-md bg-blue-100 dark:bg-blue-900/40 flex items-center justify-center text-sm shrink-0">🧪</div>
+            <div className="w-7 h-7 rounded-md bg-blue-100 dark:bg-blue-900/40 flex items-center justify-center text-sm shrink-0">
+              <Flask size={16} weight="duotone" className="text-blue-600 dark:text-blue-400" />
+            </div>
             <div className={cardTitle}>Layer 1 — Signal (Days 1–21)</div>
           </div>
           <p className={cardSub}>Goal: find what converts. Not volume — data.</p>
@@ -169,7 +171,9 @@ const Experiments = ({ isDarkMode }) => {
         {/* Layer 2 */}
         <div className={card}>
           <div className="flex items-center gap-3 mb-2">
-            <div className="w-7 h-7 rounded-md bg-green-100 dark:bg-green-900/40 flex items-center justify-center text-sm shrink-0">✅</div>
+            <div className="w-7 h-7 rounded-md bg-green-100 dark:bg-green-900/40 flex items-center justify-center text-sm shrink-0">
+              <CheckCircle size={16} weight="duotone" className="text-green-600 dark:text-green-400" />
+            </div>
             <div className={cardTitle}>Layer 2 — Validation (Days 15–35)</div>
           </div>
           <p className={cardSub}>Switch to CBO. Keep only winning audiences + creatives.</p>
@@ -189,7 +193,9 @@ const Experiments = ({ isDarkMode }) => {
         {/* Layer 3 */}
         <div className={card}>
           <div className="flex items-center gap-3 mb-2">
-            <div className="w-7 h-7 rounded-md bg-purple-100 dark:bg-purple-900/40 flex items-center justify-center text-sm shrink-0">📈</div>
+            <div className="w-7 h-7 rounded-md bg-purple-100 dark:bg-purple-900/40 flex items-center justify-center text-sm shrink-0">
+              <TrendUp size={16} weight="duotone" className="text-purple-600 dark:text-purple-400" />
+            </div>
             <div className={cardTitle}>Layer 3 — Scale + Protection (Days 30–90)</div>
           </div>
           <p className={cardSub}>Core scaling campaign + separate retargeting campaign.</p>
@@ -247,7 +253,9 @@ const Experiments = ({ isDarkMode }) => {
         <p className={sectionLabel}>Warm traffic + retargeting</p>
         <div className={card}>
           <div className="flex items-center gap-3 mb-2">
-            <div className="w-7 h-7 rounded-md bg-blue-100 dark:bg-blue-900/40 flex items-center justify-center text-sm shrink-0">🔁</div>
+            <div className="w-7 h-7 rounded-md bg-blue-100 dark:bg-blue-900/40 flex items-center justify-center text-sm shrink-0">
+              <Repeat size={16} weight="duotone" className="text-blue-600 dark:text-blue-400" />
+            </div>
             <div className={cardTitle}>Warm traffic (Days 10–30)</div>
           </div>
           <ul className="mt-1 pl-4 list-disc space-y-1">
@@ -259,7 +267,9 @@ const Experiments = ({ isDarkMode }) => {
         </div>
         <div className={card}>
           <div className="flex items-center gap-3 mb-2">
-            <div className="w-7 h-7 rounded-md bg-red-100 dark:bg-red-900/40 flex items-center justify-center text-sm shrink-0">🎯</div>
+            <div className="w-7 h-7 rounded-md bg-red-100 dark:bg-red-900/40 flex items-center justify-center text-sm shrink-0">
+              <Target size={16} weight="duotone" className="text-red-600 dark:text-red-400" />
+            </div>
             <div className={cardTitle}>Retargeting segments</div>
           </div>
           <ul className="mt-1 pl-4 list-disc space-y-1">
@@ -362,6 +372,7 @@ const Experiments = ({ isDarkMode }) => {
           </ul>
         </div>
       </motion.div>
+      </div>
     </div>
   );
 };

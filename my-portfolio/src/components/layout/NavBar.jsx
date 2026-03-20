@@ -1,9 +1,4 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
-import { List, Globe, X } from 'phosphor-react';
-import OrigamiCraneLogo from '../animations/OrigamiCraneLogo';
-import ThemeToggle from '../theme/ThemeToggle';
+import { useState } from 'react';
 
 // Route configuration
 const navRoutes = [

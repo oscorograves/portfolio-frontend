@@ -1,6 +1,3 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { ArrowSquareOut, Barricade } from 'phosphor-react';
 
 const itemVariants = {
     hidden: { opacity: 0, y: 20 },

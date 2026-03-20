@@ -1,6 +1,3 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { CaretRight } from 'phosphor-react';
 
 const FeaturedAchievement = ({ t, navigate, isDarkMode }) => {
     return (

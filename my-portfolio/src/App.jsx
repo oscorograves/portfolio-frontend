@@ -1,23 +1,14 @@
-import React, { useState, useEffect, Suspense, lazy } from 'react';
-import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
+import { useState, useEffect, lazy } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 // Layout (always needed)
-import NavBar from './components/layout/NavBar';
-import Footer from './components/layout/Footer';
 
 // UI (critical for layout)
-import PageWrapper from './components/ui/PageWrapper';
-import NoiseOverlay from './components/ui/NoiseOverlay';
-import ScrollProgress from './components/ui/ScrollProgress';
 
 // Animations (keep as direct imports - small and needed for visual experience)
-import FireflyBackground from './components/animations/FireflyBackground';
-import CustomCursor from './components/animations/CustomCursor';
-import NetworkBackground from './components/animations/NetworkBackground';
 
 // Eager load Home for faster LCP (Critical Path)
-import Home from './pages/Home';
 
 // Lazy load other pages (route-based code splitting)
 const Experience = lazy(() => import('./pages/Experience'));

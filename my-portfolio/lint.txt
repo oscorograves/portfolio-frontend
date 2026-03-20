@@ -1,0 +1,18 @@
+
+> portfolio-restored@0.0.0 lint
+> eslint .
+
+
+Oops! Something went wrong! :(
+
+ESLint: 8.57.1
+
+TypeError: Cannot read properties of undefined (reading 'recommended')
+    at file:///C:/Users/Kanis/Downloads/Portfolio/my-portfolio/eslint.config.js?mtime=1774018944946:11:31
+    at ModuleJob.run (node:internal/modules/esm/module_job:413:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:660:26)
+    at async loadFlatConfigFile (C:\Users\Kanis\Downloads\Portfolio\my-portfolio\node_modules\eslint\lib\eslint\flat-eslint.js:303:21)
+    at async calculateConfigArray (C:\Users\Kanis\Downloads\Portfolio\my-portfolio\node_modules\eslint\lib\eslint\flat-eslint.js:382:28)
+    at async FlatESLint.lintFiles (C:\Users\Kanis\Downloads\Portfolio\my-portfolio\node_modules\eslint\lib\eslint\flat-eslint.js:762:25)
+    at async Object.execute (C:\Users\Kanis\Downloads\Portfolio\my-portfolio\node_modules\eslint\lib\cli.js:421:23)
+    at async main (C:\Users\Kanis\Downloads\Portfolio\my-portfolio\node_modules\eslint\bin\eslint.js:152:22)

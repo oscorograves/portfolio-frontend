@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import { motion } from 'framer-motion';
 
 const TypewriterText = ({ text, className, Element = "h1", delay = 0.3 }) => {

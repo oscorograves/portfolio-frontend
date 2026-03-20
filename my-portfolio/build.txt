@@ -1,0 +1,48 @@
+
+> portfolio-restored@0.0.0 build
+> vite build && react-snap && node scripts/copy-404.js
+
+[36mvite v5.4.21 [32mbuilding for production...[36m[39m
+transforming...
+[32m✓[39m 1460 modules transformed.
+rendering chunks...
+computing gzip size...
+[2mdist/[22m[32mindex.html                           [39m[1m[2m  9.50 kB[22m[1m[22m[2m │ gzip:  3.28 kB[22m
+[2mdist/[22m[35massets/index-CXBeApUS.css            [39m[1m[2m 46.22 kB[22m[1m[22m[2m │ gzip:  8.02 kB[22m
+[2mdist/[22m[36massets/WipModal-nbCtpAD9.js          [39m[1m[2m  1.89 kB[22m[1m[22m[2m │ gzip:  0.85 kB[22m
+[2mdist/[22m[36massets/MyStory-Do2gjygU.js           [39m[1m[2m  4.84 kB[22m[1m[22m[2m │ gzip:  1.68 kB[22m
+[2mdist/[22m[36massets/CaseStudies-DQer8TVr.js       [39m[1m[2m  6.99 kB[22m[1m[22m[2m │ gzip:  2.06 kB[22m
+[2mdist/[22m[36massets/browser-ponyfill-BZMf2V5H.js  [39m[1m[2m 10.34 kB[22m[1m[22m[2m │ gzip:  3.51 kB[22m
+[2mdist/[22m[36massets/MetricsPage-BOC5nrfX.js       [39m[1m[2m 11.48 kB[22m[1m[22m[2m │ gzip:  2.15 kB[22m
+[2mdist/[22m[36massets/Experience-DrSLT-4K.js        [39m[1m[2m 12.82 kB[22m[1m[22m[2m │ gzip:  1.60 kB[22m
+[2mdist/[22m[36massets/Experiments-CWkIAVSj.js       [39m[1m[2m 16.97 kB[22m[1m[22m[2m │ gzip:  5.00 kB[22m
+[2mdist/[22m[36massets/index-v3lUd4VW.js             [39m[1m[2m 45.44 kB[22m[1m[22m[2m │ gzip: 12.20 kB[22m
+[2mdist/[22m[36massets/i18n-DrusnNdv.js              [39m[1m[2m 68.50 kB[22m[1m[22m[2m │ gzip: 21.97 kB[22m
+[2mdist/[22m[36massets/framer-Co7iiz64.js            [39m[1m[2m110.71 kB[22m[1m[22m[2m │ gzip: 37.58 kB[22m
+[2mdist/[22m[36massets/ui-libs-l9iIThbU.js           [39m[1m[2m177.93 kB[22m[1m[22m[2m │ gzip: 21.15 kB[22m
+[2mdist/[22m[36massets/react-vendor-ptUfyJBO.js      [39m[1m[2m178.20 kB[22m[1m[22m[2m │ gzip: 58.37 kB[22m
+[32m✓ built in 3.67s[39m
+️️️💬  console.log at /404.html: No routes matched location "/404.html" 
+️️️💬  console.log at /: An <img> element was lazyloaded with loading=lazy, but had no dimensions specified. Specifying dimensions improves performance. See https://crbug.com/954323
+️️️💬  console.log at /404.html: No routes matched location "/404.html" 
+️️️💬  console.log at /404.html: No routes matched location "/404.html" 
+️️️💬  console.log at /404.html: No routes matched location "/404.html" 
+⚠️  warning: 404 page title does not contain "404" string
+✅  crawled 1 out of 10 (/404.html)
+✅  crawled 2 out of 10 (/case-studies)
+✅  crawled 3 out of 10 (/experience)
+✅  crawled 4 out of 11 (/)
+✅  crawled 5 out of 11 (/my-story)
+✅  crawled 6 out of 12 (/experiments)
+✅  crawled 10 out of 12 (/metrics)
+🔥  pageerror at /design-system.html: SyntaxError: Unexpected token '.'
+
+🔥  pageerror at /color-rules.html: SyntaxError: Unexpected token '.'
+
+🔥  pageerror at /design-system.html: ReferenceError: tailwind is not defined
+
+🔥  pageerror at /color-rules.html: ReferenceError: tailwind is not defined
+
+✅  crawled 11 out of 12 (/color-rules.html)
+✅  crawled 12 out of 12 (/design-system.html)
+
