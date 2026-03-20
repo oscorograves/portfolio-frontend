@@ -1,3 +1,6 @@
+import React from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Barricade } from 'phosphor-react';
 
 const WipModal = ({ isOpen, onClose, t }) => {
     if (!isOpen) return null;

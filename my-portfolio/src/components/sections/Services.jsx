@@ -1,3 +1,6 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Target, TrendUp, ChartLineUp } from 'phosphor-react';
 
 const itemVariants = {
     hidden: { opacity: 0, y: 20 },

@@ -1,4 +1,5 @@
-import { useMotionValue, useSpring, useTransform } from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform, AnimatePresence } from "framer-motion";
+
 import { useState } from "react";
 
 const HeroAvatar = ({ metrics = [], onNavigate }) => {

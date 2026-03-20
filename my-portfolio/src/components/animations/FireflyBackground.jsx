@@ -1,4 +1,6 @@
-import { useMemo } from 'react';
+import React, { useMemo } from 'react';
+import { motion } from 'framer-motion';
+
 
 const FireflyBackground = () => {
     // Generate 30 fireflies with stable random values

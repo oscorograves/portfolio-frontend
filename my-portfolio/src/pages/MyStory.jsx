@@ -1,5 +1,8 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+import { CaretDown, Student, Rocket, Target, ChartLineUp, Brain, PaintBrush, Funnel, Compass } from 'phosphor-react';
 
-import { Student, Rocket, Target, ChartLineUp, Brain, PaintBrush, Funnel, Compass } from 'phosphor-react';
+
 
 const MyStory = ({ t }) => {
     // Animation Variants

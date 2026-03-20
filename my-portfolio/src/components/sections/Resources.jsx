@@ -1,3 +1,6 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+import { DownloadSimple, MicrosoftExcelLogo, ArrowSquareOut } from 'phosphor-react';
 
 const Resources = ({ t }) => {
     return (

@@ -1,4 +1,6 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+
 
 const CustomCursor = ({ isDarkMode }) => {
     const [mousePosition, setMousePosition] = useState({ x: -100, y: -100 });

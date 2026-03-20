@@ -1,4 +1,7 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { LockKey, ArrowRight, Flask } from 'phosphor-react';
+
 
 const Experiments = ({ isDarkMode }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);

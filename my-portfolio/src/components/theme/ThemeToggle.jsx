@@ -1,3 +1,5 @@
+import React from 'react';
+import { Sun, Moon } from 'phosphor-react';
 
 const ThemeToggle = ({ isDarkMode, setIsDarkMode }) => {
     return (

@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import React from 'react';
 import { backgrounds, borders, effects, animations, cx } from '../theme';
 

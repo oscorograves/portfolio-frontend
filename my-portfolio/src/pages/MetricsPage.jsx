@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion';
+import Resources from '../components/sections/Resources';
 import React from 'react';
 
 const itemVariants = {

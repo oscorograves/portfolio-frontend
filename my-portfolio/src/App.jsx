@@ -1,5 +1,14 @@
-import { useState, useEffect, lazy } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
+import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
+import NavBar from './components/layout/NavBar';
+import Footer from './components/layout/Footer';
+import PageWrapper from './components/ui/PageWrapper';
+import NoiseOverlay from './components/ui/NoiseOverlay';
+import ScrollProgress from './components/ui/ScrollProgress';
+import FireflyBackground from './components/animations/FireflyBackground';
+import CustomCursor from './components/animations/CustomCursor';
+import NetworkBackground from './components/animations/NetworkBackground';
+import Home from './pages/Home';
 import { useTranslation } from 'react-i18next';
 
 // Layout (always needed)
