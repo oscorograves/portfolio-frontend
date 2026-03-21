@@ -27,10 +27,9 @@
             "priority": 0.8
         },
         {
-            "path": "/creative-lab",
+            "path": "/experiments",
             "changefreq": "monthly",
-            "priority": 0.7,
-            "hidden": true
+            "priority": 0.7
         }
     ]
 }
