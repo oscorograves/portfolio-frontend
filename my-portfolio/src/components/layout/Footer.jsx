@@ -17,21 +17,21 @@ const Footer = ({ t }) => {
                             <div className="flex flex-wrap justify-center md:justify-start items-center gap-x-6 gap-y-2 pt-2 border-t border-gray-900/10 dark:border-white/5">
                                 <motion.a
                                     whileHover={{ y: -2, color: '#f59e0b' }}
-                                    href="/color-rules.html"
+                                    href="https://scalewithkanishk.in/color-rules.html"
                                     className="text-[10px] font-mono text-gray-700 dark:text-gray-400 transition-all uppercase tracking-[0.2em] font-bold"
                                 >
                                     {t('footer.links.rules')}
                                 </motion.a>
                                 <motion.a
                                     whileHover={{ y: -2, color: '#f59e0b' }}
-                                    href="/design-system.html"
+                                    href="https://scalewithkanishk.in/design-system.html"
                                     className="text-[10px] font-mono text-gray-700 dark:text-gray-400 transition-all uppercase tracking-[0.2em] font-bold"
                                 >
                                     {t('footer.links.system')}
                                 </motion.a>
                                 <motion.a
                                     whileHover={{ y: -2, color: '#f59e0b' }}
-                                    href="/sitemap.xml"
+                                    href="https://scalewithkanishk.in/sitemap.xml"
                                     className="text-[10px] font-mono text-gray-700 dark:text-gray-400 transition-all uppercase tracking-[0.2em] font-bold"
                                 >
                                     {t('footer.links.sitemap')}
