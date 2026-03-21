@@ -190,7 +190,7 @@
           </div>
           
           <div class="footer">
-            &#169; Kanishk Singh.
+            ENGINEERED FOR PERFORMANCE &#38; GROWTH. &#169; Kanishk Singh.
           </div>
         </div>
       </body>
