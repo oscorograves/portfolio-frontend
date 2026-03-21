@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { LockKey, ArrowRight, Flask } from 'phosphor-react';
+import { LockKey, ArrowRight, Flask, CheckCircle, TrendUp, Repeat, Target } from 'phosphor-react';
 
 
 const Experiments = ({ isDarkMode }) => {
