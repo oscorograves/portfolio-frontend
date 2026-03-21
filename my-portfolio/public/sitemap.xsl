@@ -190,7 +190,7 @@
           </div>
           
           <div class="footer">
-            Design Rules &amp; Typography matched. © Kanishk Singh.
+            &#169; Kanishk Singh.
           </div>
         </div>
       </body>
