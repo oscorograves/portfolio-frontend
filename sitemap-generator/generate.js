@@ -21,7 +21,10 @@ async function generateSitemap() {
     console.log(`📍 Base URL: ${config.baseUrl}`);
     console.log(`📄 Found ${config.routes.length} routes`);
 
-    const sitemap = new SitemapStream({ hostname: config.baseUrl });
+    const sitemap = new SitemapStream({ 
+        hostname: config.baseUrl,
+        xslUrl: config.baseUrl + '/sitemap.xsl'
+    });
     const writeStream = createWriteStream(outputPath);
 
     sitemap.pipe(writeStream);
