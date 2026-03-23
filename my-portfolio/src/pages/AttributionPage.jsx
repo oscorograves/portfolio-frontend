@@ -108,16 +108,16 @@ const adSetStructure = [
         exclusions: 'Purchasers (7/30d)',
         bidding: 'Lowest Cost',
         budget: '$1,500–3,000',
-        signal: 'ROAS >1.3×',
+        signal: 'ROAS >1.5×',
     },
     {
         name: 'LAL 1%',
         segment: 'Prospecting',
         audience: '30d purchasers (custom → LAL)',
         exclusions: 'None',
-        bidding: 'Target ROAS 1.4×',
+        bidding: 'Target ROAS 1.6×',
         budget: '$1,000–2,000',
-        signal: 'ROAS >1.5×',
+        signal: 'ROAS >2.0×',
     },
     {
         name: 'Funnel Warm',
@@ -126,7 +126,7 @@ const adSetStructure = [
         exclusions: 'Purchasers',
         bidding: 'Lowest Cost',
         budget: '$500–800',
-        signal: 'Purchase >15%',
+        signal: 'Purchase >20%',
     },
     {
         name: 'Engagers',
@@ -135,7 +135,7 @@ const adSetStructure = [
         exclusions: 'None',
         bidding: 'Lowest Cost',
         budget: '$500–800',
-        signal: 'ROAS >1.8×',
+        signal: 'ROAS >2.2×',
     },
 ];
 
