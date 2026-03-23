@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet version="2.0" 
+<xsl:stylesheet version="1.0" 
                 xmlns:html="http://www.w3.org/TR/REC-html40"
                 xmlns:sitemap="http://www.sitemaps.org/schemas/sitemap/0.9"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
@@ -174,9 +174,6 @@
             <ul class="tree-list">
               <xsl:for-each select="sitemap:urlset/sitemap:url">
                 <li>
-                  <xsl:variable name="itemURL">
-                    <xsl:value-of select="sitemap:loc"/>
-                  </xsl:variable>
                   <xsl:variable name="path">
                     <xsl:value-of select="substring-after(sitemap:loc, 'https://scalewithkanishk.in')"/>
                   </xsl:variable>
@@ -191,11 +188,11 @@
                   </xsl:choose>
                   
                   <xsl:choose>
-                    <xsl:when test="normalize-space($path) = ''">
-                      <a href="{$itemURL}"><span class="file-icon">📄</span> index.html (home)</a>
+                    <xsl:when test="normalize-space($path) = '' or $path = '/'">
+                      <a href="{sitemap:loc}"><span class="file-icon">📄</span> index.html (home)</a>
                     </xsl:when>
                     <xsl:otherwise>
-                      <a href="{$itemURL}"><span class="directory-icon">📁</span> <xsl:value-of select="substring-after($path, '/')"/>/</a>
+                      <a href="{sitemap:loc}"><span class="directory-icon">📁</span> <xsl:value-of select="substring-after($path, '/')"/>/</a>
                     </xsl:otherwise>
                   </xsl:choose>
                 </li>
