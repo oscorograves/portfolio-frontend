@@ -107,7 +107,7 @@ const adSetStructure = [
         audience: 'Age 18–45, your locations',
         exclusions: 'Purchasers (7/30d)',
         bidding: 'Lowest Cost',
-        budget: '$300–500',
+        budget: '$1.5k–3k',
         signal: 'ROAS >1.2×',
     },
     {
@@ -116,7 +116,7 @@ const adSetStructure = [
         audience: '30d purchasers (custom → LAL)',
         exclusions: 'None',
         bidding: 'Target ROAS 1.3×',
-        budget: '$400',
+        budget: '$1k–2k',
         signal: 'ROAS >1.4×',
     },
     {
@@ -125,7 +125,7 @@ const adSetStructure = [
         audience: 'Add to Cart + Initiate Checkout (1–7d)',
         exclusions: 'Purchasers',
         bidding: 'Lowest Cost',
-        budget: '$150',
+        budget: '$500–800',
         signal: 'Purchase >12%',
     },
     {
@@ -134,7 +134,7 @@ const adSetStructure = [
         audience: '50% video view (3d)',
         exclusions: 'None',
         bidding: 'Lowest Cost',
-        budget: '$150',
+        budget: '$500–800',
         signal: 'ROAS >1.6×',
     },
 ];
@@ -512,7 +512,7 @@ const AttributionPage = ({ isDarkMode }) => {
                                             {[
                                                 { label: 'Objective', value: 'App Promotion → App Events → fb_mobile_purchase (revenue value)' },
                                                 { label: 'Attribution', value: 'Standard 7-day click + 1-day view + 1-day engage-through' },
-                                                { label: 'Budget', value: 'CBO $2k–5k/day (auto-allocates)' },
+                                                { label: 'Budget', value: 'CBO $5k–15k/day (auto-allocates)' },
                                             ].map(item => (
                                                 <div key={item.label} className="p-3 rounded-lg bg-blue-500/5 border border-blue-400/20">
                                                     <div className="text-xs font-mono text-blue-500 uppercase mb-1">{item.label}</div>
