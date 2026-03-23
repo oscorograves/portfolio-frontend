@@ -115,7 +115,7 @@ const adSetStructure = [
         segment: 'Prospecting',
         audience: '30d purchasers (custom → LAL)',
         exclusions: 'None',
-        bidding: 'Target ROAS 1.6×',
+        bidding: 'Target ROAS 1.4×',
         budget: '$1,000–2,000',
         signal: 'ROAS >2.0×',
     },
