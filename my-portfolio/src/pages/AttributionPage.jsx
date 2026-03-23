@@ -243,15 +243,15 @@ const AttributionPage = ({ isDarkMode }) => {
                             <Flask className="w-7 h-7 text-blue-500" weight="duotone" />
                         </div>
                         <div>
-                            <div className="text-xs font-mono text-blue-500 uppercase tracking-widest mb-0.5">Lab Notes</div>
+                            <div className="text-xs font-mono text-blue-500 uppercase tracking-widest mb-0.5">My Playbook</div>
                             <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white leading-tight">
                                 Meta Attribution
-                                <span className="text-blue-500"> Intelligence</span>
+                                <span className="text-blue-500"> Notes</span>
                             </h1>
                         </div>
                     </div>
                     <p className="text-gray-500 dark:text-gray-400 max-w-2xl text-sm leading-relaxed ml-[52px]">
-                        A technical breakdown of Meta's 2026 attribution systems. This covers reporting windows, AEM, retention optimization, and IAP campaign structures.
+                        Working notes I keep updated from running Meta campaigns across app installs, IAP, and lead gen. These are the attribution setups, reporting tricks, and campaign structures I actually use.
                     </p>
                 </motion.div>
 
@@ -282,12 +282,12 @@ const AttributionPage = ({ isDarkMode }) => {
                         <motion.div key="standard" variants={containerVariants} initial="hidden" animate="visible" exit={{ opacity: 0 }} className="space-y-6">
                             <motion.div variants={itemVariants}>
                                 <Card>
-                                    <SectionHeader icon={Funnel} title="Standard Attribution" subtitle="Meta's default optimization model — last eligible touchpoint within your chosen windows" color="text-blue-500" />
+                                    <SectionHeader icon={Funnel} title="Standard Attribution" subtitle="The default model I use for most campaigns. Last eligible touchpoint within your chosen windows." color="text-blue-500" />
                                     <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
                                         Set at the <strong className="text-gray-900 dark:text-white">ad set level</strong>, Standard Attribution credits the <em>last</em> eligible Meta touchpoint within your selected click or view window. Incremental Attribution is a separate opt-in.
                                     </p>
                                     <CalloutBox type="gear">
-                                        <strong>Where to change it:</strong> Per ad set in Ads Manager → "Attribution Setting" (may be under "Show more options"). In reporting, use Columns → "Compare Attribution Settings" for side-by-side views.
+                                        <strong>Where I set this:</strong> Per ad set in Ads Manager → "Attribution Setting" (sometimes hidden under "Show more options"). For comparing windows side-by-side, I use Columns → "Compare Attribution Settings" in reporting.
                                     </CalloutBox>
                                 </Card>
                             </motion.div>
@@ -358,7 +358,7 @@ const AttributionPage = ({ isDarkMode }) => {
                         <motion.div key="reporting" variants={containerVariants} initial="hidden" animate="visible" exit={{ opacity: 0 }} className="space-y-6">
                             <motion.div variants={itemVariants}>
                                 <Card>
-                                    <SectionHeader icon={ChartBar} title="Reporting Attribution Windows" subtitle="Available in Columns → Compare Attribution Settings regardless of your ad set's optimization setting" color="text-blue-500" />
+                                    <SectionHeader icon={ChartBar} title="Reporting Attribution Windows" subtitle="These are the windows I compare when diagnosing performance gaps between what Meta reports and what actually converts." color="text-blue-500" />
                                     <div className="overflow-x-auto">
                                         <table className="w-full text-sm">
                                             <thead>
@@ -390,7 +390,7 @@ const AttributionPage = ({ isDarkMode }) => {
                             {/* Third-Party */}
                             <motion.div variants={itemVariants}>
                                 <Card>
-                                    <SectionHeader icon={LinkIcon} title="Third-Party Reporting Options" subtitle="Pull Meta data via API/partners for models Meta doesn't natively support" color="text-violet-500" />
+                                    <SectionHeader icon={LinkIcon} title="Third-Party Reporting" subtitle="The tools I cross-reference against Meta's native numbers. Especially useful for multi-channel clients." color="text-violet-500" />
                                     <div className="grid md:grid-cols-2 gap-3">
                                         {thirdPartyOptions.map((o, i) => (
                                             <div key={i} className="flex gap-3 p-3 rounded-lg bg-violet-500/5 border border-violet-400/20">
@@ -403,7 +403,7 @@ const AttributionPage = ({ isDarkMode }) => {
                                         ))}
                                     </div>
                                     <CalloutBox type="warning">
-                                        <strong>No native time-decay in Meta.</strong> Time-decay and other multi-touch models are only available via third-party tools (Northbeam, Factors.ai, GA4, etc.).
+                                        <strong>No native time-decay in Meta.</strong> I've had to rely on Northbeam and GA4 for time-decay and multi-touch models. Meta simply doesn't offer these natively.
                                     </CalloutBox>
                                 </Card>
                             </motion.div>
@@ -440,7 +440,7 @@ const AttributionPage = ({ isDarkMode }) => {
                             {/* Retention */}
                             <motion.div variants={itemVariants}>
                                 <Card>
-                                    <SectionHeader icon={DeviceMobile} title="Retention Optimization" subtitle="Available under App Promotion → App Installs only" color="text-blue-500" />
+                                    <SectionHeader icon={DeviceMobile} title="Retention Optimization" subtitle="The retention goals I've used for app install campaigns. Only available under App Promotion → App Installs." color="text-blue-500" />
                                     <div className="space-y-3">
                                         {retentionGoals.map((g, i) => (
                                             <div key={i} className={`p-4 rounded-xl border ${g.available ? 'bg-blue-500/5 border-blue-400/25' : 'bg-gray-500/5 border-gray-300/25'}`}>
@@ -456,7 +456,7 @@ const AttributionPage = ({ isDarkMode }) => {
                                         ))}
                                     </div>
                                     <CalloutBox type="link">
-                                        <strong>Event tracking + attribution model use the same ad set settings.</strong> The event (e.g. Day 7 open) and the attribution window (e.g. 7-day click) are linked — both determine if/when the event gets credited.
+                                        <strong>Something that tripped me up early on:</strong> the event (e.g. Day 7 open) and the attribution window (e.g. 7-day click) are set together at the ad set level. Both determine if and when the event gets credited to your ad.
                                     </CalloutBox>
                                 </Card>
                             </motion.div>
@@ -503,7 +503,7 @@ const AttributionPage = ({ isDarkMode }) => {
                         <motion.div key="campaign" variants={containerVariants} initial="hidden" animate="visible" exit={{ opacity: 0 }} className="space-y-6">
                             <motion.div variants={itemVariants}>
                                 <Card>
-                                    <SectionHeader icon={Rocket} title="IAP Campaign Setup (Post-Jan 2026)" subtitle="Complete setup for Meta Ads post-Jan 2026 changes — no granular interests, Advantage+ focus" color="text-blue-500" />
+                                    <SectionHeader icon={Rocket} title="IAP Campaign Setup (Post-Jan 2026)" subtitle="The structure I'm running after Meta dropped granular interest targeting. Heavy on Advantage+ and broad prospecting." color="text-blue-500" />
 
                                     {/* Campaign Level */}
                                     <div className="mb-6">
@@ -570,7 +570,7 @@ const AttributionPage = ({ isDarkMode }) => {
                                     </div>
 
                                     <CalloutBox type="success">
-                                        <strong>Test 7–14 days:</strong> Kill &lt;1.0× ROAS → Scale winners 3× → Monitor in MMP for true LTV.
+                                        <strong>My scaling rule:</strong> Test 7 to 14 days. Kill anything under 1.0x ROAS. Scale winners by 3x. Always cross-check against MMP for true LTV.
                                     </CalloutBox>
                                 </Card>
                             </motion.div>
