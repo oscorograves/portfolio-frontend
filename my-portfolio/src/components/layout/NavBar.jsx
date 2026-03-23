@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { List, Globe, X } from 'phosphor-react';
+import { List, Globe, X, Flask } from 'phosphor-react';
 import OrigamiCraneLogo from '../animations/OrigamiCraneLogo';
 import ThemeToggle from '../theme/ThemeToggle';
-
 
 // Route configuration
 const navRoutes = [
@@ -114,6 +113,20 @@ const NavBar = ({
                         </AnimatePresence>
                     </div>
 
+                    {/* Attribution Lab Flask Icon — between lang selector and theme toggle */}
+                    <Link
+                        to="/attribution"
+                        className={`hidden md:flex items-center gap-1 p-2 rounded-full transition-colors text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 group relative mr-1 ${
+                            currentPage === 'attribution'
+                                ? 'bg-blue-500/15 text-blue-500'
+                                : 'text-blue-500 hover:bg-blue-500/10'
+                        }`}
+                        title="Attribution Intelligence"
+                    >
+                        <Flask className="w-5 h-5 text-blue-500" weight="duotone" />
+                        <span className="text-[10px] font-mono text-gray-500 dark:text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap pointer-events-none bg-white dark:bg-gray-900 px-2 py-1 rounded shadow-sm border border-gray-200 dark:border-gray-700">Attribution Lab</span>
+                    </Link>
+
                     {/* Dark Mode Toggle */}
                     <ThemeToggle isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
 
@@ -149,6 +162,18 @@ const NavBar = ({
                                     {t(`nav.${route.labelKey}`)}
                                 </Link>
                             ))}
+                            {/* Attribution in mobile menu */}
+                            <Link
+                                to="/attribution"
+                                onClick={() => setIsMenuOpen(false)}
+                                className={`flex items-center gap-2 w-full text-left px-4 py-3 text-sm font-medium rounded-lg transition-all cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 font-mono ${currentPage === 'attribution'
+                                    ? 'bg-blue-500 text-white'
+                                    : 'text-blue-500 hover:bg-blue-500/10'
+                                    }`}
+                            >
+                                <Flask className="w-4 h-4" weight="duotone" />
+                                Attribution Lab
+                            </Link>
                         </motion.div>
                     )}
                 </AnimatePresence>
