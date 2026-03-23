@@ -18,6 +18,7 @@ import {
     CheckCircle,
     XCircle,
     Link as LinkIcon,
+    Flask,
 } from 'phosphor-react';
 
 // ─── Animation Variants ───────────────────────────────────────────────────────
@@ -239,10 +240,7 @@ const AttributionPage = ({ isDarkMode }) => {
                 >
                     <div className="flex items-center gap-3 mb-3">
                         <div className="p-2 rounded-lg bg-blue-500/15 border border-blue-400/25">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" className="w-7 h-7 text-blue-500 fill-current">
-                                <path d="M224,200H205.88L149.47,100.72A44,44,0,1,0,100,72a44.55,44.55,0,0,0,.28,4.87L38.12,200H16a8,8,0,0,0,0,16H224a8,8,0,0,0,0-16ZM72,72a28,28,0,1,1,28,28A28,28,0,0,1,72,72Zm87.22,128H68.78l24-44H163.2Z" opacity="0.2"/>
-                                <path d="M224,200H205.88L149.47,100.72A44,44,0,1,0,100,72a44.55,44.55,0,0,0,.28,4.87L38.12,200H16a8,8,0,0,0,0,16H224a8,8,0,0,0,0-16ZM100,44a28,28,0,1,1-28,28A28,28,0,0,1,100,44ZM55.91,200l23.08-42.25A43.84,43.84,0,0,0,100,164a44.35,44.35,0,0,0,20.21-4.85L143.85,200Z"/>
-                            </svg>
+                            <Flask className="w-7 h-7 text-blue-500" weight="duotone" />
                         </div>
                         <div>
                             <div className="text-xs font-mono text-blue-500 uppercase tracking-widest mb-0.5">Lab Notes</div>
