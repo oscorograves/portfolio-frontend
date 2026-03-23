@@ -74,17 +74,17 @@ const reportingWindows = [
 ];
 
 const nativeModels = [
-    { name: 'Standard Attribution', desc: 'Last click or view within chosen windows (1d/7d click, 1d view, 1d engage-through)', available: true },
-    { name: 'Incremental Attribution', desc: 'AI-powered model launched April 2025. This measures true ad lift via test/control groups and filters out organic conversions.', available: true },
-    { name: 'Data-Driven', desc: 'Not natively available in Meta at this time.', available: false },
-    { name: 'Linear / Time-Decay', desc: 'Not natively available. I usually suggest third-party tools for this.', available: false },
-    { name: 'U-Shaped / Position-Based', desc: 'Not natively available. Requires third-party tools.', available: false },
+    { name: 'Standard Attribution', desc: 'Last click/view within chosen windows (1d/7d click, 1d view, 1d engage-through)', available: true },
+    { name: 'Incremental Attribution', desc: 'AI-powered model (launched April 2025) — measures true ad lift via test/control groups, filtering organic conversions', available: true },
+    { name: 'Data-Driven', desc: 'Not natively available in Meta', available: false },
+    { name: 'Linear / Time-Decay', desc: 'Not natively available — use third-party tools', available: false },
+    { name: 'U-Shaped / Position-Based', desc: 'Not natively available — use third-party tools', available: false },
 ];
 
 const thirdPartyOptions = [
-    { name: 'Multi-Touch Attribution', desc: 'Distributes credit across all touchpoints using linear, time-decay, or data-driven models' },
-    { name: 'Server-Side Tracking (CAPI)', desc: 'Conversions API for privacy-safe tracking beyond browser limits' },
-    { name: 'GA4 / Northbeam / Triple Whale', desc: 'Standard integrations that often show 15 to 30% more conversions than Meta reports' },
+    { name: 'Multi-Touch Attribution', desc: 'Distributes credit across all touchpoints using linear, time-decay, position-based, or data-driven models' },
+    { name: 'Server-Side Tracking (CAPI)', desc: 'Conversions API for privacy-safe, higher-accuracy tracking beyond browser limits' },
+    { name: 'GA4 / Northbeam / Triple Whale', desc: 'Popular integrations — often show 15–30% more conversions than Meta\'s native reporting' },
     { name: 'Adobe Analytics', desc: 'Enterprise-grade cross-channel attribution with full journey visibility' },
 ];
 
@@ -107,17 +107,17 @@ const adSetStructure = [
         audience: 'Age 18–45, your locations',
         exclusions: 'Purchasers (7/30d)',
         bidding: 'Lowest Cost',
-        budget: '$1.5k–3k',
-        signal: 'ROAS >1.2×',
+        budget: '$1,500–3,000',
+        signal: 'ROAS >1.3×',
     },
     {
         name: 'LAL 1%',
         segment: 'Prospecting',
         audience: '30d purchasers (custom → LAL)',
         exclusions: 'None',
-        bidding: 'Target ROAS 1.3×',
-        budget: '$1k–2k',
-        signal: 'ROAS >1.4×',
+        bidding: 'Target ROAS 1.4×',
+        budget: '$1,000–2,000',
+        signal: 'ROAS >1.5×',
     },
     {
         name: 'Funnel Warm',
@@ -126,7 +126,7 @@ const adSetStructure = [
         exclusions: 'Purchasers',
         bidding: 'Lowest Cost',
         budget: '$500–800',
-        signal: 'Purchase >12%',
+        signal: 'Purchase >15%',
     },
     {
         name: 'Engagers',
@@ -135,7 +135,7 @@ const adSetStructure = [
         exclusions: 'None',
         bidding: 'Lowest Cost',
         budget: '$500–800',
-        signal: 'ROAS >1.6×',
+        signal: 'ROAS >1.8×',
     },
 ];
 
@@ -480,15 +480,15 @@ const AttributionPage = ({ isDarkMode }) => {
                                             <div className="space-y-3">
                                                 <div className="flex gap-2 text-xs text-gray-600 dark:text-gray-300">
                                                     <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" weight="fill" />
-                                                    <span><strong>No cap:</strong> all standard and custom events are now auto-processed (the AEM tab has been removed).</span>
+                                                    <span><strong>No cap</strong> — all standard/custom events auto-processed (AEM tab removed)</span>
                                                 </div>
                                                 <div className="flex gap-2 text-xs text-gray-600 dark:text-gray-300">
                                                     <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" weight="fill" />
-                                                    <span><strong>Still active:</strong> privacy-safe measurement for iOS opt-outs.</span>
+                                                    <span><strong>Still active</strong> — privacy-safe measurement for iOS opt-outs</span>
                                                 </div>
                                                 <div className="flex gap-2 text-xs text-gray-600 dark:text-gray-300">
                                                     <Gear className="w-4 h-4 text-gray-400 flex-shrink-0 mt-0.5" weight="duotone" />
-                                                    <span><strong>Setup:</strong> verify your domain or app; events fire through SDK or CAPI and Meta handles the aggregation.</span>
+                                                    <span><strong>Setup</strong> — verify domain/app; events fire via SDK/CAPI → Meta handles aggregation</span>
                                                 </div>
                                             </div>
                                         </Accordion>
@@ -512,7 +512,7 @@ const AttributionPage = ({ isDarkMode }) => {
                                             {[
                                                 { label: 'Objective', value: 'App Promotion → App Events → fb_mobile_purchase (revenue value)' },
                                                 { label: 'Attribution', value: 'Standard 7-day click + 1-day view + 1-day engage-through' },
-                                                { label: 'Budget', value: 'CBO $5k–15k/day (auto-allocates)' },
+                                                { label: 'Budget', value: 'CBO $5,000–15,000/day (for high scale)' },
                                             ].map(item => (
                                                 <div key={item.label} className="p-3 rounded-lg bg-blue-500/5 border border-blue-400/20">
                                                     <div className="text-xs font-mono text-blue-500 uppercase mb-1">{item.label}</div>
