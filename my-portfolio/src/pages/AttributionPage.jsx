@@ -251,7 +251,7 @@ const AttributionPage = ({ isDarkMode }) => {
                         </div>
                     </div>
                     <p className="text-gray-500 dark:text-gray-400 max-w-2xl text-sm leading-relaxed ml-[52px]">
-                        A deep-dive reference on Meta's attribution windows, reporting models, AEM, retention optimization, and IAP campaign structure — updated for 2026.
+                        A technical breakdown of Meta's 2026 attribution systems. This covers reporting windows, AEM, retention optimization, and IAP campaign structures.
                     </p>
                 </motion.div>
 
