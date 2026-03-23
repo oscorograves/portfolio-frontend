@@ -24,7 +24,6 @@ const Experience = lazy(() => import('./pages/Experience'));
 const CaseStudies = lazy(() => import('./pages/CaseStudies'));
 const MyStory = lazy(() => import('./pages/MyStory'));
 const MetricsPage = lazy(() => import('./pages/MetricsPage'));
-const Experiments = lazy(() => import('./pages/Experiments'));
 
 // Lazy Load Modal
 const WipModal = lazy(() => import('./components/ui/WipModal'));
@@ -151,11 +150,6 @@ export default function Portfolio() {
             <Route path="/metrics" element={
               <PageWrapper>
                 <MetricsPage t={t} fallbackMetrics={fallbackMetrics} isDarkMode={isDarkMode} />
-              </PageWrapper>
-            } />
-            <Route path="/experiments" element={
-              <PageWrapper>
-                <Experiments isDarkMode={isDarkMode} />
               </PageWrapper>
             } />
           </Routes>

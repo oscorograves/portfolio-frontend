@@ -82,7 +82,7 @@ const CaseStudies = ({ t, isDarkMode }) => {
     return (
         <div className="pt-20 min-h-screen transition-colors duration-300">
             <div className="max-w-6xl mx-auto px-8 py-12">
-                <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-3">{t('caseStudies.title')}</h1>
+                <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-3 heading-glow">{t('caseStudies.title')}</h1>
                 <p className="text-gray-600 dark:text-gray-400 mb-8 pb-4 border-b-2 border-amber-600 dark:border-yellow-400">{t('caseStudies.subtitle')}</p>
 
                 <motion.div
@@ -145,7 +145,7 @@ const CaseStudies = ({ t, isDarkMode }) => {
                                     <ul className="space-y-1.5">
                                         {Array.isArray(study.actions) ? study.actions.map((action, j) => (
                                             <li key={j} className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2">
-                                                <span className="text-gray-400 mt-1">•</span>
+                                                <span className="text-amber-600 dark:text-yellow-400 mt-1">•</span>
                                                 <span>{action}</span>
                                             </li>
                                         )) : (
@@ -167,7 +167,7 @@ const CaseStudies = ({ t, isDarkMode }) => {
                                 </div>
 
                                 {study.notionLink && (
-                                    <div className="pt-5 border-t border-gray-200 dark:border-gray-700">
+                                    <div className="pt-5 border-t border-gray-300 dark:border-gray-700">
                                         <a
                                             href={study.notionLink}
                                             target="_blank"

@@ -1,196 +1,210 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="2.0" 
                 xmlns:html="http://www.w3.org/TR/REC-html40"
-                xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
                 xmlns:sitemap="http://www.sitemaps.org/schemas/sitemap/0.9"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:output method="html" version="1.0" encoding="UTF-8" indent="yes"/>
   <xsl:template match="/">
     <html xmlns="http://www.w3.org/1999/xhtml">
       <head>
-        <title>XML Sitemap - Kanishk Singh</title>
+        <title>XML Sitemap Directory - Kanishk Singh</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&amp;family=VT323&amp;display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700&amp;family=VT323&amp;display=swap" rel="stylesheet" />
         <style type="text/css">
           :root {
-            --bg-color: #111827; /* gray-900 */
-            --surface-color: rgba(255, 255, 255, 0.05); /* white/5 */
-            --border-color: #1f2937; /* gray-800 */
-            --text-primary: #f3f4f6; /* gray-100 */
-            --text-secondary: #9ca3af; /* gray-400 */
-            --accent-color: #ea580c; /* primary-600 */
-            --accent-hover: #c2410c; /* primary-700 */
-            --accent-bg: rgba(234, 88, 12, 0.1); 
+            --bg-color: #0f172a; /* slate-900 */
+            --border-color: #334155; /* slate-700 */
+            --text-primary: #f8fafc; /* slate-50 */
+            --text-secondary: #94a3b8; /* slate-400 */
+            --accent-color: #f59e0b; /* amber-500 */
+            --accent-hover: #d97706; /* amber-600 */
+            --terminal-bg: #020617; /* slate-950 */
             --font-mono: 'Space Mono', monospace;
             --font-sans: 'VT323', monospace;
           }
-          * {
-            box-sizing: border-box;
-          }
+          * { box-sizing: border-box; }
           body {
             font-family: var(--font-mono);
             background-color: var(--bg-color);
             color: var(--text-primary);
             margin: 0;
-            padding: 40px 20px;
+            padding: 60px 20px;
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
           }
           .container {
-            max-width: 1000px;
-            margin: 0 auto;
+            width: 100%;
+            max-width: 800px;
           }
-          header {
-            margin-bottom: 40px;
-            text-align: center;
-          }
+          header { margin-bottom: 40px; margin-left: 20px; }
           h1 {
             font-family: var(--font-sans);
             font-size: 3.5rem;
             font-weight: 400;
-            margin-bottom: 5px;
+            margin: 0 0 10px 0;
             letter-spacing: 0.05em;
             color: var(--text-primary);
-            text-shadow: 0 0 30px rgba(250, 204, 21, 0.15); /* heading-glow from index.css */
+            text-shadow: 0 0 30px rgba(245, 158, 11, 0.15); /* amber glow */
+            border-bottom: 2px solid var(--accent-color);
+            display: inline-block;
+            padding-bottom: 8px;
+            text-transform: uppercase;
           }
           p.description {
             color: var(--text-secondary);
-            font-size: 1rem;
-            max-width: 600px;
-            margin: 0 auto;
+            font-size: 0.95rem;
+            margin: 0;
           }
-          .info-banner {
-            background-color: var(--accent-bg);
+          
+          /* The Terminal Window */
+          .terminal-window {
+            background-color: var(--terminal-bg);
             border: 1px solid var(--border-color);
-            color: var(--accent-color);
-            padding: 15px 20px;
             border-radius: 12px;
-            margin-bottom: 30px;
-            font-size: 0.9rem;
+            padding: 30px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            margin-bottom: 40px;
+          }
+          
+          .terminal-header {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px dashed var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+          }
+          .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #ef4444; /* red */
+          }
+          .dot:nth-child(2) { background-color: #f59e0b; /* yellow */ }
+          .dot:nth-child(3) { background-color: #22c55e; /* green */ }
+          
+          .terminal-path {
+            margin-left: auto;
+            opacity: 0.5;
+          }
+
+          /* Directory Tree Styling */
+          .tree-root {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: var(--accent-color);
             display: flex;
             align-items: center;
-            gap: 12px;
-            backdrop-filter: blur(10px);
+            gap: 10px;
           }
-          .info-banner svg {
-            shape-rendering: crispEdges;
-            stroke-width: 1.5px;
+          .tree-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
           }
-          table {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 0;
-            background-color: var(--surface-color);
-            border-radius: 16px;
-            overflow: hidden;
-            border: 1px solid var(--border-color);
-            backdrop-filter: blur(12px);
+          .tree-list li {
+            position: relative;
+            padding: 6px 0;
+            display: flex;
+            align-items: center;
           }
-          th, td {
-            text-align: left;
-            padding: 16px 24px;
-            border-bottom: 1px solid var(--border-color);
-          }
-          th {
-            background-color: rgba(0, 0, 0, 0.2);
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--text-secondary);
-            font-weight: 700;
-          }
-          tr:last-child td {
-            border-bottom: none;
-          }
-          tr:hover td {
-            background-color: rgba(255, 255, 255, 0.02);
+          .branch {
+            color: var(--border-color);
+            font-size: 1.1rem;
+            margin-right: 16px;
+            font-weight: bold;
+            user-select: none;
           }
           a {
             color: var(--text-primary);
             text-decoration: none;
-            transition: color 0.3s;
+            transition: color 0.2s, transform 0.2s;
+            display: inline-block;
           }
           a:hover {
             color: var(--accent-color);
+            transform: translateX(4px);
           }
-          .badge {
-            display: inline-block;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            background-color: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--border-color);
+          .directory-icon {
+            color: var(--accent-color);
+            margin-right: 8px;
+            font-style: normal;
+          }
+          .file-icon {
             color: var(--text-secondary);
+            margin-right: 8px;
+            font-style: normal;
           }
-          .count {
-            float: right;
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-            margin-top: 15px;
-          }
+
           .footer {
-            margin-top: 60px;
             text-align: center;
             color: var(--text-secondary);
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
+            margin-top: 20px;
           }
         </style>
       </head>
       <body>
         <div class="container">
           <header>
-            <h1>SITEMAP.XML</h1>
-            <p class="description">Search engine index map.</p>
+            <h1>Route Index</h1>
+            <p class="description">Current logical architecture and public routes.</p>
           </header>
           
-          <div class="info-banner">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
-            <span>You can find more information about XML sitemaps on <a href="http://sitemaps.org" target="_blank" style="color: var(--accent-color); text-decoration: underline;">sitemaps.org</a>.</span>
-          </div>
-          
-          <div class="table-container">
-            <table>
-              <thead>
-                <tr>
-                  <th>URL Location</th>
-                  <th>Last Modified</th>
-                  <th>Change Frequency</th>
-                  <th>Priority</th>
-                </tr>
-              </thead>
-              <tbody>
-                <xsl:for-each select="sitemap:urlset/sitemap:url">
-                  <tr>
-                    <td>
-                      <xsl:variable name="itemURL">
-                        <xsl:value-of select="sitemap:loc"/>
-                      </xsl:variable>
-                      <a href="{$itemURL}">
-                        <xsl:value-of select="sitemap:loc"/>
-                      </a>
-                    </td>
-                    <td style="color: var(--text-secondary); font-size: 0.9rem;">
-                      <xsl:value-of select="concat(substring(sitemap:lastmod,0,11),concat(' ', substring(sitemap:lastmod,12,5)),concat(' ', substring(sitemap:lastmod,20,6)))"/>
-                    </td>
-                    <td>
-                      <span class="badge"><xsl:value-of select="sitemap:changefreq"/></span>
-                    </td>
-                    <td>
-                      <span class="badge" style="color: var(--accent-color); border-color: var(--accent-bg);"><xsl:value-of select="sitemap:priority"/></span>
-                    </td>
-                  </tr>
-                </xsl:for-each>
-              </tbody>
-            </table>
-            <div class="count">
-              TOTAL ROUTES: <xsl:value-of select="count(sitemap:urlset/sitemap:url)"/>
+          <div class="terminal-window">
+            <div class="terminal-header">
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="terminal-path">user@server:~/public_html/sitemap$ xml-tree --depth=2</div>
             </div>
+
+            <div class="tree-root">
+              <span class="directory-icon">📁</span>
+              <span>scalewithkanishk.in/</span>
+            </div>
+            
+            <ul class="tree-list">
+              <xsl:for-each select="sitemap:urlset/sitemap:url">
+                <li>
+                  <xsl:variable name="itemURL">
+                    <xsl:value-of select="sitemap:loc"/>
+                  </xsl:variable>
+                  <xsl:variable name="path">
+                    <xsl:value-of select="substring-after(sitemap:loc, 'https://scalewithkanishk.in')"/>
+                  </xsl:variable>
+
+                  <xsl:choose>
+                    <xsl:when test="position() = last()">
+                      <span class="branch">&#9492;&#9472;&#9472;</span>
+                    </xsl:when>
+                    <xsl:otherwise>
+                      <span class="branch">&#9500;&#9472;&#9472;</span>
+                    </xsl:otherwise>
+                  </xsl:choose>
+                  
+                  <xsl:choose>
+                    <xsl:when test="normalize-space($path) = ''">
+                      <a href="{$itemURL}"><span class="file-icon">📄</span> index.html (home)</a>
+                    </xsl:when>
+                    <xsl:otherwise>
+                      <a href="{$itemURL}"><span class="directory-icon">📁</span> <xsl:value-of select="substring-after($path, '/')"/>/</a>
+                    </xsl:otherwise>
+                  </xsl:choose>
+                </li>
+              </xsl:for-each>
+            </ul>
           </div>
           
           <div class="footer">
-            ENGINEERED FOR PERFORMANCE &#38; GROWTH. &#169; Kanishk Singh.
+            open-source foundation. original design &#38; brand identity by kanishk singh &#169; 2026.
           </div>
         </div>
       </body>

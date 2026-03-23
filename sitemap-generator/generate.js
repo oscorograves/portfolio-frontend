@@ -23,16 +23,10 @@ async function generateSitemap() {
 
     const sitemap = new SitemapStream({ hostname: config.baseUrl });
 
-    // Get current date for lastmod
-    const today = new Date().toISOString().split('T')[0];
-
     // Add all routes (including hidden ones)
     for (const route of config.routes) {
         sitemap.write({
-            url: route.path,
-            lastmod: today,
-            changefreq: route.changefreq || 'monthly',
-            priority: route.priority || 0.5
+            url: route.path
         });
         console.log(`  ✅ Added: ${route.path}${route.hidden ? ' (hidden)' : ''}`);
     }
