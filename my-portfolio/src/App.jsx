@@ -53,8 +53,7 @@ const routes = [
   { path: '/experience', key: 'experience' },
   { path: '/case-studies', key: 'caseStudies' },
   { path: '/my-story', key: 'myStory' },
-  { path: '/metrics', key: 'metrics' },
-
+  { path: '/metrics', key: 'metrics' }
 ];
 
 export default function Portfolio() {

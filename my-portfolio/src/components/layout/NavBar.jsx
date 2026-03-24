@@ -70,61 +70,63 @@ const NavBar = ({
                         ))}
                     </div>
 
-                    {/* Language Selector Dropdown */}
-                    <div className="relative mr-2">
-                        <button
-                            onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
-                            className="flex items-center gap-1 p-2 text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800 rounded-full transition-colors text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2 group relative"
-                        >
-                            <Globe className="w-5 h-5 text-blue-500" weight="duotone" />
-                            <span>{language.toUpperCase()}</span>
-                            <span className="text-[10px] font-mono text-gray-500 dark:text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap pointer-events-none bg-white dark:bg-gray-900 px-2 py-1 rounded shadow-sm border border-gray-200 dark:border-gray-700">Change Language</span>
-                        </button>
+                    {/* Right-side Controls (Language, Theme, Mobile Menu) */}
+                    <div className="flex items-center gap-2">
+                        {/* Language Selector Dropdown */}
+                        <div className="relative">
+                            <button
+                                onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
+                                className="flex items-center gap-1 p-2 text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800 rounded-full transition-colors text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2 group relative"
+                            >
+                                <Globe className="w-5 h-5 text-blue-500" weight="duotone" />
+                                <span>{language.toUpperCase()}</span>
+                                <span className="text-[10px] font-mono text-gray-500 dark:text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap pointer-events-none bg-white dark:bg-gray-900 px-2 py-1 rounded shadow-sm border border-gray-200 dark:border-gray-700">Change Language</span>
+                            </button>
 
-                        <AnimatePresence>
-                            {isLangMenuOpen && (
-                                <motion.div
-                                    initial={{ opacity: 0, y: 10 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    exit={{ opacity: 0, y: 10 }}
-                                    className="absolute right-0 mt-2 w-32 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] overflow-hidden z-50"
-                                >
-                                    {[
-                                        { code: 'en', label: 'English' },
-                                        { code: 'de', label: 'Deutsch' },
-                                        { code: 'nl', label: 'Nederlands' }
-                                    ].map((lang) => (
-                                        <button
-                                            key={lang.code}
-                                            onClick={() => {
-                                                setLanguage(lang.code);
-                                                setIsLangMenuOpen(false);
-                                            }}
-                                            className={`w-full text-left px-4 py-2 text-sm transition-colors hover:bg-gray-100 dark:hover:bg-gray-800 ${language === lang.code
-                                                ? 'text-amber-600 dark:text-yellow-400 font-bold'
-                                                : 'text-gray-700 dark:text-gray-300'
-                                                }`}
-                                        >
-                                            {lang.label}
-                                        </button>
-                                    ))}
-                                </motion.div>
-                            )}
-                        </AnimatePresence>
+                            <AnimatePresence>
+                                {isLangMenuOpen && (
+                                    <motion.div
+                                        initial={{ opacity: 0, y: 10 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        exit={{ opacity: 0, y: 10 }}
+                                        className="absolute right-0 mt-2 w-32 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] overflow-hidden z-50"
+                                    >
+                                        {[
+                                            { code: 'en', label: 'English' },
+                                            { code: 'de', label: 'Deutsch' },
+                                            { code: 'nl', label: 'Nederlands' }
+                                        ].map((lang) => (
+                                            <button
+                                                key={lang.code}
+                                                onClick={() => {
+                                                    setLanguage(lang.code);
+                                                    setIsLangMenuOpen(false);
+                                                }}
+                                                className={`w-full text-left px-4 py-2 text-sm transition-colors hover:bg-gray-100 dark:hover:bg-gray-800 ${language === lang.code
+                                                    ? 'text-amber-600 dark:text-yellow-400 font-bold'
+                                                    : 'text-gray-700 dark:text-gray-300'
+                                                    }`}
+                                            >
+                                                {lang.label}
+                                            </button>
+                                        ))}
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
+                        </div>
+
+                        {/* Dark Mode Toggle */}
+                        <ThemeToggle isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
+
+                        {/* Mobile Menu Button (Visible ONLY on Mobile) */}
+                        <button
+                            className="md:hidden p-2 text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2"
+                            onClick={() => setIsMenuOpen(!isMenuOpen)}
+                        >
+                            {isMenuOpen ? <X className="w-7 h-7" weight="duotone" /> : <List className="w-7 h-7" weight="duotone" />}
+                        </button>
                     </div>
 
-
-
-                    {/* Dark Mode Toggle */}
-                    <ThemeToggle isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
-
-                    {/* Mobile Menu Button (Visible ONLY on Mobile) */}
-                    <button
-                        className="md:hidden p-2 text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2"
-                        onClick={() => setIsMenuOpen(!isMenuOpen)}
-                    >
-                        {isMenuOpen ? <X className="w-7 h-7" weight="duotone" /> : <List className="w-7 h-7" weight="duotone" />}
-                    </button>
                 </div>
 
                 {/* Mobile Navigation Dropdown */}
