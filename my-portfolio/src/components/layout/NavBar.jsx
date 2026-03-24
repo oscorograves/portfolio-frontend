@@ -73,10 +73,10 @@ const NavBar = ({
                     {/* Right-side Controls (Language, Theme, Mobile Menu) */}
                     <div className="flex items-center gap-2">
                         {/* Language Selector Dropdown */}
-                        <div className="relative">
+                        <div className="relative w-fit">
                             <button
                                 onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
-                                className="flex items-center gap-1 p-2 text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800 rounded-full transition-colors text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2 group relative"
+                                className="flex items-center gap-1.5 p-2 text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800 rounded-full transition-colors text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2 group"
                             >
                                 <Globe className="w-5 h-5 text-blue-500" weight="duotone" />
                                 <span>{language.toUpperCase()}</span>
@@ -89,7 +89,7 @@ const NavBar = ({
                                         initial={{ opacity: 0, y: 10 }}
                                         animate={{ opacity: 1, y: 0 }}
                                         exit={{ opacity: 0, y: 10 }}
-                                        className="absolute right-0 mt-2 w-32 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] overflow-hidden z-50"
+                                        className="absolute left-0 mt-2 w-40 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] overflow-hidden z-50 origin-top-left"
                                     >
                                         {[
                                             { code: 'en', label: 'English' },
@@ -102,7 +102,7 @@ const NavBar = ({
                                                     setLanguage(lang.code);
                                                     setIsLangMenuOpen(false);
                                                 }}
-                                                className={`w-full text-left px-4 py-2 text-sm transition-colors hover:bg-gray-100 dark:hover:bg-gray-800 ${language === lang.code
+                                                className={`w-full text-left px-2 py-2.5 text-sm font-medium transition-colors hover:bg-gray-100 dark:hover:bg-gray-800 ${language === lang.code
                                                     ? 'text-amber-600 dark:text-yellow-400 font-bold'
                                                     : 'text-gray-700 dark:text-gray-300'
                                                     }`}
@@ -114,6 +114,7 @@ const NavBar = ({
                                 )}
                             </AnimatePresence>
                         </div>
+
 
                         {/* Dark Mode Toggle */}
                         <ThemeToggle isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
