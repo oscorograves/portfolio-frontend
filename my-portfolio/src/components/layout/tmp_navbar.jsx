@@ -5,6 +5,7 @@ import { List, Globe, X } from 'phosphor-react';
 import OrigamiCraneLogo from '../animations/OrigamiCraneLogo';
 import ThemeToggle from '../theme/ThemeToggle';
 
+
 // Route configuration
 const navRoutes = [
     { path: '/', key: 'home', labelKey: 'home' },
@@ -148,7 +149,6 @@ const NavBar = ({
                                     {t(`nav.${route.labelKey}`)}
                                 </Link>
                             ))}
-
                         </motion.div>
                     )}
                 </AnimatePresence>
