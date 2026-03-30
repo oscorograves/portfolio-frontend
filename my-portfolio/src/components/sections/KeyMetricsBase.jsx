@@ -3,6 +3,9 @@ import { motion } from 'framer-motion';
 import CountUp from 'react-countup';
 
 const KeyMetricsBase = ({ t, navigate, fallbackMetrics }) => {
+    const totalSpend = fallbackMetrics.reduce((acc, curr) => acc + curr.spend, 0);
+    const spendValue = Math.round(totalSpend / 1000);
+
     return (
         <div className="bg-gradient-to-r from-orange-600 via-red-500 to-orange-600 dark:bg-none dark:bg-gray-900 dark:border-y dark:border-gray-800 text-white py-12 transition-colors duration-300">
             <div className="max-w-6xl mx-auto px-4 md:px-8">
@@ -33,7 +36,7 @@ const KeyMetricsBase = ({ t, navigate, fallbackMetrics }) => {
                                 window.scrollTo({ top: 0, behavior: 'smooth' });
                             }}
                         >
-                            <CountUp end={41} duration={2.5} prefix="$" suffix="K" enableScrollSpy scrollSpyOnce />
+                            <CountUp end={spendValue} duration={2.5} prefix="$" suffix="K" enableScrollSpy scrollSpyOnce />
                         </motion.div>
                         <div className="text-sm md:text-base text-orange-100 dark:text-gray-400">{t('stats.adSpend')}</div>
                     </div>

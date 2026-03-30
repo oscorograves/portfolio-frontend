@@ -38,8 +38,8 @@ const PageLoader = () => (
 
 // FALLBACK DATA
 const fallbackMetrics = [
-  { client: 'Pocket FM', channel: 'Meta', spend: 6000, ctr: 2.6, cpr: 12.80, cvr: 4.2, roi: 250 },
-  { client: 'Packt', channel: 'Meta', spend: 3500, ctr: 2.3, cpr: 23.33, cvr: 5.8, roi: 450 },
+  { client: 'Pocket FM', channel: 'Meta', spend: 6000, ctr: 2.8, cpr: 10.75, cvr: 4.2, roi: 250, volumeGrowth: 245, cpaReduction: 14, d7Retention: 26 },
+  { client: 'Packt', channel: 'Meta', spend: 12000, ctr: 2.3, cpr: 60, cvr: 5.8, roi: 175, netNew: 93 },
   { client: 'Intertek', channel: 'Google Ads', spend: 8500, ctr: 2.2, cpr: 15.30, cvr: 6.5, roi: 320 },
   { client: 'Pocket FM', channel: 'Google Ads', spend: 5200, ctr: 2.7, cpr: 16.90, cvr: 4.8, roi: 240 },
   { client: 'B2B SaaS', channel: 'LinkedIn', spend: 4800, ctr: 1.4, cpr: 58.20, cvr: 9.2, roi: 380 },
@@ -140,7 +140,7 @@ export default function Portfolio() {
             } />
             <Route path="/case-studies" element={
               <PageWrapper>
-                <CaseStudies t={t} isDarkMode={isDarkMode} />
+                <CaseStudies t={t} isDarkMode={isDarkMode} fallbackMetrics={fallbackMetrics} />
               </PageWrapper>
             } />
             <Route path="/my-story" element={

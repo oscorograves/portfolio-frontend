@@ -26,6 +26,8 @@ const containerVariants = {
 };
 
 const Hero = ({ t, navigate, fallbackMetrics }) => {
+    const totalSpend = fallbackMetrics.reduce((acc, curr) => acc + curr.spend, 0);
+    const formattedSpend = `$${Math.round(totalSpend / 1000)}K`;
     return (
         <section className="border-b border-gray-300 dark:border-gray-800 transition-colors duration-300">
             <motion.div
@@ -96,7 +98,7 @@ const Hero = ({ t, navigate, fallbackMetrics }) => {
                             onNavigate={(page) => navigate(`/${page === 'home' ? '' : page}`)}
                             metrics={[
                                 { value: "2+", label: t('stats.yearsExp'), page: 'experience' },
-                                { value: "$41K", label: t('stats.adSpend'), page: 'metrics' },
+                                { value: formattedSpend, label: t('stats.adSpend'), page: 'metrics' },
                                 { value: "12+", label: t('stats.campaigns'), page: 'metrics' },
                                 { value: `${Math.max(...fallbackMetrics.map(m => m.roi))}%`, label: t('stats.roi'), page: 'metrics' }
                             ]}

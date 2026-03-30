@@ -21,7 +21,13 @@ const containerVariants = {
     }
 };
 
-const CaseStudies = ({ t, isDarkMode }) => {
+const CaseStudies = ({ t, isDarkMode, fallbackMetrics = [] }) => {
+    const packtMetrics = fallbackMetrics?.find(m => m.client === 'Packt') || { spend: 12000, cpr: 60, roi: 175, netNew: 93 };
+    const packtAttendees = Math.round(packtMetrics.spend / packtMetrics.cpr);
+    const packtRoas = (packtMetrics.roi / 100).toFixed(2).replace(/\.00$/, '');
+
+    const audioMetrics = fallbackMetrics?.find(m => m.client === 'Pocket FM' && m.channel === 'Meta') || { volumeGrowth: 245, cpaReduction: 14, ctr: 2.8, d7Retention: 26 };
+
     const caseStudies = [
         {
             id: 'packt',
@@ -30,13 +36,17 @@ const CaseStudies = ({ t, isDarkMode }) => {
             clientName: t('caseStudies.packt.clientName'),
             badgeText: t('caseStudies.packt.badge'),
             category: t('caseStudies.packt.category'),
-            problem: t('caseStudies.packt.problem'),
+            problem: t('caseStudies.packt.problem', {
+                attendees: packtAttendees,
+                cac: packtMetrics.cpr,
+                netNew: packtMetrics.netNew
+            }),
             actions: t('caseStudies.packt.actions', { returnObjects: true }),
             results: [
-                { metric: t('featuredWork.metrics.attendees'), value: "150" },
-                { metric: t('featuredWork.metrics.netNew'), value: "80%+" },
-                { metric: t('featuredWork.metrics.cac'), value: "<$24" },
-                { metric: t('featuredWork.metrics.roas'), value: "4.5×" }
+                { metric: t('featuredWork.metrics.attendees'), value: String(packtAttendees) },
+                { metric: t('featuredWork.metrics.netNew'), value: `${packtMetrics.netNew}%+` },
+                { metric: t('featuredWork.metrics.cac'), value: `$${packtMetrics.cpr}` },
+                { metric: t('featuredWork.metrics.roas'), value: `${packtRoas}×` }
             ],
             notionLink: "https://www.notion.so/Scaling-Paid-GTM-for-Events-2e75649dae6380c49e61c8425a4fb4e7?source=copy_link",
             experiments: t('caseStudies.packt.experimentsData', { returnObjects: true }) || []
@@ -69,10 +79,10 @@ const CaseStudies = ({ t, isDarkMode }) => {
             problem: t('caseStudies.audio.problem'),
             actions: t('caseStudies.audio.actions', { returnObjects: true }),
             results: [
-                { metric: t("caseStudies.audio.results.volume"), value: "+245%" },
-                { metric: t("caseStudies.audio.results.cpa"), value: "-14%" },
-                { metric: t("caseStudies.audio.results.ctr"), value: "2.8%" },
-                { metric: t("caseStudies.audio.results.retention"), value: ">24%" }
+                { metric: t("caseStudies.audio.results.volume"), value: `+${audioMetrics.volumeGrowth}%` },
+                { metric: t("caseStudies.audio.results.cpa"), value: `-${audioMetrics.cpaReduction}%` },
+                { metric: t("caseStudies.audio.results.ctr"), value: `${audioMetrics.ctr}%` },
+                { metric: t("caseStudies.audio.results.retention"), value: `>${audioMetrics.d7Retention}%` }
             ],
             notionLink: "https://www.notion.so/Scaling-User-Acquisition-2eb5649dae6380b98236eeafece26268?source=copy_link",
             experiments: t('caseStudies.audio.experimentsData', { returnObjects: true }) || []

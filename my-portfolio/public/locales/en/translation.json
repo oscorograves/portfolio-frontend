@@ -86,7 +86,7 @@
     "projectSubtitle": "Paid GTM & Audience Acquisition",
     "packtTitle": "Packt Events",
     "projectTitle": "Shipping a Paid GTM Engine for Packt Events",
-    "projectDesc": "Launched a paid events vertical and achieved 150+ attendees with 80%+ net-new audience acquisition",
+    "projectDesc": "Launched a paid events vertical and acquired {{attendees}} attendees with a {{netNew}}% net-new audience acquisition",
     "metrics": {
       "attendees": "Paid Attendees",
       "netNew": "Net-New %",
@@ -338,7 +338,7 @@
       "clientName": "Packt",
       "badge": "EdTech",
       "category": "Growth & GTM",
-      "problem": "Acquiring 150 paying engineers for a $100 LLM workshop with a limited $3,500 budget requires a high-efficiency GTM engine. The challenge is to identify and convert high-intent users without existing audiences, achieving >4.5x ROAS and >80% net new customers.",
+      "problem": "A complete go-to-market strategy and post-campaign results report for a paid, 2-hour hands-on workshop targeting engineers shipping production LLM features under tight deadlines. The campaign successfully acquired {{attendees}} paid attendees at a ${{cac}} blended CAC while maintaining {{netNew}}% net-new acquisition and healthy unit economics.",
       "actions": [
         "Implemented a phased Meta Ads strategy: Learning (6 ad sets), Scale (top performers), and Retargeting",
         "Established Tier 1 (Rev-share) and Tier 2 (Flat-fee) creator partnerships with 5K+ audiences",
@@ -401,7 +401,7 @@
       "clientName": "Audio Platform",
       "badge": "Entertainment",
       "category": "Performance Marketing",
-      "problem": "The baseline CPA of $12.50 was eroding unit economics. The challenge was to identify high-intent consumers and optimize creatives for a mobile-first, sound-on audience to scale volume while decreasing costs.",
+      "problem": "This 90-day growth initiative focused on scaling user acquisition for a leading audio entertainment platform while improving cost efficiency in a highly competitive market. The strategy emphasised retention-aware acquisition, mobile-first creative testing, and disciplined channel optimisation across Meta and Google.",
       "actions": [
         "Transitioned to 15-second mobile-first vertical video creatives tailored for 'sound-on' engagement",
         "Deployed regional language variations and 'Free' messaging hooks to unlock new audience pools",

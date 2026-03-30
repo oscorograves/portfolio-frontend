@@ -2,7 +2,11 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { CaretRight } from 'phosphor-react';
 
-const FeaturedAchievement = ({ t, navigate, isDarkMode }) => {
+const FeaturedAchievement = ({ t, navigate, isDarkMode, fallbackMetrics = [] }) => {
+    const packtMetrics = fallbackMetrics?.find(m => m.client === 'Packt') || { spend: 12000, cpr: 60, roi: 175, netNew: 93 };
+    const packtAttendees = Math.round(packtMetrics.spend / packtMetrics.cpr);
+    const packtRoas = (packtMetrics.roi / 100).toFixed(2).replace(/\.00$/, '');
+
     return (
         <section className="border-b border-gray-300 dark:border-gray-800 transition-colors duration-300">
             <div className="max-w-6xl mx-auto px-8 py-12">
@@ -33,17 +37,17 @@ const FeaturedAchievement = ({ t, navigate, isDarkMode }) => {
                                 <h3 className="text-2xl font-bold text-gray-900 dark:text-white">{t('featuredWork.packtTitle')}</h3>
                                 <p className="text-lg text-gray-600 dark:text-gray-400 font-medium">{t('featuredWork.projectSubtitle')}</p>
                             </div>
-                            <p className="text-gray-600 dark:text-gray-300 text-sm">{t('featuredWork.projectDesc')}</p>
+                            <p className="text-gray-600 dark:text-gray-300 text-sm">{t('featuredWork.projectDesc', { attendees: packtAttendees, netNew: packtMetrics.netNew })}</p>
                         </div>
                         <CaretRight className="w-6 h-6 text-gray-400 group-hover:text-amber-600 dark:group-hover:text-yellow-400 group-hover:translate-x-1 transition-all" weight="duotone" />
                     </div>
                     {/* Mobile: 2 columns, Desktop: 4 columns */}
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 pt-6 border-t border-gray-100 dark:border-gray-700">
                         {[
-                            { label: t('featuredWork.metrics.attendees'), value: '150' },
-                            { label: t('featuredWork.metrics.netNew'), value: '80%+' },
-                            { label: t('featuredWork.metrics.cac'), value: '$23' },
-                            { label: t('featuredWork.metrics.roas'), value: '4.3×' }
+                            { label: t('featuredWork.metrics.attendees'), value: String(packtAttendees) },
+                            { label: t('featuredWork.metrics.netNew'), value: `${packtMetrics.netNew}%+` },
+                            { label: t('featuredWork.metrics.cac'), value: `$${packtMetrics.cpr}` },
+                            { label: t('featuredWork.metrics.roas'), value: `${packtRoas}×` }
                         ].map((metric, i) => (
                             <div key={i} className="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded p-3 text-center">
                                 <div className="text-xs text-gray-600 dark:text-gray-400 mb-1">{metric.label}</div>
