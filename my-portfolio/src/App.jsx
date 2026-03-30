@@ -165,7 +165,6 @@ export default function Portfolio() {
                 <MetricsPage t={t} fallbackMetrics={fallbackMetrics} isDarkMode={isDarkMode} />
               </PageWrapper>
             } />
-
           </Routes>
         </Suspense>
       </div>

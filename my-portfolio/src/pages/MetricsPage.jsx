@@ -75,7 +75,7 @@ const MetricsPage = ({ t, fallbackMetrics, isDarkMode }) => {
                                 onClick={() => setSelectedChannel(channel)}
                                 className={`px-4 py-1.5 rounded-full text-sm font-mono border transition-all ${selectedChannel === channel
                                     ? 'bg-amber-600 dark:bg-yellow-400 text-white dark:text-gray-900 border-amber-600 dark:border-yellow-400 font-bold'
-                                    : 'bg-white/50 dark:bg-gray-800/50 text-gray-600 dark:text-gray-400 border-gray-300 dark:border-gray-700 hover:border-amber-500 dark:hover:border-yellow-300'
+                                    : 'bg-white/50 dark:bg-gray-900/50 text-gray-600 dark:text-gray-400 border-gray-300 dark:border-gray-800 hover:border-amber-500 dark:hover:border-yellow-300'
                                     }`}
                             >
                                 {channel === 'All' ? t('metricsPage.filters.all') : channel}
@@ -93,21 +93,34 @@ const MetricsPage = ({ t, fallbackMetrics, isDarkMode }) => {
                 >
                     {/* Summary Cards */}
                     <motion.div variants={itemVariants} className="grid md:grid-cols-4 gap-4 mb-8">
-                        <motion.div whileHover={{ y: -5 }} className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 text-center hover:border-amber-600 dark:hover:border-yellow-400 transition-all outline outline-2 outline-offset-4 outline-gray-900 outline-2">
+                        <motion.div whileHover={{ y: -5 }} className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 text-center hover:border-amber-600 dark:hover:border-yellow-400 transition-all">
                             <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2 font-mono">{t('metricsPage.totalSpend')}</div>
-                            <div className="text-3xl font-bold text-gray-900 dark:text-white font-mono">${(totalSpend / 1000).toFixed(1)}K</div>
+                            <div className="text-3xl font-bold text-gray-900 dark:text-white font-mono flex items-baseline justify-center tracking-tight">
+                                <span className="text-[0.75em] font-sans font-bold opacity-80 tracking-wide mr-[2px]">$</span>
+                                {(totalSpend / 1000).toFixed(1)}
+                                <span className="text-[0.75em] font-sans font-bold opacity-80 tracking-wide ml-[2px]">K</span>
+                            </div>
                         </motion.div>
-                        <motion.div whileHover={{ y: -5 }} className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 text-center hover:border-amber-600 dark:hover:border-yellow-400 transition-all outline outline-2 outline-offset-4 outline-gray-900 outline-2">
+                        <motion.div whileHover={{ y: -5 }} className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 text-center hover:border-amber-600 dark:hover:border-yellow-400 transition-all">
                             <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2 font-mono">{t('metricsPage.avgCtr')}</div>
-                            <div className="text-3xl font-bold text-gray-900 dark:text-white font-mono">{avgCTR.toFixed(2)}%</div>
+                            <div className="text-3xl font-bold text-gray-900 dark:text-white font-mono flex items-baseline justify-center tracking-tight">
+                                {avgCTR.toFixed(2)}
+                                <span className="text-[0.75em] font-sans font-bold opacity-80 tracking-wide ml-[2px]">%</span>
+                            </div>
                         </motion.div>
-                        <motion.div whileHover={{ y: -5 }} className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 text-center hover:border-amber-600 dark:hover:border-yellow-400 transition-all outline outline-2 outline-offset-4 outline-gray-900 outline-2">
+                        <motion.div whileHover={{ y: -5 }} className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 text-center hover:border-amber-600 dark:hover:border-yellow-400 transition-all">
                             <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2 font-mono">{t('metricsPage.avgCvr')}</div>
-                            <div className="text-3xl font-bold text-gray-900 dark:text-white font-mono">{avgCVR.toFixed(2)}%</div>
+                            <div className="text-3xl font-bold text-gray-900 dark:text-white font-mono flex items-baseline justify-center tracking-tight">
+                                {avgCVR.toFixed(2)}
+                                <span className="text-[0.75em] font-sans font-bold opacity-80 tracking-wide ml-[2px]">%</span>
+                            </div>
                         </motion.div>
-                        <motion.div whileHover={{ y: -5 }} className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 text-center hover:border-amber-600 dark:hover:border-yellow-400 transition-all outline outline-2 outline-offset-4 outline-gray-900 outline-2">
+                        <motion.div whileHover={{ y: -5 }} className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 text-center hover:border-amber-600 dark:hover:border-yellow-400 transition-all">
                             <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2 font-mono">{t('metricsPage.avgRoi')}</div>
-                            <div className="text-3xl font-bold text-gray-900 dark:text-white font-mono">{avgROI.toFixed(0)}%</div>
+                            <div className="text-3xl font-bold text-gray-900 dark:text-white font-mono flex items-baseline justify-center tracking-tight">
+                                {avgROI.toFixed(0)}
+                                <span className="text-[0.75em] font-sans font-bold opacity-80 tracking-wide ml-[2px]">%</span>
+                            </div>
                         </motion.div>
                     </motion.div>
 
@@ -134,11 +147,26 @@ const MetricsPage = ({ t, fallbackMetrics, isDarkMode }) => {
                                         <tr key={index} className="border-b border-gray-200 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
                                             <td className="px-6 py-4 font-medium text-gray-900 dark:text-white">{row.client}</td>
                                             <td className="px-6 py-4 text-gray-600 dark:text-gray-400">{row.channel}</td>
-                                            <td className="px-6 py-4 text-right text-gray-900 dark:text-white font-mono">${row.spend}</td>
-                                            <td className="px-6 py-4 text-right text-gray-900 dark:text-white font-mono">{row.ctr}%</td>
-                                            <td className="px-6 py-4 text-right text-gray-900 dark:text-white font-mono">${row.cpr}</td>
-                                            <td className="px-6 py-4 text-right text-gray-900 dark:text-white font-mono">{row.cvr}%</td>
-                                            <td className="px-6 py-4 text-right text-green-600 dark:text-green-400 font-bold font-mono">{row.roi}%</td>
+                                            <td className="px-6 py-4 text-right text-gray-900 dark:text-white font-mono">
+                                                <span className="text-[0.85em] font-sans font-semibold opacity-80 mr-[1px]">$</span>
+                                                {row.spend}
+                                            </td>
+                                            <td className="px-6 py-4 text-right text-gray-900 dark:text-white font-mono">
+                                                {row.ctr}
+                                                <span className="text-[0.85em] font-sans font-semibold opacity-80 ml-[1px]">%</span>
+                                            </td>
+                                            <td className="px-6 py-4 text-right text-gray-900 dark:text-white font-mono">
+                                                <span className="text-[0.85em] font-sans font-semibold opacity-80 mr-[1px]">$</span>
+                                                {row.cpr}
+                                            </td>
+                                            <td className="px-6 py-4 text-right text-gray-900 dark:text-white font-mono">
+                                                {row.cvr}
+                                                <span className="text-[0.85em] font-sans font-semibold opacity-80 ml-[1px]">%</span>
+                                            </td>
+                                            <td className="px-6 py-4 text-right text-green-600 dark:text-green-400 font-bold font-mono">
+                                                {row.roi}
+                                                <span className="text-[0.85em] font-sans font-semibold opacity-80 ml-[1px]">%</span>
+                                            </td>
                                         </tr>
                                     ))}
                                 </tbody>
@@ -150,7 +178,7 @@ const MetricsPage = ({ t, fallbackMetrics, isDarkMode }) => {
                     <div className="mt-8">
                         <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">{t('metricsPage.insights.title')}</h2>
                         <div className="grid md:grid-cols-3 gap-4">
-                            <motion.div whileHover={{ y: -5, borderColor: isDarkMode ? '#facc15' : '#ea580c', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }} className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 outline outline-2 outline-offset-4 outline-gray-900 outline-2">
+                            <motion.div whileHover={{ y: -5, borderColor: isDarkMode ? '#facc15' : '#ea580c', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }} className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5">
                                 <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2 font-mono">{t('metricsPage.insights.topChannel.title')}</div>
                                 <div className="text-lg font-bold text-gray-900 dark:text-white">
                                     {topChannelObj ? topChannelObj.name : t('metricsPage.insights.topChannel.name')}
@@ -159,7 +187,7 @@ const MetricsPage = ({ t, fallbackMetrics, isDarkMode }) => {
                                     {topChannelObj ? t('metricsPage.insights.dynamicTopChannelDesc', { spend: topChannelObj.spend }) : t('metricsPage.insights.topChannel.desc')}
                                 </p>
                             </motion.div>
-                            <motion.div whileHover={{ y: -5, borderColor: isDarkMode ? '#facc15' : '#ea580c', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }} className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 outline outline-2 outline-offset-4 outline-gray-900 outline-2">
+                            <motion.div whileHover={{ y: -5, borderColor: isDarkMode ? '#facc15' : '#ea580c', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }} className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5">
                                 <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2 font-mono">{t('metricsPage.insights.bestCvr.title')}</div>
                                 <div className="text-lg font-bold text-gray-900 dark:text-white">
                                     {bestCvrCampaign ? `${bestCvrCampaign.client} (${bestCvrCampaign.channel})` : t('metricsPage.insights.bestCvr.name')}
@@ -168,7 +196,7 @@ const MetricsPage = ({ t, fallbackMetrics, isDarkMode }) => {
                                     {bestCvrCampaign ? t('metricsPage.insights.dynamicBestCvrDesc', { cvr: bestCvrCampaign.cvr }) : t('metricsPage.insights.bestCvr.desc')}
                                 </p>
                             </motion.div>
-                            <motion.div whileHover={{ y: -5, borderColor: isDarkMode ? '#facc15' : '#ea580c', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }} className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 outline outline-2 outline-offset-4 outline-gray-900 outline-2">
+                            <motion.div whileHover={{ y: -5, borderColor: isDarkMode ? '#facc15' : '#ea580c', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }} className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5">
                                 <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2 font-mono">{t('metricsPage.insights.highestRoi.title')}</div>
                                 <div className="text-lg font-bold text-gray-900 dark:text-white">
                                     {highestRoiCampaign ? `${highestRoiCampaign.client} (${highestRoiCampaign.channel})` : t('metricsPage.insights.highestRoi.name')}

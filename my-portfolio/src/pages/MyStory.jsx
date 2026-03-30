@@ -69,7 +69,11 @@ const MyStory = ({ t }) => {
         }
     ];
 
-    const philosophyIcons = [Brain, PaintBrush, Funnel];
+    const philosophyIcons = [
+        { icon: Brain, textClass: 'text-purple-600 dark:text-purple-400', bgClass: 'bg-purple-500/10 dark:bg-purple-500/20' },
+        { icon: PaintBrush, textClass: 'text-amber-600 dark:text-amber-400', bgClass: 'bg-amber-500/10 dark:bg-amber-500/20' },
+        { icon: Funnel, textClass: 'text-sky-600 dark:text-sky-400', bgClass: 'bg-sky-500/10 dark:bg-sky-500/20' }
+    ];
 
 
     return (
@@ -92,7 +96,7 @@ const MyStory = ({ t }) => {
                 </p>
 
                 <motion.div
-                    className="absolute -bottom-16 left-1/2 transform -translate-x-1/2"
+                    className="mt-12 w-full flex justify-center"
                     animate={{ y: [0, 10, 0] }}
                     transition={{ repeat: Infinity, duration: 2 }}
                 >
@@ -126,8 +130,8 @@ const MyStory = ({ t }) => {
                                 {/* Content Card */}
                                 <div className={`flex-1 w-full md:w-1/2 ${isEven ? 'md:text-right md:pr-12' : 'md:text-left md:pl-12'} text-center md:text-left`}>
                                     <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">{t(`myStory.timeline.${item.key}.year`)}</h3>
-                                    <h4 className={`text-lg font-semibold mb-2 ${item.color}`}>{t(`myStory.timeline.${item.key}.title`)}</h4>
-                                    <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                                    <h4 className={`text-xl font-semibold mb-2 ${item.color}`}>{t(`myStory.timeline.${item.key}.title`)}</h4>
+                                    <p className="text-base text-gray-600 dark:text-gray-300 leading-relaxed">
                                         {t(`myStory.timeline.${item.key}.desc`)}
                                     </p>
                                 </div>
@@ -161,7 +165,7 @@ const MyStory = ({ t }) => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
                 >
-                    <h2 className="text-2xl font-bold text-gray-900 dark:text-accent-500 mb-6 pb-3 border-b-2 border-amber-600 dark:border-yellow-400">
+                    <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-amber-600 dark:border-yellow-400">
                         {t('myStory.philosophy.title')}
                     </h2>
 
@@ -170,15 +174,17 @@ const MyStory = ({ t }) => {
                             const cards = t('myStory.philosophy.cards', { returnObjects: true });
                             if (!Array.isArray(cards)) return null;
                             return cards.map((card, i) => {
-                                const PhilIcon = philosophyIcons[i];
+                                const PhilIcon = philosophyIcons[i].icon;
+                                const textClass = philosophyIcons[i].textClass;
+                                const bgClass = philosophyIcons[i].bgClass;
                                 return (
                                     <motion.div
                                         key={i}
-                                        className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded-xl p-6 hover:border-amber-600 dark:hover:border-yellow-400 transition-all outline outline-2 outline-offset-4 outline-gray-900 group"
-                                        whileHover={{ y: -5 }}
+                                        className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded-xl p-6 hover:border-amber-600 dark:hover:border-yellow-400 transition-all card-hover group"
+                                        whileHover={{ y: -5, boxShadow: '0 8px 24px rgba(0,0,0,0.10)' }}
                                     >
-                                        <div className="w-14 h-14 bg-amber-600 dark:bg-yellow-400 rounded-lg flex items-center justify-center text-white dark:text-gray-900 mb-4">
-                                            <PhilIcon size={32} weight="duotone" />
+                                        <div className={`w-14 h-14 rounded-lg flex items-center justify-center mb-4 ${bgClass}`}>
+                                            <PhilIcon size={32} className={textClass} weight="duotone" />
                                         </div>
                                         <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
                                             {card?.title}

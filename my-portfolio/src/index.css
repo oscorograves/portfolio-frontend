@@ -6,7 +6,8 @@
 
 @layer base {
     body {
-        @apply antialiased text-gray-900 dark:text-gray-100 bg-gray-50 dark:bg-gray-900 font-mono overflow-x-hidden;
+        @apply antialiased text-gray-900 dark:text-gray-100 bg-gray-50 font-mono overflow-x-hidden;
+        background-color: #f9fafb; /* light mode */
     }
 
     /* Apply VT323 retro font to all headings and prevent faux-bold blurriness */
@@ -39,9 +40,27 @@
     /* Firefox */
 }
 
-/* ===== Dark Mode Polish ===== */
+/* ===== Heading Legibility ===== */
 
-/* Dark mode text glow for headings */
+/* Make VT323 headings bolder/bigger across all sizes in both modes */
+h1 { font-size: 1.15em; letter-spacing: 0.03em; }
+h2 { font-size: 1.15em; letter-spacing: 0.03em; }
+h3 { font-size: 1.12em; letter-spacing: 0.02em; }
+h4, h5, h6 { font-size: 1.1em; letter-spacing: 0.02em; }
+
+/* ===== Card Consistency ===== */
+
+/* Remove all rogue outlines from cards in light mode */
+.card, [class*="rounded"][class*="border"] {
+    outline: none !important;
+}
+
+/* Consistent hover shadow for all cards in light mode */
+:not(.dark) .card-hover:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.10), 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+/* Dark mode subtle glow only */
 .dark .heading-glow {
     text-shadow: 0 0 30px rgba(250, 204, 21, 0.15);
 }

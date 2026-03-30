@@ -25,7 +25,7 @@ const Competencies = ({ t }) => {
     return (
         <section className="border-b border-gray-300 dark:border-gray-800 transition-colors duration-300">
             <div className="max-w-6xl mx-auto px-8 py-12">
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-accent-500 mb-6 pb-3 border-b-2 border-amber-600 dark:border-yellow-400 heading-glow">{t('experience.skills')}</h2>
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-amber-600 dark:border-yellow-400 heading-glow">{t('experience.skills')}</h2>
                 <motion.div
                     className="grid md:grid-cols-3 gap-6"
                     initial="hidden"
@@ -34,18 +34,23 @@ const Competencies = ({ t }) => {
                     variants={containerVariants}
                 >
                     {(() => {
-                        const icons = {
-                            Target: <Megaphone className="w-8 h-8" weight="duotone" />,
-                            TrendingUp: <RocketLaunch className="w-8 h-8" weight="duotone" />,
-                            LineChart: <ChartPieSlice className="w-8 h-8" weight="duotone" />
+                        const iconData = {
+                            Target: { icon: Megaphone, textClass: 'text-rose-600 dark:text-rose-400', bgClass: 'bg-rose-500/10 dark:bg-rose-500/20' },
+                            TrendingUp: { icon: RocketLaunch, textClass: 'text-amber-600 dark:text-amber-400', bgClass: 'bg-amber-500/10 dark:bg-amber-500/20' },
+                            LineChart: { icon: ChartPieSlice, textClass: 'text-indigo-600 dark:text-indigo-400', bgClass: 'bg-indigo-500/10 dark:bg-indigo-500/20' }
                         };
                         const competencies = t('experience.competencies', { returnObjects: true });
                         // Guard against non-array values during translation loading
                         if (!Array.isArray(competencies)) return null;
-                        return competencies.map((competency, i) => (
-                            <motion.div key={i} variants={itemVariants} className="bg-white/40 dark:bg-gray-800/40 backdrop-blur-md border border-gray-300 dark:border-gray-700 rounded p-5 hover:border-amber-600 dark:hover:border-yellow-400 transition-all outline outline-2 outline-offset-4 outline-gray-900" whileHover={{ y: -5 }}>
+                        return competencies.map((competency, i) => {
+                            const IconSetup = iconData[competency.icon] || { icon: Megaphone, textClass: 'text-gray-600 dark:text-gray-400', bgClass: 'bg-gray-100 dark:bg-gray-800' };
+                            const CompIcon = IconSetup.icon;
+                            return (
+                            <motion.div key={i} variants={itemVariants} className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 hover:border-amber-600 dark:hover:border-yellow-400 transition-all card-hover" whileHover={{ y: -5, boxShadow: '0 8px 24px rgba(0,0,0,0.10)' }}>
                                 <div className="flex items-center gap-3 mb-4">
-                                    <div className="w-14 h-14 bg-amber-600 dark:bg-yellow-400 rounded flex items-center justify-center text-white dark:text-gray-900">{icons[competency.icon]}</div>
+                                    <div className={`w-14 h-14 ${IconSetup.bgClass} rounded flex items-center justify-center shrink-0`}>
+                                        <CompIcon className={`w-8 h-8 ${IconSetup.textClass}`} weight="duotone" />
+                                    </div>
                                     <h3 className="font-semibold text-gray-900 dark:text-white text-base heading-glow">{competency.title}</h3>
                                 </div>
                                 <ul className="space-y-1.5">
@@ -63,7 +68,8 @@ const Competencies = ({ t }) => {
                                     ))}
                                 </ul>
                             </motion.div>
-                        ));
+                            );
+                        });
                     })()}
                 </motion.div>
             </div>

@@ -55,7 +55,7 @@ const Footer = ({ t }) => {
                         </span>
                         <div className="flex items-center gap-4">
                             {[
-                                { Icon: Envelope, href: "mailto:hi@scalewithkanishk.in", label: "EMAIL" },
+                                { Icon: Envelope, href: "mailto:oscoro.graves@gmail.com", label: "EMAIL" },
                                 { Icon: LinkedinLogo, href: "https://www.linkedin.com/in/kanishk-singh-ab90b2203/", label: "LINKEDIN" },
                                 { Icon: InstagramLogo, href: "https://www.instagram.com/oscorograves/", label: "INSTAGRAM" },
                                 { Icon: GithubLogo, href: "https://github.com/oscorograves", label: "GITHUB" }

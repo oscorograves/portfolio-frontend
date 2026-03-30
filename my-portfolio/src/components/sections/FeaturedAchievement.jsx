@@ -10,10 +10,10 @@ const FeaturedAchievement = ({ t, navigate, isDarkMode, fallbackMetrics = [] }) 
     return (
         <section className="border-b border-gray-300 dark:border-gray-800 transition-colors duration-300">
             <div className="max-w-6xl mx-auto px-8 py-12">
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-accent-500 mb-6 pb-3 border-b-2 border-amber-600 dark:border-yellow-400">{t('featuredWork.title')}</h2>
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-amber-600 dark:border-yellow-400">{t('featuredWork.title')}</h2>
                 <motion.div
 
-                    className="bg-gradient-to-br from-gray-50/50 to-gray-100/50 dark:from-gray-800/60 dark:to-gray-900/60 backdrop-blur-md border border-gray-200 dark:border-gray-700 rounded-xl p-8 hover:border-amber-600 dark:hover:border-yellow-400 transition-all group cursor-pointer outline outline-2 outline-offset-4 outline-gray-900 outline-2"
+                    className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded-xl p-8 hover:border-amber-600 dark:hover:border-yellow-400 transition-all group cursor-pointer card-hover"
                     data-cursor="pointer"
                     role="button"
                     onClick={() => {
@@ -37,23 +37,49 @@ const FeaturedAchievement = ({ t, navigate, isDarkMode, fallbackMetrics = [] }) 
                                 <h3 className="text-2xl font-bold text-gray-900 dark:text-white">{t('featuredWork.packtTitle')}</h3>
                                 <p className="text-lg text-gray-600 dark:text-gray-400 font-medium">{t('featuredWork.projectSubtitle')}</p>
                             </div>
-                            <p className="text-gray-600 dark:text-gray-300 text-sm">{t('featuredWork.projectDesc', { attendees: packtAttendees, netNew: packtMetrics.netNew })}</p>
+                            <p className="text-gray-600 dark:text-gray-300 text-sm">
+                                {(() => {
+                                    const text = t('featuredWork.projectDesc', { attendees: packtAttendees, netNew: packtMetrics.netNew });
+                                    const parts = text.split(/(\$?\d+[\.,]?\d*(?:%|\+|x|×)*)/i);
+                                    return parts.map((part, index) => {
+                                        if (/^\$?\d+[\.,]?\d*(?:%|\+|x|×)*$/i.test(part)) {
+                                            return <span key={index} className="text-blue-600 dark:text-blue-400 font-mono font-bold tracking-tight">{part}</span>;
+                                        }
+                                        return part;
+                                    });
+                                })()}
+                            </p>
                         </div>
                         <CaretRight className="w-6 h-6 text-gray-400 group-hover:text-amber-600 dark:group-hover:text-yellow-400 group-hover:translate-x-1 transition-all" weight="duotone" />
                     </div>
                     {/* Mobile: 2 columns, Desktop: 4 columns */}
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 pt-6 border-t border-gray-100 dark:border-gray-700">
-                        {[
-                            { label: t('featuredWork.metrics.attendees'), value: String(packtAttendees) },
-                            { label: t('featuredWork.metrics.netNew'), value: `${packtMetrics.netNew}%+` },
-                            { label: t('featuredWork.metrics.cac'), value: `$${packtMetrics.cpr}` },
-                            { label: t('featuredWork.metrics.roas'), value: `${packtRoas}×` }
-                        ].map((metric, i) => (
-                            <div key={i} className="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded p-3 text-center">
-                                <div className="text-xs text-gray-600 dark:text-gray-400 mb-1">{metric.label}</div>
-                                <div className="text-xl font-bold text-gray-900 dark:text-accent-600">{metric.value}</div>
-                            </div>
-                        ))}
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 pt-6 border-t border-gray-100 dark:border-gray-800">
+                        {(() => {
+                            const formatValue = (val) => {
+                                if (typeof val !== 'string') return val;
+                                const parts = val.split(/([\d.,]+)/);
+                                return parts.map((part, index) => {
+                                    if (/^[\d.,]+$/.test(part)) {
+                                        return <span key={index} className="font-mono">{part}</span>;
+                                    } else if (part) {
+                                        return <span key={index} className="text-[15px] font-sans font-semibold tracking-wide text-blue-500 dark:text-blue-400/90 mx-[1px]">{part}</span>;
+                                    }
+                                    return null;
+                                });
+                            };
+
+                            return [
+                                { label: t('featuredWork.metrics.attendees'), value: String(packtAttendees) },
+                                { label: t('featuredWork.metrics.netNew'), value: `${packtMetrics.netNew}%+` },
+                                { label: t('featuredWork.metrics.cac'), value: `$${packtMetrics.cpr}` },
+                                { label: t('featuredWork.metrics.roas'), value: `${packtRoas}×` }
+                            ].map((metric, i) => (
+                                <div key={i} className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-3 text-center">
+                                    <div className="text-xs text-gray-600 dark:text-gray-400 mb-1">{metric.label}</div>
+                                    <div className="text-xl md:text-2xl font-bold text-blue-600 dark:text-blue-500 tracking-tight">{formatValue(metric.value)}</div>
+                                </div>
+                            ));
+                        })()}
                     </div>
                 </motion.div>
             </div>

@@ -7,7 +7,7 @@ const Resources = ({ t }) => {
         <section className="py-12 mt-8 border-t border-gray-300 dark:border-gray-800 transition-colors duration-300">
             <div className="max-w-6xl mx-auto px-8">
                 {/* Section Title (Matched to DigitalSkills/Services) */}
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-accent-500 mb-6 pb-3 border-b-2 border-amber-600 dark:border-yellow-400">
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-amber-600 dark:border-yellow-400">
                     Resources
                 </h2>
 
@@ -16,12 +16,12 @@ const Resources = ({ t }) => {
                     <motion.a
                         href="/Professional_LOR.pdf"
                         target="_blank"
-                        className="group flex items-start gap-4 p-6 bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded-xl hover:border-amber-600 dark:hover:border-yellow-400 transition-all outline outline-2 outline-offset-4 outline-gray-900 outline-2 cursor-pointer"
+                        className="group flex items-start gap-4 p-6 bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded-xl hover:border-amber-600 dark:hover:border-yellow-400 transition-all card-hover cursor-pointer"
                         whileHover={{ y: -5 }}
                     >
-                        {/* Icon Container (Matched to Services: Solid Amber) */}
-                        <div className="w-14 h-14 bg-amber-600 dark:bg-yellow-400 rounded-lg flex items-center justify-center text-white dark:text-gray-900 shrink-0">
-                            <DownloadSimple className="w-8 h-8" weight="duotone" />
+                        {/* Shaded Icon Container */}
+                        <div className="w-14 h-14 bg-blue-500/10 dark:bg-blue-500/20 rounded-lg flex items-center justify-center shrink-0">
+                            <DownloadSimple className="w-8 h-8 text-blue-600 dark:text-blue-400" weight="duotone" />
                         </div>
                         <div>
                             <div className="flex items-center gap-2">
@@ -40,12 +40,12 @@ const Resources = ({ t }) => {
                     <motion.a
                         href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTDn-lJIO3TJJ1TQLIFIbFLYzGo-nYZUv0ID45PnaV-OqqrH8GvU88k-Fvd117bCOKZNcsRH_l79FPd/pubhtml"
                         target="_blank"
-                        className="group flex items-start gap-4 p-6 bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded-xl hover:border-amber-600 dark:hover:border-yellow-400 transition-all outline outline-2 outline-offset-4 outline-gray-900 outline-2 cursor-pointer"
+                        className="group flex items-start gap-4 p-6 bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded-xl hover:border-amber-600 dark:hover:border-yellow-400 transition-all card-hover cursor-pointer"
                         whileHover={{ y: -5 }}
                     >
-                        {/* Icon Container (Matched to Services: Solid Amber) */}
-                        <div className="w-14 h-14 bg-amber-600 dark:bg-yellow-400 rounded-lg flex items-center justify-center text-white dark:text-gray-900 shrink-0">
-                            <MicrosoftExcelLogo className="w-8 h-8" weight="duotone" />
+                        {/* Shaded Icon Container */}
+                        <div className="w-14 h-14 bg-emerald-500/10 dark:bg-emerald-500/20 rounded-lg flex items-center justify-center shrink-0">
+                            <MicrosoftExcelLogo className="w-8 h-8 text-emerald-600 dark:text-emerald-400" weight="duotone" />
                         </div>
                         <div>
                             <div className="flex items-center gap-2">

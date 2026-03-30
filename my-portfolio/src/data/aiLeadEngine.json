@@ -1,0 +1,811 @@
+{
+    "name":  "AI Lead Engine - Production Hardened v3.0",
+    "nodes":  [
+                  {
+                      "id":  "node_1",
+                      "name":  "Webhook Trigger",
+                      "type":  "n8n-nodes-base.webhook",
+                      "typeVersion":  1,
+                      "position":  [
+                                       100,
+                                       300
+                                   ],
+                      "parameters":  {
+                                         "httpMethod":  "POST",
+                                         "path":  "leadyx-generate",
+                                         "responseMode":  "onReceived",
+                                         "options":  {
+                                                         "rawBody":  false,
+                                                         "responseCode":  202,
+                                                         "responseData":  "{\"status\": \"accepted\", \"message\": \"Lead generation started. Results will appear in Airtable & Sheets shortly.\", \"code\": 202}"
+                                                     }
+                                     },
+                      "notes":  "FIXED: responseMode changed from lastNode ? onReceived.\nReturns 202 Accepted immediately so the caller is never left hanging.\nEntry point — POST /webhook/leadyx-generate\nExpected body: { city, business_type, client_id, plan }"
+                  },
+                  {
+                      "id":  "node_2",
+                      "name":  "Validate Input",
+                      "type":  "n8n-nodes-base.function",
+                      "typeVersion":  1,
+                      "position":  [
+                                       300,
+                                       300
+                                   ],
+                      "parameters":  {
+                                         "functionCode":  "const body = $json.body || $json;\nconst { city, business_type, client_id, plan } = body;\n\nif (!city || !business_type || !client_id) {\n  throw new Error('Missing required fields: city, business_type, client_id');\n}\n\n// ADDED: Validate client_id format — alphanumeric + underscores, 4-64 chars\nconst clientIdRegex = /^[a-zA-Z0-9_]{4,64}$/;\nif (!clientIdRegex.test(client_id)) {\n  throw new Error('Invalid client_id format. Must be 4-64 alphanumeric characters (underscores allowed).');\n}\n\nreturn [{\n  json: {\n    city,\n    business_type,\n    client_id,\n    plan: plan || 'free',\n    max_leads: plan === 'pro' ? 100 : plan === 'basic' ? 30 : 10,\n    timestamp: new Date().toISOString()\n  }\n}];"
+                                     },
+                      "notes":  "IMPROVED: Added client_id format validation (alphanumeric/underscore, 4-64 chars) to ensure DB schema compatibility."
+                  },
+                  {
+                      "id":  "node_3",
+                      "name":  "Generate Keywords (OpenAI)",
+                      "type":  "n8n-nodes-base.openAi",
+                      "typeVersion":  1,
+                      "position":  [
+                                       500,
+                                       300
+                                   ],
+                      "parameters":  {
+                                         "operation":  "text",
+                                         "model":  "gpt-4o-mini",
+                                         "prompt":  "Generate exactly 10 unique Google search queries to find {{$json[\"business_type\"]}} businesses in {{$json[\"city\"]}}. Return ONLY a JSON array of strings. Example: [\"dentist clinic Delhi contact\", ...]. No explanation.",
+                                         "options":  {
+                                                         "temperature":  0.4,
+                                                         "maxTokens":  300
+                                                     }
+                                     },
+                      "notes":  "FIXED: Switched from gpt-4 → gpt-4o-mini (~90% cost reduction, same quality for structured keyword tasks).\nIMPROVED: Lowered temperature to 0.4 for more deterministic JSON output."
+                  },
+                  {
+                      "id":  "node_4",
+                      "name":  "Parse Keywords",
+                      "type":  "n8n-nodes-base.function",
+                      "typeVersion":  1,
+                      "position":  [
+                                       700,
+                                       300
+                                   ],
+                      "parameters":  {
+                                         "functionCode":  "let keywords;\ntry {\n  const raw = $json.text || $json.choices?.[0]?.message?.content || '';\n  keywords = JSON.parse(raw);\n} catch (e) {\n  keywords = [$json.city + ' ' + $json.business_type + ' contact email'];\n}\n\nconst prevJson = $('Validate Input').first().json;\n\nreturn keywords.map(keyword => ({\n  json: {\n    ...prevJson,\n    keyword\n  }\n}));"
+                                     },
+                      "notes":  "Parses OpenAI keyword array and fans out one item per keyword."
+                  },
+                  {
+                      "id":  "node_5",
+                      "name":  "Split In Batches",
+                      "type":  "n8n-nodes-base.splitInBatches",
+                      "typeVersion":  1,
+                      "position":  [
+                                       900,
+                                       300
+                                   ],
+                      "parameters":  {
+                                         "batchSize":  5,
+                                         "options":  {
+
+                                                     }
+                                     },
+                      "notes":  "IMPROVED: batchSize increased from 3 → 5 to reduce total pipeline time while staying within rate limits."
+                  },
+                  {
+                      "id":  "node_6",
+                      "name":  "Apify Google Search",
+                      "type":  "n8n-nodes-base.httpRequest",
+                      "typeVersion":  3,
+                      "position":  [
+                                       1100,
+                                       300
+                                   ],
+                      "parameters":  {
+                                         "method":  "POST",
+                                         "url":  "https://api.apify.com/v2/acts/apify~google-search-scraper/run-sync-get-dataset-items",
+                                         "authentication":  "genericCredentialType",
+                                         "genericAuthType":  "httpHeaderAuth",
+                                         "sendBody":  true,
+                                         "bodyParameters":  {
+                                                                "parameters":  [
+                                                                                   {
+                                                                                       "name":  "queries",
+                                                                                       "value":  "=[\"={{$json[\\\"keyword\\\"]}}\"]"
+                                                                                   },
+                                                                                   {
+                                                                                       "name":  "maxPagesPerQuery",
+                                                                                       "value":  "2"
+                                                                                   },
+                                                                                   {
+                                                                                       "name":  "resultsPerPage",
+                                                                                       "value":  "10"
+                                                                                   }
+                                                                               ]
+                                                            },
+                                         "options":  {
+                                                         "timeout":  60000,
+                                                         "retry":  {
+                                                                       "enabled":  true,
+                                                                       "maxTries":  3
+                                                                   }
+                                                     }
+                                     },
+                      "notes":  "SECURITY FIX: Token removed from URL query param (was logged in plain text).\nNow uses n8n 'Header Auth' credential — set up in n8n > Credentials > Header Auth:\n  Name: Authorization\n  Value: Bearer YOUR_APIFY_TOKEN\nBind that credential to this node's 'genericAuthType' field."
+                  },
+                  {
+                      "id":  "node_7",
+                      "name":  "Extract URLs",
+                      "type":  "n8n-nodes-base.function",
+                      "typeVersion":  1,
+                      "position":  [
+                                       1300,
+                                       300
+                                   ],
+                      "parameters":  {
+                                         "functionCode":  "const results = Array.isArray($input.all()) ? $input.all() : [$input.first()];\nconst urls = [];\n\n// IMPROVED: Extended blacklist to filter non-lead aggregator/social sites\nconst BLACKLIST = [\n  'google.', 'youtube.', 'facebook.com', 'instagram.com',\n  'yelp.com', 'linkedin.com', 'twitter.com', 'x.com',\n  'justdial.com', 'indiamart.com', 'sulekha.com', 'wikipedia.org',\n  'tripadvisor.com', 'zomato.com', 'practo.com', 'quora.com'\n];\n\nfor (const item of results) {\n  const data = item.json;\n  const url = data.url || '';\n  const isBlacklisted = BLACKLIST.some(b => url.includes(b));\n  if (url.startsWith('http') && !isBlacklisted) {\n    urls.push({\n      json: {\n        website: url,\n        title: data.title || '',\n        description: data.description || '',\n        client_id: $('Validate Input').first().json.client_id,\n        city: $('Validate Input').first().json.city,\n        business_type: $('Validate Input').first().json.business_type\n      }\n    });\n  }\n}\n\nreturn urls.length > 0 ? urls : [{ json: { website: null, skip: true } }];"
+                                     },
+                      "notes":  "IMPROVED: Extended URL blacklist to include Facebook, Instagram, Yelp, JustDial, LinkedIn, IndiaMART, Zomato, Practo and other non-lead aggregator domains."
+                  },
+                  {
+                      "id":  "node_8",
+                      "name":  "Filter Valid URLs",
+                      "type":  "n8n-nodes-base.filter",
+                      "typeVersion":  2,
+                      "position":  [
+                                       1500,
+                                       300
+                                   ],
+                      "parameters":  {
+                                         "conditions":  {
+                                                            "options":  {
+                                                                            "caseSensitive":  true,
+                                                                            "leftValue":  "",
+                                                                            "typeValidation":  "strict"
+                                                                        },
+                                                            "conditions":  [
+                                                                               {
+                                                                                   "id":  "cond_1",
+                                                                                   "leftValue":  "={{$json[\"website\"]}}",
+                                                                                   "rightValue":  "",
+                                                                                   "operator":  {
+                                                                                                    "type":  "string",
+                                                                                                    "operation":  "notEmpty"
+                                                                                                }
+                                                                               },
+                                                                               {
+                                                                                   "id":  "cond_2",
+                                                                                   "leftValue":  "={{$json[\"skip\"]}}",
+                                                                                   "rightValue":  true,
+                                                                                   "operator":  {
+                                                                                                    "type":  "boolean",
+                                                                                                    "operation":  "notEquals"
+                                                                                                }
+                                                                               }
+                                                                           ],
+                                                            "combinator":  "and"
+                                                        }
+                                     },
+                      "notes":  "Removes null or skipped entries before scraping."
+                  },
+                  {
+                      "id":  "node_9",
+                      "name":  "Scrape Website (ScrapingBee)",
+                      "type":  "n8n-nodes-base.httpRequest",
+                      "typeVersion":  3,
+                      "position":  [
+                                       1700,
+                                       300
+                                   ],
+                      "parameters":  {
+                                         "method":  "GET",
+                                         "url":  "https://app.scrapingbee.com/api/v1/",
+                                         "authentication":  "genericCredentialType",
+                                         "genericAuthType":  "httpQueryAuth",
+                                         "sendQuery":  true,
+                                         "queryParameters":  {
+                                                                 "parameters":  [
+                                                                                     {
+                                                                                         "name":  "url",
+                                                                                         "value":  "={{$json[\"website\"]}}"
+                                                                                    },
+                                                                                    {
+                                                                                        "name":  "render_js",
+                                                                                        "value":  "true"
+                                                                                    },
+                                                                                    {
+                                                                                        "name":  "premium_proxy",
+                                                                                        "value":  "true"
+                                                                                    },
+                                                                                    {
+                                                                                        "name":  "block_ads",
+                                                                                        "value":  "true"
+                                                                                    }
+                                                                                ]
+                                                             },
+                                         "options":  {
+                                                         "timeout":  30000,
+                                                         "response":  {
+                                                                          "response":  {
+                                                                                           "responseFormat":  "text"
+                                                                                       }
+                                                                      }
+                                                     }
+                                     },
+                      "continueOnFail":  true,
+                      "notes":  "FIXED: Replaced basic HTTP GET with ScrapingBee API.\nSECURITY FIX: Use an n8n 'Query Auth' credential instead of passing the API key as a plain-text query param.\nSETUP: n8n > Credentials > Query Auth, then set Name: api_key and Value: YOUR_SCRAPINGBEE_API_KEY.\nHandles JS-rendered sites (React/Next.js), Cloudflare/Bot protection, and proxy rotation.\nAlternatives: Browserless.io or a dedicated Apify Web Scraper actor.\nContinues on failure to avoid blocking the whole pipeline."
+                  },
+                  {
+                      "id":  "node_10",
+                      "name":  "Extract Contacts",
+                      "type":  "n8n-nodes-base.function",
+                      "typeVersion":  1,
+                      "position":  [
+                                       1900,
+                                       300
+                                   ],
+                      "parameters":  {
+                                         "functionCode":  "const html = $json.data || $json.body || '';\nconst prev = $('Filter Valid URLs').first().json;\n\n// IMPROVED: International email regex (unchanged — handled by AI for obfuscated variants)\nconst emailRegex = /[A-Z0-9._%+\\-]+@[A-Z0-9.\\-]+\\.[A-Z]{2,}/ig;\n\n// IMPROVED: International phone regex — covers IN (+91), US (+1), UK (+44), EU (+3x/+4x/+5x),\n// and generic 7–15 digit numbers with optional country code prefix\nconst phoneRegex = /(?:\\+?(?:1|44|91|49|33|39|34|61|81|86|55|27|\\d{1,3})[\\-\\s]?)?(?:\\(?\\d{2,4}\\)?[\\-\\s]?){2,4}\\d{3,4}(?!\\d)/g;\n\nconst linkedinRegex = /https?:\\/\\/(?:www\\.)?linkedin\\.com\\/(?:in|company)\\/[A-Za-z0-9\\-_]+/g;\n\nconst emails = [...new Set(html.match(emailRegex) || [])];\nconst rawPhones = html.match(phoneRegex) || [];\n// Filter out numbers that look like years or short codes (less than 7 digits)\nconst phones = [...new Set(rawPhones.filter(p => p.replace(/\\D/g, '').length >= 7))];\nconst linkedins = [...new Set(html.match(linkedinRegex) || [])];\n\nreturn [{\n  json: {\n    website: prev.website,\n    title: prev.title,\n    description: prev.description,\n    city: prev.city,\n    business_type: prev.business_type,\n    client_id: prev.client_id,\n    raw_html_snippet: html.substring(0, 5000),\n    emails,\n    phones,\n    linkedins,\n    has_contact: emails.length > 0 || phones.length > 0\n  }\n}];"
+                                     },
+                      "notes":  "IMPROVED: Phone regex now international (IN/US/UK/EU/generic), filters numbers < 7 digits.\nRaw HTML snippet (first 5000 chars) passed to AI node to detect obfuscated emails like 'info [at] company [dot] com'."
+                  },
+                  {
+                      "id":  "node_11",
+                      "name":  "Filter Leads With Contacts",
+                      "type":  "n8n-nodes-base.filter",
+                      "typeVersion":  1,
+                      "position":  [
+                                       2100,
+                                       300
+                                   ],
+                      "parameters":  {
+                                         "conditions":  {
+                                                            "boolean":  [
+                                                                            {
+                                                                                "value1":  "={{$json[\"has_contact\"]}}",
+                                                                                "value2":  true,
+                                                                                "operation":  "equal"
+                                                                            }
+                                                                        ]
+                                                        }
+                                     },
+                      "notes":  "Only passes through leads that have at least one email or phone."
+                  },
+                  {
+                      "id":  "node_12",
+                      "name":  "OpenAI Clean & Enrich",
+                      "type":  "n8n-nodes-base.openAi",
+                      "typeVersion":  1,
+                      "position":  [
+                                       2300,
+                                       300
+                                   ],
+                      "parameters":  {
+                                         "operation":  "text",
+                                         "model":  "gpt-4o-mini",
+                                         "prompt":  "Given this raw lead data:\nWebsite: {{$json[\"website\"]}}\nTitle: {{$json[\"title\"]}}\nDescription: {{$json[\"description\"]}}\nEmails found by regex: {{$json[\"emails\"]}}\nPhones found by regex: {{$json[\"phones\"]}}\nRaw HTML snippet (scan for obfuscated emails like 'info [at] domain [dot] com' or 'contact AT company DOT co'): {{$json[\"raw_html_snippet\"]}}\n\nReturn ONLY a JSON object with these fields:\n{\n  \"company_name\": \"cleaned company name or null\",\n  \"primary_email\": \"best email including any obfuscated ones found, or null\",\n  \"primary_phone\": \"best phone in E.164 format (e.g. +911234567890) or null\",\n  \"website\": \"cleaned website URL\",\n  \"industry\": \"business category\",\n  \"location\": \"city/area if detectable\",\n  \"contact_quality\": \"high|medium|low\"\n}\nNo markdown, no explanation.",
+                                         "options":  {
+                                                         "temperature":  0.3,
+                                                         "maxTokens":  300
+                                                     }
+                                     },
+                      "notes":  "FIXED: Switched gpt-4 → gpt-4o-mini (~90% cost saving).\nIMPROVED: Prompt now explicitly instructs AI to find obfuscated emails (e.g. 'info [at] company [dot] com') from the raw HTML snippet.\nIMPROVED: primary_phone requested in E.164 format directly from AI."
+                  },
+                  {
+                      "id":  "node_13",
+                      "name":  "Lead Scoring",
+                      "type":  "n8n-nodes-base.function",
+                      "typeVersion":  1,
+                      "position":  [
+                                       2500,
+                                       300
+                                   ],
+                      "parameters":  {
+                                         "functionCode":  "let enriched;\ntry {\n  const raw = $json.text || $json.choices?.[0]?.message?.content || '{}';\n  enriched = JSON.parse(raw);\n} catch (e) {\n  enriched = {};\n}\n\nconst prev = $('Extract Contacts').first().json;\n\n// GATEKEEPER: If company_name is null/empty, score = 0 (junk lead — AI enrichment failed)\nif (!enriched.company_name || enriched.company_name.trim() === '' || enriched.company_name === 'null') {\n  return [{\n    json: {\n      ...enriched,\n      client_id: prev.client_id,\n      city: prev.city,\n      business_type: prev.business_type,\n      linkedin: null,\n      score: 0,\n      status: 'Cold',\n      discard_reason: 'company_name_null',\n      source: '_Auto',\n      created_at: new Date().toISOString()\n    }\n  }];\n}\n\nlet score = 0;\nif (enriched.primary_email) score += 30;\nif (enriched.primary_phone) score += 25;\nif (enriched.contact_quality === 'high') score += 25;\nelse if (enriched.contact_quality === 'medium') score += 15;\nif (prev.linkedins && prev.linkedins.length > 0) score += 10;\nif (enriched.website) score += 10;\n\nconst status = score >= 70 ? 'Hot' : score >= 40 ? 'Warm' : 'Cold';\n\nreturn [{\n  json: {\n    ...enriched,\n    client_id: prev.client_id,\n    city: prev.city,\n    business_type: prev.business_type,\n    linkedin: (prev.linkedins || [])[0] || null,\n    score,\n    status,\n    source: '_Auto',\n    created_at: new Date().toISOString()\n  }\n}];"
+                                     },
+                      "notes":  "IMPROVED: Added company_name GATEKEEPER — leads with null/empty company_name are immediately scored 0 + tagged 'discard_reason: company_name_null' to prevent junk Warm leads polluting Airtable."
+                  },
+                  {
+                      "id":  "node_14",
+                      "name":  "Filter Hot & Warm Leads",
+                      "type":  "n8n-nodes-base.if",
+                      "typeVersion":  1,
+                      "position":  [
+                                       2700,
+                                       300
+                                   ],
+                      "parameters":  {
+                                         "conditions":  {
+                                                            "number":  [
+                                                                           {
+                                                                               "value1":  "={{$json[\"score\"]}}",
+                                                                               "operation":  "largerEqual",
+                                                                               "value2":  40
+                                                                           }
+                                                                       ]
+                                                        }
+                                     },
+                      "notes":  "Routes leads: true = Hot/Warm (score ≥ 40) → Dedup Check → Airtable, false = Cold leads → Log."
+                  },
+                  {
+                      "id":  "node_26",
+                      "name":  "Deduplication Check (Airtable)",
+                      "type":  "n8n-nodes-base.airtable",
+                      "typeVersion":  1,
+                      "position":  [
+                                       2900,
+                                       180
+                                   ],
+                      "parameters":  {
+                                         "operation":  "list",
+                                         "application":  "YOUR_AIRTABLE_BASE_ID",
+                                         "table":  "Leads",
+                                         "additionalFields":  {
+                                                                  "filterByFormula":  "OR(LOWER({Email}) = LOWER('={{$json[\"primary_email\"]}}'), LOWER({Website}) = LOWER('={{$json[\"website\"]}}'))",
+                                                                  "maxRecords":  1,
+                                                                  "fields":  [
+                                                                                 "Email",
+                                                                                 "Website"
+                                                                             ]
+                                                              }
+                                     },
+                      "alwaysOutputData":  true,
+                      "notes":  "NEW (Deduplication): Searches Airtable for existing records matching the same email OR website.\nAlways Output Data is enabled so the workflow still emits one paired item when Airtable finds 0 matches.\nEmpty Airtable result = new lead; 1+ records returned = duplicate → skip saving."
+                  },
+                  {
+                      "id":  "node_27",
+                      "name":  "Is New Lead?",
+                      "type":  "n8n-nodes-base.if",
+                      "typeVersion":  1,
+                      "position":  [
+                                       3100,
+                                       180
+                                   ],
+                      "parameters":  {
+                                         "conditions":  {
+                                                            "number":  [
+                                                                           {
+                                                                               "value1":  "={{ Object.keys($json || {}).length }}",
+                                                                               "operation":  "equal",
+                                                                               "value2":  0
+                                                                           }
+                                                                       ]
+                                                         }
+                                      },
+                      "notes":  "NEW (Deduplication Gate): true (empty Airtable payload after Always Output Data) = unique lead → proceed to Save.\nfalse (1+ Airtable records returned) = duplicate → silently dropped.\nAvoids deprecated $items() usage and preserves the original paired lead item for downstream nodes."
+                  },
+                  {
+                      "id":  "node_15",
+                      "name":  "Save to Airtable",
+                      "type":  "n8n-nodes-base.airtable",
+                      "typeVersion":  1,
+                      "position":  [
+                                       3300,
+                                       160
+                                   ],
+                      "parameters":  {
+                                         "operation":  "create",
+                                         "application":  "YOUR_AIRTABLE_BASE_ID",
+                                         "table":  "Leads",
+                                         "additionalFields":  {
+                                                                  "fieldMappingMode":  "defineBelow",
+                                                                  "value":  {
+                                                                                "string":  [
+                                                                                               {
+                                                                                                   "name":  "Company Name",
+                                                                                                    "value":  "={{$('Lead Scoring').item.json[\"company_name\"]}}"
+                                                                                               },
+                                                                                               {
+                                                                                                   "name":  "Email",
+                                                                                                    "value":  "={{$('Lead Scoring').item.json[\"primary_email\"]}}"
+                                                                                               },
+                                                                                               {
+                                                                                                   "name":  "Phone",
+                                                                                                    "value":  "={{$('Lead Scoring').item.json[\"primary_phone\"]}}"
+                                                                                               },
+                                                                                               {
+                                                                                                   "name":  "Website",
+                                                                                                    "value":  "={{$('Lead Scoring').item.json[\"website\"]}}"
+                                                                                               },
+                                                                                               {
+                                                                                                   "name":  "LinkedIn",
+                                                                                                    "value":  "={{$('Lead Scoring').item.json[\"linkedin\"]}}"
+                                                                                               },
+                                                                                               {
+                                                                                                   "name":  "City",
+                                                                                                    "value":  "={{$('Lead Scoring').item.json[\"city\"]}}"
+                                                                                               },
+                                                                                               {
+                                                                                                   "name":  "Industry",
+                                                                                                    "value":  "={{$('Lead Scoring').item.json[\"industry\"]}}"
+                                                                                               },
+                                                                                               {
+                                                                                                   "name":  "Status",
+                                                                                                    "value":  "={{$('Lead Scoring').item.json[\"status\"]}}"
+                                                                                               },
+                                                                                               {
+                                                                                                   "name":  "Score",
+                                                                                                    "value":  "={{$('Lead Scoring').item.json[\"score\"]}}"
+                                                                                               },
+                                                                                               {
+                                                                                                   "name":  "Client ID",
+                                                                                                    "value":  "={{$('Lead Scoring').item.json[\"client_id\"]}}"
+                                                                                               },
+                                                                                               {
+                                                                                                   "name":  "Source",
+                                                                                                    "value":  "={{$('Lead Scoring').item.json[\"source\"]}}"
+                                                                                               },
+                                                                                               {
+                                                                                                   "name":  "Created At",
+                                                                                                    "value":  "={{$('Lead Scoring').item.json[\"created_at\"]}}"
+                                                                                               }
+                                                                                           ]
+                                                                            }
+                                                              }
+                                     },
+                      "notes":  "Saves de-duplicated Hot/Warm leads to Airtable Leads table.\nField mappings are sourced from the paired Lead Scoring item so dedup results do not overwrite lead data."
+                  },
+                  {
+                      "id":  "node_16",
+                      "name":  "Backup to Google Sheets",
+                      "type":  "n8n-nodes-base.googleSheets",
+                      "typeVersion":  2,
+                      "position":  [
+                                       3300,
+                                       320
+                                   ],
+                      "parameters":  {
+                                         "operation":  "append",
+                                         "documentId":  "YOUR_GOOGLE_SHEET_ID",
+                                         "sheetName":  "Leads",
+                                         "dataMode":  "defineBelow",
+                                         "fieldsUi":  {
+                                                          "fieldValues":  [
+                                                                               {
+                                                                                   "fieldId":  "company_name",
+                                                                                   "fieldValue":  "={{$('Lead Scoring').item.json[\"company_name\"]}}"
+                                                                               },
+                                                                               {
+                                                                                   "fieldId":  "primary_email",
+                                                                                   "fieldValue":  "={{$('Lead Scoring').item.json[\"primary_email\"]}}"
+                                                                               },
+                                                                               {
+                                                                                   "fieldId":  "primary_phone",
+                                                                                   "fieldValue":  "={{$('Lead Scoring').item.json[\"primary_phone\"]}}"
+                                                                               },
+                                                                               {
+                                                                                   "fieldId":  "website",
+                                                                                   "fieldValue":  "={{$('Lead Scoring').item.json[\"website\"]}}"
+                                                                               },
+                                                                               {
+                                                                                   "fieldId":  "city",
+                                                                                   "fieldValue":  "={{$('Lead Scoring').item.json[\"city\"]}}"
+                                                                               },
+                                                                               {
+                                                                                   "fieldId":  "status",
+                                                                                   "fieldValue":  "={{$('Lead Scoring').item.json[\"status\"]}}"
+                                                                               },
+                                                                               {
+                                                                                   "fieldId":  "score",
+                                                                                   "fieldValue":  "={{$('Lead Scoring').item.json[\"score\"]}}"
+                                                                               },
+                                                                               {
+                                                                                   "fieldId":  "client_id",
+                                                                                   "fieldValue":  "={{$('Lead Scoring').item.json[\"client_id\"]}}"
+                                                                               },
+                                                                               {
+                                                                                   "fieldId":  "created_at",
+                                                                                   "fieldValue":  "={{$('Lead Scoring').item.json[\"created_at\"]}}"
+                                                                               }
+                                                                          ]
+                                                      }
+                                     },
+                      "notes":  "Backup all qualified leads to Google Sheets.\nField mappings are sourced from the paired Lead Scoring item so dedup results do not overwrite lead data."
+                  },
+                  {
+                      "id":  "node_17",
+                      "name":  "Send to CRM API",
+                      "type":  "n8n-nodes-base.httpRequest",
+                      "typeVersion":  3,
+                      "position":  [
+                                       3500,
+                                       160
+                                   ],
+                      "parameters":  {
+                                         "method":  "POST",
+                                         "url":  "https://app.leadyx.io/api/leads",
+                                         "sendHeaders":  true,
+                                         "headerParameters":  {
+                                                                  "parameters":  [
+                                                                                     {
+                                                                                         "name":  "Authorization",
+                                                                                         "value":  "Bearer YOUR_LEADYX_API_KEY"
+                                                                                     },
+                                                                                     {
+                                                                                         "name":  "Content-Type",
+                                                                                         "value":  "application/json"
+                                                                                     }
+                                                                                 ]
+                                                              },
+                                         "sendBody":  true,
+                                         "bodyContentType":  "json",
+                                         "jsonBody":  "={{ JSON.stringify($('Lead Scoring').item.json) }}",
+                                         "options":  {
+                                                         "timeout":  10000
+                                                     }
+                                     },
+                      "notes":  "Pushes leads to backend API (app.leadyx.io).\nPayload is sourced from the paired Lead Scoring item so the CRM receives the original lead, not the Airtable create response."
+                  },
+                  {
+                      "id":  "node_18",
+                      "name":  "Send Outreach Email",
+                      "type":  "n8n-nodes-base.gmail",
+                      "typeVersion":  2,
+                      "position":  [
+                                       3500,
+                                       320
+                                   ],
+                      "parameters":  {
+                                         "operation":  "send",
+                                         "subject":  "Quick Question for {{$('Lead Scoring').item.json[\"company_name\"]}}",
+                                         "emailType":  "html",
+                                         "message":  "<p>Hi there,</p><p>I came across <strong>{{$('Lead Scoring').item.json[\"company_name\"]}}</strong> and wanted to reach out about a potential opportunity.</p><p>We help {{$('Lead Scoring').item.json[\"industry\"]}} businesses in {{$('Lead Scoring').item.json[\"city\"]}} grow their client base using AI-powered lead generation.</p><p>Would you be open to a quick 10-minute call this week?</p><p>Best regards,<br>Team</p>",
+                                         "options":  {
+
+                                                     },
+                                         "sendTo":  "={{$('Lead Scoring').item.json[\"primary_email\"]}}"
+                                     },
+                      "continueOnFail":  true,
+                      "notes":  "⚠️ DANGER: Sending high-volume cold email via personal Gmail WILL trigger spam flags and get the workspace banned.\nRECOMMENDED: Replace this node with SendGrid, Mailchimp Transactional, or Amazon SES for production volume.\nFor low-volume testing only, Gmail is acceptable."
+                  },
+                  {
+                      "id":  "node_19",
+                      "name":  "Send WhatsApp (Twilio)",
+                      "type":  "n8n-nodes-base.httpRequest",
+                      "typeVersion":  3,
+                      "position":  [
+                                       3700,
+                                       240
+                                   ],
+                      "parameters":  {
+                                         "method":  "POST",
+                                         "url":  "https://api.twilio.com/2010-04-01/Accounts/YOUR_TWILIO_SID/Messages.json",
+                                         "authentication":  "genericCredentialType",
+                                         "genericAuthType":  "httpBasicAuth",
+                                         "sendBody":  true,
+                                         "bodyContentType":  "form",
+                                         "bodyParameters":  {
+                                                                "parameters":  [
+                                                                                   {
+                                                                                       "name":  "From",
+                                                                                       "value":  "whatsapp:+14155238886"
+                                                                                   },
+                                                                                    {
+                                                                                        "name":  "To",
+                                                                                        "value":  "whatsapp:={{  (function(raw) {    if (!raw) return '';    const digits = raw.replace(/\\D/g, '');    if (digits.startsWith('91') && digits.length === 12) return '+' + digits;    if (digits.startsWith('1') && digits.length === 11) return '+' + digits;    if (digits.length === 10) return '+91' + digits;    return '+' + digits;  })($('Lead Scoring').item.json['primary_phone'])}}"
+                                                                                    },
+                                                                                    {
+                                                                                        "name":  "Body",
+                                                                                        "value":  "Hi! We found your business {{$('Lead Scoring').item.json[\"company_name\"]}} and wanted to connect. We help {{$('Lead Scoring').item.json[\"industry\"]}} businesses grow. Interested in a quick chat? Reply YES."
+                                                                                    }
+                                                                               ]
+                                                            },
+                                         "options":  {
+                                                         "timeout":  10000
+                                                     }
+                                     },
+                      "continueOnFail":  true,
+                      "notes":  "IMPROVED: Phone number is now normalised to E.164 format before sending to Twilio.\nLogic: strips non-digits, infers country code (+91 for 10-digit IN numbers, +1 for 11-digit US numbers).\nFor international expansion, update the AI prompt in node_12 to return E.164 directly."
+                  },
+                  {
+                      "id":  "node_20",
+                      "name":  "Slack Notification",
+                      "type":  "n8n-nodes-base.slack",
+                      "typeVersion":  1,
+                      "position":  [
+                                       3900,
+                                       240
+                                   ],
+                      "parameters":  {
+                                         "operation":  "postMessage",
+                                         "channel":  "#leads-alerts",
+                                         "text":  "🔥 *New {{$('Lead Scoring').item.json[\"status\"]}} Lead* (Score: {{$('Lead Scoring').item.json[\"score\"]}})\n*Company:* {{$('Lead Scoring').item.json[\"company_name\"]}}\n*Email:* {{$('Lead Scoring').item.json[\"primary_email\"]}}\n*Phone:* {{$('Lead Scoring').item.json[\"primary_phone\"]}}\n*City:* {{$('Lead Scoring').item.json[\"city\"]}}\n*Industry:* {{$('Lead Scoring').item.json[\"industry\"]}}\n*Client:* {{$('Lead Scoring').item.json[\"client_id\"]}}"
+                                     },
+                      "notes":  "Sends Slack alert for every new Hot or Warm lead."
+                  },
+                  {
+                      "id":  "node_21",
+                      "name":  "Log Cold Leads",
+                      "type":  "n8n-nodes-base.googleSheets",
+                      "typeVersion":  2,
+                      "position":  [
+                                       2900,
+                                       500
+                                   ],
+                      "parameters":  {
+                                         "operation":  "append",
+                                         "documentId":  "YOUR_GOOGLE_SHEET_ID",
+                                         "sheetName":  "Cold Leads",
+                                         "dataMode":  "defineBelow",
+                                         "fieldsUi":  {
+                                                          "fieldValues":  [
+                                                                              {
+                                                                                  "fieldId":  "company_name",
+                                                                                  "fieldValue":  "={{$json[\"company_name\"]}}"
+                                                                              },
+                                                                              {
+                                                                                  "fieldId":  "website",
+                                                                                  "fieldValue":  "={{$json[\"website\"]}}"
+                                                                              },
+                                                                              {
+                                                                                  "fieldId":  "score",
+                                                                                  "fieldValue":  "={{$json[\"score\"]}}"
+                                                                              },
+                                                                              {
+                                                                                  "fieldId":  "discard_reason",
+                                                                                  "fieldValue":  "={{$json[\"discard_reason\"] || 'low_score'}}"
+                                                                              },
+                                                                              {
+                                                                                  "fieldId":  "client_id",
+                                                                                  "fieldValue":  "={{$json[\"client_id\"]}}"
+                                                                              },
+                                                                              {
+                                                                                  "fieldId":  "created_at",
+                                                                                  "fieldValue":  "={{$json[\"created_at\"]}}"
+                                                                              }
+                                                                          ]
+                                                      }
+                                     },
+                      "notes":  "Archives cold leads and gatekeeper-rejected leads to a separate sheet for future re-engagement."
+                  },
+                  {
+                      "id":  "node_22",
+                      "name":  "Error Handler",
+                      "type":  "n8n-nodes-base.errorTrigger",
+                      "typeVersion":  1,
+                      "position":  [
+                                       100,
+                                       600
+                                   ],
+                      "parameters":  {
+
+                                     }
+                  },
+                  {
+                      "id":  "node_23",
+                      "name":  "Log Error to Slack",
+                      "type":  "n8n-nodes-base.slack",
+                      "typeVersion":  1,
+                      "position":  [
+                                       300,
+                                       600
+                                   ],
+                      "parameters":  {
+                                         "operation":  "postMessage",
+                                         "channel":  "#leadyx-errors",
+                                         "text":  "⚠️ *Workflow Error*\n*Node:* {{$json[\"execution\"][\"lastNodeExecuted\"]}}\n*Error:* {{$json[\"error\"][\"message\"]}}\n*Time:* {{new Date().toISOString()}}"
+                                     },
+                      "notes":  "Catches all errors and posts details to Slack #leadyx-errors."
+                  },
+                  {
+                      "id":  "node_24",
+                      "name":  "Respond 202 Accepted",
+                      "type":  "n8n-nodes-base.respondToWebhook",
+                      "typeVersion":  1,
+                      "position":  [
+                                       4100,
+                                       240
+                                   ],
+                      "parameters":  {
+                                         "respondWith":  "json",
+                                         "responseBody":  "{\"success\": true, \"message\": \"Lead pipeline completed\", \"note\": \"Check Airtable and Google Sheets for results\"}",
+                                         "responseMode":  "onReceived",
+                                         "responseCode":  202,
+                                         "responseData":  "accepted"
+                                     },
+                      "notes":  "⚠️ NOTE: With responseMode: onReceived on node_1, the HTTP 202 response is sent immediately at the start.\nThis node is now DISCONNECTED from the flow (no incoming connections).\nIt is kept here as a reference only. You can safely delete it."
+                  },
+                  {
+                      "id":  "node_25",
+                      "name":  "Merge Before Slack",
+                      "type":  "n8n-nodes-base.merge",
+                      "typeVersion":  2,
+                      "position":  [
+                                       3700,
+                                       160
+                                   ],
+                      "parameters":  {
+                                         "mode":  "passThrough",
+                                         "output":  "input1"
+                                     },
+                      "notes":  "Merges CRM API and Email paths before single Slack notification."
+                  },
+                  {
+                      "id":  "node_sig_check",
+                      "name":  "Signature Check (optional)",
+                      "type":  "n8n-nodes-base.function",
+                      "typeVersion":  1,
+                      "position":  [
+                                       400,
+                                       300
+                                   ],
+                      "parameters":  {
+                                         "functionCode":  "return items.map(item => {\n  const j = item.json || {};\n  const headers = (j.headers && typeof j.headers === 'object') ? j.headers : {};\n  const sigHeader = headers['x-signature'] || headers['x-signature-256'] || headers['stripe-signature'] || '';\n  const raw = j.rawBody || j.__raw || '';\n  let secret = '';\n  try { if (typeof $env !== 'undefined' && $env.LEADYX_WEBHOOK_SECRET) secret = $env.LEADYX_WEBHOOK_SECRET; } catch(e) {}\n  if (!secret && typeof process !== 'undefined' && process.env && process.env.LEADYX_WEBHOOK_SECRET) { secret = process.env.LEADYX_WEBHOOK_SECRET }\n  let ok = true, enforced = false, reason = 'not_configured';\n  if (secret && sigHeader && raw) {\n    try {\n      const crypto = require('crypto');\n      const received = String(sigHeader);\n      const prefix = 'sha256=';\n      const receivedHex = received.startsWith(prefix) ? received.slice(prefix.length) : received;\n      const expected = crypto.createHmac('sha256', secret).update(raw, 'utf8').digest('hex');\n      const a = Buffer.from(expected, 'hex');\n      const b = Buffer.from(receivedHex, 'hex');\n      ok = (a.length === b.length) && crypto.timingSafeEqual(a,b);\n      enforced = true; reason = ok ? 'ok' : 'mismatch';\n    } catch(err) {\n      ok = true; enforced = false; reason = 'crypto_unavailable';\n    }\n  }\n  item.json = Object.assign({}, j, { _sig: { ok, enforced, reason } });\n  return item;\n});"
+                                     }
+                  },
+                  {
+                      "id":  "node_sig_ok",
+                      "name":  "Signature OK?",
+                      "type":  "n8n-nodes-base.filter",
+                      "typeVersion":  1,
+                      "position":  [
+                                       700,
+                                       300
+                                   ],
+                     "parameters":  {
+                                        "conditions":  {
+                                                           "boolean":  [
+                                                                           {
+                                                                               "value1":  "={{$json[\"_sig\"][\"ok\"]}}",
+                                                                               "value2":  true,
+                                                                               "operation":  "equal"
+                                                                           }
+                                                                       ]
+                                                       }
+                                    }
+                  },
+                  {
+                      "id":  "node_corr_id",
+                      "name":  "Add Correlation ID",
+                      "type":  "n8n-nodes-base.function",
+                      "typeVersion":  1,
+                      "position":  [
+                                       1000,
+                                       300
+                                   ],
+                      "parameters":  {
+                                         "functionCode":  "return items.map(item => {\n  const j = item.json || {};\n  if (!j.correlationId) {\n    const rnd = Math.random().toString(16).slice(2,10);\n    const ts = Date.now().toString(36);\n    j.correlationId = `leadyx_${ts}_${rnd}`;\n  }\n  item.json = j;\n  return item;\n});"
+                                     }
+                  }
+              ],
+    "settings":  {
+                     "executionOrder":  "v1",
+                     "saveManualExecutions":  true,
+                     "callerPolicy":  "workflowsFromSameOwner",
+                     "timezone":  "Asia/Kolkata",
+                     "_errorWorkflow_note":  "Set this to your n8n Error Workflow ID in Settings > Error Workflow after import"
+                 },
+    "meta":  {
+                 "description":  "Full AI Lead Generation Webhook Workflow — Production Hardened v3.0. Trigger via POST /webhook/leadyx-generate with { city, business_type, client_id, plan }.",
+                 "version":  "3.0",
+                 "author":  "",
+                 "changelog_v3":  [
+                                      "node_1: responseMode lastNode → onReceived (202 Accepted, no more timeouts)",
+                                      "node_2: Added client_id format validation",
+                                      "node_3: gpt-4 → gpt-4o-mini (~90% cost saving) + temperature lowered to 0.4 for more deterministic JSON",
+                                      "node_5: batchSize 3 → 5",
+                                      "node_6: Hardcoded Apify token moved to n8n Header Auth credential",
+                                      "node_7: URL blacklist extended (Facebook, Instagram, Yelp, JustDial, etc.)",
+                                      "node_9: Basic HTTP GET → ScrapingBee API (JS rendering + proxy rotation) + API key moved to n8n Query Auth credential",
+                                      "node_10: Phone regex now international (IN/US/UK/EU/generic)",
+                                      "node_12: gpt-4 → gpt-4o-mini + prompt updated to detect obfuscated emails",
+                                      "node_13: Added company_name=null gatekeeper (auto score=0)",
+                                      "node_19: Phone number normalised to E.164 before Twilio call",
+                                      "node_26/27 (NEW): Deduplication check via Airtable before saving + Always Output Data + empty-result gate for new leads",
+                                      "node_24: Disconnected (superseded by onReceived response on node_1)"
+                                  ],
+                 "credentials_required":  [
+                                              "openAiApi",
+                                              "apifyApiKey (now via n8n Header Auth credential — Authorization: Bearer TOKEN)",
+                                              "scrapingBeeApiKey (now via n8n Query Auth credential — api_key=YOUR_SCRAPINGBEE_API_KEY)",
+                                              "airtableApi + airtableBaseId",
+                                              "googleSheetsOAuth2 + googleSheetId",
+                                              "gmailOAuth2 (consider replacing with SendGrid/SES for production)",
+                                              "twilioApi (SID + AuthToken)",
+                                              "slackOAuth2",
+                                              "leadyxApiKey (custom header credential)"
+                                          ],
+                 "webhook_endpoint":  "POST https://your-n8n-domain.com/webhook/leadyx-generate",
+                 "example_payload":  {
+                                         "city":  "Delhi",
+                                         "business_type":  "dental clinic",
+                                         "client_id":  "client_001",
+                                         "plan":  "pro"
+                                     }
+             }
+}

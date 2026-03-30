@@ -171,12 +171,12 @@ const HeroAvatar = ({ metrics = [], onNavigate }) => {
                                     initial={{ opacity: 0, y: 10, scale: 0.8 }}
                                     animate={{ opacity: 1, y: 0, scale: 1 }}
                                     exit={{ opacity: 0, y: 5, scale: 0.8 }}
-                                    className="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 bg-white dark:bg-gray-900 px-4 py-3 rounded-xl shadow-xl border border-gray-200 dark:border-gray-700 whitespace-nowrap min-w-[120px] text-center z-40"
+                                    className="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 bg-gray-900 px-4 py-3 rounded-xl shadow-xl border border-gray-700 whitespace-nowrap min-w-[120px] text-center z-40"
                                 >
-                                    <div className="text-xl font-bold text-gray-900 dark:text-accent-600 leading-none font-sans">{metric.value}</div>
-                                    <div className="text-xs text-gray-500 dark:text-gray-400 mt-1 font-medium font-sans">{metric.label}</div>
+                                    <div className="text-xl font-bold text-white leading-none font-mono">{metric.value}</div>
+                                    <div className="text-xs text-gray-300 mt-1 font-medium font-mono">{metric.label}</div>
                                     {/* Little Arrow */}
-                                    <div className="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-white dark:border-t-gray-900" />
+                                    <div className="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-gray-900" />
                                 </motion.div>
                             )}
                         </AnimatePresence>
