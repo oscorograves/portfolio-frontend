@@ -38,6 +38,27 @@ const MetricsPage = ({ t, fallbackMetrics, isDarkMode }) => {
     const avgCVR = filteredMetrics.length ? filteredMetrics.reduce((acc, curr) => acc + curr.cvr, 0) / filteredMetrics.length : 0;
     const avgROI = filteredMetrics.length ? filteredMetrics.reduce((acc, curr) => acc + curr.roi, 0) / filteredMetrics.length : 0;
 
+    // Insights Logic
+    let topChannelObj = null;
+    let bestCvrCampaign = null;
+    let highestRoiCampaign = null;
+
+    if (filteredMetrics.length > 0) {
+        // Top Channel by Spend
+        const channelSpend = {};
+        filteredMetrics.forEach(m => {
+            channelSpend[m.channel] = (channelSpend[m.channel] || 0) + m.spend;
+        });
+        const topChannelName = Object.keys(channelSpend).reduce((a, b) => channelSpend[a] > channelSpend[b] ? a : b);
+        topChannelObj = { name: topChannelName, spend: channelSpend[topChannelName].toLocaleString() };
+
+        // Best CVR
+        bestCvrCampaign = filteredMetrics.reduce((prev, current) => (prev.cvr > current.cvr) ? prev : current);
+
+        // Highest ROI
+        highestRoiCampaign = filteredMetrics.reduce((prev, current) => (prev.roi > current.roi) ? prev : current);
+    }
+
     return (
         <div className="pt-20 min-h-screen transition-colors duration-300">
             <div className="max-w-6xl mx-auto px-8 py-12">
@@ -131,23 +152,29 @@ const MetricsPage = ({ t, fallbackMetrics, isDarkMode }) => {
                         <div className="grid md:grid-cols-3 gap-4">
                             <motion.div whileHover={{ y: -5, borderColor: isDarkMode ? '#facc15' : '#ea580c', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }} className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 outline outline-2 outline-offset-4 outline-gray-900 outline-2">
                                 <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2 font-mono">{t('metricsPage.insights.topChannel.title')}</div>
-                                <div className="text-lg font-bold text-gray-900 dark:text-white">{t('metricsPage.insights.topChannel.name')}</div>
+                                <div className="text-lg font-bold text-gray-900 dark:text-white">
+                                    {topChannelObj ? topChannelObj.name : t('metricsPage.insights.topChannel.name')}
+                                </div>
                                 <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
-                                    {t('metricsPage.insights.topChannel.desc')}
+                                    {topChannelObj ? t('metricsPage.insights.dynamicTopChannelDesc', { spend: topChannelObj.spend }) : t('metricsPage.insights.topChannel.desc')}
                                 </p>
                             </motion.div>
                             <motion.div whileHover={{ y: -5, borderColor: isDarkMode ? '#facc15' : '#ea580c', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }} className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 outline outline-2 outline-offset-4 outline-gray-900 outline-2">
                                 <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2 font-mono">{t('metricsPage.insights.bestCvr.title')}</div>
-                                <div className="text-lg font-bold text-gray-900 dark:text-white">{t('metricsPage.insights.bestCvr.name')}</div>
+                                <div className="text-lg font-bold text-gray-900 dark:text-white">
+                                    {bestCvrCampaign ? `${bestCvrCampaign.client} (${bestCvrCampaign.channel})` : t('metricsPage.insights.bestCvr.name')}
+                                </div>
                                 <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
-                                    {t('metricsPage.insights.bestCvr.desc')}
+                                    {bestCvrCampaign ? t('metricsPage.insights.dynamicBestCvrDesc', { cvr: bestCvrCampaign.cvr }) : t('metricsPage.insights.bestCvr.desc')}
                                 </p>
                             </motion.div>
                             <motion.div whileHover={{ y: -5, borderColor: isDarkMode ? '#facc15' : '#ea580c', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }} className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 outline outline-2 outline-offset-4 outline-gray-900 outline-2">
                                 <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2 font-mono">{t('metricsPage.insights.highestRoi.title')}</div>
-                                <div className="text-lg font-bold text-gray-900 dark:text-white">{t('metricsPage.insights.highestRoi.name')}</div>
+                                <div className="text-lg font-bold text-gray-900 dark:text-white">
+                                    {highestRoiCampaign ? `${highestRoiCampaign.client} (${highestRoiCampaign.channel})` : t('metricsPage.insights.highestRoi.name')}
+                                </div>
                                 <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
-                                    {t('metricsPage.insights.highestRoi.desc')}
+                                    {highestRoiCampaign ? t('metricsPage.insights.dynamicHighestRoiDesc', { roi: highestRoiCampaign.roi }) : t('metricsPage.insights.highestRoi.desc')}
                                 </p>
                             </motion.div>
                         </div>

@@ -290,7 +290,10 @@
         "title": "Highest ROI",
         "name": "Packt GTM",
         "desc": "Creator-led distribution plus Meta amplification produced an 4× revenue multiple."
-      }
+      },
+      "dynamicTopChannelDesc": "Accounted for the majority of ad spend with a total investment of ${{spend}}.",
+      "dynamicBestCvrDesc": "Achieved the highest conversion rate at {{cvr}}% through targeted ad delivery.",
+      "dynamicHighestRoiDesc": "Produced the strongest return multiple at {{roi}}% ROI."
     }
   },
   "creativeLab": {
