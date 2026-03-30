@@ -1,6 +1,5 @@
+import React, { useState } from "react";
 import { motion, useMotionValue, useSpring, useTransform, AnimatePresence } from "framer-motion";
-
-import { useState } from "react";
 
 const HeroAvatar = ({ metrics = [], onNavigate }) => {
     // --- 1. 3D Tilt / Magnetic Effect Setup ---

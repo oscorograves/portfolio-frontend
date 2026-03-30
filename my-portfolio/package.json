@@ -54,8 +54,7 @@
       "/experience",
       "/case-studies",
       "/my-story",
-      "/metrics",
-      "/experiments"
+      "/metrics"
     ],
     "puppeteerArgs": [
       "--no-sandbox",

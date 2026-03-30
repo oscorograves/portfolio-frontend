@@ -1,6 +1,5 @@
 import { AbsoluteFill, useCurrentFrame, useVideoConfig, spring } from 'remotion';
 import React from 'react';
-import { useCurrentFrame, useVideoConfig, spring } from 'remotion';
 
 export const IntroAnimation = () => {
     const frame = useCurrentFrame();

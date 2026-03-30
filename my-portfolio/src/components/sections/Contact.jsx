@@ -40,10 +40,8 @@ const Contact = () => {
                         loading="lazy" 
                         width="100%" 
                         height="300"
-                        frameBorder="0" 
-                        marginHeight="0" 
-                        marginWidth="0" 
                         title="Freelance Client Capture Phase"
+                        style={{ border: 'none', margin: 0 }}
                         className="w-full relative z-10 p-2 md:p-6"
                     ></iframe>
                 </motion.div>

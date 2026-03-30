@@ -23,14 +23,6 @@ const MyStory = ({ t }) => {
         }
     };
 
-    const lineVariants = {
-        hidden: { pathLength: 0 },
-        visible: {
-            pathLength: 1,
-            transition: { duration: 1.5, ease: "easeInOut" }
-        }
-    };
-
     const timelineData = [
         {
             key: 'start',

@@ -47,14 +47,8 @@ const fallbackMetrics = [
   { client: 'B2B SaaS', channel: 'Meta', spend: 5500, ctr: 2.5, cpr: 7.50, cvr: 7.5, roi: 340 }
 ];
 
-// Route configuration
-const routes = [
-  { path: '/', key: 'home' },
-  { path: '/experience', key: 'experience' },
-  { path: '/case-studies', key: 'caseStudies' },
-  { path: '/my-story', key: 'myStory' },
-  { path: '/metrics', key: 'metrics' }
-];
+
+
 
 export default function Portfolio() {
   const [showWip, setShowWip] = useState(false);

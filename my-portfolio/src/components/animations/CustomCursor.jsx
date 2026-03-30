@@ -104,9 +104,7 @@ const CustomCursor = ({ isDarkMode }) => {
         };
 
         const handlePointerEnterWindow = () => {
-            if (cursorVariant === "hidden") {
-                setCursorVariant("default");
-            }
+            setCursorVariant((prev) => prev === "hidden" ? "default" : prev);
         };
 
         // Listen for internal tally popup classes appended by embed.js

@@ -31,7 +31,6 @@ const DSCard = ({
         'p-6 md:p-8',
         'hover:border-amber-600 dark:hover:border-yellow-400',
         effects.transition.all,
-        effects.outline,
         clickable && 'cursor-pointer',
         className
     );

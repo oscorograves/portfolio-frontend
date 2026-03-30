@@ -134,10 +134,11 @@ const NetworkBackground = ({ isDarkMode }) => {
         };
 
         // Event listeners
-        window.addEventListener('resize', () => {
+        const handleResize = () => {
             resizeCanvas();
             initNodes();
-        });
+        };
+        window.addEventListener('resize', handleResize);
         window.addEventListener('mousemove', handleMouseMove);
 
         // Start animation
@@ -145,7 +146,7 @@ const NetworkBackground = ({ isDarkMode }) => {
 
         // Cleanup
         return () => {
-            window.removeEventListener('resize', resizeCanvas);
+            window.removeEventListener('resize', handleResize);
             window.removeEventListener('mousemove', handleMouseMove);
             if (animationRef.current) {
                 cancelAnimationFrame(animationRef.current);
