@@ -28,8 +28,8 @@ const FireflyBackground = () => {
                         bottom: `${p.bottom}%`,
                         width: p.size,
                         height: p.size,
-                        opacity: 0, // Start invisible
                     }}
+                    initial={{ opacity: 0 }} // Start invisible
                     animate={{
                         // Float UP and drift SIDEWAYS
                         y: [0, -150],

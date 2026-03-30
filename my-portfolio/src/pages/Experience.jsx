@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Briefcase, MapPin, CalendarBlank, Robot, ChatCircle, GraduationCap, Medal } from 'phosphor-react';
+import { Briefcase, MapPin, CalendarBlank, Robot, ChatCircle, GraduationCap, Medal, DownloadSimple } from 'phosphor-react';
+import { DSButton } from '../design-system/components';
 
 const itemVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -25,9 +26,19 @@ const Experience = ({ t, isDarkMode }) => {
     return (
         <div className="pt-20 min-h-screen transition-colors duration-300">
             <div className="max-w-6xl mx-auto px-8 py-12">
-                <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-8 pb-4 border-b-2 border-amber-600 dark:border-yellow-400">
-                    {t('experience.title')}
-                </h1>
+                <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 pb-4 border-b-2 border-amber-600 dark:border-yellow-400 gap-4">
+                    <h1 className="text-4xl font-bold text-gray-900 dark:text-white">
+                        {t('experience.title')}
+                    </h1>
+                    <a
+                        href="/resume.pdf"
+                        download="Kanishk_Singh_Resume.pdf"
+                        className="flex items-center justify-center gap-2 px-5 py-2 rounded-full text-sm font-mono border transition-all bg-white/50 dark:bg-gray-900/50 text-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-700 hover:border-amber-500 dark:hover:border-yellow-400 hover:text-amber-600 dark:hover:text-yellow-400 hover:scale-105 active:scale-95 font-medium"
+                    >
+                        <DownloadSimple className="w-4 h-4" weight="bold" />
+                        Download CV
+                    </a>
+                </div>
 
                 <motion.div
                     className="space-y-6"

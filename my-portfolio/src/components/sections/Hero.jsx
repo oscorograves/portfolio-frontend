@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { DownloadSimple, Envelope, LinkedinLogo, Phone } from 'phosphor-react';
+import { DownloadSimple, Envelope, LinkedinLogo, Phone, CalendarPlus } from 'phosphor-react';
 import TypewriterText from '../ui/TypewriterText';
 import HeroAvatar from '../hero/HeroAvatar';
 import { DSButton } from '../../design-system/components';
@@ -53,18 +53,26 @@ const Hero = ({ t, navigate, fallbackMetrics }) => {
                         <motion.p variants={itemVariants} className="text-base text-gray-600 dark:text-gray-400 leading-relaxed mb-8">
                             {t('hero.description')}
                         </motion.p>
-                        <motion.div variants={itemVariants} className="flex gap-3 mb-8">
+                        <motion.div variants={itemVariants} className="flex flex-wrap gap-3 mb-8">
                             <DSButton onClick={() => navigate('/case-studies')}>
                                 {t('hero.viewCaseStudies')}
                             </DSButton>
+                            <DSButton 
+                                variant="secondary"
+                                href="#tally-open=dWlBGr&tally-emoji-text=👋&tally-emoji-animation=wave"
+                                className="border !border-blue-600 !text-blue-600 hover:!bg-blue-600 hover:!text-white hover:!border-blue-600 bg-transparent flex items-center justify-center transition-colors"
+                            >
+                                Get in Touch
+                            </DSButton>
                             <DSButton
                                 variant="secondary"
-                                href="/resume.pdf"
-                                download="Kanishk_Singh_Resume.pdf"
+                                href="https://calendly.com/oscoro-graves/30min"
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className="flex items-center justify-center gap-2"
                             >
-                                <DownloadSimple className="w-5 h-5" weight="duotone" />
-                                {t('hero.downloadCV')}
+                                <CalendarPlus className="w-5 h-5" weight="duotone" />
+                                Schedule Call
                             </DSButton>
                         </motion.div>
 
@@ -74,8 +82,8 @@ const Hero = ({ t, navigate, fallbackMetrics }) => {
                         >
                             <div className="flex items-center gap-2">
                                 <Envelope className="w-5 h-5 text-amber-600 dark:text-yellow-400" weight="duotone" />
-                                <a href="mailto:oscoro.graves@gmail.com" className="hover:text-black dark:hover:text-white transition-colors">
-                                    oscoro.graves@gmail.com
+                                <a href="mailto:hi@scalewithkanishk.in" className="hover:text-black dark:hover:text-white transition-colors">
+                                    hi@scalewithkanishk.in
                                 </a>
                             </div>
                             <div className="flex items-center gap-2">

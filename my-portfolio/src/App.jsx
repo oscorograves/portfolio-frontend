@@ -88,7 +88,9 @@ export default function Portfolio() {
 
   // Dynamic SEO Canonical Tag Update
   useEffect(() => {
-    const canonicalUrl = `https://scalewithkanishk.in${location.pathname === '/' ? '' : location.pathname}`;
+    const basePath = location.pathname === '/' ? '/' : location.pathname.replace(/\/$/, '');
+    const canonicalUrl = `https://scalewithkanishk.in${basePath}`;
+
     let link = document.querySelector("link[rel='canonical']");
     if (!link) {
       link = document.createElement('link');
@@ -96,6 +98,12 @@ export default function Portfolio() {
       document.head.appendChild(link);
     }
     link.setAttribute('href', canonicalUrl);
+
+    let ogUrl = document.querySelector("meta[property='og:url']");
+    if (ogUrl) ogUrl.setAttribute('content', canonicalUrl);
+
+    let twitterUrl = document.querySelector("meta[name='twitter:url']");
+    if (twitterUrl) twitterUrl.setAttribute('content', canonicalUrl);
   }, [location.pathname]);
 
   return (

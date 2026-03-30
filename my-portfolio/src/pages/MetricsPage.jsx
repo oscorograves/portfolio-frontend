@@ -93,7 +93,7 @@ const MetricsPage = ({ t, fallbackMetrics, isDarkMode }) => {
                 >
                     {/* Summary Cards */}
                     <motion.div variants={itemVariants} className="grid md:grid-cols-4 gap-4 mb-8">
-                        <motion.div whileHover={{ y: -5 }} className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 text-center hover:border-amber-600 dark:hover:border-yellow-400 transition-all">
+                        <motion.div whileHover={{ y: -5 }} className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 text-center hover:border-amber-600 dark:hover:border-yellow-400 transition-colors">
                             <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2 font-mono">{t('metricsPage.totalSpend')}</div>
                             <div className="text-3xl font-bold text-gray-900 dark:text-white font-mono flex items-baseline justify-center tracking-tight">
                                 <span className="text-[0.75em] font-sans font-bold opacity-80 tracking-wide mr-[2px]">$</span>
@@ -101,21 +101,21 @@ const MetricsPage = ({ t, fallbackMetrics, isDarkMode }) => {
                                 <span className="text-[0.75em] font-sans font-bold opacity-80 tracking-wide ml-[2px]">K</span>
                             </div>
                         </motion.div>
-                        <motion.div whileHover={{ y: -5 }} className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 text-center hover:border-amber-600 dark:hover:border-yellow-400 transition-all">
+                        <motion.div whileHover={{ y: -5 }} className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 text-center hover:border-amber-600 dark:hover:border-yellow-400 transition-colors">
                             <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2 font-mono">{t('metricsPage.avgCtr')}</div>
                             <div className="text-3xl font-bold text-gray-900 dark:text-white font-mono flex items-baseline justify-center tracking-tight">
                                 {avgCTR.toFixed(2)}
                                 <span className="text-[0.75em] font-sans font-bold opacity-80 tracking-wide ml-[2px]">%</span>
                             </div>
                         </motion.div>
-                        <motion.div whileHover={{ y: -5 }} className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 text-center hover:border-amber-600 dark:hover:border-yellow-400 transition-all">
+                        <motion.div whileHover={{ y: -5 }} className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 text-center hover:border-amber-600 dark:hover:border-yellow-400 transition-colors">
                             <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2 font-mono">{t('metricsPage.avgCvr')}</div>
                             <div className="text-3xl font-bold text-gray-900 dark:text-white font-mono flex items-baseline justify-center tracking-tight">
                                 {avgCVR.toFixed(2)}
                                 <span className="text-[0.75em] font-sans font-bold opacity-80 tracking-wide ml-[2px]">%</span>
                             </div>
                         </motion.div>
-                        <motion.div whileHover={{ y: -5 }} className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 text-center hover:border-amber-600 dark:hover:border-yellow-400 transition-all">
+                        <motion.div whileHover={{ y: -5 }} className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 text-center hover:border-amber-600 dark:hover:border-yellow-400 transition-colors">
                             <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2 font-mono">{t('metricsPage.avgRoi')}</div>
                             <div className="text-3xl font-bold text-gray-900 dark:text-white font-mono flex items-baseline justify-center tracking-tight">
                                 {avgROI.toFixed(0)}

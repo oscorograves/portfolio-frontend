@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { CaretRight } from 'phosphor-react';
 
 const FeaturedAchievement = ({ t, navigate, isDarkMode, fallbackMetrics = [] }) => {
-    const packtMetrics = fallbackMetrics?.find(m => m.client === 'Packt') || { spend: 12000, cpr: 60, roi: 175, netNew: 93 };
+    const packtMetrics = (fallbackMetrics && fallbackMetrics.find(m => m.client === 'Packt')) || { spend: 12000, cpr: 60, roi: 175, netNew: 93 };
     const packtAttendees = Math.round(packtMetrics.spend / packtMetrics.cpr);
     const packtRoas = (packtMetrics.roi / 100).toFixed(2).replace(/\.00$/, '');
 
@@ -13,7 +13,7 @@ const FeaturedAchievement = ({ t, navigate, isDarkMode, fallbackMetrics = [] }) 
                 <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-amber-600 dark:border-yellow-400">{t('featuredWork.title')}</h2>
                 <motion.div
 
-                    className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded-xl p-8 hover:border-amber-600 dark:hover:border-yellow-400 transition-all group cursor-pointer card-hover"
+                    className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded-xl p-8 hover:border-amber-600 dark:hover:border-yellow-400 transition-colors group cursor-pointer card-hover"
                     data-cursor="pointer"
                     role="button"
                     onClick={() => {

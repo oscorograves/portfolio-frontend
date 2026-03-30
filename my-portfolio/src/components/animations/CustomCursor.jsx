@@ -96,17 +96,40 @@ const CustomCursor = ({ isDarkMode }) => {
         // Check if Pointer Events are supported
         const hasPointerEvents = window.PointerEvent !== undefined;
 
+        // Hide cursor when leaving the window (e.g. entering iframe)
+        const handlePointerOut = (e) => {
+            if (e.relatedTarget === null || e.target?.tagName === 'IFRAME') {
+                setCursorVariant("hidden");
+            }
+        };
+
+        const handlePointerEnterWindow = () => {
+            if (cursorVariant === "hidden") {
+                setCursorVariant("default");
+            }
+        };
+
+        // Listen for internal tally popup classes appended by embed.js
+        const observer = new MutationObserver(() => {
+            if (document.body.classList.contains('tally-open')) {
+                setCursorVariant("hidden");
+            }
+        });
+        observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+
         if (hasPointerEvents) {
-            // Use Pointer Events (better for stylus/Apple Pencil)
             window.addEventListener("pointermove", updatePointerPosition);
             window.addEventListener("pointerover", handlePointerOver);
         } else {
-            // Fallback to mouse events
             window.addEventListener("mousemove", updateMousePosition);
             window.addEventListener("mouseover", handleMouseOver);
         }
 
+        window.addEventListener("mouseout", handlePointerOut);
+        window.addEventListener("mouseover", handlePointerEnterWindow);
+
         return () => {
+            observer.disconnect();
             if (hasPointerEvents) {
                 window.removeEventListener("pointermove", updatePointerPosition);
                 window.removeEventListener("pointerover", handlePointerOver);
@@ -114,6 +137,8 @@ const CustomCursor = ({ isDarkMode }) => {
                 window.removeEventListener("mousemove", updateMousePosition);
                 window.removeEventListener("mouseover", handleMouseOver);
             }
+            window.removeEventListener("mouseout", handlePointerOut);
+            window.removeEventListener("mouseover", handlePointerEnterWindow);
         };
     }, []);
 
@@ -169,6 +194,10 @@ const CustomCursor = ({ isDarkMode }) => {
             borderWidth: "0px",
             mixBlendMode: "difference", // Inverts color over icon
             borderRadius: "50%"
+        },
+        hidden: {
+            opacity: 0,
+            scale: 0.5
         }
     };
 
@@ -191,6 +220,9 @@ const CustomCursor = ({ isDarkMode }) => {
             opacity: 0
         },
         icon: {
+            opacity: 0
+        },
+        hidden: {
             opacity: 0
         }
     }

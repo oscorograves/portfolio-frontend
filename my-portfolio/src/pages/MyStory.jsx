@@ -180,17 +180,17 @@ const MyStory = ({ t }) => {
                                 return (
                                     <motion.div
                                         key={i}
-                                        className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded-xl p-6 hover:border-amber-600 dark:hover:border-yellow-400 transition-all card-hover group"
+                                        className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded-xl p-6 hover:border-amber-600 dark:hover:border-yellow-400 transition-colors card-hover group"
                                         whileHover={{ y: -5, boxShadow: '0 8px 24px rgba(0,0,0,0.10)' }}
                                     >
                                         <div className={`w-14 h-14 rounded-lg flex items-center justify-center mb-4 ${bgClass}`}>
                                             <PhilIcon size={32} className={textClass} weight="duotone" />
                                         </div>
                                         <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
-                                            {card?.title}
+                                            {card && card.title}
                                         </h3>
                                         <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-                                            {card?.desc}
+                                            {card && card.desc}
                                         </p>
                                     </motion.div>
                                 );

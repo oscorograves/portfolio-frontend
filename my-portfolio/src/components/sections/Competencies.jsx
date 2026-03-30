@@ -46,7 +46,7 @@ const Competencies = ({ t }) => {
                             const IconSetup = iconData[competency.icon] || { icon: Megaphone, textClass: 'text-gray-600 dark:text-gray-400', bgClass: 'bg-gray-100 dark:bg-gray-800' };
                             const CompIcon = IconSetup.icon;
                             return (
-                            <motion.div key={i} variants={itemVariants} className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 hover:border-amber-600 dark:hover:border-yellow-400 transition-all card-hover" whileHover={{ y: -5, boxShadow: '0 8px 24px rgba(0,0,0,0.10)' }}>
+                            <motion.div key={i} variants={itemVariants} className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5 hover:border-amber-600 dark:hover:border-yellow-400 transition-colors card-hover" whileHover={{ y: -5, boxShadow: '0 8px 24px rgba(0,0,0,0.10)' }}>
                                 <div className="flex items-center gap-3 mb-4">
                                     <div className={`w-14 h-14 ${IconSetup.bgClass} rounded flex items-center justify-center shrink-0`}>
                                         <CompIcon className={`w-8 h-8 ${IconSetup.textClass}`} weight="duotone" />

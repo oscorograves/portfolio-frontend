@@ -16,7 +16,7 @@ const Resources = ({ t }) => {
                     <motion.a
                         href="/Professional_LOR.pdf"
                         target="_blank"
-                        className="group flex items-start gap-4 p-6 bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded-xl hover:border-amber-600 dark:hover:border-yellow-400 transition-all card-hover cursor-pointer"
+                        className="group flex items-start gap-4 p-6 bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded-xl hover:border-amber-600 dark:hover:border-yellow-400 transition-colors card-hover cursor-pointer"
                         whileHover={{ y: -5 }}
                     >
                         {/* Shaded Icon Container */}
@@ -40,7 +40,7 @@ const Resources = ({ t }) => {
                     <motion.a
                         href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTDn-lJIO3TJJ1TQLIFIbFLYzGo-nYZUv0ID45PnaV-OqqrH8GvU88k-Fvd117bCOKZNcsRH_l79FPd/pubhtml"
                         target="_blank"
-                        className="group flex items-start gap-4 p-6 bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded-xl hover:border-amber-600 dark:hover:border-yellow-400 transition-all card-hover cursor-pointer"
+                        className="group flex items-start gap-4 p-6 bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded-xl hover:border-amber-600 dark:hover:border-yellow-400 transition-colors card-hover cursor-pointer"
                         whileHover={{ y: -5 }}
                     >
                         {/* Shaded Icon Container */}

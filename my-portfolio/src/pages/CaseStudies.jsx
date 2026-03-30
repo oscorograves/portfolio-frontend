@@ -24,11 +24,11 @@ const containerVariants = {
 
 const CaseStudies = ({ t, isDarkMode, fallbackMetrics = [] }) => {
     const navigate = useNavigate();
-    const packtMetrics = fallbackMetrics?.find(m => m.client === 'Packt') || { spend: 12000, cpr: 60, roi: 175, netNew: 93 };
+    const packtMetrics = (fallbackMetrics && fallbackMetrics.find(m => m.client === 'Packt')) || { spend: 12000, cpr: 60, roi: 175, netNew: 93 };
     const packtAttendees = Math.round(packtMetrics.spend / packtMetrics.cpr);
     const packtRoas = (packtMetrics.roi / 100).toFixed(2).replace(/\.00$/, '');
 
-    const audioMetrics = fallbackMetrics?.find(m => m.client === 'Pocket FM' && m.channel === 'Meta') || { volumeGrowth: 245, cpaReduction: 14, ctr: 2.8, d7Retention: 26 };
+    const audioMetrics = (fallbackMetrics && fallbackMetrics.find(m => m.client === 'Pocket FM' && m.channel === 'Meta')) || { volumeGrowth: 245, cpaReduction: 14, ctr: 2.8, d7Retention: 26 };
 
     const caseStudies = [
         {
@@ -109,7 +109,7 @@ const CaseStudies = ({ t, isDarkMode, fallbackMetrics = [] }) => {
                             key={i}
                             id={study.id}
                             variants={itemVariants}
-                            className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded overflow-hidden hover:border-amber-600 dark:hover:border-yellow-400 transition-all group"
+                            className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded overflow-hidden hover:border-amber-600 dark:hover:border-yellow-400 transition-colors group"
                             whileHover={{ y: -5, borderColor: isDarkMode ? '#facc15' : '#ea580c', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }}
                             transition={{ type: "spring", stiffness: 300 }}
                         >

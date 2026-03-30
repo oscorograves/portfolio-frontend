@@ -50,7 +50,7 @@ const DSCard = ({
             onKeyDown={clickable ? (e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
-                    onClick?.(e);
+                    if (onClick) onClick(e);
                 }
             } : undefined}
             {...props}
