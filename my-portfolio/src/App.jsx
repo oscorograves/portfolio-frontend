@@ -86,6 +86,18 @@ export default function Portfolio() {
     window.scrollTo({ top: 0, behavior: 'instant' });
   }, [location.pathname]);
 
+  // Dynamic SEO Canonical Tag Update
+  useEffect(() => {
+    const canonicalUrl = `https://scalewithkanishk.in${location.pathname === '/' ? '' : location.pathname}`;
+    let link = document.querySelector("link[rel='canonical']");
+    if (!link) {
+      link = document.createElement('link');
+      link.setAttribute('rel', 'canonical');
+      document.head.appendChild(link);
+    }
+    link.setAttribute('href', canonicalUrl);
+  }, [location.pathname]);
+
   return (
     <div className="min-h-screen flex flex-col transition-colors duration-300 relative overflow-hidden">
       <ScrollProgress isDarkMode={isDarkMode} />
