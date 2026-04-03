@@ -32,7 +32,7 @@ const Contact = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.2 }}
-                    className="bg-white/50 dark:bg-gray-900/50 backdrop-blur-xl border border-gray-200 dark:border-gray-800 rounded-xl shadow-lg relative overflow-hidden"
+                    className="ds-card-base ds-card-hover rounded-xl shadow-lg relative"
                 >
                     {/* The Tally integration natively reads data-tally-src and dynamically updates height when loaded */}
                     <iframe 

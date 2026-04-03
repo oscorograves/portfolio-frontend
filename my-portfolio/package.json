@@ -5,11 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && node scripts/copy-404.js",
-    "postbuild": "node scripts/prerender.js",
+    "sync": "node scripts/sync-layers.js",
+    "build": "node scripts/sync-layers.js && vite build && node scripts/copy-404.js",
     "lint": "eslint .",
     "preview": "vite preview",
-    "translate": "node scripts/update-translations.js"
+    "translate": "node scripts/update-translations.js",
+    "validate:translations": "node scripts/update-translations.js --validate"
   },
   "dependencies": {
     "@remotion/cli": "^4.0.409",

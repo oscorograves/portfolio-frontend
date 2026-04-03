@@ -13,7 +13,7 @@ const FeaturedAchievement = ({ t, navigate, isDarkMode, fallbackMetrics = [] }) 
                 <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-amber-600 dark:border-yellow-400">{t('featuredWork.title')}</h2>
                 <motion.div
 
-                    className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded-xl p-8 hover:border-amber-600 dark:hover:border-yellow-400 transition-colors group cursor-pointer card-hover"
+                    className="ds-card-base ds-card-hover rounded-xl p-8 group cursor-pointer"
                     data-cursor="pointer"
                     role="button"
                     onClick={() => {
@@ -74,7 +74,7 @@ const FeaturedAchievement = ({ t, navigate, isDarkMode, fallbackMetrics = [] }) 
                                 { label: t('featuredWork.metrics.cac'), value: `$${packtMetrics.cpr}` },
                                 { label: t('featuredWork.metrics.roas'), value: `${packtRoas}×` }
                             ].map((metric, i) => (
-                                <div key={i} className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-3 text-center">
+                                <div key={i} className="ds-card-base rounded p-3 text-center">
                                     <div className="text-xs text-gray-600 dark:text-gray-400 mb-1">{metric.label}</div>
                                     <div className="text-xl md:text-2xl font-bold text-blue-600 dark:text-blue-500 tracking-tight">{formatValue(metric.value)}</div>
                                 </div>

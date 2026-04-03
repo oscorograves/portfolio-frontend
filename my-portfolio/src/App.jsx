@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Suspense, lazy } from 'react';
-import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
+import { Routes, Route, useLocation, useNavigate, Link } from 'react-router-dom';
 import NavBar from './components/layout/NavBar';
 import Footer from './components/layout/Footer';
 import PageWrapper from './components/ui/PageWrapper';
@@ -10,6 +10,7 @@ import CustomCursor from './components/animations/CustomCursor';
 import NetworkBackground from './components/animations/NetworkBackground';
 import Home from './pages/Home';
 import { useTranslation } from 'react-i18next';
+import { routes as routeConfig, CAREER_STATS } from './routes-config';
 
 // Layout (always needed)
 
@@ -80,11 +81,22 @@ export default function Portfolio() {
     window.scrollTo({ top: 0, behavior: 'instant' });
   }, [location.pathname]);
 
-  // Dynamic SEO Canonical Tag Update
+  // Dynamic SEO: Title, Meta Description, Canonical, OG tags — all from routes-config.js
   useEffect(() => {
     const basePath = location.pathname === '/' ? '/' : location.pathname.replace(/\/$/, '');
     const canonicalUrl = `https://scalewithkanishk.in${basePath}`;
 
+    // Find matching route config for current path
+    const currentRoute = routeConfig.find(r => r.path === basePath) || routeConfig[0];
+
+    // Update page title
+    document.title = currentRoute.title;
+
+    // Update meta description
+    let metaDesc = document.querySelector("meta[name='description']");
+    if (metaDesc) metaDesc.setAttribute('content', currentRoute.description);
+
+    // Update canonical
     let link = document.querySelector("link[rel='canonical']");
     if (!link) {
       link = document.createElement('link');
@@ -93,11 +105,21 @@ export default function Portfolio() {
     }
     link.setAttribute('href', canonicalUrl);
 
+    // Update OG tags
     let ogUrl = document.querySelector("meta[property='og:url']");
     if (ogUrl) ogUrl.setAttribute('content', canonicalUrl);
+    let ogTitle = document.querySelector("meta[property='og:title']");
+    if (ogTitle) ogTitle.setAttribute('content', currentRoute.title);
+    let ogDesc = document.querySelector("meta[property='og:description']");
+    if (ogDesc) ogDesc.setAttribute('content', currentRoute.description);
 
+    // Update Twitter tags
     let twitterUrl = document.querySelector("meta[name='twitter:url']");
     if (twitterUrl) twitterUrl.setAttribute('content', canonicalUrl);
+    let twitterTitle = document.querySelector("meta[name='twitter:title']");
+    if (twitterTitle) twitterTitle.setAttribute('content', currentRoute.title);
+    let twitterDesc = document.querySelector("meta[name='twitter:description']");
+    if (twitterDesc) twitterDesc.setAttribute('content', currentRoute.description);
   }, [location.pathname]);
 
   return (
@@ -144,6 +166,7 @@ export default function Portfolio() {
                   navigate={navigate}
                   fallbackMetrics={fallbackMetrics}
                   isDarkMode={isDarkMode}
+                  careerStats={CAREER_STATS}
                 />
               </PageWrapper>
             } />
@@ -165,6 +188,21 @@ export default function Portfolio() {
             <Route path="/metrics" element={
               <PageWrapper>
                 <MetricsPage t={t} fallbackMetrics={fallbackMetrics} isDarkMode={isDarkMode} />
+              </PageWrapper>
+            } />
+            {/* 404 Catch-all route */}
+            <Route path="*" element={
+              <PageWrapper>
+                <div className="min-h-[60vh] flex flex-col items-center justify-center text-center px-4">
+                  <h1 className="text-6xl font-bold text-gray-900 dark:text-white mb-4">404</h1>
+                  <p className="text-xl text-gray-600 dark:text-gray-400 mb-8">Page not found</p>
+                  <Link
+                    to="/"
+                    className="px-6 py-3 bg-amber-600 dark:bg-yellow-400 text-white dark:text-gray-900 rounded-full font-medium hover:opacity-90 transition-opacity"
+                  >
+                    Back to Home
+                  </Link>
+                </div>
               </PageWrapper>
             } />
           </Routes>

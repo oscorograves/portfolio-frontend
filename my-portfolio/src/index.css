@@ -50,14 +50,16 @@ h4, h5, h6 { font-size: 1.1em; letter-spacing: 0.02em; }
 
 /* ===== Card Consistency ===== */
 
-/* Remove all rogue outlines from cards in light mode */
-.card, [class*="rounded"][class*="border"] {
-    outline: none !important;
-}
+@layer components {
+    /* Standard Base for all cards */
+    .ds-card-base {
+        @apply bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 transition-all duration-300 outline-none;
+    }
 
-/* Consistent hover shadow for all cards in light mode */
-:not(.dark) .card-hover:hover {
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.10), 0 2px 6px rgba(0, 0, 0, 0.06);
+    /* Standard Hover Effect for cards */
+    .ds-card-hover {
+        @apply hover:border-amber-600 dark:hover:border-yellow-400 hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(0,0,0,0.10),0_2px_6px_rgba(0,0,0,0.06)] dark:hover:shadow-[0_8px_24px_rgba(250,204,21,0.05)];
+    }
 }
 
 /* Dark mode subtle glow only */

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { DownloadSimple, Envelope, LinkedinLogo, Phone, CalendarPlus } from 'phosphor-react';
+import { DownloadSimple, Envelope, LinkedinLogo, Phone } from 'phosphor-react';
 import TypewriterText from '../ui/TypewriterText';
 import HeroAvatar from '../hero/HeroAvatar';
 import { DSButton } from '../../design-system/components';
@@ -25,9 +25,7 @@ const containerVariants = {
     }
 };
 
-const Hero = ({ t, navigate, fallbackMetrics }) => {
-    const totalSpend = fallbackMetrics.reduce((acc, curr) => acc + curr.spend, 0);
-    const formattedSpend = `$${Math.round(totalSpend / 1000)}K`;
+const Hero = ({ t, navigate, fallbackMetrics, careerStats }) => {
     return (
         <section className="border-b border-gray-300 dark:border-gray-800 transition-colors duration-300">
             <motion.div
@@ -59,20 +57,11 @@ const Hero = ({ t, navigate, fallbackMetrics }) => {
                             </DSButton>
                             <DSButton 
                                 variant="secondary"
-                                href="#tally-open=dWlBGr&tally-emoji-text=👋&tally-emoji-animation=wave"
+                                href="/resume.pdf"
+                                download="Kanishk_Singh_Resume.pdf"
                                 className="border !border-blue-600 !text-blue-600 hover:!bg-blue-600 hover:!text-white hover:!border-blue-600 bg-transparent flex items-center justify-center transition-colors"
                             >
-                                Get in Touch
-                            </DSButton>
-                            <DSButton
-                                variant="secondary"
-                                href="https://calendly.com/oscoro-graves/30min"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="flex items-center justify-center gap-2"
-                            >
-                                <CalendarPlus className="w-5 h-5" weight="duotone" />
-                                Schedule Call
+                                Download CV
                             </DSButton>
                         </motion.div>
 
@@ -105,10 +94,10 @@ const Hero = ({ t, navigate, fallbackMetrics }) => {
                         <HeroAvatar
                             onNavigate={(page) => navigate(`/${page === 'home' ? '' : page}`)}
                             metrics={[
-                                { value: "2+", label: t('stats.yearsExp'), page: 'experience' },
-                                { value: formattedSpend, label: t('stats.adSpend'), page: 'metrics' },
-                                { value: "12+", label: t('stats.campaigns'), page: 'metrics' },
-                                { value: `${Math.max(...fallbackMetrics.map(m => m.roi))}%`, label: t('stats.roi'), page: 'metrics' }
+                                { value: careerStats?.yearsExp || "2+", label: t('stats.yearsExp'), page: 'experience' },
+                                { value: careerStats?.adSpend || "$500K+", label: t('stats.adSpend'), page: 'metrics' },
+                                { value: careerStats?.campaigns || "50+", label: t('stats.campaigns'), page: 'metrics' },
+                                { value: careerStats?.highestRoas || "4.3x", label: t('stats.roi'), page: 'metrics' }
                             ]}
                         />
                     </motion.div>

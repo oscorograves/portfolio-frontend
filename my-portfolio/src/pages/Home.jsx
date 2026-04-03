@@ -7,10 +7,10 @@ import Services from '../components/sections/Services';
 import Competencies from '../components/sections/Competencies';
 import DigitalSkills from '../components/sections/DigitalSkills';
 
-const Home = ({ t, navigate, fallbackMetrics, isDarkMode }) => {
+const Home = ({ t, navigate, fallbackMetrics, isDarkMode, careerStats }) => {
     return (
         <div className="pt-32">
-            <Hero t={t} navigate={navigate} fallbackMetrics={fallbackMetrics} />
+            <Hero t={t} navigate={navigate} fallbackMetrics={fallbackMetrics} careerStats={careerStats} />
             <KeyMetricsBase t={t} navigate={navigate} fallbackMetrics={fallbackMetrics} />
             <FeaturedAchievement t={t} navigate={navigate} isDarkMode={isDarkMode} fallbackMetrics={fallbackMetrics} />
             <Services t={t} />

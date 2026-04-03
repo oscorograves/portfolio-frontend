@@ -7,15 +7,13 @@ import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const distPath = path.resolve(__dirname, '../dist');
 
-// The routes we want static HTML for
+// The routes we want static HTML for (must match routes-config.js)
 const routes = [
   '/',
   '/experience',
   '/case-studies',
   '/my-story',
-  '/metrics',
-  '/experiments',
-  '/404'
+  '/metrics'
 ];
 
 async function startServer() {

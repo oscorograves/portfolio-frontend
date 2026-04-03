@@ -109,8 +109,7 @@ const CaseStudies = ({ t, isDarkMode, fallbackMetrics = [] }) => {
                             key={i}
                             id={study.id}
                             variants={itemVariants}
-                            className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded overflow-hidden hover:border-amber-600 dark:hover:border-yellow-400 transition-colors group"
-                            whileHover={{ y: -5, borderColor: isDarkMode ? '#facc15' : '#ea580c', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }}
+                            className="ds-card-base ds-card-hover rounded overflow-hidden group"
                             transition={{ type: "spring", stiffness: 300 }}
                         >
                             <div className="bg-gradient-to-r from-orange-600 to-red-600 dark:bg-none dark:bg-gray-900/60 text-white px-6 py-4">

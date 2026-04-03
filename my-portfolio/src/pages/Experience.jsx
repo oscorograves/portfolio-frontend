@@ -50,8 +50,7 @@ const Experience = ({ t, isDarkMode }) => {
                     {/* Pocket FM */}
                     <motion.div
                         variants={itemVariants}
-                        className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-6"
-                        whileHover={{ y: -5, borderColor: isDarkMode ? '#facc15' : '#ea580c', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }}
+                        className="ds-card-base ds-card-hover rounded p-6"
                         transition={{ type: "spring", stiffness: 300, damping: 20 }}
                     >
                         <div className="flex items-start justify-between mb-4">
@@ -91,8 +90,7 @@ const Experience = ({ t, isDarkMode }) => {
                     {/* Intertek */}
                     <motion.div
                         variants={itemVariants}
-                        className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-6"
-                        whileHover={{ y: -5, borderColor: isDarkMode ? '#facc15' : '#ea580c', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }}
+                        className="ds-card-base ds-card-hover rounded p-6"
                         transition={{ type: "spring", stiffness: 300, damping: 20 }}
                     >
                         <div className="flex items-start justify-between mb-4">
@@ -129,8 +127,7 @@ const Experience = ({ t, isDarkMode }) => {
                     {/* Tradebuilder */}
                     <motion.div
                         variants={itemVariants}
-                        className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-6"
-                        whileHover={{ y: -5, borderColor: isDarkMode ? '#facc15' : '#ea580c', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }}
+                        className="ds-card-base ds-card-hover rounded p-6"
                         transition={{ type: "spring", stiffness: 300, damping: 20 }}
                     >
                         <div className="flex items-start justify-between mb-4">
@@ -182,8 +179,7 @@ const Experience = ({ t, isDarkMode }) => {
                     >
                         <motion.div
                             variants={itemVariants}
-                            className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-5"
-                            whileHover={{ y: -5, borderColor: isDarkMode ? '#facc15' : '#ea580c', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }}
+                            className="ds-card-base ds-card-hover rounded p-5"
                         >
                             <div className="flex items-center gap-2 mb-3">
                                 <div className="p-2 bg-gray-100 dark:bg-gray-800 rounded text-gray-600 dark:text-gray-400">
@@ -213,8 +209,7 @@ const Experience = ({ t, isDarkMode }) => {
                             <motion.div
                                 key={idx}
                                 variants={itemVariants}
-                                className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-6"
-                                whileHover={{ y: -5, borderColor: isDarkMode ? '#facc15' : '#ea580c', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }}
+                                className="ds-card-base ds-card-hover rounded p-6"
                             >
                                 <div className="flex items-start gap-3 mb-3">
                                     <GraduationCap className="w-6 h-6 text-amber-600 mt-0.5" weight="duotone" />
@@ -236,8 +231,7 @@ const Experience = ({ t, isDarkMode }) => {
                     <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-amber-600 dark:border-yellow-400">{t('experience.certifications')}</h2>
                     <motion.div
                         variants={itemVariants}
-                        className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 rounded p-6"
-                        whileHover={{ y: -5, borderColor: isDarkMode ? '#facc15' : '#ea580c', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }}
+                        className="ds-card-base ds-card-hover rounded p-6"
                     >
                         <ul className="space-y-3">
                             {(t('experience.certificationsList', { returnObjects: true }) || []).map((cert, i) => (
