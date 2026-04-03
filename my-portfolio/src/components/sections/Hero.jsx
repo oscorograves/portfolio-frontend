@@ -95,9 +95,9 @@ const Hero = ({ t, navigate, fallbackMetrics, careerStats }) => {
                             onNavigate={(page) => navigate(`/${page === 'home' ? '' : page}`)}
                             metrics={[
                                 { value: careerStats?.yearsExp || "2+", label: t('stats.yearsExp'), page: 'experience' },
-                                { value: careerStats?.adSpend || "$500K+", label: t('stats.adSpend'), page: 'metrics' },
-                                { value: careerStats?.campaigns || "50+", label: t('stats.campaigns'), page: 'metrics' },
-                                { value: careerStats?.highestRoas || "4.3x", label: t('stats.roi'), page: 'metrics' }
+                                { value: careerStats?.adSpend || "$49K", label: t('stats.adSpend'), page: 'metrics' },
+                                { value: careerStats?.campaigns || "12+", label: t('stats.campaigns'), page: 'metrics' },
+                                { value: careerStats?.highestRoas || "380%", label: t('stats.roi'), page: 'metrics' }
                             ]}
                         />
                     </motion.div>

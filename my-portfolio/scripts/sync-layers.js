@@ -29,7 +29,7 @@ function parseRoutesConfig(source) {
 
   // Extract CAREER_STATS
   const careerStatsMatch = source.match(/export const CAREER_STATS\s*=\s*(\{[\s\S]*?\n\};)/);
-  let CAREER_STATS = { yearsExp: '2+', adSpend: '$500K+', campaigns: '50+', highestRoas: '4.3x' };
+  let CAREER_STATS = { yearsExp: '2+', adSpend: '$49K', campaigns: '12+', highestRoas: '380%' };
   if (careerStatsMatch) {
     try {
       // Convert to valid JSON-ish by removing trailing commas and using eval-safe approach

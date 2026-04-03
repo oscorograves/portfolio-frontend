@@ -292,7 +292,7 @@
       "highestRoi": {
         "title": "Hoogste ROI",
         "name": "Pak GTM",
-        "desc": "Creator-geleide distributie plus Meta-versterking produceerde een 4× omzetveelvoud."
+        "desc": "Creator-geleide distributie plus Meta-versterking produceerde een ROI van 380%."
       }
     }
   },
@@ -342,7 +342,7 @@
       "clientName": "Verpakt",
       "badge": "EdTech",
       "category": "Groei & GTM",
-      "problem": "Het werven van 150 betalende engineers voor een LLM-workshop van $100 met een beperkt budget van $3.500 vereist een zeer efficiënte GTM-machine. De uitdaging is om gebruikers met een hoge intentie te identificeren en converteren zonder bestaand publiek, waarbij >4,3x ROAS en >80% netto nieuwe klanten worden behaald.",
+      "problem": "Het werven van 150 betalende engineers voor een LLM-workshop van $100 met een beperkt budget van $3.500 vereist een zeer efficiënte GTM-machine. De uitdaging is om gebruikers met een hoge intentie te identificeren en converteren zonder bestaand publiek, waarbij >380% ROI en >80% netto nieuwe klanten worden behaald.",
       "actions": [
         "Ontwierp een 30-daags GTM-plan met creator-partners, technische gemeenschappen en Meta Ads",
         "Bouwde UTM-taxonomie en dagelijkse trackingdashboards om netto-nieuwe acquisitie te meten",

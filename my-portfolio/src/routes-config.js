@@ -20,9 +20,9 @@ export const SITE_URL = 'https://scalewithkanishk.in';
 // These are CAREER TOTALS, not the sum of fallbackMetrics case studies
 export const CAREER_STATS = {
   yearsExp: '2+',
-  adSpend: '$500K+',
-  campaigns: '50+',
-  highestRoas: '4.3x'
+  adSpend: '$49K',
+  campaigns: '12+',
+  highestRoas: '380%'
 };
 
 export const PERSON_SCHEMA = {
