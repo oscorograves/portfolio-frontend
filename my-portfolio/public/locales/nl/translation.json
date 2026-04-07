@@ -222,29 +222,12 @@
           "Voerde A/B-tests uit op creatives en landingspagina's om de CTR met ~12% te verhogen en CPL te verlagen"
         ]
       },
-      "abp": {
-        "title": "SEO Stagiair",
-        "company": "ABP-leertechnologieën",
-        "location": "Noida",
-        "period": "januari 2023 – augustus 2023",
-        "bullets": [
-          "Liet Instagram groeien naar 3.000+ en YouTube naar 10.000+ volgers via organische groei",
-          "Verbeterde zoekresultaten door zoekwoordenonderzoek, on-page SEO en metadata-optimalisatie"
-        ]
-      },
       "projects": {
-        "customGpt": {
-          "title": "Aangepaste GPT voor Marketing Intelligence",
+        "leadEngine": {
+          "title": "Geautomatiseerde B2B Leadgeneratie",
           "bullets": [
-            "Bouwde een aangepaste GPT die SEMrush, Ahrefs en GA4 integreert om concurrentieanalyse, zoekwoordonderzoek en rapportage te automatiseren.",
-            "Verminderde handmatige onderzoekstijd en standaardiseerde inzichten over campagnes heen."
-          ]
-        },
-        "chatbot": {
-          "title": "Chatbot-integratie voor Intertek India Website",
-          "bullets": [
-            "Implementeerde en optimaliseerde een Landbot-chatbot op een Optimizely CMS-website om leads vast te leggen en te kwalificeren voor meerdere bedrijfseenheden met behulp van voorwaardelijke logica.",
-            "Voerde A/B-testen uit op gespreksstromen en formuliervelden om het voltooiingspercentage van leads te verhogen."
+            "Bouwde een op n8n gebaseerde geautomatiseerde leadmotor die B2B leads scrapte, verrijkte, scoorde en stuurde naar Airtable, Google Sheets en CRM-systemen.",
+            "Integreerde AI-trefwoordgeneratie, contactextractie, deduplicatie en multi-channel outreach workflows via e-mail, WhatsApp en Slack."
           ]
         }
       }
