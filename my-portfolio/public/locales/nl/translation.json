@@ -176,28 +176,36 @@
       "english": "Engels",
       "dutch": "Nederlands"
     },
-    "educationDetails": {
-      "degree": "Bachelor Bedrijfskunde",
-      "specialization": "Specialisatie Marketing",
-      "institute": "Jaypee Instituut voor Informatietechnologie",
-      "locationYear": "Noida, India • 2020 – 2023",
-      "cgpa": "CGPA: 7,7 / 10"
-    },
+    "educationList": [
+      {
+        "degree": "MSc in Marketing Management",
+        "specialization": "NL Beurs ontvanger (Nederlands Ministerie van Onderwijs)",
+        "institute": "Rijksuniversiteit Groningen",
+        "locationYear": "Groningen, Nederland • Sep 2026 – Aug 2027",
+        "cgpa": ""
+      },
+      {
+        "degree": "Bachelor Bedrijfskunde",
+        "specialization": "",
+        "institute": "Jaypee Instituut voor Informatietechnologie",
+        "locationYear": "Noida, India • Sep 2020 – Aug 2023",
+        "cgpa": "CGPA: 7,7 / 10"
+      }
+    ],
     "education": "Opleiding",
     "certifications": "Certificeringen",
     "resumeDownload": "Download Volledig CV",
     "roles": {
       "pocketfm": {
-        "title": "Specialist in advertentiebewerking",
-        "company": "Zak FM",
+        "title": "Ad Operations Specialist",
+        "company": "Pocket FM",
         "type": "Contract",
         "location": "Op afstand",
-        "period": "Jun 2025 – Heden",
+        "period": "Juli 2025 – Juli 2026",
         "bullets": [
-          "Beheer van Meta Ads-uitvoering voor acquisitie- en engagementcampagnes voor meerdere regio's",
-          "Bouwde creatieve en doelgroeptestsystemen die de CTR met ~16% verbeterden en de kosten per resultaat met ~14% verlaagden",
-          "Ontwierp live prestatiedashboards om budgetherverdeling en creatieve schaalvergroting te sturen",
-          "Werkte multifunctioneel samen met content- en groeiteams om winnende creatieve formats wereldwijd uit te rollen"
+          "Beheer van Meta Ads-uitvoering voor acquisitie- en engagementcampagnes voor meerdere regio's.",
+          "Bouwde gestructureerde creatieve en doelgroeptestsystemen die de CTR met ~16% verbeterden en de kosten per resultaat met ~14% verlaagden.",
+          "Ontwierp live prestatiedashboards om bestedingsefficiëntie, creatieve prestaties en schaalgereedheid te monitoren."
         ]
       },
       "intertek": {
@@ -233,10 +241,10 @@
       }
     },
     "certificationsList": [
-      "Google Ads Certificering (Skillshop)",
-      "Socialemediamarketing (HubSpot)",
-      "Basisprincipes van Digitale Marketing (Google)",
-      "SEO Certificering (HubSpot)"
+      "Meta Blueprint Certificering",
+      "Google Ads Certificering",
+      "Google Analytics (GA4)",
+      "HubSpot SEO"
     ]
   },
   "metricsPage": {

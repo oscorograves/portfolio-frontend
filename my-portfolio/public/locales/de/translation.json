@@ -176,28 +176,36 @@
       "english": "Englisch",
       "dutch": "Niederländisch"
     },
-    "educationDetails": {
-      "degree": "Bachelor of Business Administration",
-      "specialization": "Spezialisierung Marketing",
-      "institute": "Jaypee Institut für Informationstechnologie",
-      "locationYear": "Noida, Indien • 2020 – 2023",
-      "cgpa": "CGPA: 7,7 / 10"
-    },
+    "educationList": [
+      {
+        "degree": "MSc in Marketing Management",
+        "specialization": "NL-Stipendium (Niederländisches Bildungsministerium)",
+        "institute": "Universität Groningen",
+        "locationYear": "Groningen, Niederlande • Sep 2026 – Aug 2027",
+        "cgpa": ""
+      },
+      {
+        "degree": "Bachelor of Business Administration",
+        "specialization": "",
+        "institute": "Jaypee Institut für Informationstechnologie",
+        "locationYear": "Noida, Indien • Sep 2020 – Aug 2023",
+        "cgpa": "CGPA: 7,7 / 10"
+      }
+    ],
     "education": "Ausbildung",
     "certifications": "Zertifizierungen",
     "resumeDownload": "Vollständigen Lebenslauf herunterladen",
     "roles": {
       "pocketfm": {
-        "title": "Ad Operations Spezialist",
-        "company": "Taschen-FM",
+        "title": "Ad Operations Specialist",
+        "company": "Pocket FM",
         "type": "Vertrag",
-        "location": "Fernbedienung",
-        "period": "Jun 2025 – Heute",
+        "location": "Remote",
+        "period": "Juli 2025 – Juli 2026",
         "bullets": [
-          "Leitung der Meta Ads-Ausführung für Akquisitions- und Engagement-Kampagnen in mehreren Regionen",
-          "Aufbau von Creative- und Zielgruppen-Testsystemen, die die CTR um ~16% verbesserten und die Kosten pro Ergebnis um ~14% senkten",
-          "Entwurf von Live-Performance-Dashboards zur Steuerung der Budgetumverteilung und Skalierung von Creatives",
-          "Funktionsübergreifende Zusammenarbeit mit Content- und Wachstumsteams zur weltweiten Einführung erfolgreicher Creative-Formate"
+          "Verantwortung für die Meta Ads-Ausführung für Akquisitions- und Engagement-Kampagnen zur Unterstützung des großflächigen Nutzerwachstums in mehreren Regionen.",
+          "Aufbau strukturierter Creative- und Zielgruppen-Testsysteme, die die CTR um ~16% verbesserten und die Kosten pro Ergebnis um ~14% senkten.",
+          "Entwurf von Live-Performance-Dashboards zur Überwachung der Ausgabeneffizienz, Creative-Leistung und Skalierungsbereitschaft."
         ]
       },
       "intertek": {
@@ -233,10 +241,10 @@
       }
     },
     "certificationsList": [
-      "Google Ads Zertifizierung (Skillshop)",
-      "Social-Media-Marketing (HubSpot)",
-      "Grundlagen des digitalen Marketings (Google)",
-      "SEO Zertifizierung (HubSpot)"
+      "Meta Blueprint Zertifizierung",
+      "Google Ads Zertifizierung",
+      "Google Analytics (GA4)",
+      "HubSpot SEO"
     ]
   },
   "metricsPage": {
