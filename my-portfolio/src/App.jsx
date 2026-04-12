@@ -61,6 +61,34 @@ export default function Portfolio() {
   const language = i18n.resolvedLanguage || 'en';
   const setLanguage = (lang) => i18n.changeLanguage(lang);
 
+  // Theme setup by IP-based time
+  useEffect(() => {
+    const fetchTimeByIP = async () => {
+      try {
+        const response = await fetch('https://worldtimeapi.org/api/ip');
+        if (!response.ok) throw new Error('API failed');
+        const data = await response.json();
+        
+        // WorldTimeAPI returns ISO datetime string, e.g. "2026-04-12T09:55:10.123+05:30"
+        const date = new Date(data.datetime);
+        const currentHour = date.getHours();
+        
+        // Light mode between 6 AM and 6 PM
+        if (currentHour >= 6 && currentHour < 18) {
+          setIsDarkMode(false);
+        } else {
+          setIsDarkMode(true);
+        }
+      } catch (error) {
+        console.warn('Error determining time by IP, falling back to local time:', error);
+        const currentHour = new Date().getHours();
+        setIsDarkMode(currentHour < 6 || currentHour >= 18);
+      }
+    };
+
+    fetchTimeByIP();
+  }, []);
+
   // Derive current page from pathname
   const getCurrentPage = () => {
     const path = location.pathname;
