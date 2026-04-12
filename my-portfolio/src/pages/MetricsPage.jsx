@@ -1,6 +1,9 @@
 import { motion } from 'framer-motion';
 import Resources from '../components/sections/Resources';
 import React from 'react';
+// ── FASHION D2C DASHBOARD SECTION — REMOVE START ──────────────────────────
+import FashionD2CDashboard from '../components/sections/FashionD2CDashboard';
+// ── FASHION D2C DASHBOARD SECTION — REMOVE END ────────────────────────────
 
 const itemVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -209,6 +212,20 @@ const MetricsPage = ({ t, fallbackMetrics, isDarkMode }) => {
                     </div>
                 </motion.div>
             </div>
+
+            {/* ── FASHION D2C DASHBOARD SECTION — REMOVE START ──────────────────────── */}
+            <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={itemVariants}
+                className="w-full border-t border-gray-300 dark:border-gray-800 py-12 mt-4"
+            >
+                <div className="max-w-6xl mx-auto px-8">
+                    <FashionD2CDashboard />
+                </div>
+            </motion.div>
+            {/* ── FASHION D2C DASHBOARD SECTION — REMOVE END ──────────────────────── */}
 
             {/* Resources Section (Full Width Border) */}
             <Resources t={t} />
