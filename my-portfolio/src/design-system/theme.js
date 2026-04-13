@@ -151,7 +151,10 @@ export const animations = {
         }
     },
     hover: {
-        lift: { y: -5 },
+        lift: { 
+            y: -5,
+            transition: { type: 'spring', stiffness: 300, damping: 20 }
+        },
         scale: { scale: 1.05 },
         tap: { scale: 0.95 },
     }

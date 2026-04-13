@@ -152,7 +152,7 @@ const FashionD2CDashboard = () => {
             </div>
 
             {/* Top-line performance ALWAYS VISIBLE (Summary Mode) */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 pb-2">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 pb-2 px-8 -mx-8">
                 <MetricCard label="Total spend" value="₹2.5L" sub="₹8,065/day avg" />
                 <MetricCard label="Revenue attributed" value="₹8.25L" sub="7-day click window" subType="good" />
                 <MetricCard label="ROAS (in-platform)" value="3.3x" sub="Blended MER: 2.1x" subType="warn" />
@@ -164,7 +164,7 @@ const FashionD2CDashboard = () => {
                 initial={false}
                 animate={{ height: isExpanded ? 'auto' : 0, opacity: isExpanded ? 1 : 0 }}
                 transition={{ duration: 0.4, ease: 'easeInOut' }}
-                className="overflow-hidden"
+                className="overflow-hidden px-8 -mx-8"
             >
                 <div className="pt-6 pb-6 mt-8 border-t border-gray-200 dark:border-gray-800">
                     {/* ── Funnel metrics ── */}
@@ -329,7 +329,15 @@ const FashionD2CDashboard = () => {
                     </div>
 
                     {/* ── Key observations ── */}
-                    <div className="mt-6 ds-card-base ds-card-hover rounded-lg p-5">
+                    <motion.div 
+                        className="mt-6 ds-card-base rounded-lg p-5 cursor-default"
+                        whileHover={{ 
+                            y: -5, 
+                            borderColor: 'rgba(234, 88, 12, 0.6)', // amber-600 with opacity
+                            boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'
+                        }}
+                        transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                    >
                         <p className="text-xs font-bold text-gray-600 dark:text-gray-400 uppercase mb-3 tracking-wide">
                             Key observations
                         </p>
@@ -345,7 +353,7 @@ const FashionD2CDashboard = () => {
                             Video hook rate is solid (34%) but completion drops at 18% —
                             mid-video engagement needs work.
                         </p>
-                    </div>
+                    </motion.div>
                 </div>
             </motion.div>
         </div>
@@ -380,7 +388,15 @@ const formatValue = (val) => {
 };
 
 const MetricCard = ({ label, value, sub, subType, small }) => (
-    <div className="ds-card-base ds-card-hover rounded-lg p-5">
+    <motion.div 
+        className="ds-card-base rounded-lg p-5 cursor-default"
+        whileHover={{ 
+            y: -5, 
+            borderColor: 'rgba(234, 88, 12, 0.6)', 
+            boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'
+        }}
+        transition={{ type: "spring", stiffness: 400, damping: 17 }}
+    >
         <p className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2 font-mono">
             {label}
         </p>
@@ -396,7 +412,7 @@ const MetricCard = ({ label, value, sub, subType, small }) => (
                 {sub}
             </p>
         )}
-    </div>
+    </motion.div>
 );
 
 const BudgetBar = ({ label, amount, pct, color, last }) => (
