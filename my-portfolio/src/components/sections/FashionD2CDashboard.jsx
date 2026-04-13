@@ -329,14 +329,14 @@ const FashionD2CDashboard = () => {
                     </div>
 
                     {/* ── Key observations ── */}
-                    <motion.div 
+                    <motion.div
                         className="mt-6 ds-card-base rounded-lg p-5 cursor-default"
-                        whileHover={{ 
-                            y: -5, 
+                        whileHover={{
+                            y: -5,
                             borderColor: 'rgba(234, 88, 12, 0.6)', // amber-600 with opacity
                             boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'
                         }}
-                        transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                        transition={{ type: "spring", stiffness: 700, damping: 35 }}
                     >
                         <p className="text-xs font-bold text-gray-600 dark:text-gray-400 uppercase mb-3 tracking-wide">
                             Key observations
@@ -388,14 +388,14 @@ const formatValue = (val) => {
 };
 
 const MetricCard = ({ label, value, sub, subType, small }) => (
-    <motion.div 
+    <motion.div
         className="ds-card-base rounded-lg p-5 cursor-default"
         whileHover={{ 
             y: -5, 
             borderColor: 'rgba(234, 88, 12, 0.6)', 
             boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'
         }}
-        transition={{ type: "spring", stiffness: 400, damping: 17 }}
+        transition={{ type: "spring", stiffness: 700, damping: 35 }}
     >
         <p className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2 font-mono">
             {label}
