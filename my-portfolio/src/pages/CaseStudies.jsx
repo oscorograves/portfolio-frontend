@@ -210,7 +210,7 @@ const CaseStudies = ({ t, isDarkMode, fallbackMetrics = [] }) => {
                                                     return null;
                                                 });
                                             };
-                                            
+
                                             return (
                                                 <div key={j} className="bg-gray-50 dark:bg-gray-900/40 border border-gray-300 dark:border-gray-800 rounded p-3 text-center">
                                                     <div className="text-xs text-gray-600 dark:text-gray-400 mb-1">{result.metric}</div>

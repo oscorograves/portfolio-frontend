@@ -96,6 +96,9 @@ const FashionD2CDashboard = () => {
         }
 
         return () => {
+            if (script) {
+                script.removeEventListener('load', initChart);
+            }
             if (chartInstance.current) {
                 chartInstance.current.destroy();
                 chartInstance.current = null;
@@ -112,32 +115,37 @@ const FashionD2CDashboard = () => {
             </h2>
 
             {/* Header / Summary Section mimicking FeaturedAchievement */}
-            <div 
+            <div
                 className="flex items-start justify-between mb-6 cursor-pointer group select-none"
                 onClick={() => setIsExpanded(!isExpanded)}
                 data-cursor="pointer"
                 role="button"
             >
                 <div>
-                    <div className="flex items-center gap-3 mb-2">
-                        <h3 className="text-xl md:text-2xl font-sans tracking-wide m-0 text-gray-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-yellow-400 transition-colors">
-                            Fashion D2C - Meta Campaign
-                        </h3>
-                        <span className="text-[11px] px-2 py-0.5 rounded-md inline-block bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300">
-                            Growth Stage
-                        </span>
+                    <div className="mb-3">
+                        <div className="flex items-center gap-3 mb-1">
+                            <h3 className="text-2xl font-bold text-gray-900 dark:text-white m-0 group-hover:text-amber-600 dark:group-hover:text-yellow-400 transition-colors">
+                                Fashion D2C
+                            </h3>
+                            <div className="text-xs bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 px-3 py-1 rounded whitespace-nowrap">
+                                Growth Stage
+                            </div>
+                        </div>
+                        <div className="text-lg text-gray-600 dark:text-gray-400 font-medium">
+                            Meta Campaign
+                        </div>
                     </div>
-                    <p className="text-sm md:text-md text-gray-600 dark:text-gray-400 font-medium m-0 mb-3">
-                        April 2026 · ₹2,50,000 monthly budget · Prospecting + Retargeting
+                    <p className="text-sm text-gray-500 dark:text-gray-400 font-mono tracking-tight m-0 mb-3 block">
+                        April 2026 · ₹2,50,000 monthly budget
                     </p>
                     <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed max-w-4xl m-0">
                         A granular breakdown of the Meta Ads funnel showcasing top-line commercial outcomes versus in-platform proxies. Covers acquisition health pacing, full-funnel budget allocation, and weekly return on ad spend elasticity.
                     </p>
                 </div>
-                
-                <motion.div 
-                   animate={{ rotate: isExpanded ? 180 : 0 }} 
-                   className="text-gray-400 group-hover:text-amber-600 dark:group-hover:text-yellow-400 transition-colors pt-1 ml-4 shrink-0"
+
+                <motion.div
+                    animate={{ rotate: isExpanded ? 180 : 0 }}
+                    className="text-gray-400 group-hover:text-amber-600 dark:group-hover:text-yellow-400 transition-colors pt-1 ml-4 shrink-0"
                 >
                     <CaretDown size={28} weight="duotone" />
                 </motion.div>
@@ -158,186 +166,186 @@ const FashionD2CDashboard = () => {
                 transition={{ duration: 0.4, ease: 'easeInOut' }}
                 className="overflow-hidden"
             >
-                <div className="pt-6 mt-8 border-t border-gray-200 dark:border-gray-800">
-            {/* ── Funnel metrics ── */}
-            <SectionLabel>Funnel metrics</SectionLabel>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5">
-                <MetricCard label="CPM" value="₹312" sub="Up 14% MoM" subType="warn" />
-                <MetricCard
-                    label="CTR"
-                    value="1.48%"
-                    sub="Above 1% benchmark"
-                    subType="good"
-                />
-                <MetricCard
-                    label="CPC"
-                    value="₹21"
-                    sub="Healthy for apparel"
-                    subType="good"
-                />
-                <MetricCard
-                    label="Frequency"
-                    value="2.4"
-                    sub="Within 1.5–3 range"
-                    subType="good"
-                />
-            </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5 mt-2.5">
-                <MetricCard
-                    label="CVR (link click → purchase)"
-                    value="3.5%"
-                    sub="Strong for cold ToF"
-                    subType="good"
-                />
-                <MetricCard label="AOV" value="₹2,003" sub="Target: ₹2,000+" />
-                <MetricCard
-                    label="Add-to-cart rate"
-                    value="9.2%"
-                    sub="Good intent signal"
-                    subType="good"
-                />
-                <MetricCard
-                    label="Checkout abandon"
-                    value="61%"
-                    sub="Industry avg: 55–65%"
-                    subType="warn"
-                />
-            </div>
+                <div className="pt-6 pb-6 mt-8 border-t border-gray-200 dark:border-gray-800">
+                    {/* ── Funnel metrics ── */}
+                    <SectionLabel>Funnel metrics</SectionLabel>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5">
+                        <MetricCard label="CPM" value="₹312" sub="Up 14% MoM" subType="warn" />
+                        <MetricCard
+                            label="CTR"
+                            value="1.48%"
+                            sub="Above 1% benchmark"
+                            subType="good"
+                        />
+                        <MetricCard
+                            label="CPC"
+                            value="₹21"
+                            sub="Healthy for apparel"
+                            subType="good"
+                        />
+                        <MetricCard
+                            label="Frequency"
+                            value="2.4"
+                            sub="Within 1.5–3 range"
+                            subType="good"
+                        />
+                    </div>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5 mt-2.5">
+                        <MetricCard
+                            label="CVR (link click → purchase)"
+                            value="3.5%"
+                            sub="Strong for cold ToF"
+                            subType="good"
+                        />
+                        <MetricCard label="AOV" value="₹2,003" sub="Target: ₹2,000+" />
+                        <MetricCard
+                            label="Add-to-cart rate"
+                            value="9.2%"
+                            sub="Good intent signal"
+                            subType="good"
+                        />
+                        <MetricCard
+                            label="Checkout abandon"
+                            value="61%"
+                            sub="Industry avg: 55–65%"
+                            subType="warn"
+                        />
+                    </div>
 
-            {/* ── Acquisition health ── */}
-            <SectionLabel>Acquisition health</SectionLabel>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5">
-                <MetricCard
-                    label="CPP (Cost per purchase)"
-                    value="₹607"
-                    sub="₹2.5L ÷ 412"
-                />
-                <MetricCard
-                    label="NCAC (new customers)"
-                    value="₹839"
-                    sub="Monitor vs. LTV"
-                    subType="warn"
-                />
-                <MetricCard
-                    label="Est. LTV (12mo)"
-                    value="₹4,200"
-                    sub="LTV:CAC = 5:1"
-                    subType="good"
-                />
-                <MetricCard
-                    label="MER"
-                    value="2.1x"
-                    sub="Target 2.5x+ at scale"
-                    subType="warn"
-                />
-            </div>
+                    {/* ── Acquisition health ── */}
+                    <SectionLabel>Acquisition health</SectionLabel>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5">
+                        <MetricCard
+                            label="CPP (Cost per purchase)"
+                            value="₹607"
+                            sub="₹2.5L ÷ 412"
+                        />
+                        <MetricCard
+                            label="NCAC (new customers)"
+                            value="₹839"
+                            sub="Monitor vs. LTV"
+                            subType="warn"
+                        />
+                        <MetricCard
+                            label="Est. LTV (12mo)"
+                            value="₹4,200"
+                            sub="LTV:CAC = 5:1"
+                            subType="good"
+                        />
+                        <MetricCard
+                            label="MER"
+                            value="2.1x"
+                            sub="Target 2.5x+ at scale"
+                            subType="warn"
+                        />
+                    </div>
 
-            {/* ── Budget split ── */}
-            <SectionLabel>Budget split</SectionLabel>
-            <div className="grid grid-cols-1 md:grid-cols-[1fr_1.5fr] gap-4 items-start">
-                {/* Progress bars */}
-                <div>
-                    <BudgetBar
-                        label="Prospecting (ToF)"
-                        amount="₹1,75,000 · 70%"
-                        pct={70}
-                        color="#378ADD"
-                    />
-                    <BudgetBar
-                        label="Retargeting (BoF)"
-                        amount="₹62,500 · 25%"
-                        pct={25}
-                        color="#1D9E75"
-                    />
-                    <BudgetBar
-                        label="Retention / CRM"
-                        amount="₹12,500 · 5%"
-                        pct={5}
-                        color="#BA7517"
-                        last
-                    />
-                </div>
+                    {/* ── Budget split ── */}
+                    <SectionLabel>Budget split</SectionLabel>
+                    <div className="grid grid-cols-1 md:grid-cols-[1fr_1.5fr] gap-4 items-start">
+                        {/* Progress bars */}
+                        <div>
+                            <BudgetBar
+                                label="Prospecting (ToF)"
+                                amount="₹1,75,000 · 70%"
+                                pct={70}
+                                color="#378ADD"
+                            />
+                            <BudgetBar
+                                label="Retargeting (BoF)"
+                                amount="₹62,500 · 25%"
+                                pct={25}
+                                color="#1D9E75"
+                            />
+                            <BudgetBar
+                                label="Retention / CRM"
+                                amount="₹12,500 · 5%"
+                                pct={5}
+                                color="#BA7517"
+                                last
+                            />
+                        </div>
 
-                {/* Split-detail cards */}
-                <div className="grid grid-cols-2 gap-2">
-                    <MetricCard
-                        label="ToF ROAS"
-                        value="2.6x"
-                        sub="Broad + LAA"
-                        small
-                    />
-                    <MetricCard
-                        label="BoF ROAS"
-                        value="5.8x"
-                        sub="Engagement retargeting"
-                        small
-                    />
-                    <MetricCard
-                        label="Hook rate (3s)"
-                        value="34%"
-                        sub="Target: 30%+"
-                        subType="good"
-                        small
-                    />
-                    <MetricCard
-                        label="Video completion"
-                        value="18%"
-                        sub="Improve mid-video"
-                        subType="warn"
-                        small
-                    />
-                </div>
-            </div>
+                        {/* Split-detail cards */}
+                        <div className="grid grid-cols-2 gap-2">
+                            <MetricCard
+                                label="ToF ROAS"
+                                value="2.6x"
+                                sub="Broad + LAA"
+                                small
+                            />
+                            <MetricCard
+                                label="BoF ROAS"
+                                value="5.8x"
+                                sub="Engagement retargeting"
+                                small
+                            />
+                            <MetricCard
+                                label="Hook rate (3s)"
+                                value="34%"
+                                sub="Target: 30%+"
+                                subType="good"
+                                small
+                            />
+                            <MetricCard
+                                label="Video completion"
+                                value="18%"
+                                sub="Improve mid-video"
+                                subType="warn"
+                                small
+                            />
+                        </div>
+                    </div>
 
-            {/* ── Weekly ROAS trend ── */}
-            <SectionLabel>Weekly ROAS trend</SectionLabel>
-            <div className="relative w-full" style={{ height: 220 }}>
-                <canvas
-                    ref={chartRef}
-                    role="img"
-                    aria-label="Line chart showing weekly ROAS over 8 weeks, starting at 2.1 and peaking at 3.8 in week 6"
-                >
-                    Weekly ROAS: W1: 2.1, W2: 2.4, W3: 2.9, W4: 3.1, W5: 3.0, W6:
-                    3.8, W7: 3.4, W8: 3.3
-                </canvas>
-            </div>
+                    {/* ── Weekly ROAS trend ── */}
+                    <SectionLabel>Weekly ROAS trend</SectionLabel>
+                    <div className="relative w-full" style={{ height: 220 }}>
+                        <canvas
+                            ref={chartRef}
+                            role="img"
+                            aria-label="Line chart showing weekly ROAS over 8 weeks, starting at 2.1 and peaking at 3.8 in week 6"
+                        >
+                            Weekly ROAS: W1: 2.1, W2: 2.4, W3: 2.9, W4: 3.1, W5: 3.0, W6:
+                            3.8, W7: 3.4, W8: 3.3
+                        </canvas>
+                    </div>
 
-            {/* Legend */}
-            <div className="flex gap-4 mt-2">
-                <span className="flex items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400">
-                    <span
-                        className="inline-block rounded-sm"
-                        style={{ width: 10, height: 2, background: '#378ADD' }}
-                    />
-                    Weekly ROAS
-                </span>
-                <span className="flex items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400">
-                    <span
-                        className="inline-block rounded-sm opacity-70"
-                        style={{ width: 10, height: 2, background: '#1D9E75' }}
-                    />
-                    Target 3x
-                </span>
-            </div>
+                    {/* Legend */}
+                    <div className="flex gap-4 mt-2">
+                        <span className="flex items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400">
+                            <span
+                                className="inline-block rounded-sm"
+                                style={{ width: 10, height: 2, background: '#378ADD' }}
+                            />
+                            Weekly ROAS
+                        </span>
+                        <span className="flex items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400">
+                            <span
+                                className="inline-block rounded-sm opacity-70"
+                                style={{ width: 10, height: 2, background: '#1D9E75' }}
+                            />
+                            Target 3x
+                        </span>
+                    </div>
 
-            {/* ── Key observations ── */}
-            <div className="mt-6 ds-card-base ds-card-hover rounded-lg p-5">
-                <p className="text-xs font-bold text-gray-600 dark:text-gray-400 uppercase mb-3 tracking-wide">
-                    Key observations
-                </p>
-                <p className="text-[13px] text-gray-600 dark:text-gray-400 m-0 mb-2 leading-relaxed">
-                    In-platform ROAS (3.3x) is inflated vs. blended MER (2.1x) — typical
-                    view-through attribution gap. Optimize toward MER.
-                </p>
-                <p className="text-[13px] text-gray-600 dark:text-gray-400 m-0 mb-2 leading-relaxed">
-                    CPM rising 14% MoM signals audience saturation — time to refresh
-                    creatives or expand targeting pool.
-                </p>
-                <p className="text-[13px] text-gray-600 dark:text-gray-400 m-0 leading-relaxed">
-                    Video hook rate is solid (34%) but completion drops at 18% —
-                    mid-video engagement needs work.
-                </p>
-            </div>
+                    {/* ── Key observations ── */}
+                    <div className="mt-6 ds-card-base ds-card-hover rounded-lg p-5">
+                        <p className="text-xs font-bold text-gray-600 dark:text-gray-400 uppercase mb-3 tracking-wide">
+                            Key observations
+                        </p>
+                        <p className="text-[13px] text-gray-600 dark:text-gray-400 m-0 mb-2 leading-relaxed">
+                            In-platform ROAS (3.3x) is inflated vs. blended MER (2.1x) — typical
+                            view-through attribution gap. Optimize toward MER.
+                        </p>
+                        <p className="text-[13px] text-gray-600 dark:text-gray-400 m-0 mb-2 leading-relaxed">
+                            CPM rising 14% MoM signals audience saturation — time to refresh
+                            creatives or expand targeting pool.
+                        </p>
+                        <p className="text-[13px] text-gray-600 dark:text-gray-400 m-0 leading-relaxed">
+                            Video hook rate is solid (34%) but completion drops at 18% —
+                            mid-video engagement needs work.
+                        </p>
+                    </div>
                 </div>
             </motion.div>
         </div>

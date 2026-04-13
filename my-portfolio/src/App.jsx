@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Suspense, lazy } from 'react';
+import React, { useState, Suspense, lazy } from 'react';
 import { Routes, Route, useLocation, useNavigate, Link } from 'react-router-dom';
 import NavBar from './components/layout/NavBar';
 import Footer from './components/layout/Footer';
@@ -9,23 +9,17 @@ import FireflyBackground from './components/animations/FireflyBackground';
 import CustomCursor from './components/animations/CustomCursor';
 import NetworkBackground from './components/animations/NetworkBackground';
 import Home from './pages/Home';
-import { useTranslation } from 'react-i18next';
 import { routes as routeConfig, CAREER_STATS } from './routes-config';
-
-// Layout (always needed)
-
-// UI (critical for layout)
-
-// Animations (keep as direct imports - small and needed for visual experience)
-
-// Eager load Home for faster LCP (Critical Path)
+import useTheme from './hooks/useTheme';
+import useSEO from './hooks/useSEO';
+import useScrollToTop from './hooks/useScrollToTop';
+import useLanguage from './hooks/useLanguage';
 
 // Lazy load other pages (route-based code splitting)
 const Experience = lazy(() => import('./pages/Experience'));
 const CaseStudies = lazy(() => import('./pages/CaseStudies'));
 const MyStory = lazy(() => import('./pages/MyStory'));
 const MetricsPage = lazy(() => import('./pages/MetricsPage'));
-
 
 // Lazy Load Modal
 const WipModal = lazy(() => import('./components/ui/WipModal'));
@@ -48,107 +42,24 @@ const fallbackMetrics = [
   { client: 'B2B SaaS', channel: 'Meta', spend: 5500, ctr: 2.5, cpr: 7.50, cvr: 7.5, roi: 340 }
 ];
 
-
-
-
 export default function Portfolio() {
-  const [showWip, setShowWip] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(true);
-  const { t, i18n } = useTranslation();
+  const { t, language, setLanguage } = useLanguage();
   const location = useLocation();
   const navigate = useNavigate();
+  const [showWip, setShowWip] = useState(false);
 
-  const language = i18n.resolvedLanguage || 'en';
-  const setLanguage = (lang) => i18n.changeLanguage(lang);
-
-  // Theme setup by IP-based time
-  useEffect(() => {
-    const fetchTimeByIP = async () => {
-      try {
-        const response = await fetch('https://worldtimeapi.org/api/ip');
-        if (!response.ok) throw new Error('API failed');
-        const data = await response.json();
-        
-        // WorldTimeAPI returns ISO datetime string, e.g. "2026-04-12T09:55:10.123+05:30"
-        const date = new Date(data.datetime);
-        const currentHour = date.getHours();
-        
-        // Light mode between 6 AM and 6 PM
-        if (currentHour >= 6 && currentHour < 18) {
-          setIsDarkMode(false);
-        } else {
-          setIsDarkMode(true);
-        }
-      } catch (error) {
-        console.warn('Error determining time by IP, falling back to local time:', error);
-        const currentHour = new Date().getHours();
-        setIsDarkMode(currentHour < 6 || currentHour >= 18);
-      }
-    };
-
-    fetchTimeByIP();
-  }, []);
+  const [isDarkMode, setIsDarkMode] = useTheme();
+  
+  // Initialize Side-Effects
+  useSEO();
+  useScrollToTop();
 
   // Derive current page from pathname
   const getCurrentPage = () => {
     const path = location.pathname;
     if (path === '/') return 'home';
-    return path.slice(1); // Remove leading slash
+    return path.slice(1);
   };
-
-  useEffect(() => {
-    if (isDarkMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, [isDarkMode]);
-
-  // Scroll to top on route change
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'instant' });
-  }, [location.pathname]);
-
-  // Dynamic SEO: Title, Meta Description, Canonical, OG tags — all from routes-config.js
-  useEffect(() => {
-    const basePath = location.pathname === '/' ? '/' : location.pathname.replace(/\/$/, '');
-    const canonicalUrl = `https://scalewithkanishk.in${basePath}`;
-
-    // Find matching route config for current path
-    const currentRoute = routeConfig.find(r => r.path === basePath) || routeConfig[0];
-
-    // Update page title
-    document.title = currentRoute.title;
-
-    // Update meta description
-    let metaDesc = document.querySelector("meta[name='description']");
-    if (metaDesc) metaDesc.setAttribute('content', currentRoute.description);
-
-    // Update canonical
-    let link = document.querySelector("link[rel='canonical']");
-    if (!link) {
-      link = document.createElement('link');
-      link.setAttribute('rel', 'canonical');
-      document.head.appendChild(link);
-    }
-    link.setAttribute('href', canonicalUrl);
-
-    // Update OG tags
-    let ogUrl = document.querySelector("meta[property='og:url']");
-    if (ogUrl) ogUrl.setAttribute('content', canonicalUrl);
-    let ogTitle = document.querySelector("meta[property='og:title']");
-    if (ogTitle) ogTitle.setAttribute('content', currentRoute.title);
-    let ogDesc = document.querySelector("meta[property='og:description']");
-    if (ogDesc) ogDesc.setAttribute('content', currentRoute.description);
-
-    // Update Twitter tags
-    let twitterUrl = document.querySelector("meta[name='twitter:url']");
-    if (twitterUrl) twitterUrl.setAttribute('content', canonicalUrl);
-    let twitterTitle = document.querySelector("meta[name='twitter:title']");
-    if (twitterTitle) twitterTitle.setAttribute('content', currentRoute.title);
-    let twitterDesc = document.querySelector("meta[name='twitter:description']");
-    if (twitterDesc) twitterDesc.setAttribute('content', currentRoute.description);
-  }, [location.pathname]);
 
   return (
     <div className="min-h-screen flex flex-col transition-colors duration-300 relative overflow-hidden">
@@ -182,7 +93,6 @@ export default function Portfolio() {
         t={t}
       />
 
-      {/* Main Content Grows to fill space */}
       {/* Main Content with lazy-loaded pages */}
       <div className="flex-grow z-10 relative">
         <Suspense fallback={<PageLoader />}>
