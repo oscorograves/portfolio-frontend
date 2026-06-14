@@ -1,175 +1,98 @@
+import React from 'react';
 import { motion } from 'framer-motion';
 import Resources from '../components/sections/Resources';
-import React from 'react';
-// ── FASHION D2C DASHBOARD SECTION — REMOVE START ──────────────────────────
-import FashionD2CDashboard from '../components/sections/FashionD2CDashboard';
-// ── FASHION D2C DASHBOARD SECTION — REMOVE END ────────────────────────────
 
-const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-        opacity: 1,
-        y: 0,
-        transition: { duration: 0.5 }
-    }
-};
-
-const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-        opacity: 1,
-        transition: {
-            staggerChildren: 0.1
-        }
-    }
-};
+const item = { hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.45 } } };
+const container = { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.08 } } };
 
 const MetricsPage = ({ t, fallbackMetrics, isDarkMode }) => {
     const [selectedChannel, setSelectedChannel] = React.useState('All');
 
-    // Filter metrics based on selection
-    const filteredMetrics = selectedChannel === 'All'
-        ? fallbackMetrics
-        : fallbackMetrics.filter(m => m.channel === selectedChannel);
-
-    // Get unique channels
+    const filtered = selectedChannel === 'All' ? fallbackMetrics : fallbackMetrics.filter(m => m.channel === selectedChannel);
     const channels = ['All', ...new Set(fallbackMetrics.map(m => m.channel))];
 
-    // Aggregate Metrics Logic (Dynamic based on filter)
-    const totalSpend = filteredMetrics.reduce((acc, curr) => acc + curr.spend, 0);
-    const avgCTR = filteredMetrics.length ? filteredMetrics.reduce((acc, curr) => acc + curr.ctr, 0) / filteredMetrics.length : 0;
-    const avgCVR = filteredMetrics.length ? filteredMetrics.reduce((acc, curr) => acc + curr.cvr, 0) / filteredMetrics.length : 0;
-    const avgROI = filteredMetrics.length ? filteredMetrics.reduce((acc, curr) => acc + curr.roi, 0) / filteredMetrics.length : 0;
+    const totalSpend = filtered.reduce((a, c) => a + c.spend, 0);
+    const avgCTR = filtered.length ? filtered.reduce((a, c) => a + c.ctr, 0) / filtered.length : 0;
+    const avgCVR = filtered.length ? filtered.reduce((a, c) => a + c.cvr, 0) / filtered.length : 0;
+    const avgROI = filtered.length ? filtered.reduce((a, c) => a + c.roi, 0) / filtered.length : 0;
 
-    // Insights Logic
-    let topChannelObj = null;
-    let bestCvrCampaign = null;
-    let highestRoiCampaign = null;
-
-    if (filteredMetrics.length > 0) {
-        // Top Channel by Spend
-        const channelSpend = {};
-        filteredMetrics.forEach(m => {
-            channelSpend[m.channel] = (channelSpend[m.channel] || 0) + m.spend;
-        });
-        const topChannelName = Object.keys(channelSpend).reduce((a, b) => channelSpend[a] > channelSpend[b] ? a : b);
-        topChannelObj = { name: topChannelName, spend: channelSpend[topChannelName].toLocaleString() };
-
-        // Best CVR
-        bestCvrCampaign = filteredMetrics.reduce((prev, current) => (prev.cvr > current.cvr) ? prev : current);
-
-        // Highest ROI
-        highestRoiCampaign = filteredMetrics.reduce((prev, current) => (prev.roi > current.roi) ? prev : current);
+    let topChannel = null, bestCvr = null, highestRoi = null;
+    if (filtered.length > 0) {
+        const cs = {}; filtered.forEach(m => { cs[m.channel] = (cs[m.channel] || 0) + m.spend; });
+        const topName = Object.keys(cs).reduce((a, b) => cs[a] > cs[b] ? a : b);
+        topChannel = { name: topName, spend: cs[topName].toLocaleString() };
+        bestCvr = filtered.reduce((p, c) => p.cvr > c.cvr ? p : c);
+        highestRoi = filtered.reduce((p, c) => p.roi > c.roi ? p : c);
     }
 
     return (
-        <div className="pt-20 min-h-screen transition-colors duration-300">
-            <div className="max-w-6xl mx-auto px-8 py-12">
-                <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4 border-b-2 border-amber-600 dark:border-yellow-400 pb-4">
-                    <h1 className="text-4xl font-bold text-gray-900 dark:text-white">
-                        {t('metricsPage.title')}
-                    </h1>
-
-                    {/* Filter Buttons */}
+        <div className="pt-20 min-h-screen">
+            <div className="max-w-[1100px] mx-auto px-4 md:px-6 py-12">
+                {/* Header */}
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-10">
+                    <div>
+                        <h1 className="text-4xl font-bold text-white heading-glow mb-2">{t('metricsPage.title')}</h1>
+                        <p className="text-zinc-500 text-sm">Campaign performance data across all channels</p>
+                    </div>
                     <div className="flex flex-wrap gap-2">
-                        {channels.map(channel => (
-                            <button
-                                key={channel}
-                                onClick={() => setSelectedChannel(channel)}
-                                className={`px-4 py-1.5 rounded-full text-sm font-mono border transition-all ${selectedChannel === channel
-                                    ? 'bg-amber-600 dark:bg-yellow-400 text-white dark:text-gray-900 border-amber-600 dark:border-yellow-400 font-bold'
-                                    : 'bg-white/50 dark:bg-gray-900/50 text-gray-600 dark:text-gray-400 border-gray-300 dark:border-gray-800 hover:border-amber-500 dark:hover:border-yellow-300'
-                                    }`}
-                            >
-                                {channel === 'All' ? t('metricsPage.filters.all') : channel}
+                        {channels.map(ch => (
+                            <button key={ch} onClick={() => setSelectedChannel(ch)}
+                                className={`px-4 py-1.5 rounded-xl text-sm font-medium transition-all cursor-pointer ${
+                                    selectedChannel === ch
+                                        ? 'bg-amber-500 text-zinc-900 font-semibold shadow-lg shadow-amber-500/20'
+                                        : 'bg-zinc-800 text-zinc-400 border border-zinc-700 hover:border-zinc-600 hover:text-zinc-300'
+                                }`}>
+                                {ch === 'All' ? t('metricsPage.filters.all') : ch}
                             </button>
                         ))}
                     </div>
                 </div>
 
-                <motion.div
-                    className="space-y-8"
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    variants={containerVariants}
-                >
-                    {/* Summary Cards */}
-                    <motion.div variants={itemVariants} className="grid md:grid-cols-4 gap-4 mb-8">
-                        <motion.div className="ds-card-base ds-card-hover rounded p-5 text-center">
-                            <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2 font-mono">{t('metricsPage.totalSpend')}</div>
-                            <div className="text-3xl font-bold text-gray-900 dark:text-white font-mono flex items-baseline justify-center tracking-tight">
-                                <span className="text-[0.75em] font-sans font-bold opacity-80 tracking-wide mr-[2px]">$</span>
-                                {(totalSpend / 1000).toFixed(1)}
-                                <span className="text-[0.75em] font-sans font-bold opacity-80 tracking-wide ml-[2px]">K</span>
+                <motion.div className="space-y-6" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={container}>
+                    {/* Summary cards */}
+                    <motion.div variants={item} className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                        {[
+                            { label: t('metricsPage.totalSpend'), pre: '$', val: (totalSpend / 1000).toFixed(1), suf: 'K' },
+                            { label: t('metricsPage.avgCtr'), val: avgCTR.toFixed(2), suf: '%' },
+                            { label: t('metricsPage.avgCvr'), val: avgCVR.toFixed(2), suf: '%' },
+                            { label: t('metricsPage.avgRoi'), val: avgROI.toFixed(0), suf: '%' },
+                        ].map((c, i) => (
+                            <div key={i} className="bento-accent p-5 text-center">
+                                <div className="section-label mb-2">{c.label}</div>
+                                <div className="metric text-2xl md:text-3xl text-white">
+                                    <span className="text-amber-500/60 text-[0.6em]">{c.pre || ''}</span>
+                                    {c.val}
+                                    <span className="text-amber-500/60 text-[0.6em] ml-0.5">{c.suf}</span>
+                                </div>
                             </div>
-                        </motion.div>
-                        <motion.div className="ds-card-base ds-card-hover rounded p-5 text-center">
-                            <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2 font-mono">{t('metricsPage.avgCtr')}</div>
-                            <div className="text-3xl font-bold text-gray-900 dark:text-white font-mono flex items-baseline justify-center tracking-tight">
-                                {avgCTR.toFixed(2)}
-                                <span className="text-[0.75em] font-sans font-bold opacity-80 tracking-wide ml-[2px]">%</span>
-                            </div>
-                        </motion.div>
-                        <motion.div className="ds-card-base ds-card-hover rounded p-5 text-center">
-                            <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2 font-mono">{t('metricsPage.avgCvr')}</div>
-                            <div className="text-3xl font-bold text-gray-900 dark:text-white font-mono flex items-baseline justify-center tracking-tight">
-                                {avgCVR.toFixed(2)}
-                                <span className="text-[0.75em] font-sans font-bold opacity-80 tracking-wide ml-[2px]">%</span>
-                            </div>
-                        </motion.div>
-                        <motion.div className="ds-card-base ds-card-hover rounded p-5 text-center">
-                            <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2 font-mono">{t('metricsPage.avgRoi')}</div>
-                            <div className="text-3xl font-bold text-gray-900 dark:text-white font-mono flex items-baseline justify-center tracking-tight">
-                                {avgROI.toFixed(0)}
-                                <span className="text-[0.75em] font-sans font-bold opacity-80 tracking-wide ml-[2px]">%</span>
-                            </div>
-                        </motion.div>
+                        ))}
                     </motion.div>
 
-                    {/* Detailed Table */}
-                    <motion.div
-                        variants={itemVariants}
-                        className="ds-card-base rounded overflow-hidden shadow-lg"
-                    >
+                    {/* Table */}
+                    <motion.div variants={item} className="bento-card overflow-hidden p-0">
                         <div className="overflow-x-auto">
                             <table className="w-full text-sm text-left">
-                                <thead className="text-xs text-gray-600 dark:text-gray-400 uppercase bg-gray-50 dark:bg-gray-800/50">
+                                <thead className="text-[10px] text-zinc-500 uppercase bg-zinc-900/60 mono tracking-wider">
                                     <tr>
-                                        <th scope="col" className="px-6 py-3">{t('metricsPage.table.client')}</th>
-                                        <th scope="col" className="px-6 py-3">{t('metricsPage.table.channel')}</th>
-                                        <th scope="col" className="px-6 py-3 text-right">{t('metricsPage.table.spend')}</th>
-                                        <th scope="col" className="px-6 py-3 text-right">{t('metricsPage.table.ctr')}</th>
-                                        <th scope="col" className="px-6 py-3 text-right">{t('metricsPage.table.cpr')}</th>
-                                        <th scope="col" className="px-6 py-3 text-right">{t('metricsPage.table.cvr')}</th>
-                                        <th scope="col" className="px-6 py-3 text-right">{t('metricsPage.table.roi')}</th>
+                                        <th className="px-5 py-3">{t('metricsPage.table.client')}</th>
+                                        <th className="px-5 py-3">{t('metricsPage.table.channel')}</th>
+                                        <th className="px-5 py-3 text-right">{t('metricsPage.table.spend')}</th>
+                                        <th className="px-5 py-3 text-right">{t('metricsPage.table.ctr')}</th>
+                                        <th className="px-5 py-3 text-right">{t('metricsPage.table.cpr')}</th>
+                                        <th className="px-5 py-3 text-right">{t('metricsPage.table.cvr')}</th>
+                                        <th className="px-5 py-3 text-right">{t('metricsPage.table.roi')}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {filteredMetrics.map((row, index) => (
-                                        <tr key={index} className="border-b border-gray-200 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
-                                            <td className="px-6 py-4 font-medium text-gray-900 dark:text-white">{row.client}</td>
-                                            <td className="px-6 py-4 text-gray-600 dark:text-gray-400">{row.channel}</td>
-                                            <td className="px-6 py-4 text-right text-gray-900 dark:text-white font-mono">
-                                                <span className="text-[0.85em] font-sans font-semibold opacity-80 mr-[1px]">$</span>
-                                                {row.spend}
-                                            </td>
-                                            <td className="px-6 py-4 text-right text-gray-900 dark:text-white font-mono">
-                                                {row.ctr}
-                                                <span className="text-[0.85em] font-sans font-semibold opacity-80 ml-[1px]">%</span>
-                                            </td>
-                                            <td className="px-6 py-4 text-right text-gray-900 dark:text-white font-mono">
-                                                <span className="text-[0.85em] font-sans font-semibold opacity-80 mr-[1px]">$</span>
-                                                {row.cpr}
-                                            </td>
-                                            <td className="px-6 py-4 text-right text-gray-900 dark:text-white font-mono">
-                                                {row.cvr}
-                                                <span className="text-[0.85em] font-sans font-semibold opacity-80 ml-[1px]">%</span>
-                                            </td>
-                                            <td className="px-6 py-4 text-right text-green-600 dark:text-green-400 font-bold font-mono">
-                                                {row.roi}
-                                                <span className="text-[0.85em] font-sans font-semibold opacity-80 ml-[1px]">%</span>
-                                            </td>
+                                    {filtered.map((r, i) => (
+                                        <tr key={i} className="border-b border-zinc-800/50 hover:bg-zinc-800/30 transition-colors">
+                                            <td className="px-5 py-3.5 font-medium text-white">{r.client}</td>
+                                            <td className="px-5 py-3.5 text-zinc-400">{r.channel}</td>
+                                            <td className="px-5 py-3.5 text-right text-white mono"><span className="text-amber-500/60 text-xs">$</span>{r.spend.toLocaleString()}</td>
+                                            <td className="px-5 py-3.5 text-right text-white mono">{r.ctr}<span className="text-zinc-600 text-xs">%</span></td>
+                                            <td className="px-5 py-3.5 text-right text-white mono"><span className="text-amber-500/60 text-xs">$</span>{r.cpr}</td>
+                                            <td className="px-5 py-3.5 text-right text-white mono">{r.cvr}<span className="text-zinc-600 text-xs">%</span></td>
+                                            <td className="px-5 py-3.5 text-right text-emerald-400 font-semibold mono">{r.roi}<span className="text-emerald-400/50 text-xs">%</span></td>
                                         </tr>
                                     ))}
                                 </tbody>
@@ -177,57 +100,26 @@ const MetricsPage = ({ t, fallbackMetrics, isDarkMode }) => {
                         </div>
                     </motion.div>
 
-                    {/* Insights Section */}
-                    <div className="mt-8">
-                        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">{t('metricsPage.insights.title')}</h2>
-                        <div className="grid md:grid-cols-3 gap-4">
-                            <motion.div className="ds-card-base ds-card-hover rounded p-5">
-                                <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2 font-mono">{t('metricsPage.insights.topChannel.title')}</div>
-                                <div className="text-lg font-bold text-gray-900 dark:text-white">
-                                    {topChannelObj ? topChannelObj.name : t('metricsPage.insights.topChannel.name')}
-                                </div>
-                                <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
-                                    {topChannelObj ? t('metricsPage.insights.dynamicTopChannelDesc', { spend: topChannelObj.spend }) : t('metricsPage.insights.topChannel.desc')}
-                                </p>
-                            </motion.div>
-                            <motion.div className="ds-card-base ds-card-hover rounded p-5">
-                                <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2 font-mono">{t('metricsPage.insights.bestCvr.title')}</div>
-                                <div className="text-lg font-bold text-gray-900 dark:text-white">
-                                    {bestCvrCampaign ? `${bestCvrCampaign.client} (${bestCvrCampaign.channel})` : t('metricsPage.insights.bestCvr.name')}
-                                </div>
-                                <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
-                                    {bestCvrCampaign ? t('metricsPage.insights.dynamicBestCvrDesc', { cvr: bestCvrCampaign.cvr }) : t('metricsPage.insights.bestCvr.desc')}
-                                </p>
-                            </motion.div>
-                            <motion.div className="ds-card-base ds-card-hover rounded p-5">
-                                <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2 font-mono">{t('metricsPage.insights.highestRoi.title')}</div>
-                                <div className="text-lg font-bold text-gray-900 dark:text-white">
-                                    {highestRoiCampaign ? `${highestRoiCampaign.client} (${highestRoiCampaign.channel})` : t('metricsPage.insights.highestRoi.name')}
-                                </div>
-                                <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
-                                    {highestRoiCampaign ? t('metricsPage.insights.dynamicHighestRoiDesc', { roi: highestRoiCampaign.roi }) : t('metricsPage.insights.highestRoi.desc')}
-                                </p>
-                            </motion.div>
+                    {/* Insights */}
+                    <div>
+                        <h2 className="text-2xl font-bold text-white mb-5">{t('metricsPage.insights.title')}</h2>
+                        <div className="grid md:grid-cols-3 gap-3">
+                            {[
+                                { label: t('metricsPage.insights.topChannel.title'), value: topChannel?.name, desc: topChannel ? t('metricsPage.insights.dynamicTopChannelDesc', { spend: topChannel.spend }) : t('metricsPage.insights.topChannel.desc') },
+                                { label: t('metricsPage.insights.bestCvr.title'), value: bestCvr ? `${bestCvr.client} (${bestCvr.channel})` : '', desc: bestCvr ? t('metricsPage.insights.dynamicBestCvrDesc', { cvr: bestCvr.cvr }) : t('metricsPage.insights.bestCvr.desc') },
+                                { label: t('metricsPage.insights.highestRoi.title'), value: highestRoi ? `${highestRoi.client} (${highestRoi.channel})` : '', desc: highestRoi ? t('metricsPage.insights.dynamicHighestRoiDesc', { roi: highestRoi.roi }) : t('metricsPage.insights.highestRoi.desc') },
+                            ].map((ins, i) => (
+                                <motion.div key={i} variants={item} className="bento-card p-5">
+                                    <div className="section-label mb-2">{ins.label}</div>
+                                    <div className="text-lg font-bold text-white mb-1">{ins.value}</div>
+                                    <p className="text-xs text-zinc-500 leading-relaxed">{ins.desc}</p>
+                                </motion.div>
+                            ))}
                         </div>
                     </div>
                 </motion.div>
             </div>
 
-            {/* ── FASHION D2C DASHBOARD SECTION — REMOVE START ──────────────────────── */}
-            <motion.div
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={itemVariants}
-                className="w-full border-t border-gray-300 dark:border-gray-800 py-12 mt-4"
-            >
-                <div className="max-w-6xl mx-auto px-8">
-                    <FashionD2CDashboard />
-                </div>
-            </motion.div>
-            {/* ── FASHION D2C DASHBOARD SECTION — REMOVE END ──────────────────────── */}
-
-            {/* Resources Section (Full Width Border) */}
             <Resources t={t} />
         </div>
     );

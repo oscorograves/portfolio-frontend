@@ -1,68 +1,41 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { DownloadSimple, MicrosoftExcelLogo, ArrowSquareOut } from 'phosphor-react';
+import { DownloadSimple, MicrosoftExcelLogo, ArrowUpRight } from 'phosphor-react';
 
-const Resources = ({ t }) => {
-    return (
-        <section className="py-12 mt-8 border-t border-gray-300 dark:border-gray-800 transition-colors duration-300">
-            <div className="max-w-6xl mx-auto px-8">
-                {/* Section Title (Matched to DigitalSkills/Services) */}
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-amber-600 dark:border-yellow-400">
-                    Resources
-                </h2>
-
-                <div className="grid md:grid-cols-2 gap-6">
-                    {/* Professional Reference (LOR) */}
-                    <motion.a
-                        href="/Professional_LOR.pdf"
-                        target="_blank"
-                        className="group flex items-start gap-4 p-6 ds-card-base ds-card-hover rounded-xl cursor-pointer"
-                        whileHover={{ y: -5 }}
-                    >
-                        {/* Shaded Icon Container */}
-                        <div className="w-14 h-14 bg-blue-500/10 dark:bg-blue-500/20 rounded-lg flex items-center justify-center shrink-0">
-                            <DownloadSimple className="w-8 h-8 text-blue-600 dark:text-blue-400" weight="duotone" />
+const Resources = ({ t }) => (
+    <section className="py-12 mt-8 border-t border-zinc-800">
+        <div className="max-w-[1100px] mx-auto px-4 md:px-6">
+            <h2 className="text-2xl font-bold text-white mb-6">Resources</h2>
+            <div className="grid md:grid-cols-2 gap-3">
+                <motion.a href="/Professional_LOR.pdf" target="_blank" whileHover={{ y: -3 }}
+                    className="bento-card flex items-start gap-4 p-5 cursor-pointer group">
+                    <div className="w-11 h-11 bg-blue-500/10 rounded-xl flex items-center justify-center shrink-0">
+                        <DownloadSimple className="w-5 h-5 text-blue-400" weight="duotone" />
+                    </div>
+                    <div>
+                        <div className="flex items-center gap-2">
+                            <h3 className="text-sm font-bold text-white group-hover:text-amber-400 transition-colors">Professional Reference</h3>
+                            <ArrowUpRight className="w-3.5 h-3.5 text-zinc-600 opacity-0 group-hover:opacity-100 transition-opacity" weight="bold" />
                         </div>
-                        <div>
-                            <div className="flex items-center gap-2">
-                                <h3 className="text-lg font-bold text-gray-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-yellow-400 transition-colors">
-                                    Professional Reference
-                                </h3>
-                                <ArrowSquareOut className="w-4 h-4 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity" weight="duotone" />
-                            </div>
-                            <p className="text-sm text-gray-600 dark:text-gray-300 mt-2 leading-relaxed">
-                                Letter of Recommendation detailing professional impact, strategic thinking, and campaign performance.
-                            </p>
+                        <p className="text-xs text-zinc-500 mt-1 leading-relaxed">Letter of Recommendation detailing professional impact.</p>
+                    </div>
+                </motion.a>
+                <motion.a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTDn-lJIO3TJJ1TQLIFIbFLYzGo-nYZUv0ID45PnaV-OqqrH8GvU88k-Fvd117bCOKZNcsRH_l79FPd/pubhtml" target="_blank" whileHover={{ y: -3 }}
+                    className="bento-card flex items-start gap-4 p-5 cursor-pointer group">
+                    <div className="w-11 h-11 bg-emerald-500/10 rounded-xl flex items-center justify-center shrink-0">
+                        <MicrosoftExcelLogo className="w-5 h-5 text-emerald-400" weight="duotone" />
+                    </div>
+                    <div>
+                        <div className="flex items-center gap-2">
+                            <h3 className="text-sm font-bold text-white group-hover:text-amber-400 transition-colors">Promotions Monitoring Sheet - 2024</h3>
+                            <ArrowUpRight className="w-3.5 h-3.5 text-zinc-600 opacity-0 group-hover:opacity-100 transition-opacity" weight="bold" />
                         </div>
-                    </motion.a>
-
-                    {/* Promotions Monitoring Sheet */}
-                    <motion.a
-                        href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTDn-lJIO3TJJ1TQLIFIbFLYzGo-nYZUv0ID45PnaV-OqqrH8GvU88k-Fvd117bCOKZNcsRH_l79FPd/pubhtml"
-                        target="_blank"
-                        className="group flex items-start gap-4 p-6 ds-card-base ds-card-hover rounded-xl cursor-pointer"
-                        whileHover={{ y: -5 }}
-                    >
-                        {/* Shaded Icon Container */}
-                        <div className="w-14 h-14 bg-emerald-500/10 dark:bg-emerald-500/20 rounded-lg flex items-center justify-center shrink-0">
-                            <MicrosoftExcelLogo className="w-8 h-8 text-emerald-600 dark:text-emerald-400" weight="duotone" />
-                        </div>
-                        <div>
-                            <div className="flex items-center gap-2">
-                                <h3 className="text-lg font-bold text-gray-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-yellow-400 transition-colors">
-                                    Promotions Monitoring Sheet - 2024
-                                </h3>
-                                <ArrowSquareOut className="w-4 h-4 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity" weight="duotone" />
-                            </div>
-                            <p className="text-sm text-gray-600 dark:text-gray-300 mt-2 leading-relaxed">
-                                Ad performance sheet from 2024
-                            </p>
-                        </div>
-                    </motion.a>
-                </div>
+                        <p className="text-xs text-zinc-500 mt-1 leading-relaxed">Ad performance sheet from 2024</p>
+                    </div>
+                </motion.a>
             </div>
-        </section>
-    );
-};
+        </div>
+    </section>
+);
 
 export default Resources;

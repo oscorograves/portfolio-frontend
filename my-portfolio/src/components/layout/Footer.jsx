@@ -2,87 +2,59 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Envelope, LinkedinLogo, InstagramLogo, GithubLogo, FilmStrip, Camera, Airplane, Book } from 'phosphor-react';
 
-const Footer = ({ t }) => {
-    return (
-        <footer className="relative border-t border-gray-900/10 dark:border-gray-800 pt-12 pb-12 bg-white/80 dark:bg-gray-900/50 backdrop-blur-lg transition-all duration-500 overflow-hidden">
-            <div className="max-w-6xl mx-auto px-4 md:px-8 relative z-10">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-12">
+const Footer = ({ t }) => (
+    <footer className="border-t border-zinc-800 py-10 bg-[#09090B]">
+        <div className="max-w-[1100px] mx-auto px-4 md:px-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
 
-                    {/* Left: Combined Rights & Resource Links */}
-                    <div className="flex flex-col gap-6 text-center md:text-left">
-                        <div className="space-y-3">
-                            <p className="text-[10px] text-gray-600 dark:text-gray-500 tracking-[0.15em] leading-relaxed uppercase font-mono font-medium max-w-sm mx-auto md:mx-0">
-                                {t('footer.rights')}
-                            </p>
-                            <div className="flex flex-wrap justify-center md:justify-start items-center gap-x-6 gap-y-2 pt-2 border-t border-gray-900/10 dark:border-white/5">
-                                <motion.a
-                                    whileHover={{ y: -2, color: '#f59e0b' }}
-                                    href="https://scalewithkanishk.in/sitemap.xml"
-                                    className="text-[10px] font-mono text-gray-700 dark:text-gray-400 transition-all uppercase tracking-[0.2em] font-bold"
-                                >
-                                    {t('footer.links.sitemap')}
-                                </motion.a>
-                            </div>
-                        </div>
+                {/* Left: Copyright */}
+                <div className="space-y-3 text-center md:text-left">
+                    <p className="text-[11px] text-zinc-600 leading-relaxed mono">
+                        {t('footer.rights')}
+                    </p>
+                    <a href="https://scalewithkanishk.in/sitemap.xml"
+                       className="text-[10px] mono text-zinc-600 hover:text-amber-400 transition-colors uppercase tracking-wider font-semibold">
+                        {t('footer.links.sitemap')}
+                    </a>
+                </div>
+
+                {/* Center: Off The Clock */}
+                <div className="flex flex-col items-center gap-3">
+                    <span className="section-label text-zinc-600">{t('footer.offClock')}</span>
+                    <div className="flex items-center gap-5">
+                        {[
+                            { Icon: FilmStrip, key: 'film' },
+                            { Icon: Camera, key: 'photography' },
+                            { Icon: Airplane, key: 'travel' },
+                            { Icon: Book, key: 'journaling' }
+                        ].map(({ Icon, key }) => (
+                            <motion.div key={key} whileHover={{ y: -2 }} className="group relative cursor-help">
+                                <Icon className="w-4.5 h-4.5 text-zinc-600 group-hover:text-amber-400 transition-colors" weight="duotone" />
+                            </motion.div>
+                        ))}
                     </div>
+                </div>
 
-                    {/* Center: Off The Clock */}
-                    <div className="flex flex-col items-center gap-6 justify-start pt-1">
-                        <span className="text-[10px] font-bold text-gray-500 dark:text-gray-500 uppercase tracking-[0.3em] font-mono border-b border-amber-500/30 pb-1">
-                            {t('footer.offClock')}
-                        </span>
-                        <div className="flex items-center gap-8">
-                            {[
-                                { Icon: FilmStrip, key: 'film' },
-                                { Icon: Camera, key: 'photography' },
-                                { Icon: Airplane, key: 'travel' },
-                                { Icon: Book, key: 'journaling' }
-                            ].map(({ Icon, key }) => (
-                                <motion.div key={key} whileHover={{ y: -3, scale: 1.1 }} className="group relative cursor-help">
-                                    <Icon className="w-6 h-6 text-gray-500 dark:text-gray-600 group-hover:text-amber-500 transition-all" weight="duotone" />
-                                    <span className="text-[8px] font-mono text-amber-600 dark:text-amber-500/80 opacity-0 group-hover:opacity-100 transition-all absolute -bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap tracking-widest uppercase">
-                                        {t(`footer.hobbies.${key}`)}
-                                    </span>
-                                </motion.div>
-                            ))}
-                        </div>
-                    </div>
-
-                    {/* Right: Socials */}
-                    <div className="flex flex-col items-center md:items-end gap-6 justify-start pt-1">
-                        <span className="text-[10px] font-bold text-gray-500 dark:text-gray-500 uppercase tracking-[0.3em] font-mono border-b border-amber-500/30 pb-1">
-                            {t('footer.socials')}
-                        </span>
-                        <div className="flex items-center gap-4">
-                            {[
-                                { Icon: Envelope, href: "mailto:hi@scalewithkanishk.in", label: "EMAIL" },
-                                { Icon: LinkedinLogo, href: "https://www.linkedin.com/in/kanishk-singh-ab90b2203/", label: "LINKEDIN" },
-                                { Icon: InstagramLogo, href: "https://www.instagram.com/oscorograves/", label: "INSTAGRAM" },
-                                { Icon: GithubLogo, href: "https://github.com/oscorograves", label: "GITHUB" }
-                            ].map(({ Icon, href, label }) => (
-                                <motion.a
-                                    key={label}
-                                    href={href}
-                                    target={href.startsWith('http') ? "_blank" : undefined}
-                                    rel={href.startsWith('http') ? "noopener noreferrer" : undefined}
-                                    whileHover={{ y: -3, scale: 1.1 }}
-                                    className="group relative"
-                                >
-                                    <Icon className="w-6 h-6 text-gray-500 dark:text-gray-600 group-hover:text-amber-500 transition-all" weight="duotone" />
-                                    <span className="text-[8px] font-mono text-amber-500/80 opacity-0 group-hover:opacity-100 transition-all absolute -bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap tracking-widest">
-                                        {label}
-                                    </span>
-                                </motion.a>
-                            ))}
-                        </div>
+                {/* Right: Socials */}
+                <div className="flex flex-col items-center md:items-end gap-3">
+                    <span className="section-label text-zinc-600">{t('footer.socials')}</span>
+                    <div className="flex items-center gap-4">
+                        {[
+                            { Icon: Envelope, href: "mailto:hi@scalewithkanishk.in" },
+                            { Icon: LinkedinLogo, href: "https://www.linkedin.com/in/kanishk-singh-ab90b2203/" },
+                            { Icon: InstagramLogo, href: "https://www.instagram.com/oscorograves/" },
+                            { Icon: GithubLogo, href: "https://github.com/oscorograves" }
+                        ].map(({ Icon, href }, i) => (
+                            <motion.a key={i} href={href} target={href.startsWith('http') ? "_blank" : undefined} rel={href.startsWith('http') ? "noopener noreferrer" : undefined}
+                                whileHover={{ y: -2 }} className="text-zinc-600 hover:text-amber-400 transition-colors">
+                                <Icon className="w-4.5 h-4.5" weight="duotone" />
+                            </motion.a>
+                        ))}
                     </div>
                 </div>
             </div>
-
-            {/* Subtle background glow */}
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/2 h-1/2 bg-amber-500/5 blur-[120px] pointer-events-none" />
-        </footer>
-    );
-};
+        </div>
+    </footer>
+);
 
 export default Footer;

@@ -3,11 +3,8 @@ import { Routes, Route, useLocation, useNavigate, Link } from 'react-router-dom'
 import NavBar from './components/layout/NavBar';
 import Footer from './components/layout/Footer';
 import PageWrapper from './components/ui/PageWrapper';
-import NoiseOverlay from './components/ui/NoiseOverlay';
 import ScrollProgress from './components/ui/ScrollProgress';
-import FireflyBackground from './components/animations/FireflyBackground';
 import CustomCursor from './components/animations/CustomCursor';
-import NetworkBackground from './components/animations/NetworkBackground';
 import Home from './pages/Home';
 import { routes as routeConfig, CAREER_STATS } from './routes-config';
 import useTheme from './hooks/useTheme';
@@ -15,23 +12,18 @@ import useSEO from './hooks/useSEO';
 import useScrollToTop from './hooks/useScrollToTop';
 import useLanguage from './hooks/useLanguage';
 
-// Lazy load other pages (route-based code splitting)
 const Experience = lazy(() => import('./pages/Experience'));
 const CaseStudies = lazy(() => import('./pages/CaseStudies'));
 const MyStory = lazy(() => import('./pages/MyStory'));
 const MetricsPage = lazy(() => import('./pages/MetricsPage'));
-
-// Lazy Load Modal
 const WipModal = lazy(() => import('./components/ui/WipModal'));
 
-// Loading spinner component
 const PageLoader = () => (
   <div className="min-h-[60vh] flex items-center justify-center">
-    <div className="w-12 h-12 border-4 border-primary-500 border-t-transparent rounded-full animate-spin" />
+    <div className="text-amber-500 mono text-sm animate-pulse">Loading…</div>
   </div>
 );
 
-// FALLBACK DATA
 const fallbackMetrics = [
   { client: 'Pocket FM', channel: 'Meta', spend: 6000, ctr: 2.8, cpr: 10.75, cvr: 4.2, roi: 250, volumeGrowth: 245, cpaReduction: 14, d7Retention: 26 },
   { client: 'Packt', channel: 'Meta', spend: 12000, ctr: 2.3, cpr: 60, cvr: 5.8, roi: 175, netNew: 93 },
@@ -47,14 +39,11 @@ export default function Portfolio() {
   const location = useLocation();
   const navigate = useNavigate();
   const [showWip, setShowWip] = useState(false);
-
   const [isDarkMode, setIsDarkMode] = useTheme();
-  
-  // Initialize Side-Effects
+
   useSEO();
   useScrollToTop();
 
-  // Derive current page from pathname
   const getCurrentPage = () => {
     const path = location.pathname;
     if (path === '/') return 'home';
@@ -62,82 +51,47 @@ export default function Portfolio() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col transition-colors duration-300 relative overflow-hidden">
-      <ScrollProgress isDarkMode={isDarkMode} />
-      <NoiseOverlay />
+    <div className="min-h-screen flex flex-col relative bg-[#09090B]">
+      <ScrollProgress isDarkMode={true} />
 
-      {/* Solid Background Base */}
-      <div className="fixed inset-0 -z-20 bg-gray-50 dark:bg-gray-950 transition-colors duration-300" />
+      {/* Subtle grain overlay */}
+      <div className="grain-overlay" />
 
-      {/* Animated Background Gradients - Global */}
-      <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-500/10 dark:bg-primary-900/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '8s' }} />
-        <div className="absolute bottom-1/3 right-1/3 w-80 h-80 bg-accent-500/10 dark:bg-accent-900/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '12s', animationDelay: '2s' }} />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gray-400/10 dark:bg-gray-800/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '10s', animationDelay: '1s' }} />
-      </div>
-
-      {/* Background Effects */}
-      <NetworkBackground isDarkMode={isDarkMode} />
-      <FireflyBackground />
-      <CustomCursor isDarkMode={isDarkMode} />
+      <CustomCursor isDarkMode={true} />
 
       <NavBar
         currentPage={getCurrentPage()}
         navigate={navigate}
-        showWip={showWip}
-        setShowWip={setShowWip}
-        isDarkMode={isDarkMode}
-        setIsDarkMode={setIsDarkMode}
-        language={language}
-        setLanguage={setLanguage}
+        showWip={showWip} setShowWip={setShowWip}
+        isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode}
+        language={language} setLanguage={setLanguage}
         t={t}
       />
 
-      {/* Main Content with lazy-loaded pages */}
       <div className="flex-grow z-10 relative">
         <Suspense fallback={<PageLoader />}>
           <Routes>
             <Route path="/" element={
-              <PageWrapper>
-                <Home
-                  t={t}
-                  navigate={navigate}
-                  fallbackMetrics={fallbackMetrics}
-                  isDarkMode={isDarkMode}
-                  careerStats={CAREER_STATS}
-                />
-              </PageWrapper>
+              <PageWrapper><Home t={t} navigate={navigate} fallbackMetrics={fallbackMetrics} isDarkMode={isDarkMode} careerStats={CAREER_STATS} /></PageWrapper>
             } />
             <Route path="/experience" element={
-              <PageWrapper>
-                <Experience t={t} isDarkMode={isDarkMode} />
-              </PageWrapper>
+              <PageWrapper><Experience t={t} isDarkMode={isDarkMode} /></PageWrapper>
             } />
             <Route path="/case-studies" element={
-              <PageWrapper>
-                <CaseStudies t={t} isDarkMode={isDarkMode} fallbackMetrics={fallbackMetrics} />
-              </PageWrapper>
+              <PageWrapper><CaseStudies t={t} isDarkMode={isDarkMode} fallbackMetrics={fallbackMetrics} /></PageWrapper>
             } />
             <Route path="/my-story" element={
-              <PageWrapper>
-                <MyStory t={t} />
-              </PageWrapper>
+              <PageWrapper><MyStory t={t} /></PageWrapper>
             } />
             <Route path="/metrics" element={
-              <PageWrapper>
-                <MetricsPage t={t} fallbackMetrics={fallbackMetrics} isDarkMode={isDarkMode} />
-              </PageWrapper>
+              <PageWrapper><MetricsPage t={t} fallbackMetrics={fallbackMetrics} isDarkMode={isDarkMode} /></PageWrapper>
             } />
-            {/* 404 Catch-all route */}
             <Route path="*" element={
               <PageWrapper>
                 <div className="min-h-[60vh] flex flex-col items-center justify-center text-center px-4">
-                  <h1 className="text-6xl font-bold text-gray-900 dark:text-white mb-4">404</h1>
-                  <p className="text-xl text-gray-600 dark:text-gray-400 mb-8">Page not found</p>
-                  <Link
-                    to="/"
-                    className="px-6 py-3 bg-amber-600 dark:bg-yellow-400 text-white dark:text-gray-900 rounded-full font-medium hover:opacity-90 transition-opacity"
-                  >
+                  <h1 className="text-7xl font-bold text-white mb-4 metric">404</h1>
+                  <p className="text-lg text-zinc-500 mb-8 mono">Page not found</p>
+                  <Link to="/" className="px-6 py-3 bg-amber-500 text-zinc-900 rounded-xl font-semibold hover:bg-amber-400 transition-colors">
                     Back to Home
                   </Link>
                 </div>
@@ -149,7 +103,6 @@ export default function Portfolio() {
 
       <Footer t={t} />
 
-      {/* Modals */}
       <Suspense fallback={null}>
         {showWip && <WipModal isOpen={showWip} onClose={() => setShowWip(false)} t={t} />}
       </Suspense>

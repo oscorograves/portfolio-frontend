@@ -1,251 +1,126 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Briefcase, MapPin, CalendarBlank, Robot, ChatCircle, GraduationCap, Medal, DownloadSimple } from 'phosphor-react';
-import { DSButton } from '../design-system/components';
+import { Briefcase, MapPin, CalendarBlank, Robot, GraduationCap, Medal, DownloadSimple, ArrowUpRight } from 'phosphor-react';
 
-const itemVariants = {
+const item = {
     hidden: { opacity: 0, y: 20 },
-    visible: {
-        opacity: 1,
-        y: 0,
-        transition: { duration: 0.5 }
-    }
+    visible: { opacity: 1, y: 0, transition: { duration: 0.45 } }
 };
-
-const containerVariants = {
+const container = {
     hidden: { opacity: 0 },
-    visible: {
-        opacity: 1,
-        transition: {
-            staggerChildren: 0.1
-        }
-    }
+    visible: { opacity: 1, transition: { staggerChildren: 0.08 } }
 };
 
-const Experience = ({ t, isDarkMode }) => {
-    return (
-        <div className="pt-20 min-h-screen transition-colors duration-300">
-            <div className="max-w-6xl mx-auto px-8 py-12">
-                <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 pb-4 border-b-2 border-amber-600 dark:border-yellow-400 gap-4">
-                    <h1 className="text-4xl font-bold text-gray-900 dark:text-white">
-                        {t('experience.title')}
-                    </h1>
-                    <a
-                        href="/resume.pdf"
-                        download="Kanishk_Singh_Resume.pdf"
-                        className="flex items-center justify-center gap-2 px-5 py-2 rounded-full text-sm font-mono border transition-all bg-white/50 dark:bg-gray-900/50 text-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-700 hover:border-amber-500 dark:hover:border-yellow-400 hover:text-amber-600 dark:hover:text-yellow-400 hover:scale-105 active:scale-95 font-medium"
-                    >
-                        <DownloadSimple className="w-4 h-4" weight="bold" />
-                        Download CV
-                    </a>
+const RoleCard = ({ title, company, location, period, type, bullets }) => (
+    <motion.div variants={item} className="bento-card p-6">
+        <div className="flex items-start justify-between gap-4 mb-4">
+            <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2.5 mb-1.5 flex-wrap">
+                    <h3 className="text-lg font-bold text-white">{title}</h3>
+                    {type && <span className="badge-amber">{type}</span>}
                 </div>
-
-                <motion.div
-                    className="space-y-6"
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    variants={containerVariants}
-                >
-                    {/* Pocket FM */}
-                    <motion.div
-                        variants={itemVariants}
-                        className="ds-card-base ds-card-hover rounded p-6"
-                        transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                    >
-                        <div className="flex items-start justify-between mb-4">
-                            <div className="flex-1">
-                                <div className="flex items-center gap-2 mb-1">
-                                    <h3 className="text-lg font-bold text-gray-900 dark:text-white">{t('experience.roles.pocketfm.title')}</h3>
-                                    <span className="px-2 py-0.5 bg-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-800 rounded text-xs font-medium text-gray-700 dark:text-gray-300">
-                                        {t('experience.roles.pocketfm.type')}
-                                    </span>
-                                </div>
-                                <div className="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400">
-                                    <span className="flex items-center gap-1">
-                                        <Briefcase className="w-4 h-4 text-blue-500" weight="duotone" />
-                                        Pocket FM
-                                    </span>
-                                    <span className="flex items-center gap-1">
-                                        <MapPin className="w-4 h-4 text-rose-500" weight="duotone" />
-                                        Remote
-                                    </span>
-                                </div>
-                            </div>
-                            <div className="flex items-center gap-1 text-sm text-gray-600 dark:text-gray-400">
-                                <CalendarBlank className="w-4 h-4 text-amber-500" weight="duotone" />
-                                <span>{t('experience.roles.pocketfm.period')}</span>
-                            </div>
-                        </div>
-                        <ul className="space-y-2">
-                            {(Array.isArray(t('experience.roles.pocketfm.bullets', { returnObjects: true })) ? t('experience.roles.pocketfm.bullets', { returnObjects: true }) : []).map((bullet, k) => (
-                                <li key={k} className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2">
-                                    <span className="text-gray-400 mt-1.5">•</span>
-                                    <span>{bullet}</span>
-                                </li>
-                            ))}
-                        </ul>
-                    </motion.div>
-
-                    {/* Intertek */}
-                    <motion.div
-                        variants={itemVariants}
-                        className="ds-card-base ds-card-hover rounded p-6"
-                        transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                    >
-                        <div className="flex items-start justify-between mb-4">
-                            <div className="flex-1">
-                                <div className="flex items-center gap-2 mb-1">
-                                    <h3 className="text-lg font-bold text-gray-900 dark:text-white">{t('experience.roles.intertek.title')}</h3>
-                                </div>
-                                <div className="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400">
-                                    <span className="flex items-center gap-1">
-                                        <Briefcase className="w-4 h-4 text-blue-500" weight="duotone" />
-                                        {t('experience.roles.intertek.company')}
-                                    </span>
-                                    <span className="flex items-center gap-1">
-                                        <MapPin className="w-4 h-4 text-rose-500" weight="duotone" />
-                                        {t('experience.roles.intertek.location')}
-                                    </span>
-                                </div>
-                            </div>
-                            <div className="flex items-center gap-1 text-sm text-gray-600 dark:text-gray-400">
-                                <CalendarBlank className="w-4 h-4 text-amber-500" weight="duotone" />
-                                {t('experience.roles.intertek.period')}
-                            </div>
-                        </div>
-                        <ul className="space-y-2">
-                            {(Array.isArray(t('experience.roles.intertek.bullets', { returnObjects: true })) ? t('experience.roles.intertek.bullets', { returnObjects: true }) : []).map((bullet, k) => (
-                                <li key={k} className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2">
-                                    <span className="text-gray-400 mt-1.5">•</span>
-                                    <span>{bullet}</span>
-                                </li>
-                            ))}
-                        </ul>
-                    </motion.div>
-
-                    {/* Tradebuilder */}
-                    <motion.div
-                        variants={itemVariants}
-                        className="ds-card-base ds-card-hover rounded p-6"
-                        transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                    >
-                        <div className="flex items-start justify-between mb-4">
-                            <div className="flex-1">
-                                <div className="flex items-center gap-2 mb-1">
-                                    <h3 className="text-lg font-bold text-gray-900 dark:text-white">{t('experience.roles.tradebuilder.title')}</h3>
-                                </div>
-                                <div className="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400">
-                                    <span className="flex items-center gap-1">
-                                        <Briefcase className="w-4 h-4 text-blue-500" weight="duotone" />
-                                        Tradebuilder Inc.
-                                    </span>
-                                    <span className="flex items-center gap-1">
-                                        <MapPin className="w-4 h-4 text-rose-500" weight="duotone" />
-                                        Remote
-                                    </span>
-                                </div>
-                            </div>
-                            <div className="flex items-center gap-1 text-sm text-gray-600 dark:text-gray-400">
-                                <CalendarBlank className="w-4 h-4 text-amber-500" weight="duotone" />
-                                {t('experience.roles.tradebuilder.period')}
-                            </div>
-                        </div>
-                        <ul className="space-y-2">
-                            {(Array.isArray(t('experience.roles.tradebuilder.bullets', { returnObjects: true })) ? t('experience.roles.tradebuilder.bullets', { returnObjects: true }) : []).map((bullet, k) => (
-                                <li key={k} className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2">
-                                    <span className="text-gray-400 mt-1.5">•</span>
-                                    <span>{bullet}</span>
-                                </li>
-                            ))}
-                        </ul>
-                    </motion.div>
-
-
-                </motion.div>
-
-                {/* Projects */}
-                <div className="mt-12">
-                    <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-amber-600 dark:border-yellow-400">
-                        Key Projects
-                    </h2>
-
-                    <motion.div
-                        className="space-y-6"
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        variants={containerVariants}
-                    >
-                        <motion.div
-                            variants={itemVariants}
-                            className="ds-card-base ds-card-hover rounded p-5"
-                        >
-                            <div className="flex items-center gap-2 mb-3">
-                                <div className="p-2 bg-gray-100 dark:bg-gray-800 rounded text-gray-600 dark:text-gray-400">
-                                    <Robot className="w-6 h-6 text-violet-500" weight="duotone" />
-                                </div>
-                                <div>
-                                    <h3 className="font-bold text-gray-900 dark:text-white">{t('experience.roles.projects.leadEngine.title')}</h3>
-                                </div>
-                            </div>
-                            <ul className="space-y-2">
-                                {(Array.isArray(t('experience.roles.projects.leadEngine.bullets', { returnObjects: true })) ? t('experience.roles.projects.leadEngine.bullets', { returnObjects: true }) : []).map((bullet, i) => (
-                                    <li key={i} className="text-sm text-gray-600 dark:text-gray-400 flex items-start gap-2">
-                                        <span className="text-gray-400 mt-1.5">•</span>
-                                        <span>{bullet}</span>
-                                    </li>
-                                ))}
-                            </ul>
-                        </motion.div>
-                    </motion.div>
-                </div>
-
-                {/* Education - Added mt-12 for spacing */}
-                <div className="mt-12">
-                    <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-amber-600 dark:border-yellow-400">{t('experience.education')}</h2>
-                    <div className="space-y-6">
-                        {(Array.isArray(t('experience.educationList', { returnObjects: true })) ? t('experience.educationList', { returnObjects: true }) : []).map((edu, idx) => (
-                            <motion.div
-                                key={idx}
-                                variants={itemVariants}
-                                className="ds-card-base ds-card-hover rounded p-6"
-                            >
-                                <div className="flex items-start gap-3 mb-3">
-                                    <GraduationCap className="w-6 h-6 text-amber-600 mt-0.5" weight="duotone" />
-                                    <div>
-                                        <h3 className="font-bold text-gray-900 dark:text-white">{edu.degree}</h3>
-                                        {edu.specialization && <p className="text-sm text-gray-700 dark:text-gray-300">{edu.specialization}</p>}
-                                    </div>
-                                </div>
-                                <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">{edu.institute}</p>
-                                <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">{edu.locationYear}</p>
-                                {edu.cgpa && <p className="text-sm font-medium text-gray-900 dark:text-white">{edu.cgpa}</p>}
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
-
-                {/* Certifications - Added mt-12 for spacing */}
-                <div className="mt-12">
-                    <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-amber-600 dark:border-yellow-400">{t('experience.certifications')}</h2>
-                    <motion.div
-                        variants={itemVariants}
-                        className="ds-card-base ds-card-hover rounded p-6"
-                    >
-                        <ul className="space-y-3">
-                            {(t('experience.certificationsList', { returnObjects: true }) || []).map((cert, i) => (
-                                <li key={i} className="flex items-start gap-2 text-sm text-gray-700 dark:text-gray-300">
-                                    <Medal className="w-5 h-5 text-yellow-500 mt-0.5 flex-shrink-0" weight="duotone" />
-                                    <span>{cert}</span>
-                                </li>
-                            ))}
-                        </ul>
-                    </motion.div>
+                <div className="flex items-center gap-4 text-sm text-zinc-500">
+                    <span className="flex items-center gap-1.5"><Briefcase className="w-3.5 h-3.5 text-blue-400" weight="duotone" />{company}</span>
+                    <span className="flex items-center gap-1.5"><MapPin className="w-3.5 h-3.5 text-rose-400" weight="duotone" />{location}</span>
                 </div>
             </div>
+            <div className="flex items-center gap-1.5 text-sm text-zinc-500 shrink-0 mono">
+                <CalendarBlank className="w-3.5 h-3.5 text-amber-500" weight="duotone" />{period}
+            </div>
         </div>
-    );
-};
+        {Array.isArray(bullets) && bullets.length > 0 && (
+            <ul className="space-y-2">
+                {bullets.map((b, i) => (
+                    <li key={i} className="text-sm text-zinc-400 flex items-start gap-2.5 leading-relaxed">
+                        <span className="text-amber-500/60 mt-1.5 shrink-0">▸</span>{b}
+                    </li>
+                ))}
+            </ul>
+        )}
+    </motion.div>
+);
+
+const Experience = ({ t, isDarkMode }) => (
+    <div className="pt-20 min-h-screen">
+        <div className="max-w-[1100px] mx-auto px-4 md:px-6 py-12">
+            {/* Header */}
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+                <div>
+                    <h1 className="text-4xl font-bold text-white heading-glow mb-2">{t('experience.title')}</h1>
+                    <p className="text-zinc-500 text-sm">Career timeline, education & certifications</p>
+                </div>
+                <a href="/resume.pdf" download="Kanishk_Singh_Resume.pdf"
+                   className="flex items-center gap-2 px-5 py-2.5 text-sm font-semibold border border-zinc-700 text-zinc-300 rounded-xl hover:border-zinc-500 hover:text-white transition-all">
+                    <DownloadSimple className="w-4 h-4" weight="bold" />{t('experience.resumeDownload')}
+                </a>
+            </div>
+
+            {/* Roles */}
+            <motion.div className="space-y-3" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={container}>
+                <RoleCard title={t('experience.roles.pocketfm.title')} company={t('experience.roles.pocketfm.company')} location={t('experience.roles.pocketfm.location')} period={t('experience.roles.pocketfm.period')} type={t('experience.roles.pocketfm.type')}
+                    bullets={Array.isArray(t('experience.roles.pocketfm.bullets', { returnObjects: true })) ? t('experience.roles.pocketfm.bullets', { returnObjects: true }) : []} />
+                <RoleCard title={t('experience.roles.intertek.title')} company={t('experience.roles.intertek.company')} location={t('experience.roles.intertek.location')} period={t('experience.roles.intertek.period')}
+                    bullets={Array.isArray(t('experience.roles.intertek.bullets', { returnObjects: true })) ? t('experience.roles.intertek.bullets', { returnObjects: true }) : []} />
+                <RoleCard title={t('experience.roles.tradebuilder.title')} company={t('experience.roles.tradebuilder.company')} location={t('experience.roles.tradebuilder.location')} period={t('experience.roles.tradebuilder.period')}
+                    bullets={Array.isArray(t('experience.roles.tradebuilder.bullets', { returnObjects: true })) ? t('experience.roles.tradebuilder.bullets', { returnObjects: true }) : []} />
+            </motion.div>
+
+            {/* Projects */}
+            <div className="mt-14">
+                <h2 className="text-2xl font-bold text-white mb-5">Key Projects</h2>
+                <motion.div variants={item} initial="hidden" whileInView="visible" viewport={{ once: true }} className="bento-card p-6">
+                    <div className="flex items-center gap-3 mb-4">
+                        <div className="w-10 h-10 bg-purple-500/10 rounded-xl flex items-center justify-center">
+                            <Robot className="w-5 h-5 text-purple-400" weight="duotone" />
+                        </div>
+                        <h3 className="font-bold text-white">{t('experience.roles.projects.leadEngine.title')}</h3>
+                    </div>
+                    <ul className="space-y-2">
+                        {(Array.isArray(t('experience.roles.projects.leadEngine.bullets', { returnObjects: true })) ? t('experience.roles.projects.leadEngine.bullets', { returnObjects: true }) : []).map((b, i) => (
+                            <li key={i} className="text-sm text-zinc-400 flex items-start gap-2.5 leading-relaxed">
+                                <span className="text-amber-500/60 mt-1.5 shrink-0">▸</span>{b}
+                            </li>
+                        ))}
+                    </ul>
+                </motion.div>
+            </div>
+
+            {/* Education */}
+            <div className="mt-14">
+                <h2 className="text-2xl font-bold text-white mb-5">{t('experience.education')}</h2>
+                <div className="space-y-3">
+                    {(Array.isArray(t('experience.educationList', { returnObjects: true })) ? t('experience.educationList', { returnObjects: true }) : []).map((edu, i) => (
+                        <motion.div key={i} variants={item} initial="hidden" whileInView="visible" viewport={{ once: true }} className="bento-card p-6">
+                            <div className="flex items-start gap-3 mb-2">
+                                <GraduationCap className="w-5 h-5 text-amber-500 mt-0.5" weight="duotone" />
+                                <div>
+                                    <h3 className="font-bold text-white">{edu.degree}</h3>
+                                    {edu.specialization && <p className="text-sm text-zinc-400">{edu.specialization}</p>}
+                                </div>
+                            </div>
+                            <p className="text-sm text-zinc-500">{edu.institute}</p>
+                            <p className="text-sm text-zinc-600 mono">{edu.locationYear}</p>
+                            {edu.cgpa && <p className="text-sm font-semibold text-white mt-1">{edu.cgpa}</p>}
+                        </motion.div>
+                    ))}
+                </div>
+            </div>
+
+            {/* Certifications */}
+            <div className="mt-14">
+                <h2 className="text-2xl font-bold text-white mb-5">{t('experience.certifications')}</h2>
+                <motion.div variants={item} initial="hidden" whileInView="visible" viewport={{ once: true }} className="bento-card p-6">
+                    <ul className="space-y-2.5">
+                        {(t('experience.certificationsList', { returnObjects: true }) || []).map((cert, i) => (
+                            <li key={i} className="flex items-start gap-2.5 text-sm text-zinc-400">
+                                <Medal className="w-4 h-4 text-amber-500 mt-0.5 shrink-0" weight="duotone" />{cert}
+                            </li>
+                        ))}
+                    </ul>
+                </motion.div>
+            </div>
+        </div>
+    </div>
+);
 
 export default Experience;

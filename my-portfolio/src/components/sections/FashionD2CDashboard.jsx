@@ -107,7 +107,7 @@ const FashionD2CDashboard = () => {
     }, []);
 
     return (
-        <div id="d2c-dashboard" className="ds-card-base rounded-xl p-6 md:p-8 transition-colors duration-300">
+        <div id="d2c-dashboard" className="bento-card rounded-sm p-6 md:p-8">
             {/* SEO-only heading */}
             <h2 className="sr-only" style={{ position: 'absolute', width: '1px', height: '1px', overflow: 'hidden', clip: 'rect(0,0,0,0)' }}>
                 D2C fashion brand Meta campaign performance dashboard showing funnel
@@ -124,28 +124,28 @@ const FashionD2CDashboard = () => {
                 <div>
                     <div className="mb-3">
                         <div className="flex items-center gap-3 mb-1">
-                            <h3 className="text-2xl font-bold text-gray-900 dark:text-white m-0 group-hover:text-amber-600 dark:group-hover:text-yellow-400 transition-colors">
+                            <h3 className="text-2xl font-bold text-white m-0 group-hover:text-primary-500 transition-colors">
                                 Fashion D2C
                             </h3>
-                            <div className="text-xs bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 px-3 py-1 rounded whitespace-nowrap">
+                            <div className="retro-tag">
                                 Growth Stage
                             </div>
                         </div>
-                        <div className="text-lg text-gray-600 dark:text-gray-400 font-medium">
+                        <div className="text-base text-gray-400 font-mono">
                             Meta Campaign
                         </div>
                     </div>
-                    <p className="text-sm text-gray-500 dark:text-gray-400 font-mono tracking-tight m-0 mb-3 block">
+                    <p className="text-sm text-gray-600 font-mono tracking-tight m-0 mb-3 block">
                         April 2026 · ₹2,50,000 monthly budget
                     </p>
-                    <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed max-w-4xl m-0">
+                    <p className="text-sm text-gray-400 leading-relaxed max-w-4xl m-0">
                         A granular breakdown of the Meta Ads funnel showcasing top-line commercial outcomes versus in-platform proxies. Covers acquisition health pacing, full-funnel budget allocation, and weekly return on ad spend elasticity.
                     </p>
                 </div>
 
                 <motion.div
                     animate={{ rotate: isExpanded ? 180 : 0 }}
-                    className="text-gray-400 group-hover:text-amber-600 dark:group-hover:text-yellow-400 transition-colors pt-1 ml-4 shrink-0"
+                    className="text-gray-500 group-hover:text-primary-500 transition-colors pt-1 ml-4 shrink-0"
                 >
                     <CaretDown size={28} weight="duotone" />
                 </motion.div>
@@ -166,7 +166,7 @@ const FashionD2CDashboard = () => {
                 transition={{ duration: 0.4, ease: 'easeInOut' }}
                 className="overflow-hidden px-8 -mx-8"
             >
-                <div className="pt-6 pb-6 mt-8 border-t border-gray-200 dark:border-gray-800">
+                <div className="pt-6 pb-6 mt-8 border-t border-retro-border">
                     {/* ── Funnel metrics ── */}
                     <SectionLabel>Funnel metrics</SectionLabel>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5">
@@ -338,18 +338,18 @@ const FashionD2CDashboard = () => {
                         }}
                         transition={{ type: "spring", stiffness: 700, damping: 35 }}
                     >
-                        <p className="text-xs font-bold text-gray-600 dark:text-gray-400 uppercase mb-3 tracking-wide">
+                        <p className="text-xs font-bold text-gray-500 uppercase mb-3 tracking-wide font-mono">
                             Key observations
                         </p>
-                        <p className="text-[13px] text-gray-600 dark:text-gray-400 m-0 mb-2 leading-relaxed">
+                        <p className="text-[13px] text-gray-400 m-0 mb-2 leading-relaxed">
                             In-platform ROAS (3.3x) is inflated vs. blended MER (2.1x) — typical
                             view-through attribution gap. Optimize toward MER.
                         </p>
-                        <p className="text-[13px] text-gray-600 dark:text-gray-400 m-0 mb-2 leading-relaxed">
+                        <p className="text-[13px] text-gray-400 m-0 mb-2 leading-relaxed">
                             CPM rising 14% MoM signals audience saturation — time to refresh
                             creatives or expand targeting pool.
                         </p>
-                        <p className="text-[13px] text-gray-600 dark:text-gray-400 m-0 leading-relaxed">
+                        <p className="text-[13px] text-gray-400 m-0 leading-relaxed">
                             Video hook rate is solid (34%) but completion drops at 18% —
                             mid-video engagement needs work.
                         </p>
@@ -363,15 +363,15 @@ const FashionD2CDashboard = () => {
 /* ── Sub-components ── */
 
 const SectionLabel = ({ children }) => (
-    <p className="text-xs font-bold text-gray-600 dark:text-gray-400 uppercase mb-4 mt-8 tracking-wide">
+    <p className="text-[10px] font-bold text-gray-500 uppercase mb-4 mt-8 tracking-[0.2em] font-mono">
         {children}
     </p>
 );
 
 const subTypeClasses = {
-    good: 'text-green-600 dark:text-green-400',
-    warn: 'text-amber-600 dark:text-yellow-400',
-    bad: 'text-red-600 dark:text-red-400',
+    good: 'text-green-500',
+    warn: 'text-amber-500',
+    bad: 'text-red-500',
 };
 
 const formatValue = (val) => {
@@ -389,25 +389,24 @@ const formatValue = (val) => {
 
 const MetricCard = ({ label, value, sub, subType, small }) => (
     <motion.div
-        className="ds-card-base rounded-lg p-5 cursor-default"
+        className="bento-card rounded-sm p-4 cursor-default"
         whileHover={{ 
-            y: -5, 
-            borderColor: 'rgba(234, 88, 12, 0.6)', 
-            boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'
+            y: -3, 
+            borderColor: 'rgba(234, 88, 12, 0.5)'
         }}
         transition={{ type: "spring", stiffness: 700, damping: 35 }}
     >
-        <p className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase mb-2 font-mono">
+        <p className="text-[10px] font-mono text-gray-500 uppercase mb-1.5 tracking-wider">
             {label}
         </p>
         <div
-            className={`font-bold text-gray-900 dark:text-white m-0 tracking-tight font-mono ${small ? 'text-xl' : 'text-3xl'}`}
+            className={`font-bold text-white m-0 tracking-tight metric-value ${small ? 'text-lg' : 'text-2xl'}`}
         >
             {formatValue(value)}
         </div>
         {sub && (
             <p
-                className={`text-xs mt-1.5 m-0 ${subType ? subTypeClasses[subType] : 'text-gray-500 dark:text-gray-400'}`}
+                className={`text-xs mt-1 m-0 ${subType ? subTypeClasses[subType] : 'text-gray-500'}`}
             >
                 {sub}
             </p>
@@ -418,18 +417,18 @@ const MetricCard = ({ label, value, sub, subType, small }) => (
 const BudgetBar = ({ label, amount, pct, color, last }) => (
     <>
         <div className="flex justify-between items-center mb-2">
-            <span className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase font-mono">
+            <span className="text-[10px] font-mono text-gray-500 uppercase tracking-wider">
                 {label}
             </span>
-            <span className="text-sm font-bold text-gray-900 dark:text-white tracking-tight font-mono">
+            <span className="text-sm font-bold text-white tracking-tight font-mono">
                 {formatValue(amount)}
             </span>
         </div>
         <div
-            className={`bg-gray-200 dark:bg-gray-800 rounded h-2 ${last ? '' : 'mb-4'}`}
+            className={`bg-[#1a1a1e] rounded-sm h-1.5 ${last ? '' : 'mb-4'}`}
         >
             <div
-                className="h-2 rounded"
+                className="h-1.5 rounded-sm"
                 style={{ width: `${pct}%`, background: color }}
             />
         </div>

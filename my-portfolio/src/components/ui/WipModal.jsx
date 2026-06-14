@@ -1,36 +1,22 @@
 import React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Barricade } from 'phosphor-react';
 
 const WipModal = ({ isOpen, onClose, t }) => {
     if (!isOpen) return null;
     return (
-        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 animate-in fade-in duration-200">
-            <motion.div
-                initial={{ opacity: 0, scale: 0.9, y: 20 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.9, y: 20 }}
-                className="bg-white dark:bg-gray-900 border border-amber-500/30 dark:border-yellow-400/30 rounded-2xl p-8 max-w-sm w-full shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden"
-            >
-                {/* Decorative Background */}
-                <div className="absolute -top-10 -right-10 w-32 h-32 bg-amber-500/20 dark:bg-yellow-400/20 rounded-full blur-3xl pointer-events-none" />
-                <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-purple-500/20 rounded-full blur-3xl pointer-events-none" />
-
-                <div className="text-center relative z-10">
-                    <div className="w-16 h-16 bg-amber-50 dark:bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-4 text-amber-600 dark:text-yellow-400">
-                        <Barricade className="w-10 h-10" weight="duotone" />
-                    </div>
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{t('wip.title')}</h3>
-                    <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-                        {t('wip.message')}
-                    </p>
-                    <button
-                        onClick={onClose}
-                        className="w-full py-2.5 bg-amber-600 dark:bg-yellow-400 text-white dark:text-gray-900 font-semibold rounded-lg hover:bg-amber-700 dark:hover:bg-yellow-300 transition-colors focus:outline-none focus:ring-2 focus-visible:ring-amber-500 dark:focus:ring-white focus:ring-offset-2 dark:focus:ring-offset-gray-900 font-mono shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
-                    >
-                        {t('wip.close')}
-                    </button>
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+            <motion.div initial={{ opacity: 0, scale: 0.95, y: 10 }} animate={{ opacity: 1, scale: 1, y: 0 }}
+                className="bento-card p-8 max-w-sm w-full text-center">
+                <div className="w-14 h-14 bg-amber-500/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                    <Barricade className="w-7 h-7 text-amber-500" weight="duotone" />
                 </div>
+                <h3 className="text-xl font-bold text-white mb-2">{t('wip.title')}</h3>
+                <p className="text-zinc-400 mb-6 text-sm leading-relaxed">{t('wip.message')}</p>
+                <button onClick={onClose}
+                    className="w-full py-2.5 bg-amber-500 text-zinc-900 font-semibold rounded-xl hover:bg-amber-400 transition-colors cursor-pointer">
+                    {t('wip.close')}
+                </button>
             </motion.div>
         </div>
     );

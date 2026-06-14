@@ -66,7 +66,7 @@
     "viewCaseStudies": "Bekijk Casestudies",
     "downloadCV": "CV downloaden",
     "contactInfo": "Contactgegevens",
-    "location": "Noida, India",
+    "location": "Groningen, Nederland",
     "keyMetrics": "Kerncijfers"
   },
   "wip": {
@@ -137,7 +137,7 @@
     "competencies": [
       {
         "title": "Prestatiemarketing",
-        "icon": "Doel",
+        "icon": "Target",
         "skills": [
           "Betaalde media (Meta, Google, LinkedIn)",
           "Campagnestrategie & Scaling",
@@ -155,7 +155,7 @@
       },
       {
         "title": "Analyse & CRO",
-        "icon": "Lijndiagram",
+        "icon": "LineChart",
         "skills": [
           "GA4 Implementatie",
           "A/B Testen",
@@ -221,7 +221,7 @@
       },
       "tradebuilder": {
         "title": "Digitale marketingmedewerker",
-        "company": "Handelsbouwer Inc.",
+        "company": "Tradebuilder Inc.",
         "location": "Op afstand",
         "period": "september 2023 – juli 2024",
         "bullets": [
@@ -266,7 +266,7 @@
       "cpl": "CPL",
       "cvr": "CVR",
       "roi": "ROI",
-      "cpr": "Reanimatie"
+      "cpr": "KPR"
     },
     "insights": {
       "title": "Belangrijkste Inzichten",
@@ -282,9 +282,12 @@
       },
       "highestRoi": {
         "title": "Hoogste ROI",
-        "name": "Pak GTM",
+        "name": "Packt GTM",
         "desc": "Creator-geleide distributie plus Meta-versterking produceerde een ROI van 380%."
-      }
+      },
+      "dynamicTopChannelDesc": "Omvatte het grootste deel van de advertentie-uitgaven met een totale investering van ${{spend}}.",
+      "dynamicBestCvrDesc": "Behaalde het hoogste conversiepercentage van {{cvr}}% door gerichte advertentielevering.",
+      "dynamicHighestRoiDesc": "Produceerde de sterkste ROI-multiplicator bij {{roi}}% ROI."
     }
   },
   "creativeLab": {
@@ -330,7 +333,7 @@
     "packt": {
       "title": "Schalen van Betaalde GTM voor Evenementen",
       "projectTitle": "Schalen van Betaalde GTM",
-      "clientName": "Verpakt",
+      "clientName": "Packt",
       "badge": "EdTech",
       "category": "Groei & GTM",
       "problem": "Het werven van 150 betalende engineers voor een LLM-workshop van $100 met een beperkt budget van $3.500 vereist een zeer efficiënte GTM-machine. De uitdaging is om gebruikers met een hoge intentie te identificeren en converteren zonder bestaand publiek, waarbij >380% ROI en >80% netto nieuwe klanten worden behaald.",
@@ -409,8 +412,8 @@
         "variants": "Geteste Creatieve Varianten",
         "scale": "Schaalfase",
         "stable": "Stabiel",
-        "volume": "Volume installeren",
-        "retention": "D7 Bewaring"
+        "volume": "Installatieomvang",
+        "retention": "D7 Retentie"
       },
       "experimentsData": [
         {

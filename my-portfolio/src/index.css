@@ -1,68 +1,184 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* ═══════════════════════════════════════════════
+   PREMIUM BENTO GRID — DESIGN SYSTEM v2
+   Luxury Editorial × Data Dashboard
+   ═══════════════════════════════════════════════ */
+
+:root {
+    --bg: #09090B;
+    --card: #141416;
+    --card-hover: #1C1C1F;
+    --border: #27272A;
+    --border-hover: #F59E0B;
+    --accent: #F59E0B;
+    --accent-dim: rgba(245, 158, 11, 0.12);
+    --text: #FAFAFA;
+    --text-secondary: #A1A1AA;
+    --text-muted: #71717A;
+}
+
 @layer base {
+    html {
+        scroll-behavior: smooth;
+        color-scheme: dark;
+    }
+
     body {
-        @apply antialiased text-gray-900 dark:text-gray-100 bg-gray-50 font-mono overflow-x-hidden;
-        background-color: #f9fafb; /* light mode */
+        @apply antialiased bg-[#09090B] text-zinc-100 overflow-x-hidden;
+        font-family: 'Space Grotesk', system-ui, sans-serif;
     }
 
-    /* Apply VT323 retro font to all headings and prevent faux-bold blurriness */
     h1, h2, h3, h4, h5, h6 {
-        @apply font-sans tracking-wide;
-        font-weight: 400 !important;
-    }
-    .font-sans {
-        font-weight: 400 !important;
+        font-family: 'Space Grotesk', system-ui, sans-serif;
+        @apply font-semibold tracking-tight;
     }
 
-    /* Retro Icon Style */
-    svg {
-        shape-rendering: crispEdges;
-        /* Makes SVGs look pixelated/blocky */
-        stroke-width: 1.5px;
+    ::selection {
+        background-color: rgba(245, 158, 11, 0.3);
+        color: #FAFAFA;
     }
+
+    /* Premium scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #09090B; }
+    ::-webkit-scrollbar-thumb { background: #27272A; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #3F3F46; }
 }
 
-/* Hide scrollbar for Chrome, Safari and Opera */
-.no-scrollbar::-webkit-scrollbar {
-    display: none;
-}
-
-/* Hide scrollbar for IE, Edge and Firefox */
-.no-scrollbar {
-    -ms-overflow-style: none;
-    /* IE and Edge */
-    scrollbar-width: none;
-    /* Firefox */
-}
-
-/* ===== Heading Legibility ===== */
-
-/* Make VT323 headings bolder/bigger across all sizes in both modes */
-h1 { font-size: 1.15em; letter-spacing: 0.03em; }
-h2 { font-size: 1.15em; letter-spacing: 0.03em; }
-h3 { font-size: 1.12em; letter-spacing: 0.02em; }
-h4, h5, h6 { font-size: 1.1em; letter-spacing: 0.02em; }
-
-/* ===== Card Consistency ===== */
+/* ═══════════════════════════════════════════════
+   BENTO CARD SYSTEM v2
+   ═══════════════════════════════════════════════ */
 
 @layer components {
-    /* Standard Base for all cards */
-    .ds-card-base {
-        @apply bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-gray-300 dark:border-gray-800 transition-all duration-300 outline-none;
+    .bento-card {
+        @apply relative rounded-2xl p-6 transition-all duration-300 overflow-hidden;
+        background: var(--card);
+        border: 1px solid var(--border);
     }
 
-    /* Standard Hover Effect for cards */
-    .ds-card-hover {
-        @apply hover:border-amber-600 dark:hover:border-yellow-400 hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(0,0,0,0.10),0_2px_6px_rgba(0,0,0,0.06)] dark:hover:shadow-[0_8px_24px_rgba(250,204,21,0.05)];
+    .bento-card:hover {
+        background: var(--card-hover);
+        border-color: rgba(245, 158, 11, 0.25);
     }
+
+    /* Accent variant */
+    .bento-accent {
+        @apply bento-card;
+    }
+
+    .bento-accent:hover {
+        border-color: rgba(245, 158, 11, 0.3);
+    }
+
+    /* Legacy aliases for components not yet rewritten */
+    .ds-card-base { @apply bento-card; }
+    .ds-card-hover { /* hover handled by .bento-card */ }
 }
 
-/* Dark mode subtle glow only */
-.dark .heading-glow {
-    text-shadow: 0 0 30px rgba(250, 204, 21, 0.15);
+/* ═══════════════════════════════════════════════
+   TYPOGRAPHY
+   ═══════════════════════════════════════════════ */
+
+.mono {
+    font-family: 'JetBrains Mono', monospace;
 }
+
+/* Section label (micro-label above sections) */
+.section-label {
+    @apply text-[11px] font-semibold uppercase tracking-[0.2em] text-zinc-500;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* Large metric readout */
+.metric {
+    font-family: 'JetBrains Mono', monospace;
+    @apply font-bold tracking-tight;
+    text-shadow: 0 0 40px rgba(245, 158, 11, 0.15);
+}
+
+/* ═══════════════════════════════════════════════
+   ANIMATIONS
+   ═══════════════════════════════════════════════ */
+
+/* Scrolling marquee */
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.marquee-track {
+    animation: marquee 35s linear infinite;
+}
+
+.marquee-track:hover {
+    animation-play-state: paused;
+}
+
+/* Subtle glow pulse */
+@keyframes glow-pulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.7; }
+}
+
+.glow-pulse {
+    animation: glow-pulse 4s ease-in-out infinite;
+}
+
+/* ═══════════════════════════════════════════════
+   GRAIN TEXTURE (subtle, premium)
+   ═══════════════════════════════════════════════ */
+
+.grain-overlay {
+    pointer-events: none;
+    position: fixed;
+    inset: 0;
+    z-index: 90;
+    opacity: 0.025;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ═══════════════════════════════════════════════
+   RETRO TAG / BADGE
+   ═══════════════════════════════════════════════ */
+
+.badge {
+    @apply inline-flex items-center px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider rounded-full;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.badge-amber {
+    @apply badge text-amber-400 bg-amber-500/10 border border-amber-500/20;
+}
+
+.badge-blue {
+    @apply badge text-blue-400 bg-blue-500/10 border border-blue-500/20;
+}
+
+.badge-emerald {
+    @apply badge text-emerald-400 bg-emerald-500/10 border border-emerald-500/20;
+}
+
+.badge-rose {
+    @apply badge text-rose-400 bg-rose-500/10 border border-rose-500/20;
+}
+
+/* ═══════════════════════════════════════════════
+   HEADING GLOW
+   ═══════════════════════════════════════════════ */
+
+.heading-glow {
+    text-shadow: 0 0 60px rgba(245, 158, 11, 0.08);
+}
+
+/* ═══════════════════════════════════════════════
+   HIDE SCROLLBAR UTILITY
+   ═══════════════════════════════════════════════ */
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }

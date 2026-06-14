@@ -1,197 +1,85 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { CaretDown, Student, Rocket, Target, ChartLineUp, Brain, PaintBrush, Funnel, Compass } from 'phosphor-react';
 
+const item = { hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.45 } } };
+const container = { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.08 } } };
 
+const TIMELINE_KEYS = ['start', 'early', 'mid', 'current', 'future'];
 
 const MyStory = ({ t }) => {
-    // Animation Variants
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: { staggerChildren: 0.3 }
-        }
-    };
+    // Build timeline array from named keys
+    const timeline = TIMELINE_KEYS.map(key => {
+        const entry = t(`myStory.timeline.${key}`, { returnObjects: true });
+        if (typeof entry === 'object' && entry.year) return entry;
+        return null;
+    }).filter(Boolean);
 
-    const itemVariants = {
-        hidden: { opacity: 0, y: 30 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: { type: 'spring', stiffness: 100 }
-        }
-    };
+    const philosophy = t('myStory.philosophy.cards', { returnObjects: true });
 
-    const timelineData = [
-        {
-            key: 'start',
-            icon: Student,
-            color: 'text-blue-500',
-            bgColor: 'bg-blue-500/10 dark:bg-blue-500/20',
-            borderColor: 'border-blue-200 dark:border-blue-800'
-        },
-        {
-            key: 'early',
-            icon: Rocket,
-            color: 'text-emerald-500',
-            bgColor: 'bg-emerald-500/10 dark:bg-emerald-500/20',
-            borderColor: 'border-emerald-200 dark:border-emerald-800'
-        },
-        {
-            key: 'mid',
-            icon: Target,
-            color: 'text-amber-500',
-            bgColor: 'bg-amber-500/10 dark:bg-amber-500/20',
-            borderColor: 'border-amber-200 dark:border-amber-800'
-        },
-        {
-            key: 'current',
-            icon: ChartLineUp,
-            color: 'text-rose-500',
-            bgColor: 'bg-rose-500/10 dark:bg-rose-500/20',
-            borderColor: 'border-rose-200 dark:border-rose-800'
-        },
-        {
-            key: 'future',
-            icon: Compass,
-            color: 'text-purple-500',
-            bgColor: 'bg-purple-500/10 dark:bg-purple-500/20',
-            borderColor: 'border-purple-200 dark:border-purple-800'
-        }
+    const colors = [
+        { dot: 'bg-blue-500', accent: 'text-blue-400' },
+        { dot: 'bg-emerald-500', accent: 'text-emerald-400' },
+        { dot: 'bg-amber-500', accent: 'text-amber-400' },
+        { dot: 'bg-rose-500', accent: 'text-rose-400' },
+        { dot: 'bg-purple-500', accent: 'text-purple-400' },
     ];
-
-    const philosophyIcons = [
-        { icon: Brain, textClass: 'text-purple-600 dark:text-purple-400', bgClass: 'bg-purple-500/10 dark:bg-purple-500/20' },
-        { icon: PaintBrush, textClass: 'text-amber-600 dark:text-amber-400', bgClass: 'bg-amber-500/10 dark:bg-amber-500/20' },
-        { icon: Funnel, textClass: 'text-sky-600 dark:text-sky-400', bgClass: 'bg-sky-500/10 dark:bg-sky-500/20' }
-    ];
-
 
     return (
-        <div className="min-h-screen py-24">
+        <div className="pt-20 min-h-screen">
+            <div className="max-w-[1100px] mx-auto px-4 md:px-6 py-12">
+                <h1 className="text-4xl font-bold text-white mb-2 heading-glow">{t('myStory.hero.title')}</h1>
+                <p className="text-zinc-500 mb-12 text-sm">{t('myStory.hero.subtitle')}</p>
 
-            {/* HER0 SECTION */}
-            <motion.div
-                className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-32 relative pt-8 md:pt-16"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-            >
-                <motion.h1
-                    className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6"
-                >
-                    {t('myStory.hero.title')}
-                </motion.h1>
-                <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto font-light leading-relaxed">
-                    {t('myStory.hero.subtitle')}
-                </p>
+                {/* Timeline */}
+                <motion.div className="relative" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={container}>
+                    {/* Vertical line */}
+                    <div className="absolute left-5 md:left-1/2 top-0 bottom-0 w-px bg-zinc-800 md:-translate-x-px" />
 
-                <motion.div
-                    className="mt-12 w-full flex justify-center"
-                    animate={{ y: [0, 10, 0] }}
-                    transition={{ repeat: Infinity, duration: 2 }}
-                >
-                    <CaretDown size={32} className="text-gray-400 dark:text-gray-600" />
-                </motion.div>
-            </motion.div>
-
-
-            {/* TIMELINE SECTION */}
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative mb-40">
-                {/* Connecting Line (Desktop) */}
-                <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-gray-300 dark:via-gray-700 to-transparent transform -translate-x-1/2 hidden md:block" />
-
-                <motion.div
-                    variants={containerVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, amount: 0.2 }}
-                    className="space-y-20"
-                >
-                    {timelineData.map((item, index) => {
-                        const Icon = item.icon;
-                        const isEven = index % 2 === 0;
-
+                    {timeline.map((entry, i) => {
+                        const c = colors[i % colors.length];
+                        const isLeft = i % 2 === 0;
                         return (
-                            <motion.div
-                                key={item.key}
-                                className={`relative flex items-center ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'} flex-col gap-8 md:gap-0`}
-                                variants={itemVariants}
-                            >
-                                {/* Content Card */}
-                                <div className={`flex-1 w-full md:w-1/2 ${isEven ? 'md:text-right md:pr-12' : 'md:text-left md:pl-12'} text-center md:text-left`}>
-                                    <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">{t(`myStory.timeline.${item.key}.year`)}</h3>
-                                    <h4 className={`text-xl font-semibold mb-2 ${item.color}`}>{t(`myStory.timeline.${item.key}.title`)}</h4>
-                                    <p className="text-base text-gray-600 dark:text-gray-300 leading-relaxed">
-                                        {t(`myStory.timeline.${item.key}.desc`)}
-                                    </p>
+                            <motion.div key={i} variants={item}
+                                className={`relative flex items-start mb-8 ${isLeft ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
+                                {/* Dot */}
+                                <div className={`absolute left-5 md:left-1/2 w-3 h-3 ${c.dot} rounded-full -translate-x-1/2 mt-2 z-10 ring-4 ring-[#09090B]`} />
+                                {/* Card */}
+                                <div className={`ml-12 md:ml-0 ${isLeft ? 'md:w-1/2 md:pr-12 md:text-right' : 'md:w-1/2 md:pl-12'}`}>
+                                    <div className="bento-card p-5">
+                                        <div className={`text-xs mono ${c.accent} uppercase tracking-widest mb-1`}>{entry.year}</div>
+                                        <h3 className="text-base font-bold text-white mb-1.5">{entry.title}</h3>
+                                        <p className="text-sm text-zinc-500 leading-relaxed">{entry.desc}</p>
+                                    </div>
                                 </div>
-
-                                {/* Center Node */}
-                                <div className="relative z-10 flex-shrink-0">
-                                    <motion.div
-                                        className={`w-16 h-16 rounded-full flex items-center justify-center ${item.bgColor} border-2 ${item.borderColor} shadow-lg backdrop-blur-sm`}
-                                        whileHover={{ scale: 1.1, rotate: 10 }}
-                                        transition={{ type: "spring", stiffness: 300 }}
-                                    >
-                                        <Icon size={32} className={item.color} weight="duotone" />
-                                    </motion.div>
-                                </div>
-
-                                {/* Empty Space for Alignment */}
-                                <div className="flex-1 hidden md:block" />
                             </motion.div>
                         );
                     })}
                 </motion.div>
+
+                {/* Philosophy */}
+                <div className="mt-16">
+                    <h2 className="text-2xl font-bold text-white mb-6 heading-glow">{t('myStory.philosophy.title')}</h2>
+                    <motion.div className="grid md:grid-cols-3 gap-3" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={container}>
+                        {Array.isArray(philosophy) && philosophy.map((card, i) => {
+                            const accents = [
+                                { bg: 'bg-purple-500/10', text: 'text-purple-400' },
+                                { bg: 'bg-amber-500/10', text: 'text-amber-400' },
+                                { bg: 'bg-sky-500/10', text: 'text-sky-400' },
+                            ];
+                            const a = accents[i] || accents[0];
+                            return (
+                                <motion.div key={i} variants={item} className="bento-card p-6">
+                                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center mb-4 ${a.bg}`}>
+                                        <span className={`text-lg font-bold mono ${a.text}`}>{i + 1}</span>
+                                    </div>
+                                    <h3 className="text-base font-bold text-white mb-2">{card.title}</h3>
+                                    <p className="text-sm text-zinc-500 leading-relaxed">{card.desc}</p>
+                                </motion.div>
+                            );
+                        })}
+                    </motion.div>
+                </div>
             </div>
-
-
-            {/* PHILOSOPHY SECTION */}
-            <section className="border-t border-gray-300 dark:border-gray-800 transition-colors duration-300">
-                <motion.div
-                    className="max-w-6xl mx-auto px-8 py-12"
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8 }}
-                >
-                    <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-amber-600 dark:border-yellow-400">
-                        {t('myStory.philosophy.title')}
-                    </h2>
-
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        {(() => {
-                            const cards = t('myStory.philosophy.cards', { returnObjects: true });
-                            if (!Array.isArray(cards)) return null;
-                            return cards.map((card, i) => {
-                                const PhilIcon = philosophyIcons[i].icon;
-                                const textClass = philosophyIcons[i].textClass;
-                                const bgClass = philosophyIcons[i].bgClass;
-                                return (
-                                    <motion.div
-                                        key={i}
-                                        className="ds-card-base ds-card-hover rounded-xl p-6 group"
-                                        whileHover={{ y: -5, boxShadow: '0 8px 24px rgba(0,0,0,0.10)' }}
-                                    >
-                                        <div className={`w-14 h-14 rounded-lg flex items-center justify-center mb-4 ${bgClass}`}>
-                                            <PhilIcon size={32} className={textClass} weight="duotone" />
-                                        </div>
-                                        <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
-                                            {card && card.title}
-                                        </h3>
-                                        <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-                                            {card && card.desc}
-                                        </p>
-                                    </motion.div>
-                                );
-                            });
-                        })()}
-                    </div>
-                </motion.div>
-            </section>
-
         </div>
     );
 };

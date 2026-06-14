@@ -66,7 +66,7 @@
     "viewCaseStudies": "Fallstudien ansehen",
     "downloadCV": "Lebenslauf herunterladen",
     "contactInfo": "Kontaktinformationen",
-    "location": "Noida, Indien",
+    "location": "Groningen, Niederlande",
     "keyMetrics": "Wichtige Kennzahlen"
   },
   "wip": {
@@ -137,7 +137,7 @@
     "competencies": [
       {
         "title": "Performance-Marketing",
-        "icon": "Ziel",
+        "icon": "Target",
         "skills": [
           "Bezahlte Medien (Meta, Google, LinkedIn)",
           "Kampagnenstrategie & Skalierung",
@@ -155,7 +155,7 @@
       },
       {
         "title": "Analytik & CRO",
-        "icon": "Liniendiagramm",
+        "icon": "LineChart",
         "skills": [
           "GA4-Implementierung",
           "A/B-Tests",
@@ -222,7 +222,7 @@
       "tradebuilder": {
         "title": "Mitarbeiter für digitales Marketing",
         "company": "Tradebuilder Inc.",
-        "location": "Fernbedienung",
+        "location": "Remote",
         "period": "September 2023 – Juli 2024",
         "bullets": [
           "Verwaltung von Google Ads-, Meta Ads- und HubSpot-Kampagnen zur B2B-Leadgenerierung",
@@ -266,7 +266,7 @@
       "cpl": "CPL",
       "cvr": "CVR",
       "roi": "ROI",
-      "cpr": "HLW"
+      "cpr": "KPE"
     },
     "insights": {
       "title": "Wichtige Erkenntnisse",
@@ -284,7 +284,10 @@
         "title": "Höchster ROI",
         "name": "Packt GTM",
         "desc": "Creator-geführte Distribution plus Meta-Verstärkung erzeugten einen ROI von 380 %."
-      }
+      },
+      "dynamicTopChannelDesc": "Umfasste den Großteil der Werbeausgaben mit einer Gesamtinvestition von ${{spend}}.",
+      "dynamicBestCvrDesc": "Erzielte die höchste Konversionsrate von {{cvr}}% durch gezielte Anzeigenauslieferung.",
+      "dynamicHighestRoiDesc": "Erzielte den stärksten ROI-Multiplikator bei {{roi}}% ROI."
     }
   },
   "creativeLab": {
@@ -330,7 +333,7 @@
     "packt": {
       "title": "Skalierung von Paid GTM für Events",
       "projectTitle": "Skalierung von Paid GTM",
-      "clientName": "Verpackt",
+      "clientName": "Packt",
       "badge": "EdTech",
       "category": "Wachstum & GTM",
       "problem": "Die Gewinnung von 150 zahlenden Ingenieuren für einen 100-Dollar-LLM-Workshop mit einem begrenzten Budget von 3.500 Dollar erfordert eine hocheffiziente GTM-Engine. Die Herausforderung besteht darin, Nutzer mit hoher Absicht ohne bestehende Zielgruppen zu identifizieren und zu konvertieren, wobei ein ROI von >380 % und >80 % Netto-Neukunden erreicht werden müssen.",
@@ -409,8 +412,8 @@
         "variants": "Getestete Creative-Varianten",
         "scale": "Skalierungsphase",
         "stable": "Stabil",
-        "volume": "Volume installieren",
-        "retention": "D7 Aufbewahrung"
+        "volume": "Installationsvolumen",
+        "retention": "D7 Retention"
       },
       "experimentsData": [
         {
